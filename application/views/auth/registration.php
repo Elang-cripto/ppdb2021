@@ -20,7 +20,6 @@ $this->load->view('theme/head');
     <div class="register-box">
         <div class="register-logo">
             <h2><b>FORM REGISTRASI PESERTA DIDIK BARU</b></h2>
-            <h3><b>MTs AL AMIEN</b></h3>
             <h6>Mohon DI Isi Dengan HURUF BESAR/KAPITAL,</h6>
             <h6>Kecuali Email</h6>
         </div>

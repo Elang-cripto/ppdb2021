@@ -1,88 +1,54 @@
-<?php
-$this->load->view('theme/head');
-?>
-<!-- =============================================================================================== -->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Datang</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="shortcut icon" href="<?php echo base_url('') ?>asset/dist/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/login/dist/style.css">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- icheck bootstrap -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/dist/css/adminlte.min.css">
-
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="scroll-down">SCROLL DOWN
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <path d="M16 3C8.832031 3 3 8.832031 3 16s5.832031 13 13 13 13-5.832031 13-13S23.167969 3 16 3zm0 2c6.085938 0 11 4.914063 11 11 0 6.085938-4.914062 11-11 11-6.085937 0-11-4.914062-11-11C5 9.914063 9.914063 5 16 5zm-1 4v10.28125l-4-4-1.40625 1.4375L16 23.125l6.40625-6.40625L21 15.28125l-4 4V9z"/> 
+</svg></div>
+<div class="container"></div>
+<div class="modal">
+  <div class="modal-container">
+    <div class="modal-left">
+      <h1 class="modal-title">Selamat Datang</h1>
+      <p class="modal-desc">Peserta Didik Baru <br>Tahun Pelajaran 2022-2023</p>
 
-<body class="hold-transition register-page">
-    <div class="register-box">
-        <div class="register-logo">
-            <h2><b>FORM REGISTRASI PESERTA DIDIK BARU</b></h2>
-            <h3><b>MTs AL AMIEN</b></h3>
+      <form role="form" id="cekform" method="post" action="<?php echo base_url('auth'); ?>" enctype="multipart/form-data">
+        <div class="input-block">
+          <label for="email" class="input-label">Email</label>
+          <input type="email" name="email" id="email" placeholder="Email">
         </div>
-
-        <div class="card">
-            <div class="card-body register-card-body">
-                <!-- <p class="login-box-msg">Registrasi user baru</p> -->
-
-                <form role="form" id="cekform" method="post" action="<?php echo base_url('auth'); ?>" enctype="multipart/form-data">
-                    <div class="input-group mb-3">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                        <?php form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" name="telp" id="telp" class="form-control" placeholder="Telp" required>
-                        <?php form_error('telp', '<small class="text-danger pl-3">', '</small>'); ?>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-phone"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <div class="col-8">
-                        <div class="form-group">
-                            <div class="">
-
-                                <label for="">
-                                    Daftar Akun <a href="<?php echo base_url(); ?>auth/registration">Daftar</a>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- /.form-box -->
-        </div><!-- /.card -->
+        <div class="input-block">
+          <label for="password" class="input-label">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="modal-buttons">
+          <a href="" class="">Forgot your password?</a>
+          <button class="input-button">Login</button>
+        </div>
+      </form>
+      <p class="sign-up">Don't have an account? <a href="<?php echo base_url(); ?>auth/registration">Sign up now</a></p>
     </div>
-    <!-- /.register-box -->
-
-    <!-- jQuery -->
-    <script src="<?php echo base_url(); ?>asset/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url(); ?>asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url(); ?>asset/dist/js/adminlte.min.js"></script>
-    <!-- jquery-validation -->
-    <script src="<?php echo base_url(); ?>asset/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="<?php echo base_url(); ?>asset/plugins/jquery-validation/additional-methods.min.js"></script>
-
-
-
+    <div class="modal-right">
+      <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dfd2ec5a01006fd8c4d7592a381d3776&auto=format&fit=crop&w=1000&q=80" alt="">
+    </div>
+    <button class="icon-button close-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+    <path d="M 25 3 C 12.86158 3 3 12.86158 3 25 C 3 37.13842 12.86158 47 25 47 C 37.13842 47 47 37.13842 47 25 C 47 12.86158 37.13842 3 25 3 z M 25 5 C 36.05754 5 45 13.94246 45 25 C 45 36.05754 36.05754 45 25 45 C 13.94246 45 5 36.05754 5 25 C 5 13.94246 13.94246 5 25 5 z M 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.980469 15.990234 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 z"></path>
+</svg>
+      </button>
+  </div>
+  <button class="modal-button">Click here to login</button>
+</div>
+<!-- partial -->
+  <script  src="<?php echo base_url(); ?>asset/login/dist/script.js"></script>
 </body>
-
 </html>
