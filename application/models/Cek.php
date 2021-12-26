@@ -2,12 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cek extends CI_Model {
-	public function login($user,$pass)
+	public function login($email,$telp)
 	{
 		$this->db->select('*');
-		$this->db->from('db_user');
-		$this->db->where('username', $user);
-		$this->db->where('password', $pass);
+		$this->db->from('db_user_pendaftar');
+		$this->db->where('email', $email);
+		$this->db->where('telp', $telp);
 		$this->db->limit(1);
 
 		$query = $this->db->get();

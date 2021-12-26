@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="shortcut icon" href="<?php echo base_url('') ?>asset/dist/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/login/dist/style.css">
-
+  <link rel="stylesheet" href="<?php echo base_url('') ?>asset/plugins/sweetalert2/sweetalert2.min.css">
+  
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -20,19 +21,21 @@
     <div class="modal-left">
       <h1 class="modal-title">Selamat Datang</h1>
       <p class="modal-desc">Peserta Didik Baru <br>Tahun Pelajaran 2022-2023</p>
-
-      <form role="form" id="cekform" method="post" action="<?php echo base_url('auth'); ?>" enctype="multipart/form-data">
+      <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('pesan'); ?>"></div>
+      
+      <form method="post" action="<?php echo base_url();?>auth/proses" onSubmit="return cekform();">
         <div class="input-block">
           <label for="email" class="input-label">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email">
+          <input type="email" name="email" id="email" placeholder="Email" required>
         </div>
         <div class="input-block">
           <label for="password" class="input-label">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password">
+          <input type="password" name="password" id="password" placeholder="Password" required>
         </div>
         <div class="modal-buttons">
           <a href="" class="">Forgot your password?</a>
-          <button class="input-button">Login</button>
+          <button type="submit" class="input-button">Login</button>
+          <button type="button" class="input-button" onclick=" Swal.fire(<?php echo $this->session->flashdata('pesan'); ?>)">test</button>
         </div>
       </form>
       <p class="sign-up">Don't have an account? <a href="<?php echo base_url(); ?>auth/registration">Sign up now</a></p>
@@ -49,6 +52,15 @@
   <button class="modal-button">Click here to login</button>
 </div>
 <!-- partial -->
-  <script  src="<?php echo base_url(); ?>asset/login/dist/script.js"></script>
+
+    <script type="text/javascript">
+      <?php if ($this->session->flashdata('pesan')): ?>
+          Swal.fire(<?php echo $this->session->flashdata('pesan'); ?>)      
+      <?php endif ?>
+    </script>
+    
+    <script src="<?php echo base_url('') ?>asset/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="<?php echo base_url(); ?>asset/login/dist/script.js"></script>
+
 </body>
 </html>

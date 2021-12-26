@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class auth extends CI_Controller
+class Auth extends CI_Controller
 {
     public function __construct()
     {
@@ -14,17 +14,16 @@ class auth extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('telp', 'Telepon', 'trim|required');
         if ($this->form_validation->run() == false) {
-
             $this->load->view('auth/login');
         } else {
-            $this->_login();
+            $this->login();
         }
     }
 
-    private function _login()
+    public function proses()
     {
         $email = $this->input->post('email');
-        $telp = $this->input->post('telp');
+        $telp = $this->input->post('password');
 
         $ceklog = $this->cek->login($email, $telp);
 
@@ -34,7 +33,7 @@ class auth extends CI_Controller
             $this->session->set_userdata('email', $row->email);
             $this->session->set_userdata('telp', $row->telp);
             $this->session->set_userdata('nama', $row->nama);
-            $this->session->set_userdata('foto', $row->foto);
+            $this->session->set_userdata('par', $row->par);
             $this->session->set_userdata('status', $row->status);
 
             if ($this->session->userdata('status') == "NON AKTIF") {
@@ -50,20 +49,13 @@ class auth extends CI_Controller
                 echo "Mohon maaf, Halaman Belum tersedia";
             }
         } else {
-            $this->session->set_flashdata('pesan', '<a class="btn btn-danger"><i class="fa fa-check"> Username / Password Salah</i></a>');
-            redirect('page');
+            $this->session->set_flashdata('pesan', "{
+                icon:'error', 
+                title:'Maaf!', 
+                text:'Username/Password Salah'}");
+            // $this->session->set_flashdata('pesan', '<a class="btn btn-danger"><i class="fa fa-check"> Username / Password Salah</i></a>');
+            redirect('/');
         }
-        // $user = $this->db->get_where('db_mts', ['email' => $email])->row_array();
-        // if ($user['status'] == 'NON AKTIF') {
-        //     if (password_verify($email, $user['email'])) {
-        //     }
-        // } else {
-        //     $this->session->set_flashdata(
-        //         'massage',
-        //         '<div class="alert  alert-danger" role="alert">Email Tidak Ada !</div>'
-        //     );
-        //     redirect('auth');
-        // }
     }
 
     public function register()
@@ -85,4 +77,11 @@ class auth extends CI_Controller
     {
         $this->load->view('auth/registration');
     }
+
+    public function test()
+    {
+        $this->load->view('auth/test');
+        
+    }
+
 }
