@@ -24,7 +24,6 @@ class Auth extends CI_Controller
     {
         $email = $this->input->post('email');
         $telp = $this->input->post('password');
-
         $ceklog = $this->cek->login($email, $telp);
 
         if ($ceklog) {
@@ -34,26 +33,21 @@ class Auth extends CI_Controller
             $this->session->set_userdata('telp', $row->telp);
             $this->session->set_userdata('nama', $row->nama);
             $this->session->set_userdata('par', $row->par);
+            $this->session->set_userdata('nik', $row->nik);
             $this->session->set_userdata('status', $row->status);
+            $this->session->set_userdata('jabatan', $row->jabatan);
 
             if ($this->session->userdata('status') == "NON AKTIF") {
-                $this->session->set_flashdata('pesan', '<a class="btn btn-warning"><i class="fa fa-check"> Username anda belum AKTIF, silahkan hubungi admin</i></a>');
+                $this->session->set_flashdata('pesan', "{icon:'error',title:'Maaf!',text:'Akun anda belum di aktif, silahkan menghubungi panitia'}");
                 redirect('auth');
                 $this->session->sess_destroy();
-                // } elseif ($this->session->userdata('jabatan') == "admin") {
-                //     $id             = $this->session->userdata('id');
-                //     $data['last']     = date('Y-m-d H:i:s');
-                //     $this->admin_model->updateuser($data, $id);
-                //     redirect('admin');
+            } elseif ($this->session->userdata('par') == "MTS") {
+                    redirect('user');
             } else {
                 echo "Mohon maaf, Halaman Belum tersedia";
             }
         } else {
-            $this->session->set_flashdata('pesan', "{
-                icon:'error', 
-                title:'Maaf!', 
-                text:'Username/Password Salah'}");
-            // $this->session->set_flashdata('pesan', '<a class="btn btn-danger"><i class="fa fa-check"> Username / Password Salah</i></a>');
+            $this->session->set_flashdata('pesan', "{icon:'error',title:'Maaf!',text:'Username/Password Salah'}");
             redirect('/');
         }
     }
@@ -65,7 +59,7 @@ class Auth extends CI_Controller
             $data['status']     = "NON AKTIF";
 
             $this->db->insert('db_user_pendaftar', $data);
-
+            $this->session->set_flashdata('pesan', "{icon:'success',title:'Selamat!',text:'Proses pembuatan akun'}");
 
             redirect('auth');
         } else {
