@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2021 at 01:15 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Dec 28, 2021 at 06:29 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `masterdba`
+-- Database: `alamienj_dbmaster`
 --
 
 -- --------------------------------------------------------
@@ -766,7 +765,8 @@ INSERT INTO `db_ma` (`id`, `nis`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`
 
 CREATE TABLE `db_mts` (
   `id` int(5) NOT NULL,
-  `nis` varchar(18) NOT NULL,
+  `id_enc` varchar(50) NOT NULL,
+  `No_Reg` varchar(18) NOT NULL,
   `nisn` varchar(10) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `jk` varchar(50) NOT NULL,
@@ -842,11 +842,8 @@ CREATE TABLE `db_mts` (
 -- Dumping data for table `db_mts`
 --
 
-INSERT INTO `db_mts` (`id`, `nis`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `foto`, `progres`, `editor`) VALUES
-(1, '', '', 'anash herdiansyah', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '086242522622', 'annaashasa@gmail.com', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '', '', '', '', ''),
-(2, '', '', 'anash hah', '', '', '0000-00-00', '319862736172612', '', '', '', '', '', '', '', '', '', '', '', '', '086242522622', 'annaashasaasdsa@gmail.com', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '', 'TIDAK AKTIF', '', '', ''),
-(3, '', '', 'asas 2wew', '', '', '0000-00-00', '3198627361726123', '', '', '', '', '', '', '', '', '', '', '', '', '086235623232', 'anashw@gmail.com', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '', 'TIDAK AKTIF', '', '', ''),
-(4, '', '', 'anash haha', '', '', '0000-00-00', '3198627361726122', '', '', '', '', '', '', '', '', '', '', '', '', '086242522622', 'anaash@gmail.com', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '', 'NON AKTIF', '', '', '');
+INSERT INTO `db_mts` (`id`, `id_enc`, `No_Reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `foto`, `progres`, `editor`) VALUES
+(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211228-1', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-28', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Rumah Orang Tua', 'Dusun', 'Sepeda motor', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '0000-00-00', 'S3', 'Pedagang Besar', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rifiah', 'Jember', '0000-00-00', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', 'B', 'A', 'B', 'C', 'D', 'E', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-28', '', '0000-00-00', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1451,24 +1448,27 @@ INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `
 --
 
 CREATE TABLE `db_user_pendaftar` (
-  `id_pendaftar` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telp` varchar(255) NOT NULL,
   `par` varchar(20) NOT NULL,
-  `status` varchar(15) NOT NULL
+  `status` varchar(15) NOT NULL,
+  `jabatan` varchar(10) NOT NULL,
+  `echo` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `db_user_pendaftar`
 --
 
-INSERT INTO `db_user_pendaftar` (`id_pendaftar`, `nik`, `nama`, `email`, `telp`, `par`, `status`) VALUES
-(1, '', 'anash hah', 'annaashasa@gmail.com', '12121212121', '', ''),
-(2, '', 'anash herdiansyah', 'anash@gmail.com', '081259923621', '', ''),
-(3, '', 'adasf asdsad', 'annaashasaasdsa@gmail.com', '12341243124214', '', ''),
-(4, '3198627361726123', 'adjsajdas dsad', 'anashasd@gmail.com', '086235623243', 'MTS', 'NON AKTIF');
+INSERT INTO `db_user_pendaftar` (`id`, `nik`, `nama`, `email`, `telp`, `par`, `status`, `jabatan`, `echo`) VALUES
+(1, '', 'anash hah', 'annaashasa@gmail.com', '12121212121', '', '', '', ''),
+(2, '', 'anash herdiansyah', 'anash@gmail.com', '081259923621', '', '', '', ''),
+(3, '', 'adasf asdsad', 'annaashasaasdsa@gmail.com', '12341243124214', '', '', '', ''),
+(4, '3198627361726123', 'adjsajdas dsad', 'anashasd@gmail.com', '086235623243', 'MA', 'AKTIF', 'user', ''),
+(5, '3509120603900001', 'Mukhammad Yasin', 'achin.clink@gmail.com', '082141632876', 'MTS', 'AKTIF', 'user', '1');
 
 --
 -- Indexes for dumped tables
@@ -1538,7 +1538,7 @@ ALTER TABLE `db_user`
 -- Indexes for table `db_user_pendaftar`
 --
 ALTER TABLE `db_user_pendaftar`
-  ADD PRIMARY KEY (`id_pendaftar`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1578,7 +1578,7 @@ ALTER TABLE `db_ma`
 -- AUTO_INCREMENT for table `db_mts`
 --
 ALTER TABLE `db_mts`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `db_setting`
@@ -1608,7 +1608,7 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT for table `db_user_pendaftar`
 --
 ALTER TABLE `db_user_pendaftar`
-  MODIFY `id_pendaftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
