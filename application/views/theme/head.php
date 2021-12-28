@@ -7,6 +7,6 @@
   <meta name="author" content="Mukhammad Yasin">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>DATABASE | By Elang</title>
+  <title>PPDB Online</title>
   <link rel="shortcut icon" href="<?php echo base_url('') ?>asset/dist/img/logo.png" type="image/x-icon">
   <!-- Font Awesome Icons -->
