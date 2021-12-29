@@ -6,7 +6,7 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+		$this->load->helper(array('form','url','tgl_indo'));
 	}
 	
 	public function index()
@@ -26,7 +26,7 @@ class User extends CI_Controller {
 		if ($prin==0) {
 			$this->load->view('user/form-add');
 		} else {
-			$pilih	= 'db_'.strtolower($this->uri->segment(3));
+			$pilih			= 'db_'.strtolower($this->uri->segment(3));
 			$cari['data'] 	= $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
 			$this->load->view('user/form-lck',$cari);
 		}
@@ -54,6 +54,14 @@ class User extends CI_Controller {
         //==============================================================================
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Formulir berhasil di kirim'}");
 		redirect('user/form/MTS/'.md5($nik),'refresh');
+	}
+
+	public function cetak($form,$param,$id)
+	{
+		$cari['form'] 	= $form;
+		$pilih			= 'db_'.$param;
+		$cari['data'] 	= $this->db->get_where($pilih, ["id_enc" => $id])->row();
+		$this->load->view('user/cetak',$cari);
 	}
 
 	public function logout()
