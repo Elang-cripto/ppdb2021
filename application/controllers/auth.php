@@ -57,9 +57,11 @@ class Auth extends CI_Controller
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $data = $this->input->post();
             $data['status']     = "NON AKTIF";
+            $data['jabatan']     = "user";
+            $data['echo']       = 0;
 
             $this->db->insert('db_user_pendaftar', $data);
-            $this->session->set_flashdata('pesan', "{icon:'success',title:'Selamat!',text:'Proses pembuatan akun'}");
+            $this->session->set_flashdata('pesan', "{icon:'success',title:'Selamat!',text:'Proses pembuatan akun berhasil'}");
 
             redirect('auth');
         } else {
@@ -70,12 +72,6 @@ class Auth extends CI_Controller
     public function registration()
     {
         $this->load->view('auth/registration');
-    }
-
-    public function test()
-    {
-        $this->load->view('auth/test');
-        
     }
 
 }

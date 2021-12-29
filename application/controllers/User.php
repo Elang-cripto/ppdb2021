@@ -7,6 +7,11 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url','tgl_indo'));
+		
+		if($this->session->userdata('jabatan')!="user")
+		{
+			redirect('auth/proses');
+		}
 	}
 	
 	public function index()
@@ -38,11 +43,13 @@ class User extends CI_Controller {
 		$jml = $this->db->query("SELECT * FROM db_mts")->num_rows();
 		$urut = $jml+1;
 
-		$data 			= $this->input->post();
-		$data['id_enc']	= md5($this->session->userdata('nik'));
-		$data['No_Reg']	= "510-".date("ymd")."-".$urut;
-		$data['nama']	= $this->session->userdata('nama');
-		$data['nik']	= $this->session->userdata('nik');
+		$data 				= $this->input->post();
+		$data['id_enc']		= md5($this->session->userdata('nik'));
+		$data['No_Reg']		= "510-".date("ymd")."-".$urut;
+		$data['nama']		= $this->session->userdata('nama');
+		$data['nik']		= $this->session->userdata('nik');
+		$data['progres'] 	= date("d/m/Y H:i:s");
+		$data['editor']		= $this->session->userdata('nama');
 		$this->db->insert('db_mts', $data);
 
 		//Fungsi db_user_pengguna

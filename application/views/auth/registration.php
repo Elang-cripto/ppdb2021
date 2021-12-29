@@ -84,7 +84,7 @@ $this->load->view('theme/head');
                         <!-- /.col -->
                 </form>
                 <br>
-                <a href="../" class="text-center">Kembali ke Log In</a>
+                <a href="../auth" class="text-center">Kembali ke Log In</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
