@@ -62,6 +62,31 @@ class User extends CI_Controller {
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Formulir berhasil di kirim'}");
 		redirect('user/form/MTS/'.md5($nik),'refresh');
 	}
+	public function save_MA()
+	{
+		//Fungsi db_ma
+		$jml = $this->db->query("SELECT * FROM db_ma")->num_rows();
+		$urut = $jml + 1;
+
+		$data 				= $this->input->post();
+		$data['id_enc']		= md5($this->session->userdata('nik'));
+		$data['No_Reg']		= "538-" . date("ymd") . "-" . sprintf('%03d', $urut);
+		$data['nama']		= $this->session->userdata('nama');
+		$data['nik']		= $this->session->userdata('nik');
+		$data['progres'] 	= date();
+		$data['editor']		= $this->session->userdata('nama');
+		$this->db->insert('db_ma', $data);
+
+		//Fungsi db_user_pengguna
+		$id 			= $this->session->userdata('id');
+		$nik 			= $this->session->userdata('nik');
+		$data2['echo']	= "1";
+		$this->db->update('db_user_pendaftar', $data2, array('id' => $id));
+
+		//==============================================================================
+		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Formulir berhasil di kirim'}");
+		redirect('user/form/MA/' . md5($nik), 'refresh');
+	}
 
 	public function cetak($form,$param,$id)
 	{
