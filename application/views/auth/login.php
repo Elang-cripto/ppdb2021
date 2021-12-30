@@ -31,7 +31,7 @@
             <input type="email" name="email" id="email" placeholder="Email" required>
           </div>
           <div class="input-block">
-            <label for="password" class="input-label">Password</label>
+            <label for="password" class="input-label">Nomor WA Aktif</label>
             <input type="password" name="password" id="password" placeholder="Password" required>
           </div>
           <div class="modal-buttons">
