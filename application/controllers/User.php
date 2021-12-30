@@ -70,7 +70,7 @@ class User extends CI_Controller {
 
 		$data 				= $this->input->post();
 		$data['id_enc']		= md5($this->session->userdata('nik'));
-		$data['No_Reg']		= "538-" . date("ymd") . "-" . sprintf('%03d', $urut);
+		$data['No_Reg']		= "510-" . date("ymd") . "-" . sprintf('%03d', $urut);
 		$data['nama']		= $this->session->userdata('nama');
 		$data['nik']		= $this->session->userdata('nik');
 		$data['progres'] 	= date();

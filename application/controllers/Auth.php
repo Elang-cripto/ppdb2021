@@ -42,9 +42,9 @@ class Auth extends CI_Controller
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == "MTS") {
-		$this->session->set_flashdata('berhasil', 'Berhasil login');
+		        $this->session->set_flashdata('berhasil', 'Berhasil login');
                 redirect('user');
-	    }elseif ($this->session->userdata('par') == "MA") {
+	        } elseif ($this->session->userdata('par') == "MA") {
                 $this->session->set_flashdata('berhasil', 'Berhasil login');
                 redirect('user');
             } elseif ($this->session->userdata('par') == "SMK") {
