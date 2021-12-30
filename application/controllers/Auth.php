@@ -64,19 +64,29 @@ class Auth extends CI_Controller
 
     public function register()
     {
-        if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            $data = $this->input->post();
-            $data['status']     = "NON AKTIF";
-            $data['jabatan']     = "user";
-            $data['echo']       = 0;
-
-            $this->db->insert('db_user_pendaftar', $data);
-            $this->session->set_flashdata('sukses', 'Berhasil registrasi, Silahkan Login!');
-
-            redirect('auth');
+        $ceknik     = $this->input->post('nik');
+        $jmlnik     = $this->db->get_where('db_user_pendaftar',array("nik" => $ceknik))->num_rows();
+        
+        if ($jmlnik==0) {
+            if ($this->input->server('REQUEST_METHOD') == 'POST') {
+                $data = $this->input->post();
+                $data['status']     = "NON AKTIF";
+                $data['jabatan']    = "user";
+                $data['echo']       = 0;
+    
+                $this->db->insert('db_user_pendaftar', $data);
+                $this->session->set_flashdata('sukses', 'Berhasil registrasi, Silahkan Login!');
+                redirect('auth');
+            } else {
+                $this->load->view('auth/registration');
+                redirect('auth/registration');
+            }
         } else {
             $this->load->view('auth/registration');
+            $this->session->set_flashdata('error', 'NIK Terdeteksi ganda');
+            redirect('auth/registration');
         }
+        
     }
 
     public function registration()
@@ -88,5 +98,9 @@ class Auth extends CI_Controller
     {
         $this->load->view('panitia/login');
     }
+
+
+
+
 
 }

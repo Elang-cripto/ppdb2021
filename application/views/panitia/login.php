@@ -34,7 +34,7 @@
 				<h2>MTS - MA - SMP - SMK AL AMIEN</h2>
 			</header>
 			<section class="main">
-				<form class="form-3">
+				<form class="form-3" method="post" action="<?php echo base_url(); ?>auth/proses">
 				    <p class="clearfix">
 				        <label for="login">Username</label>
 				        <input type="text" name="login" id="login" placeholder="Username">
