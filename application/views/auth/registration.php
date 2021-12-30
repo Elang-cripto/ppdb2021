@@ -11,6 +11,7 @@ $this->load->view('theme/head');
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/dist/css/adminlte.min.css">
+<script src="<?php echo base_url('') ?>asset/plugins/sweetalert2/sweetalert211.js"></script>
 
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
