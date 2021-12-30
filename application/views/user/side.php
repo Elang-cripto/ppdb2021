@@ -30,6 +30,7 @@
       </div>
       <div class="info">
         <a href="#" class="d-block"><?php echo $this->session->userdata('nama'); ?></a>
+        <span class="right badge badge-success">Online</span>
       </div>
     </div>
 

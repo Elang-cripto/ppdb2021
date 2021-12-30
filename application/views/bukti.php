@@ -80,8 +80,8 @@ $param = $this->uri->segment(4);
 	<div class="page">
 		<table>
 			<tr>
-				<td style="width:5%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien" ></td>
-				<td style="width:40%">
+				<td style="width:10%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien" ></td>
+				<td style="width:60%">
 				<div align="left"><b>PANITIA PENERIMAAN PESERTA DIDIK BARU<br>
 					TAHUN PELAJARAN 2022-2023<br>
 					MTS - MA - SMP - SMK AL AMIEN
@@ -99,7 +99,7 @@ $param = $this->uri->segment(4);
 				<th class="td3"></th>
 			</tr>
 			<tr>
-				<td colspan="2" style="width:100% " align="center"><h5><b>KARTU BUKTI PENDAFTARAN</b></h5></td></br>
+				<td colspan="2" style="width:100% " align="center"><h5><b>KARTU BUKTI PENDAFTARAN</b></h5></td>
 			</tr>
 			<tr>
 				<td>Nama Peserta Didik</td>
