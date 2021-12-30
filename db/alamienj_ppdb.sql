@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2021 at 06:29 PM
+-- Generation Time: Dec 30, 2021 at 01:54 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -766,7 +766,7 @@ INSERT INTO `db_ma` (`id`, `nis`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`
 CREATE TABLE `db_mts` (
   `id` int(5) NOT NULL,
   `id_enc` varchar(50) NOT NULL,
-  `No_Reg` varchar(18) NOT NULL,
+  `no_reg` varchar(18) NOT NULL,
   `nisn` varchar(10) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `jk` varchar(50) NOT NULL,
@@ -833,8 +833,9 @@ CREATE TABLE `db_mts` (
   `alasan_out` varchar(100) NOT NULL,
   `nosrt_out` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL,
+  `jalur` varchar(25) NOT NULL,
   `foto` varchar(100) NOT NULL,
-  `progres` varchar(50) NOT NULL,
+  `progres` date NOT NULL,
   `editor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -842,8 +843,8 @@ CREATE TABLE `db_mts` (
 -- Dumping data for table `db_mts`
 --
 
-INSERT INTO `db_mts` (`id`, `id_enc`, `No_Reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `foto`, `progres`, `editor`) VALUES
-(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211228-1', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-28', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Rumah Orang Tua', 'Dusun', 'Sepeda motor', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '0000-00-00', 'S3', 'Pedagang Besar', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rifiah', 'Jember', '0000-00-00', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', 'B', 'A', 'B', 'C', 'D', 'E', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-28', '', '0000-00-00', '', '', '', '', '', '');
+INSERT INTO `db_mts` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
+(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-1', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-30', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'obil pribadi', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', 'Wiraswasta', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', '', 'Inden', '', '0000-00-00', 'Mukhammad Yasin');
 
 -- --------------------------------------------------------
 
