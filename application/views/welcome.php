@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<title>PPDB AL AMIEN 2022</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Laman Resmi Pendaftaran Siswa, Siswi, Santriwan, Santriwati Yayasan Pondok Pesantren Al Amien" />
+	<meta name="description" content="Selamat Datang pada Laman Resmi Pendaftaran Siswa, Siswi, Santriwan, Santriwati Yayasan Pondok Pesantren Al Amien" />
 	<meta name="keywords" content="PPDB Yayasan Pondok Pesantren Al Amien" />
 	<meta name="author" content="By.Elang">
 	<meta property="og:image" content="<?php echo base_url(); ?>asset/frontend/image/LOGO YAYASAN.png">
@@ -51,7 +51,7 @@
 						</ul>
 						<ul class="heronav right hidden-xs">
 							<li><a href="#footer">Kontak</a></li>
-							<li><a href="#daftar">Daftar</a></li>
+							<li><a href="#daftar">Log In</a></li>
 						</ul>
 						<h1>
 							<img src="<?php echo base_url(); ?>asset/frontend/logo/logo.gif" height="80" alt="Al Amien">
@@ -89,7 +89,7 @@
 								<li><a href="#">Informasi</a></li>
 								<li><a href="#">Prodi</a></li>
 								<li><a href="#footer">Kontak</a></li>
-								<li><a href="#daftar">daftar</a></li>
+								<li><a href="#login">daftar</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -113,9 +113,11 @@
 				<div class="row">
 					<div class="col-md-12 text-justify">
 						<p>
+							<h4>
 						Pendaftaran Penerimaan Peserta Didik Baru Tahun Pelajaran 2022-2023 telah dibuka, untuk Yayasan Pondok Pesantren Al Amien.
 						Pendaftaran Yang telah dibuka meliputi Pondok Pesantren dan 4 Lembaga Formal Di Yayasan Pondok Pesantren Al Amien Ambulu di antaranya adalah, MTs Al Amien, MA Al Amien, SMPS Plus Al Amien, dan SMK Al Amien. Pendaftaran dapat melalui jalur prestasi maupun Reguler.
-						dan kami menyediakan media Online Untuk Pendaftar Yang akan mendaftarkan diri secara Online. dilaman ini.
+						dan kami menyediakan media Online Untuk Pendaftar Yang akan mendaftarkan diri secara Online dilaman ini.
+							</h4>
 						</p>
 						<!--<a><img src="./asset/image/Banner MA.png" height="800" alt="banner1"/></a>
 						<a><img src="./asset/image/Banner SMP MTS.png" height="800" alt="banner2"/></a>-->
@@ -133,7 +135,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="text-center">
-							<span class="bigintro">daftar</span>
+							<span class="bigintro">LOG IN</span>
 						</h2>
 					</div>
 				</div>
@@ -166,7 +168,7 @@
     								Silahkan Login Melalui menu ini.
     								</b>
     							</p>
-    							<p><a class="btn btn-info btn-block" href="<?php echo base_url(); ?>auth"><b>Login</b></a></p>
+    							<p><a class="btn btn-info btn-block" href="<?php echo base_url(); ?>auth/panitia"><b>Login</b></a></p>
     						</div>
     					</div>
 				</div>
