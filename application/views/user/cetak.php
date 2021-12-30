@@ -9,18 +9,14 @@ $this->load->view($role.'/side');
 
 <!-- =============================================================================================== -->
 
-<style type="text/css">
-    body {padding:0px}
-    .print-area {border:0px solid red;padding:1em;margin:0 0 1em}
-</style>
-
+<link rel="stylesheet" href="<?php echo base_url('') ?>asset/elang/tabel.css">
     <title></title>
 </head>
 <body>
 <div class="content-wrapper">
-    <div style="text-align:center;"><a class="btn btn-primary btn-sm" class="no-print" href="javascript:printDiv('print-area-1');"><i class="fas fa-print"></i> Print</a></div>
+    <div style="text-align:center;"><a class="btn btn-primary btn-sm" class="no-print" href="javascript:printDiv('lembar-print');"><i class="fas fa-print"></i> Print</a></div>
 
-    <div id="print-area-1" class="print-area">
+    <div id="lembar-print" class="print-area">
         <section class="content">
             <?php
                 $par = $this->uri->segment(3);

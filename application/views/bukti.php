@@ -1,83 +1,5 @@
 <head>
-	<style type="text/css">
-		img {
-			width: 15mm;
-			height: 15mm;
-		}
-
-		body {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			background-color: #FAFAFA;
-			font: 12pt "Tahoma";
-		}
-
-		* {
-			box-sizing: border-box;
-			-moz-box-sizing: border-box;
-		}
-
-		.page {
-			width: 210mm;
-			min-height: 297mm;
-			padding: 20mm;
-			margin: 10mm auto;
-			border: 1px #D3D3D3 solid;
-			border-radius: 7px;
-			background: white;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-		}
-
-		@page {
-			size: A4;
-			margin: 0;
-		}
-
-		@media print {
-
-			html,
-			body {
-				width: 210mm;
-				height: 297mm;
-			}
-
-			.page {
-				margin: 0;
-				border: initial;
-				border-radius: initial;
-				width: initial;
-				min-height: initial;
-				box-shadow: initial;
-				background: initial;
-				page-break-after: always;
-			}
-		}
-
-		.td5 {
-			padding: 5px;
-			text-align: left;
-		}
-
-		.td1 {
-			width: 200px;
-		}
-
-		.td2 {
-			width: 500px;
-		}
-
-		.td3 {
-			width: 500px;
-		}
-
-		td,
-		th {
-			padding-top: 5px;
-			padding-bottom: 5px;
-		}
-	</style>
+	<link rel="stylesheet" href="<?php echo base_url('') ?>asset/elang/tabel.css">
 </head>
 
 <body>
@@ -97,9 +19,9 @@
 	<div class="book">
 
 		<div class="page">
-			<table style="border: 1px solid black; border-collapse:collapse;">
+			<table id="table1">
 				<tr>
-					<td style="width:10%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien"></td>
+					<td style="width:10%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien" width="60px" height="60px"></td>
 					<td style="width:60%">
 						<div align="left"><b>PANITIA PENERIMAAN PESERTA DIDIK BARU<br>
 								TAHUN PELAJARAN 2022-2023<br>
@@ -198,13 +120,14 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:40%" class="text-center">
-						<img class="profile-user-img img-fluid" <?php
+						<img style="width: 100px; height: auto;" <?php
 																if (empty($data->foto)) {
 																	$gambar = "none.png";
 																} else {
 																	$gambar = $data->foto;
 																}
-																?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="User profile picture">
+																?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
+					
 					</td>
 					<td style="width:30%">
 						<br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>
@@ -222,13 +145,13 @@
 			</table>
 			<br><br>
 
-			<table style="width:100%; border: 1px solid black; border-collapse:collapse;">
+			<table id="table3" style="width:100%; border: 1px solid black; border-collapse:collapse;">
 				<tr>
-					<th class="td5">Dokumen Persyaratan</th>
-					<th class="td5">Perlengkapan</th>
+					<th>Dokumen Persyaratan</th>
+					<th>Perlengkapan</th>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto Copy SKHU</div>
 					</td>
 					<td>
@@ -236,31 +159,31 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto Copy Ijazah</div>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto Copy Kartu Keluarga</div>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto Copy Akte Kelahiran</div>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto Copy KTP Orang Tua</div>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td class="td5">
+					<td>
 						<div class="checkbox"><input type="checkbox"> Foto 3x4 Hitam Putih (3 Lembar)</div>
 					</td>
 					<td></td>
