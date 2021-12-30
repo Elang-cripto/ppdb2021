@@ -38,17 +38,18 @@ class Auth extends CI_Controller
             $this->session->set_userdata('jabatan', $row->jabatan);
 
             if ($this->session->userdata('status') == "NON AKTIF") {
-                $this->session->set_flashdata('pesan', "{icon:'error',title:'Maaf!',text:'Akun anda belum di aktif, silahkan menghubungi panitia'}");
+                $this->session->set_flashdata('nonaktif', 'Akun anda belum di aktif, silahkan menghubungi panitia');
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == "MTS") {
-                    redirect('user');
+				$this->session->set_flashdata('berhasil', 'Berhasil login');
+                redirect('user');
             } else {
                 echo "Mohon maaf, Halaman Belum tersedia";
             }
         } else {
-            $this->session->set_flashdata('pesan', "{icon:'error',title:'Maaf!',text:'Username/Password Salah'}");
-            redirect('/');
+            $this->session->set_flashdata('gagal', 'Username/Password Salah');
+            redirect('auth');
         }
     }
 
@@ -61,7 +62,7 @@ class Auth extends CI_Controller
             $data['echo']       = 0;
 
             $this->db->insert('db_user_pendaftar', $data);
-            $this->session->set_flashdata('pesan', "{icon:'success',title:'Selamat!',text:'Proses pembuatan akun berhasil'}");
+            $this->session->set_flashdata('sukses', 'Berhasil registrasi, Silahkan Login!');
 
             redirect('auth');
         } else {
