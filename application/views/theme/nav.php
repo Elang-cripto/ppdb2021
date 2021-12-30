@@ -45,7 +45,7 @@
                   </a>
                 </div>
           <div class="dropdown-divider"></div>
-          <a href="<?php echo base_url('') ?>page/logout" class="dropdown-item dropdown-footer"><b>Log Out</b></a>
+          <a href="<?php echo base_url('') ?>user/logout" class="dropdown-item dropdown-footer"><b>Log Out</b></a>
         </div>
       </li>
 <!--       <li class="nav-item">
