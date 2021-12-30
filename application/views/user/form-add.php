@@ -214,7 +214,7 @@ $this->load->view($role . '/side');
                       <option value="Kuda">Kuda</option>
                       <option value="Sepeda">Sepeda</option>
                       <option value="Sepeda motor">Sepeda motor</option>
-                      <option value="obil pribadi">Mobil pribadi</option>
+                      <option value="Mobil pribadi">Mobil pribadi</option>
                       <option value="Lainnya">Lainnya</option>
                     </select>
                   </div>
@@ -623,14 +623,6 @@ $this->load->view($role . '/side');
                       <option value="Pindahan">Pindahan</option>
                       <option value="Kembali Bersekolah">Kembali Bersekolah</option>
                     </select>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="tgl_masuk" class="col-sm-4 col-form-label">TANGGAL MASUK</label>
-                  <div class="col-sm-8">
-                    <div class="input-group">
-                      <input type="date" name="tgl_masuk" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                    </div>
                   </div>
                 </div>
               </div>

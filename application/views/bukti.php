@@ -47,10 +47,10 @@
         }
     }
     .td1 {
-    width:40px
+    width:200px
     }
     .td2 {
-    width:400px
+    width:500px
     }
     .td3 {
     width:500px
@@ -62,27 +62,44 @@
 </style>
 </head>
 <body>
+
+<?php
+$param = $this->uri->segment(4);
+	if ($param=="MTS") {
+		$pilih="MTS AL AMIEN";
+	} elseif($param=="MA") {
+		$pilih="MA AL AMIEN";
+	} elseif($param=="SMP") {
+		$pilih="SMP PLUS AL AMIEN";	
+	} else {
+		$pilih="SMK AL AMIEN";
+	}
+?>
 <div class="book">
 	
 	<div class="page">
 		<table>
 			<tr>
-				<td style="width:10%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien" ></td>
+				<td style="width:5%"><img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="Al Amien" ></td>
 				<td style="width:40%">
 				<div align="left"><b>PANITIA PENERIMAAN PESERTA DIDIK BARU<br>
 					TAHUN PELAJARAN 2022-2023<br>
 					MTS - MA - SMP - SMK AL AMIEN
 					</b></div>
 				</td>
-				<td style="width:20% " align="right"><b>No. Registrasi <br><?php echo $data->no_reg; ?> </b></td>
+				<td style="width:20% " align="right"><b>No. Registrasi </b><br><?php echo $data->no_reg; ?> </td>
 			</tr>
 		</table>
 		
 		<br>
 		<table>
-			<tr>
+			<tr >
+				<th class="td1"></th>
 				<th class="td2"></th>
 				<th class="td3"></th>
+			</tr>
+			<tr>
+				<td colspan="2" style="width:100% " align="center"><h5><b>KARTU BUKTI PENDAFTARAN</b></h5></td></br>
 			</tr>
 			<tr>
 				<td>Nama Peserta Didik</td>
@@ -133,17 +150,25 @@
 				<td>Nama Ibu</td>
 				<td>: <?php echo $data->nm_ibu; ?></td>
 			</tr>
+			<tr>
+				<td>Lembaga Pilihan</td>
+				<td>: <?php echo $pilih; ?> </td>
+			</tr>
+			<tr>
+				<td>Pendaftaran Jalur</td>
+				<td>: <b><?php echo $data->jalur; ?></b></td>
+			</tr>
 		</table>
 		<br>
 		<p>Bukti Pendaftaran ini harap dibawa pada saat Verifikasi data pada: <br></p>
 		
 		<table>
 			<tr>
-				<td style="width:20%">Hari</td>
+				<td style="width:20%">Hari, Tanggal</td>
 				<td style="width:40%">: ...............................</td>
 			</tr>
 			<tr>
-				<td style="width:20%">Tanggal</td>
+				<td style="width:20%">Tempat</td>
 				<td style="width:40%">: ...............................</td>
 			</tr>
 		</table>
@@ -151,9 +176,27 @@
 		<br>
 		<table style="width:100%">
 			<tr >
-				<td style="width:60%"><img width=50%   src="#" alt="foto" border="0"> </td>
-				<td style="width:40%">
-					Jember, 12 Juli 2021<br>
+				<td style="width:40%" class="text-center">
+					<img class="profile-user-img img-fluid"
+                        <?php 
+                          if(empty($data->foto)){
+                            $gambar = "none.png";
+                          }else{
+                            $gambar = $data->foto;
+                          }
+                        ?>
+                       src="<?php echo base_url('asset/upload/'.$gambar)?>"
+                       alt="User profile picture">
+				</td>
+				<td style="width:30%">
+						  <br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>
+				</td>
+				<td style="width:30%">
+					Jember, <?php 
+					$tanggalHariIni = new DateTime();
+					echo $tanggalHariIni->format('d M Y');
+					
+					?><br>
 					Panitia PPDB<br><br><br><br>
 					<b>____________________</b>
 				</td>

@@ -54,7 +54,18 @@
             <p>Formulir</p>
           </a>
         </li>
-        <li class="nav-item">
+
+        <?php 
+          $cek 	= $this->db->get_where('db_user_pendaftar', ["id" => $this->session->userdata('id') ])->row();
+          $prin 	= $cek->echo;
+          if ($prin==0) {
+            $ket="hidden";
+          } else {
+            $ket="";
+          }
+        ;?>
+
+        <li class="nav-item" <?php echo $ket ?>>
           <a href="<?php echo base_url($role) ?>/cetak/bukti/<?php echo $par; ?>/<?php echo md5($nik); ?>" class="nav-link <?php if ($this->uri->segment(2) == "cetak") {
                                                                               echo "active";
                                                                             } ?>">
