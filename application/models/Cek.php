@@ -1,8 +1,9 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Cek extends CI_Model {
-	public function login($email,$telp)
+class Cek extends CI_Model
+{
+	public function login($email, $telp)
 	{
 		$this->db->select('*');
 		$this->db->from('db_user_pendaftar');
@@ -12,12 +13,22 @@ class Cek extends CI_Model {
 
 		$query = $this->db->get();
 
-		if($query->num_rows()==1)
-		{
+		if ($query->num_rows() == 1) {
 			return $query->result();
+		} else {
+			return false;
 		}
-		else
-		{
+	}
+
+	public function panitia($username, $password)
+	{
+		$this->db->where('username', $username);
+		$this->db->where('password', $password);
+		$query = $this->db->get('db_panitia');
+
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		} else {
 			return false;
 		}
 	}

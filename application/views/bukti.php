@@ -16,6 +16,7 @@
 		$pilih = "SMK AL AMIEN";
 	}
 	?>
+
 	<div class="book">
 
 		<div class="page">
@@ -121,13 +122,13 @@
 				<tr>
 					<td style="width:40%" class="text-center">
 						<img style="width: 100px; height: auto;" <?php
-																if (empty($data->foto)) {
-																	$gambar = "none.png";
-																} else {
-																	$gambar = $data->foto;
-																}
-																?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
-					
+																	if (empty($data->foto)) {
+																		$gambar = "none.png";
+																	} else {
+																		$gambar = $data->foto;
+																	}
+																	?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
+
 					</td>
 					<td style="width:30%">
 						<br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>

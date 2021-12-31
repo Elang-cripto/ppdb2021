@@ -21,8 +21,7 @@ $this->load->view('theme/head');
     <div class="register-box">
         <div class="register-logo">
             <h2><b>FORM REGISTRASI PESERTA DIDIK BARU</b></h2>
-            <h6>Mohon DI Isi Dengan HURUF BESAR/KAPITAL,</h6>
-            <h6>Kecuali Email</h6>
+            <H6>Di isi Dengan HURUF BESAR/KAPITAL, kecuali E-mail</H6>
         </div>
 
         <div class="card">
@@ -149,7 +148,24 @@ $this->load->view('theme/head');
             }
         });
     </script>
-
+    <script>
+        <?php if ($this->session->flashdata('sukses')) { ?>
+            var isi = <?php echo json_encode($this->session->flashdata('berhasil')) ?>;
+            Swal.fire({
+                title: 'Registrasi Berhasil',
+                text: isi,
+                icon: 'success',
+            })
+        <?php } ?>
+        <?php if ($this->session->flashdata('error')) { ?>
+            var isi = <?php echo json_encode($this->session->flashdata('error')) ?>;
+            Swal.fire({
+                title: 'Registrasi Gagal',
+                text: isi,
+                icon: 'error',
+            })
+        <?php } ?>
+    </script>
 </body>
 
 </html>
