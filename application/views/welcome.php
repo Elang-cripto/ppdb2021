@@ -63,8 +63,8 @@
 						<div class="divide40"></div>
 							<div class="showcase">
 								<!-- <a class="btn btn-danger btn-lg hidden-xs" href="http://alamien.ddns.net/psb/"><i class="fa fa-hand-o-right"></i>LogIn</a> -->
-								<a class="btn btn-danger btn-lg hidden-xs" href="<?php echo base_url(); ?>auth">DAFTAR INDEN SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
-								<a class="btn btn-danger btn-lg visible-xs" href="<?php echo base_url(); ?>auth">DAFTAR INDEN SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
+								<a class="btn btn-danger btn-lg hidden-xs" href="<?php echo base_url(); ?>auth">DAFTAR SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
+								<a class="btn btn-danger btn-lg visible-xs" href="<?php echo base_url(); ?>auth">DAFTAR SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
  							</div>
 					</div>
 				<!--/HERO -->
