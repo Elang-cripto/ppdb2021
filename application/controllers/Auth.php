@@ -36,17 +36,23 @@ class Auth extends CI_Controller
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == "MTS") {
+<<<<<<< HEAD
                 $this->session->set_flashdata('berhasil', 'Berhasil login');
                 redirect('user/mts');
             } elseif ($this->session->userdata('par') == "MA") {
+=======
+		        $this->session->set_flashdata('berhasil', 'Berhasil login');
+                redirect('user');
+	        } elseif ($this->session->userdata('par') == "MA") {
+>>>>>>> 39aa736a4bc5ed15a53f61edbb6de37ea2a4b056
                 $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user/ma');
+                redirect('user');
             } elseif ($this->session->userdata('par') == "SMK") {
                 $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user/smk');
+                redirect('user');
             } elseif ($this->session->userdata('par') == "SMP") {
                 $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user/smp');
+                redirect('user');
             } else {
                 echo "Mohon maaf, Halaman Belum tersedia";
             }
