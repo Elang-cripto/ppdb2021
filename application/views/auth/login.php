@@ -49,7 +49,7 @@
         </svg>
       </button>
     </div>
-    <button class="modal-button">Click here to login</button>
+    <button class="modal-button">Klik ini untuk login</button>
   </div>
   <!-- partial -->
 
