@@ -28,9 +28,9 @@ $this->load->view('theme/head');
             <div class="card-body register-card-body">
                 <!-- <p class="login-box-msg">Registrasi user baru</p> -->
 
-                <form class="user" method="post" action="<?php echo base_url('auth/register'); ?>" enctype="multipart/form-data">
+                <form name="formregister" class="user" method="post" action="<?php echo base_url('auth/register'); ?>" onsubmit="return cekform()">
                     <div class="input-group mb-3">
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK Sesuai KK" required>
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK Sesuai KK">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -38,7 +38,7 @@ $this->load->view('theme/head');
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Sesuai KK" required>
+                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Sesuai KK">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -46,7 +46,7 @@ $this->load->view('theme/head');
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -54,7 +54,7 @@ $this->load->view('theme/head');
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor WA Aktif" required>
+                        <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor WA Aktif">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-phone"></span>
@@ -62,7 +62,7 @@ $this->load->view('theme/head');
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <select type="text" name="par" id="par" class="form-control select2" required>
+                        <select type="text" name="par" id="par" class="form-control select2">
                             <option value="">-- Pilih Lembaga --</option>
                             <option value="MTS">MTs Al Amien</option>
                             <option value="MA">MA Al Amien</option>
@@ -102,51 +102,104 @@ $this->load->view('theme/head');
     <script src="<?php echo base_url(); ?>asset/plugins/jquery-validation/additional-methods.min.js"></script>
 
     <script>
-        $('#cekform').validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true,
-                },
-                nama: {
-                    required: true,
-                    minlength: 6
-                },
-                telp: {
-                    required: true,
-                    minlength: 11
-                },
-                terms: {
-                    required: true
-                },
-            },
-            messages: {
-                email: {
-                    required: "Please enter a email address",
-                    email: "Please enter a vaild email address"
-                },
-                nama: {
-                    required: "Nama wajib di isi",
-                    minlength: "Nama Sesuai KK"
-                },
-                telp: {
-                    required: "Telpon Wajib di isi",
-                    minlength: "Nomor harus min 11 karakter"
-                },
-                terms: "Centang dulu lah"
-            },
-            errorElement: 'span',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
+        function cekform() {
+            var number = /^[0-9]+$/;
+            var huruf = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
+            var hp = document.forms["formregister"]["telp"];
+            var nik = document.forms["formregister"]["nik"];
+            var nama = document.forms["formregister"]["nama"];
+
+            if (nik.value == "") {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'NIK tidak Boleh Kosong',
+                    icon: 'error',
+                })
+                nik.focus();
+                return false;
             }
-        });
+            if (nik.value.length != 16) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'NIK Tidak Valid',
+                    icon: 'error',
+                })
+                nik.focus();
+                return false;
+            }
+            if (!nik.value.match(number)) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'NIK Wajib Angka',
+                    icon: 'error',
+                })
+                nik.focus();
+                return false;
+            }
+            if (nama.value == "") {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Nama Tidak Boleh Kosong',
+                    icon: 'error',
+                })
+                nama.focus();
+                return false;
+            }
+            if (nama.value.length < 3) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Nama Terlalu Pendek',
+                    icon: 'error',
+                })
+                nama.focus();
+                return false;
+            }
+            if (!nama.value.match(huruf)) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'NAMA Wajib Huruf',
+                    icon: 'error',
+                })
+                nama.focus();
+                return false;
+            }
+            if (document.forms["formregister"]["telp"].value == "") {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Nomor Telepon Tidak Boleh Kosong',
+                    icon: 'error',
+                })
+                document.forms["formregister"]["telp"].focus();
+                return false;
+            }
+            if (hp.value.length < 10 || hp.value.length > 13) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Nomor Telepon Tidak Valid',
+                    icon: 'error',
+                })
+                hp.focus();
+                return false;
+            }
+            if (!hp.value.match(number)) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Nomor Telepon Wajib Angka',
+                    icon: 'error',
+                })
+                hp.focus();
+                return false;
+            }
+            if (document.forms["formregister"]["par"].value == "") {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Wajib Pilih 1 Lembaga Tujuan',
+                    icon: 'error',
+                })
+                document.forms["formregister"]["par"].focus();
+                return false;
+            }
+        }
     </script>
     <script>
         <?php if ($this->session->flashdata('sukses')) { ?>
