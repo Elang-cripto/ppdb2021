@@ -33,7 +33,7 @@ class Auth extends CI_Controller
             $this->session->set_userdata('echo', $row->echo);
 
             if ($this->session->userdata('status') == "NON AKTIF") {
-                $this->session->set_flashdata('nonaktif', 'Akun anda belum di aktif, silahkan menghubungi panitia');
+                $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Belum aktif',text: 'Silahkan Hubungi panitia'}");
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == '0') {
@@ -43,7 +43,7 @@ class Auth extends CI_Controller
                 redirect('user');
             }
         } else {
-            $this->session->set_flashdata('gagal', 'Username/Password Salah');
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Login Gagal',text: 'Kesalahan Username/Password yang anda masukkan'}");
             redirect('auth');
         }
     }
