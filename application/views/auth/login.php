@@ -35,11 +35,10 @@
             <input type="password" name="password" id="password" placeholder="Password" required>
           </div>
           <div class="modal-buttons">
-            <a href="" class="">Forgot your password?</a>
             <button type="submit" class="input-button">Login</button>
           </div>
         </form>
-        <p class="sign-up">Don't have an account? <a href="<?php echo base_url(); ?>auth/registration">Sign up now</a></p>
+        <p class="sign-up">Belum Punya Akun ? <a href="<?php echo base_url(); ?>auth/registration">Daftar Disini</a></p>
       </div>
       <div class="modal-right">
         <img src="<?php echo base_url(); ?>asset/login/images/alamien.jpg" alt="">
