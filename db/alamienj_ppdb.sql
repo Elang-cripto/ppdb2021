@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Des 2021 pada 04.06
--- Versi Server: 10.1.8-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Jan 01, 2022 at 04:04 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_info`
+-- Table structure for table `db_info`
 --
 
 CREATE TABLE `db_info` (
@@ -36,12 +37,12 @@ CREATE TABLE `db_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_info`
+-- Dumping data for table `db_info`
 --
 
 INSERT INTO `db_info` (`id`, `tanggal`, `waktu`, `user`, `jabatan`, `status`) VALUES
 (5, '2021-02-02', '09:57:06', 'Mukhammad Yasin', 'admin', '<p>Update Hari ini</p><ul><li>Perbaikan bug kode dan perampingan kode</li><li>kode untuk history setiap edit data</li><li>penambahan Level pengguna</li></ul>'),
-(9, '2021-02-24', '10:35:53', 'M. Yasin', 'admin', '<p>Update :</p><ul><li>Cetak absen dan form nilai ada di menu data rombel</li><li>Perbaikan bug cetak surat mutasi</li></ul><p><span style="color: rgb(73, 80, 87);">#SalamSatuDataAlamien</span><br></p>'),
+(9, '2021-02-24', '10:35:53', 'M. Yasin', 'admin', '<p>Update :</p><ul><li>Cetak absen dan form nilai ada di menu data rombel</li><li>Perbaikan bug cetak surat mutasi</li></ul><p><span style=\"color: rgb(73, 80, 87);\">#SalamSatuDataAlamien</span><br></p>'),
 (10, '2021-07-24', '01:59:27', 'M. Yasin', 'admin', '<p>Saat ini sedang dilaksanakan Updating Data Siswa Tahun Pelajaran 2021-2022. Mohon Bapak ibu wali kelas melaporkan ke admin jika ada kesalahan data siswa di kelasnya</p>'),
 (11, '2021-09-23', '12:30:40', 'Administrator', 'admin', '<p>M IBNU ROSID Pindah Kelas dari 11 IPS 1 ke 11 IPS 2<br></p>'),
 (12, '2021-09-26', '09:28:54', 'Administrator', 'admin', '<p>Update terbaru :</p><ol><li>Penambahan Kolom Status tempat tinggal</li><li>Penambahan Kolom Tempat Lahir Ayah, Ibu, Wali</li><li>Penambahan Kolom Tanggal Lahir Ayah, Ibu, Wali</li><li>Perbaikan Bug error yang terjadi saat pengajuan Validasi</li></ol><p><b><i>#Salam Satu Data Al Amien</i></b></p>'),
@@ -50,7 +51,7 @@ INSERT INTO `db_info` (`id`, `tanggal`, `waktu`, `user`, `jabatan`, `status`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_kls`
+-- Table structure for table `db_kls`
 --
 
 CREATE TABLE `db_kls` (
@@ -64,11 +65,11 @@ CREATE TABLE `db_kls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_kls`
+-- Dumping data for table `db_kls`
 --
 
 INSERT INTO `db_kls` (`id`, `par`, `kelas`, `wali_kelas`, `validasi`, `keterangan`, `lastupdate`) VALUES
-(19, 'mts', '7B', 'MOH ALI MAS''UD', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-10-10 16:16:26'),
+(19, 'mts', '7B', 'MOH ALI MAS\'UD', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-10-10 16:16:26'),
 (20, 'mts', '7E', 'ARIF SUJARWO', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-11-15 12:42:50'),
 (21, 'mts', '9B', 'Dian Suryawati', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-29 08:41:18'),
 (22, 'mts', '7C', 'Robith Rifqi', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 18:15:18'),
@@ -80,8 +81,8 @@ INSERT INTO `db_kls` (`id`, `par`, `kelas`, `wali_kelas`, `validasi`, `keteranga
 (28, 'mts', '9C', 'Dra. MUYASSAROH', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-30 13:38:12'),
 (29, 'mts', '8B', 'Muhammad David Akhyar', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 14:22:01'),
 (30, 'mts', '8A', 'Uswatun Khoiriyah', 'Finis', 'Data telah tervalidasi Admin\r\n\r\n', '2021-09-29 08:40:50'),
-(31, 'mts', '8E', 'MUHAMMAD NOOR SIDIQ', 'Revisi', 'Jumlah data Eror = 62<br>\r\nAHMAD ALFI MASHUDI = TELP Kosong<br>\r\nM. CERIL ALFA RAMADANI = TELP Kosong<br>\r\nMOH KHOIRUL ROFIQI = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD WILDAN IKHSANI = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD FARKHAN I''BADULLAH = STATUS TINGGAL Kosong<br>\r\nMUHAMMAD FARKHAN I''BADULLAH = NO KK Kosong<br>\r\nMUHAMMAD FARKHAN I''BADULLAH = TEMPAT LAHIR AYAH Kosong<br>\r\nMUHAMMAD FARKHAN I''BADULLAH = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD FATKHUR ROZI = TELP Kosong<br>\r\nRIZKI RAMADANI = STATUS TINGGAL Kosong<br>\r\nRIZKI RAMADANI = NO KK Kosong<br>\r\nRIZKI RAMADANI = TEMPAT LAHIR AYAH Kosong<br>\r\nRIZKI RAMADANI = TEMPAT LAHIR IBU Kosong<br>\r\nROSALINA SANDRA DEWI = STATUS TINGGAL Kosong<br>\r\nROSALINA SANDRA DEWI = TELP Kosong<br>\r\nROSALINA SANDRA DEWI = NO KK Kosong<br>\r\nROSALINA SANDRA DEWI = TEMPAT LAHIR AYAH Kosong<br>\r\nROSALINA SANDRA DEWI = TEMPAT LAHIR IBU Kosong<br>\r\nSALMAN ALFARIZI = STATUS TINGGAL Kosong<br>\r\nSALMAN ALFARIZI = TELP Kosong<br>\r\nSALMAN ALFARIZI = NO KK Kosong<br>\r\nSALMAN ALFARIZI = TEMPAT LAHIR AYAH Kosong<br>\r\nSALMAN ALFARIZI = TEMPAT LAHIR IBU Kosong<br>\r\nSITI IZZATUL ABIEDAH = STATUS TINGGAL Kosong<br>\r\nSITI IZZATUL ABIEDAH = TELP Kosong<br>\r\nSITI IZZATUL ABIEDAH = NO KK Kosong<br>\r\nSITI IZZATUL ABIEDAH = TEMPAT LAHIR AYAH Kosong<br>\r\nSITI IZZATUL ABIEDAH = TEMPAT LAHIR IBU Kosong<br>\r\nTAHTA NUR IZZATI = STATUS TINGGAL Kosong<br>\r\nTAHTA NUR IZZATI = NO KK Kosong<br>\r\nTAHTA NUR IZZATI = TEMPAT LAHIR AYAH Kosong<br>\r\nTAHTA NUR IZZATI = TEMPAT LAHIR IBU Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = STATUS TINGGAL Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = NO KK Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = TEMPAT LAHIR IBU Kosong<br>\r\nNANDA FIRLI VARADIVA = STATUS TINGGAL Kosong<br>\r\nNANDA FIRLI VARADIVA = JENIS TINGGAL Kosong<br>\r\nNANDA FIRLI VARADIVA = ALAT TRANSPORTASI Kosong<br>\r\nNANDA FIRLI VARADIVA = TELP Kosong<br>\r\nNANDA FIRLI VARADIVA = NO KK Kosong<br>\r\nNANDA FIRLI VARADIVA = TEMPAT LAHIR AYAH Kosong<br>\r\nNANDA FIRLI VARADIVA = HASIL AYAH Kosong<br>\r\nNANDA FIRLI VARADIVA = TEMPAT LAHIR IBU Kosong<br>\r\nNANDA FIRLI VARADIVA = HASIL IBU Kosong<br>\r\nROSI ABDILLAH = NIK Invalid<br>\r\nROSI ABDILLAH = STATUS TINGGAL Kosong<br>\r\nROSI ABDILLAH = JENIS TINGGAL Kosong<br>\r\nROSI ABDILLAH = ALAT TRANSPORTASI Kosong<br>\r\nROSI ABDILLAH = TELP Kosong<br>\r\nROSI ABDILLAH = ANAK KE Kosong<br>\r\nROSI ABDILLAH = JUMLAH SAUDARA Kosong<br>\r\nROSI ABDILLAH = NO KK Kosong<br>\r\nROSI ABDILLAH = TEMPAT LAHIR AYAH Kosong<br>\r\nROSI ABDILLAH = PENDIDIKAN AYAH Kosong<br>\r\nROSI ABDILLAH = KERJA AYAH Kosong<br>\r\nROSI ABDILLAH = HASIL AYAH Kosong<br>\r\nROSI ABDILLAH = NIK AYAH Invalid<br>\r\nROSI ABDILLAH = TEMPAT LAHIR IBU Kosong<br>\r\nROSI ABDILLAH = PENDIDIKAN IBU Kosong<br>\r\nROSI ABDILLAH = KERJA IBU Kosong<br>\r\nROSI ABDILLAH = HASIL IBU Kosong<br>\r\nROSI ABDILLAH = NIK IBU Invalid\r\n', '2021-10-12 15:00:46'),
-(32, 'mts', '8D', 'hurry sayyidah robi''ah', 'Revisi', 'Jumlah data Eror = 1<br>\r\nSUBBA LIALMUNA = TELP Kosong\r\n', '2021-10-10 16:17:48'),
+(31, 'mts', '8E', 'MUHAMMAD NOOR SIDIQ', 'Revisi', 'Jumlah data Eror = 62<br>\r\nAHMAD ALFI MASHUDI = TELP Kosong<br>\r\nM. CERIL ALFA RAMADANI = TELP Kosong<br>\r\nMOH KHOIRUL ROFIQI = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD WILDAN IKHSANI = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD FARKHAN I\'BADULLAH = STATUS TINGGAL Kosong<br>\r\nMUHAMMAD FARKHAN I\'BADULLAH = NO KK Kosong<br>\r\nMUHAMMAD FARKHAN I\'BADULLAH = TEMPAT LAHIR AYAH Kosong<br>\r\nMUHAMMAD FARKHAN I\'BADULLAH = TEMPAT LAHIR IBU Kosong<br>\r\nMUHAMMAD FATKHUR ROZI = TELP Kosong<br>\r\nRIZKI RAMADANI = STATUS TINGGAL Kosong<br>\r\nRIZKI RAMADANI = NO KK Kosong<br>\r\nRIZKI RAMADANI = TEMPAT LAHIR AYAH Kosong<br>\r\nRIZKI RAMADANI = TEMPAT LAHIR IBU Kosong<br>\r\nROSALINA SANDRA DEWI = STATUS TINGGAL Kosong<br>\r\nROSALINA SANDRA DEWI = TELP Kosong<br>\r\nROSALINA SANDRA DEWI = NO KK Kosong<br>\r\nROSALINA SANDRA DEWI = TEMPAT LAHIR AYAH Kosong<br>\r\nROSALINA SANDRA DEWI = TEMPAT LAHIR IBU Kosong<br>\r\nSALMAN ALFARIZI = STATUS TINGGAL Kosong<br>\r\nSALMAN ALFARIZI = TELP Kosong<br>\r\nSALMAN ALFARIZI = NO KK Kosong<br>\r\nSALMAN ALFARIZI = TEMPAT LAHIR AYAH Kosong<br>\r\nSALMAN ALFARIZI = TEMPAT LAHIR IBU Kosong<br>\r\nSITI IZZATUL ABIEDAH = STATUS TINGGAL Kosong<br>\r\nSITI IZZATUL ABIEDAH = TELP Kosong<br>\r\nSITI IZZATUL ABIEDAH = NO KK Kosong<br>\r\nSITI IZZATUL ABIEDAH = TEMPAT LAHIR AYAH Kosong<br>\r\nSITI IZZATUL ABIEDAH = TEMPAT LAHIR IBU Kosong<br>\r\nTAHTA NUR IZZATI = STATUS TINGGAL Kosong<br>\r\nTAHTA NUR IZZATI = NO KK Kosong<br>\r\nTAHTA NUR IZZATI = TEMPAT LAHIR AYAH Kosong<br>\r\nTAHTA NUR IZZATI = TEMPAT LAHIR IBU Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = STATUS TINGGAL Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = NO KK Kosong<br>\r\nYASMIN NUR AZIZAH MAULIDIAH = TEMPAT LAHIR IBU Kosong<br>\r\nNANDA FIRLI VARADIVA = STATUS TINGGAL Kosong<br>\r\nNANDA FIRLI VARADIVA = JENIS TINGGAL Kosong<br>\r\nNANDA FIRLI VARADIVA = ALAT TRANSPORTASI Kosong<br>\r\nNANDA FIRLI VARADIVA = TELP Kosong<br>\r\nNANDA FIRLI VARADIVA = NO KK Kosong<br>\r\nNANDA FIRLI VARADIVA = TEMPAT LAHIR AYAH Kosong<br>\r\nNANDA FIRLI VARADIVA = HASIL AYAH Kosong<br>\r\nNANDA FIRLI VARADIVA = TEMPAT LAHIR IBU Kosong<br>\r\nNANDA FIRLI VARADIVA = HASIL IBU Kosong<br>\r\nROSI ABDILLAH = NIK Invalid<br>\r\nROSI ABDILLAH = STATUS TINGGAL Kosong<br>\r\nROSI ABDILLAH = JENIS TINGGAL Kosong<br>\r\nROSI ABDILLAH = ALAT TRANSPORTASI Kosong<br>\r\nROSI ABDILLAH = TELP Kosong<br>\r\nROSI ABDILLAH = ANAK KE Kosong<br>\r\nROSI ABDILLAH = JUMLAH SAUDARA Kosong<br>\r\nROSI ABDILLAH = NO KK Kosong<br>\r\nROSI ABDILLAH = TEMPAT LAHIR AYAH Kosong<br>\r\nROSI ABDILLAH = PENDIDIKAN AYAH Kosong<br>\r\nROSI ABDILLAH = KERJA AYAH Kosong<br>\r\nROSI ABDILLAH = HASIL AYAH Kosong<br>\r\nROSI ABDILLAH = NIK AYAH Invalid<br>\r\nROSI ABDILLAH = TEMPAT LAHIR IBU Kosong<br>\r\nROSI ABDILLAH = PENDIDIKAN IBU Kosong<br>\r\nROSI ABDILLAH = KERJA IBU Kosong<br>\r\nROSI ABDILLAH = HASIL IBU Kosong<br>\r\nROSI ABDILLAH = NIK IBU Invalid\r\n', '2021-10-12 15:00:46'),
+(32, 'mts', '8D', 'hurry sayyidah robi\'ah', 'Revisi', 'Jumlah data Eror = 1<br>\r\nSUBBA LIALMUNA = TELP Kosong\r\n', '2021-10-10 16:17:48'),
 (33, 'mts', '9E', 'MOHAMMAD ASROFI', 'Revisi', 'Jumlah data Eror = 8<br>\r\nDEVI AMELIA PUTRI = NIK IBU Invalid<br>\r\nKHALIFAH RAHMAWATI = ALAT TRANSPORTASI Kosong<br>\r\nREVANANDA CITRA SAPUTRI = ALAT TRANSPORTASI Kosong<br>\r\nREVANANDA CITRA SAPUTRI = HASIL AYAH Kosong<br>\r\nREVANANDA CITRA SAPUTRI = HASIL IBU Kosong<br>\r\nSITI MASRUROH = ANAK KE Kosong<br>\r\nSITI MASRUROH = JUMLAH SAUDARA Kosong<br>\r\nTRIO ARIF WIBOWO` = NO SKHUN Kosong\r\n', '2021-03-16 15:29:59'),
 (34, 'mts', '9A', 'Isnaini Wahdanawati', 'Revisi', 'Jumlah data Eror = 12<br>\r\nMOHAMMAD ILHAM = TELP Kosong<br>\r\nWIDYA AYU ANGGITA = STATUS TINGGAL Kosong<br>\r\nWIDYA AYU ANGGITA = PENDIDIKAN AYAH Kosong<br>\r\nWIDYA AYU ANGGITA = KERJA AYAH Kosong<br>\r\nWIDYA AYU ANGGITA = HASIL AYAH Kosong<br>\r\nWIDYA AYU ANGGITA = NIK AYAH Invalid<br>\r\nNURIY NAILUL MUKARROMAH = PENDIDIKAN AYAH Kosong<br>\r\nNURIY NAILUL MUKARROMAH = KERJA AYAH Kosong<br>\r\nNURIY NAILUL MUKARROMAH = HASIL AYAH Kosong<br>\r\nNURIY NAILUL MUKARROMAH = NIK AYAH Invalid<br>\r\nAMAI KIREINA = NO SKHUN Kosong<br>\r\nNADIRA  NUR MAHARANI = NIK Invalid\r\n', '2021-10-12 15:01:21'),
 (35, 'ma', '11-IPA-1', 'Wiwin Lutfiani', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 13:13:54'),
@@ -91,7 +92,7 @@ INSERT INTO `db_kls` (`id`, `par`, `kelas`, `wali_kelas`, `validasi`, `keteranga
 (39, 'ma', '10-IPS-2', 'ARIF NURDIANSYAH, S.Pd', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-10-10 20:36:03'),
 (40, 'smk', '10-TB', 'Annissa Fitriani', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-10-10 16:21:27'),
 (41, 'ma', '11-IPS-2', 'IRFAN BAYU ANGGARA', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-26 13:46:20'),
-(42, 'smk', '11-TB', 'Mia fa''adah alma''mun', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 21:45:21'),
+(42, 'smk', '11-TB', 'Mia fa\'adah alma\'mun', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 21:45:21'),
 (43, 'smp', '7B', 'Muawanah, S.Pd', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-11-17 12:17:36'),
 (44, 'smp', '8B', 'Abdul Hamid', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-27 16:08:39'),
 (45, 'smp', '8A', 'Nuris Sabilatul Munfida', 'Finis', 'Data telah tervalidasi Admin\r\n', '2021-09-28 06:09:16'),
@@ -112,7 +113,7 @@ INSERT INTO `db_kls` (`id`, `par`, `kelas`, `wali_kelas`, `validasi`, `keteranga
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_link_a`
+-- Table structure for table `db_link_a`
 --
 
 CREATE TABLE `db_link_a` (
@@ -124,7 +125,7 @@ CREATE TABLE `db_link_a` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `db_link_a`
+-- Dumping data for table `db_link_a`
 --
 
 INSERT INTO `db_link_a` (`id`, `file`, `link`, `update`, `ket`) VALUES
@@ -139,7 +140,7 @@ INSERT INTO `db_link_a` (`id`, `file`, `link`, `update`, `ket`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_link_d`
+-- Table structure for table `db_link_d`
 --
 
 CREATE TABLE `db_link_d` (
@@ -151,7 +152,7 @@ CREATE TABLE `db_link_d` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `db_link_d`
+-- Dumping data for table `db_link_d`
 --
 
 INSERT INTO `db_link_d` (`id`, `file`, `link`, `update`, `ket`) VALUES
@@ -161,7 +162,7 @@ INSERT INTO `db_link_d` (`id`, `file`, `link`, `update`, `ket`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_ma`
+-- Table structure for table `db_ma`
 --
 
 CREATE TABLE `db_ma` (
@@ -241,7 +242,7 @@ CREATE TABLE `db_ma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_ma`
+-- Dumping data for table `db_ma`
 --
 
 INSERT INTO `db_ma` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
@@ -250,7 +251,7 @@ INSERT INTO `db_ma` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_mts`
+-- Table structure for table `db_mts`
 --
 
 CREATE TABLE `db_mts` (
@@ -325,21 +326,46 @@ CREATE TABLE `db_mts` (
   `status` varchar(100) NOT NULL,
   `jalur` varchar(25) NOT NULL,
   `foto` varchar(100) NOT NULL,
-  `progres` date NOT NULL,
+  `progres` datetime NOT NULL,
   `editor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_mts`
+-- Dumping data for table `db_mts`
 --
 
 INSERT INTO `db_mts` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
-(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-1', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-30', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'obil pribadi', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', 'Wiraswasta', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', '', 'Inden', '', '0000-00-00', 'Mukhammad Yasin');
+(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-001', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-30', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'obil pribadi', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', 'Wiraswasta', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', '', 'Inden', '', '0000-00-00 00:00:00', 'Mukhammad Yasin'),
+(11, 'a4e30929d05968204d05ec558401df9f', '538-220101-003', '0051093586', 'anash herdiansyah', 'L', 'Jember', '2022-01-01', '24864548645', 'Islam', 'Krajan Kidul, Sumberejo', '', '', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', '', '', '', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', 'anash herdiansyah'),
+(16, 'cc05d99fdee34411aed5565fc794bbd1', '538-220101-004', '0064942605', 'anisa anis', 'L', 'Jember', '2022-01-14', '674567642324', 'Islam', 'Krajan Kidul, Sumberejo', '', '', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', '', '', '', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '2022-01-01 20:11:07', 'anisa anis');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_setting`
+-- Table structure for table `db_panitia`
+--
+
+CREATE TABLE `db_panitia` (
+  `id` int(11) NOT NULL,
+  `codex` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `jabatan` varchar(50) NOT NULL,
+  `last` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `db_panitia`
+--
+
+INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabatan`, `last`) VALUES
+(1, 'c4ca4238a0b923820dcc509a6f75849b', 'M Yasin', 'panitia', 'panitia', 'panitia', '2021-12-31 15:15:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_setting`
 --
 
 CREATE TABLE `db_setting` (
@@ -351,16 +377,16 @@ CREATE TABLE `db_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_setting`
+-- Dumping data for table `db_setting`
 --
 
 INSERT INTO `db_setting` (`id`, `tapel`, `semester`, `register`, `pengumuman`) VALUES
-(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style="text-align: center; "><font color="#0000ff"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style="text-align: center; "><font color="#0000ff"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style="text-align: center; "><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ');
+(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style=\"text-align: center; \"><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_smk`
+-- Table structure for table `db_smk`
 --
 
 CREATE TABLE `db_smk` (
@@ -442,7 +468,7 @@ CREATE TABLE `db_smk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_smp`
+-- Table structure for table `db_smp`
 --
 
 CREATE TABLE `db_smp` (
@@ -524,7 +550,7 @@ CREATE TABLE `db_smp` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_user`
+-- Table structure for table `db_user`
 --
 
 CREATE TABLE `db_user` (
@@ -543,7 +569,7 @@ CREATE TABLE `db_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `db_user`
+-- Dumping data for table `db_user`
 --
 
 INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `kelas`, `telp`, `email`, `foto`, `status`, `last`) VALUES
@@ -555,9 +581,9 @@ INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `
 (28, '1655758660300022', 'e10adc3949ba59abbe56e057f20f883e', 'Reni sulistyani', 'walikelas', 'mts', '7D', '081336509239', 'sulistyanireni1@gmail.com', '1655758660300022.jpg', 'AKTIF', '2021-12-21 18:25:35'),
 (29, 'uswatun khoiriyah', '6ce07395327516601e5b7209a0cc02ad', 'Uswatun Khoiriyah', 'walikelas', 'mts', '8A', '082143267080', 'uswakhoir1980@gmail.com', 'none.png', 'AKTIF', '2021-12-21 15:59:13'),
 (30, 'ihwannurhuda', '15d036004256a2fd58e7b5a9cb86fbfc', 'Ihwan Nur Huda', 'walikelas', 'mts', '8F', '081329255872', 'ikhwannurhuda12@gmail.com', 'ihwanhurhuda.jpg', 'AKTIF', '2021-12-21 13:26:48'),
-(31, 'huri', '3d3ab9c632d02bc6e6097a50f41c5a37', 'hurry sayyidah robi''ah', 'walikelas', 'mts', '8D', '082237086715', 'royasalma66@gmail.com', 'none.png', 'AKTIF', '2021-12-22 10:57:39'),
+(31, 'huri', '3d3ab9c632d02bc6e6097a50f41c5a37', 'hurry sayyidah robi\'ah', 'walikelas', 'mts', '8D', '082237086715', 'royasalma66@gmail.com', 'none.png', 'AKTIF', '2021-12-22 10:57:39'),
 (32, 'MUYASSAROH', 'e10adc3949ba59abbe56e057f20f883e', 'Dra. MUYASSAROH', 'walikelas', 'mts', '9C', '081234828777', 'ashshidiqelqudsy@gmail.com', 'MUYASSAROH.jpg', 'AKTIF', '2021-12-21 10:51:19'),
-(33, 'ALIMASUD', '870502307ab208af8395ed7647718747', 'MOH ALI MAS''UD', 'walikelas', 'mts', '7B', '082142359637', 'moh.alimasud1977@gmail.com', 'none.png', 'AKTIF', '2021-12-20 18:39:57'),
+(33, 'ALIMASUD', '870502307ab208af8395ed7647718747', 'MOH ALI MAS\'UD', 'walikelas', 'mts', '7B', '082142359637', 'moh.alimasud1977@gmail.com', 'none.png', 'AKTIF', '2021-12-20 18:39:57'),
 (34, 'd14nsuryawati', 'de96eee7113bca20166ca04a28971d66', 'Dian Suryawati', 'walikelas', 'mts', '9B', '081358606195', 'd.yansuryawati@gmail.com', 'none.png', 'AKTIF', '2021-12-22 04:45:13'),
 (35, 'dana', '45b1c901aa5d4747f1d123a73f9b4482', 'Isnaini Wahdanawati ', 'walikelas', 'mts', '9A', '085735727266', 'isnainiwahdana@gmail.com', 'none.png', 'NON AKTIF', '2021-10-12 10:14:48'),
 (37, 'ASROFI', 'e10adc3949ba59abbe56e057f20f883e', 'MOHAMMAD ASROFI', 'walikelas', 'mts', '9E', '082334807242', 'mohasrofi@9.gmail.com', 'none.png', 'AKTIF', '2021-09-25 11:44:57'),
@@ -573,7 +599,7 @@ INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `
 (49, 'irfanbayu8', '6f8296b71ffddbe0658c612245a86cf8', 'IRFAN BAYU ANGGARA', 'walikelas', 'ma', '11-IPS-2', '085259923214', 'irfanbayu8@gmail.com', 'none.png', 'AKTIF', '2021-12-22 12:04:01'),
 (50, 'putri3112', '006de99ffe9526e5739c7c130687d860', 'PUTRI ARINI', 'walikelas', 'mts', '7F', '081232727723', 'ariniputri60@gmail.com', 'putri3112.jpg', 'AKTIF', '2021-12-21 20:35:52'),
 (51, 'zamroni', 'b539209753baa2658d5187f0211cbd4c', 'MUHAMAD ZAMRONI', 'walikelas', 'ma', '12-IPS-2', '082231257168', 'muhzamroni1605@gmail.com', 'zamroni.jpg', 'AKTIF', '2021-12-22 06:06:04'),
-(52, 'Mia123', 'fc70f968e46841d3bbbf579ae667eb16', 'Mia fa''adah alma''mun', 'walikelas', 'smk', '11-TB', '085735751445', 'miafaadah60@gmail.com', 'Mia123.jpg', 'AKTIF', '2021-12-13 08:01:17'),
+(52, 'Mia123', 'fc70f968e46841d3bbbf579ae667eb16', 'Mia fa\'adah alma\'mun', 'walikelas', 'smk', '11-TB', '085735751445', 'miafaadah60@gmail.com', 'Mia123.jpg', 'AKTIF', '2021-12-13 08:01:17'),
 (53, '201699540819@guruku.id', '22997bfaab654f22cdd65944e5e6b320', 'Abdul Hamid', 'walikelas', 'smp', '8B', '085285746828', 'abdhamidmi25@gmail.com', '201699540819@guruku.id.id', 'AKTIF', '2021-12-22 05:07:55'),
 (54, 'Mohammadaghnisshulkhi', '71bdd40677add39f29bde9db555be658', 'Mohammad aghnis shulkhi', 'walikelas', 'smp', '9B', '0895327531000', 'aghnissulkhi00@gmail.com', 'Mohammadaghnisshulkhi.jpg', 'AKTIF', '2021-12-22 08:00:26'),
 (55, 'Robitelmuttaqin', '2442d660ca919d04c6b9d86475939a00', 'Robit El Muttaqin, S. Pd', 'walikelas', 'smp', '9A', '085749409038', 'Robitelmuttaqin1987@gmail.com', 'Robitelmuttaqin.jpg', 'AKTIF', '2021-11-22 11:58:11'),
@@ -581,7 +607,7 @@ INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `
 (57, 'MFARID', 'e10adc3949ba59abbe56e057f20f883e', 'MOHAMMAD FARID WAJDI', 'walikelas', 'ma', '12-IPA-2', '085746172007', 'farid.alamien@gmail.com', 'none.png', 'AKTIF', '2021-12-22 12:58:51'),
 (58, 'anisafitriani', '4158e7628584a86cf382382ba664feef', 'Annissa Fitriani', 'walikelas', 'smk', '10-TB', '085852679761', 'anisaf009@gmail.com', 'anisafitriani.jpg', 'AKTIF', '2021-11-23 17:13:29'),
 (59, 'zulfamaghfiroh', 'e10adc3949ba59abbe56e057f20f883e', 'Zulfa Maghfiroh', 'tatausaha', 'smp', '7B', '081233465561', 'ijoenk_indigo@yahoo.com', 'zulfamaghfiroh.jpg', 'AKTIF', '2021-12-14 08:48:27'),
-(60, 'anisnisa', '50c75d6e385baebdef3c4ecc7b106aaa', 'siti khoirunnisa''', 'tatausaha', 'ma', '7B', '085649029635', 'aniez.elek@gmail.com', 'anisnisa.jpeg', 'AKTIF', '2021-12-22 10:41:51'),
+(60, 'anisnisa', '50c75d6e385baebdef3c4ecc7b106aaa', 'siti khoirunnisa\'', 'tatausaha', 'ma', '7B', '085649029635', 'aniez.elek@gmail.com', 'anisnisa.jpeg', 'AKTIF', '2021-12-22 10:41:51'),
 (61, 'Qorrobin', '7bd1dc07fe6452711f4bc00c8ed8aaa3', 'HANIF MUQORROBIN', 'walikelas', 'ma', '10-IPA-2', '085755704041', 'hnfmqrrbn@gmail.com', 'Qorrobin.jpg', 'AKTIF', '2021-12-22 04:30:09'),
 (62, 'nurhayati', 'e10adc3949ba59abbe56e057f20f883e', 'Siti Nurhayati', 'walikelas', 'ma', '12-IPS-1', 'O85231362069', 'nurhayati.klik@gmail.com', 'none.png', 'AKTIF', '2021-12-22 11:20:24'),
 (63, 'wiwinlutfiani', '5227c94e89761695ec3ada5eec4e290f', 'Wiwin Lutfiani', 'walikelas', 'ma', '11-IPA-1', '082132189156', 'wiwinlutfiani541@gmail.com', 'none.png', 'AKTIF', '2021-12-22 11:33:01'),
@@ -603,7 +629,7 @@ INSERT INTO `db_user` (`id`, `username`, `password`, `nama`, `jabatan`, `par`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db_user_pendaftar`
+-- Table structure for table `db_user_pendaftar`
 --
 
 CREATE TABLE `db_user_pendaftar` (
@@ -619,14 +645,14 @@ CREATE TABLE `db_user_pendaftar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `db_user_pendaftar`
+-- Dumping data for table `db_user_pendaftar`
 --
 
 INSERT INTO `db_user_pendaftar` (`id`, `nik`, `nama`, `email`, `telp`, `par`, `status`, `jabatan`, `echo`) VALUES
 (4, '3198627361726123', 'adjsajdas dsad', 'anashasd@gmail.com', '086235623243', 'MA', 'AKTIF', 'user', '1'),
 (5, '3509120603900001', 'Mukhammad Yasin', 'achin.clink@gmail.com', '082141632876', 'MTS', 'AKTIF', 'user', '1'),
-(7, '674567642324', 'anisa anis', 'anisa@yahoo.com', '081256565412', 'SMP', 'AKTIF', 'user', '0'),
-(8, '24864548645', 'anash herdiansyah', 'user@gmail.com', '086234423243', 'SMP', 'AKTIF', 'user', '0'),
+(7, '674567642324', 'anisa anis', 'anisa@yahoo.com', '081256565412', 'MTS', 'AKTIF', 'user', '1'),
+(8, '24864548645', 'anash herdiansyah', 'user@gmail.com', '086234423243', 'MTS', 'AKTIF', 'user', '1'),
 (9, '248645486453', 'anash herdiansyaha', 'usersmk@gmail.com', '086234423243', 'SMK', 'AKTIF', 'user', '0');
 
 --
@@ -670,6 +696,12 @@ ALTER TABLE `db_mts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `db_panitia`
+--
+ALTER TABLE `db_panitia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `db_setting`
 --
 ALTER TABLE `db_setting`
@@ -708,56 +740,74 @@ ALTER TABLE `db_user_pendaftar`
 --
 ALTER TABLE `db_info`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `db_kls`
 --
 ALTER TABLE `db_kls`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
 --
 -- AUTO_INCREMENT for table `db_link_a`
 --
 ALTER TABLE `db_link_a`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `db_link_d`
 --
 ALTER TABLE `db_link_d`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `db_ma`
 --
 ALTER TABLE `db_ma`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `db_mts`
 --
 ALTER TABLE `db_mts`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `db_panitia`
+--
+ALTER TABLE `db_panitia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `db_setting`
 --
 ALTER TABLE `db_setting`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `db_smk`
 --
 ALTER TABLE `db_smk`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `db_smp`
 --
 ALTER TABLE `db_smp`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `db_user`
 --
 ALTER TABLE `db_user`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT for table `db_user_pendaftar`
 --
 ALTER TABLE `db_user_pendaftar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
