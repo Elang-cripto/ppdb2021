@@ -61,18 +61,6 @@
 				<h1 id="menuatas" class="page-title">SELAMAT DATANG DI LAMAN PPDB<br> YAYASAN PONDOK PESANTREN AL AMIEN</h1>
 				<h3 id="menuatas" class="PAGE-SUB-TITLE">PANITIA PENERIMAAN PESERTA DIDIK BARU <br>TAHUN PELAJARAN 2022-2023<br>MTS AL AMIEN - MA AL AMIEN - SMP PLUS AL AMIEN - SMK AL AMIEN</h3>
 
-<<<<<<< HEAD
-
-				<div class="divide40"></div>
-				<div class="showcase">
-					<!-- <a class="btn btn-danger btn-lg hidden-xs" href="http://alamien.ddns.net/psb/"><i class="fa fa-hand-o-right"></i>LogIn</a> -->
-					<a class="btn btn-danger btn-lg hidden-xs" href="<?php echo base_url(); ?>auth">DAFTAR SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
-					<a class="btn btn-danger btn-lg visible-xs" href="<?php echo base_url(); ?>auth">DAFTAR SEKARANG &nbsp;&nbsp;<i class="fa fa-play"></i></a>
-				</div>
-			</div>
-			<!--/HERO -->
-=======
-						
 						<div class="divide40"></div>
 							<div class="showcase">
 								<!-- <a class="btn btn-danger btn-lg hidden-xs" href="http://alamien.ddns.net/psb/"><i class="fa fa-hand-o-right"></i>LogIn</a> -->
@@ -81,7 +69,6 @@
  							</div>
 					</div>
 				<!--/HERO -->
->>>>>>> 39aa736a4bc5ed15a53f61edbb6de37ea2a4b056
 			<!-- </div> -->
 			<!--/OVERLAY -->
 		</section>

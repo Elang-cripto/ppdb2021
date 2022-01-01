@@ -2,7 +2,7 @@
 
 $this->load->view('theme/head');
 $this->load->view('theme/hlink_ind12');
-$this->load->view('theme/hlink_modal');
+$this->load->view('theme/hd_alert');
 $this->load->view('theme/nav');
 $this->load->view('user/side');
 ?>
@@ -188,80 +188,7 @@ $this->load->view('user/side');
         </div>
         <!-- </div> -->
       </div>
-      <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header border-transparent">
-                <h3 class="card-title">Aktifitas Terakhir</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table m-0">
-                    <thead>
-                    <tr>
-                      <th>NIS</th>
-                      <th>Nama</th>
-                      <th>Status</th>
-                      <th>Keterangan</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td><a href="#">3124512</a></td>
-                      <td>M. Pauji</td>
-                      <td><span class="badge badge-warning">Proses Mutasi</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">Proses tanda tangan wali murid</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="#">3124513</a></td>
-                      <td>Siti tantriawati</td>
-                      <td><span class="badge badge-success">Update Data</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f39c12" data-height="20">Perbaikan nama Selesai</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="#">3124514</a></td>
-                      <td>Tukiyem</td>
-                      <td><span class="badge badge-danger">Mutasi Keluar</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f56954" data-height="20">Pindah ke Luar Angkasa</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="#l">3124515</a></td>
-                      <td>Ahmad Sarbini</td>
-                      <td><span class="badge badge-info">Verivikasi Data</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00c0ef" data-height="20">Pengajuan Diterima</div>
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-                
-              </div>
-              
-              <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-              </div>
-              
-            </div>
-          </div>
-        </div> -->
+      
     </div>
     <!-- /.timeline -->
   </section>
@@ -276,7 +203,7 @@ $this->load->view('user/side');
 
 $this->load->view('theme/foot');
 $this->load->view('theme/flink_ind12');
-$this->load->view('theme/flink_modal');
+$this->load->view('theme/ft_alert');
 ?>
 <script>
   $('#modalinfo').modal('show');

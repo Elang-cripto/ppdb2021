@@ -1,7 +1,7 @@
 <?php
 $this->load->view('theme/head');
 $this->load->view('theme/hlink_all');
-$this->load->view('theme/hlink_modal');
+$this->load->view('theme/hd_alert');
 $this->load->view('theme/nav');
 $role = $this->session->userdata('jabatan');
 $this->load->view($role . '/side');
@@ -71,7 +71,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Nama Lengkap" class="col-sm-4 col-form-label">NAMA LENGKAP</label>
                   <div class="col-sm-8">
-                    <input type="text" name="nama" class="form-control" id="nama" placeholder="Sesuai Ijazah" required>
+                    <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $this->session->userdata('nama'); ?>" disabled>
                   </div>
                 </div>
                 <!-- OPTION -->
@@ -79,6 +79,7 @@ $this->load->view($role . '/side');
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
                     <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
+                    <option value="">Pilih salah satu</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -102,7 +103,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="nik" class="col-sm-4 col-form-label">NIK</label>
                   <div class="col-sm-8">
-                    <input type="text" name="nik" class="form-control" id="nik" placeholder="35xxxxxxxxxxxxxx" required>
+                    <input type="text" name="nik" class="form-control" id="nik" value="<?php echo $this->session->userdata('nik'); ?>" disabled>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -233,7 +234,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Email" class="col-sm-4 col-form-label">E-MAIL</label>
                   <div class="col-sm-8">
-                    <input type="email" name="email" class="form-control" id="Email" placeholder="elang@gmail.com">
+                    <input type="email" name="email" class="form-control" id="Email" value="<?php echo $this->session->userdata('email'); ?>" disabled>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -683,5 +684,5 @@ $this->load->view($role . '/side');
 <?php
 $this->load->view('theme/foot');
 $this->load->view('theme/flink_form');
-$this->load->view('theme/flink_modal');
+$this->load->view('theme/ft_alert');
 ?>

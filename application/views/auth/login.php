@@ -54,43 +54,8 @@
   </div>
   <!-- partial -->
 
-  <script>
-    <?php if ($this->session->flashdata('berhasil')) { ?>
-      var isi = <?php echo json_encode($this->session->flashdata('berhasil')) ?>;
-      Swal.fire({
-        title: 'Berhasil',
-        text: isi,
-        icon: 'success',
-      })
-    <?php } ?>
-    <?php if ($this->session->flashdata('gagal')) { ?>
-      var isi = <?php echo json_encode($this->session->flashdata('gagal')) ?>;
-      Swal.fire({
-        title: 'GAGAL',
-        text: isi,
-        icon: 'error',
-      })
-    <?php } ?>
-    <?php if ($this->session->flashdata('nonaktif')) { ?>
-      var isi = <?php echo json_encode($this->session->flashdata('nonaktif')) ?>;
-      Swal.fire({
-        title: 'MAAF',
-        text: isi,
-        icon: 'warning',
-      })
-    <?php } ?>
-    <?php if ($this->session->flashdata('sukses')) { ?>
-      var isi = <?php echo json_encode($this->session->flashdata('sukses')) ?>;
-      Swal.fire({
-        title: 'Berhasil',
-        text: isi,
-        icon: 'success',
-      })
-    <?php } ?>
-  </script>
-
   <script src="<?php echo base_url(); ?>asset/login/dist/script.js"></script>
-
+  <?php	$this->load->view('theme/ft_sweatalert');	?>
 </body>
 
 </html>

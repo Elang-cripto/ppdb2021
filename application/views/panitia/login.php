@@ -60,7 +60,7 @@
 	</div>
 
 	<?php
-	$this->load->view('theme/ft_sweatalert');
+	$this->load->view('theme/ft_alert');
 	?>
 </body>
 

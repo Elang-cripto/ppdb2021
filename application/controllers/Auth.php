@@ -30,31 +30,17 @@ class Auth extends CI_Controller
             $this->session->set_userdata('nik', $row->nik);
             $this->session->set_userdata('status', $row->status);
             $this->session->set_userdata('jabatan', $row->jabatan);
+            $this->session->set_userdata('echo', $row->echo);
 
             if ($this->session->userdata('status') == "NON AKTIF") {
                 $this->session->set_flashdata('nonaktif', 'Akun anda belum di aktif, silahkan menghubungi panitia');
                 redirect('auth');
                 $this->session->sess_destroy();
-            } elseif ($this->session->userdata('par') == "MTS") {
-<<<<<<< HEAD
-                $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user/mts');
-            } elseif ($this->session->userdata('par') == "MA") {
-=======
-		        $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user');
-	        } elseif ($this->session->userdata('par') == "MA") {
->>>>>>> 39aa736a4bc5ed15a53f61edbb6de37ea2a4b056
-                $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user');
-            } elseif ($this->session->userdata('par') == "SMK") {
-                $this->session->set_flashdata('berhasil', 'Berhasil login');
-                redirect('user');
-            } elseif ($this->session->userdata('par') == "SMP") {
-                $this->session->set_flashdata('berhasil', 'Berhasil login');
+            } elseif ($this->session->userdata('par') == '0') {
+		        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: 'Silahkan mengisi Formulir yang telah disediakan'}");
                 redirect('user');
             } else {
-                echo "Mohon maaf, Halaman Belum tersedia";
+                redirect('user');
             }
         } else {
             $this->session->set_flashdata('gagal', 'Username/Password Salah');
