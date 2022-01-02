@@ -34,7 +34,7 @@ class Auth extends CI_Controller
             $this->session->set_userdata('jabatan', $row->jabatan);
             $this->session->set_userdata('echo', $row->echo);
 
-            if ($this->session->userdata('status') == "NON AKTIF") {
+            if ($this->session->userdata('status') != "AKTIF") {
                 $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Belum aktif',text: 'Silahkan Hubungi panitia'}");
                 redirect('auth');
                 $this->session->sess_destroy();

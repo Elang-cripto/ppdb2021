@@ -22,6 +22,7 @@ class M_ppdb extends CI_Model {
     public function getinfo()
     {
         $this->db->order_by('id', 'desc');
+        $this->db->limit(5);
         return $this->db->get("db_info")->result();
     }
 
@@ -51,6 +52,30 @@ class M_ppdb extends CI_Model {
         //$this->db->order_by('last', 'desc');
         return $this->db->get('db_panitia')->result();
     }
+
+    
+//  ========================== CRUD User ==========================
+    public function getuser_pes()
+    {
+        //$this->db->order_by('last', 'desc');
+        return $this->db->get('db_user_pendaftar')->result();
+    }
+
+    public function adduser_pes($data)
+    {
+        return $this->db->insert('db_user_pendaftar', $data);
+    }
+
+    public function updateuserpes($data,$id)
+    {
+        return $this->db->update('db_user_pendaftar', $data, array('id' => $id));
+    }
+
+    public function deluser_pes($id)
+    {
+        return $this->db->delete('db_user_pendaftar', array("id" => $id));
+    }
+
 }
 
 /* End of file ModelName.php */
