@@ -201,24 +201,7 @@ $this->load->view('theme/head');
             }
         }
     </script>
-    <script>
-        <?php if ($this->session->flashdata('sukses')) { ?>
-            var isi = <?php echo json_encode($this->session->flashdata('berhasil')) ?>;
-            Swal.fire({
-                title: 'Registrasi Berhasil',
-                text: isi,
-                icon: 'success',
-            })
-        <?php } ?>
-        <?php if ($this->session->flashdata('error')) { ?>
-            var isi = <?php echo json_encode($this->session->flashdata('error')) ?>;
-            Swal.fire({
-                title: 'Registrasi Gagal',
-                text: isi,
-                icon: 'error',
-            })
-        <?php } ?>
-    </script>
+    <?php	$this->load->view('theme/ft_alert');	?>
 </body>
 
 </html>

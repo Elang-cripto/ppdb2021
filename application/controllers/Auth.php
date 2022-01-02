@@ -6,7 +6,9 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model("m_ppdb");
         $this->load->library('form_validation');
+        date_default_timezone_set("ASIA/JAKARTA");
     }
 
     public function index()
@@ -38,8 +40,12 @@ class Auth extends CI_Controller
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == '0') {
 		        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: 'Silahkan mengisi Formulir yang telah disediakan'}");
+                $tabel          = "db_user_pendaftar";
+                $this->m_ppdb->update_last($tabel);
                 redirect('user');
             } else {
+                $tabel          = "db_user_pendaftar";
+                $this->m_ppdb->update_last($tabel);
                 redirect('user');
             }
         } else {
@@ -61,7 +67,7 @@ class Auth extends CI_Controller
                 $data['echo']       = 0;
 
                 $this->db->insert('db_user_pendaftar', $data);
-                $this->session->set_flashdata('sukses', 'Berhasil registrasi, Silahkan Login!');
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil registrasi',text: 'Aktifasi akun dengan menghubungi panitia'}");
                 redirect('auth');
             } else {
                 $this->load->view('auth/registration');
@@ -69,7 +75,7 @@ class Auth extends CI_Controller
             }
         } else {
             $this->load->view('auth/registration');
-            $this->session->set_flashdata('error', 'Data anda telah terdaftar sebelumnya, silahkan melakukan LogIn');
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Data Ganda',text: 'Data anda telah terdaftar sebelumnya, silahkan melakukan LogIn'}");
             redirect('auth/registration');
         }
     }
@@ -101,6 +107,8 @@ class Auth extends CI_Controller
 
             $nama = 'Anda log in sebagai ' . $this->session->userdata('nama');
             $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
+            $tabel          = "db_panitia";
+            $this->m_ppdb->update_last($tabel);
             redirect('panitia');
         } else {
             $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Maaf!',text: 'Username atau Password Salah'}");

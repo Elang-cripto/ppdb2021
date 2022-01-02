@@ -7,6 +7,8 @@
   </a>
 
   <?php
+  $cekin = ['datamts', 'datama', 'datasmp', 'datasmk', 'formmts', 'formma', 'formsmp', 'formsmk','viewmts','viewma','viewsmp','viewsmk','residumts','residuma','residusmp','residusmk'];
+  $cek_uri = $this->uri->segment(2);
   $role = $this->session->userdata('jabatan');
   $poto = $this->session->userdata('foto');
   $kelas = $this->session->userdata('kelas');
@@ -37,133 +39,84 @@
       <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($this->uri->segment(2) == "") {
-                                                                    echo "active";
-                                                                  } ?>">
+          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($cek_uri == "") {echo "active";} ?>">
             <i class="nav-icon fas fa-home"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($this->uri->segment(2) == "jumlah") {
-                                                                            echo "active";
-                                                                          } ?>">
-            <i class="nav-icon fas fa-briefcase"></i>
-            <p>Database</p>
+          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($cek_uri == "jumlah") { echo "active"; } ?>">
+            <i class="nav-icon fas fa-chart-line"></i>
+            <p>Jumlah Data</p>
           </a>
         </li>
         <li class="nav-item has-treeview 
-          <?php if (
-            $this->uri->segment(2) == "datamts" ||
-            $this->uri->segment(2) == "datama" ||
-            $this->uri->segment(2) == "datasmp" ||
-            // $this->uri->segment(2)=="viewmts"||
-            // $this->uri->segment(2)=="viewma"||
-            // $this->uri->segment(2)=="viewsmp"||
-            // $this->uri->segment(2)=="viewsmk"||
-            $this->uri->segment(2) == "formmts" ||
-            $this->uri->segment(2) == "formma" ||
-            $this->uri->segment(2) == "formsmp" ||
-            $this->uri->segment(2) == "formsmk" ||
-            $this->uri->segment(2) == "datasmk"
-          ) {
+          <?php 
+          
+          if (in_array($cek_uri , $cekin)) 
+          {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (
-              $this->uri->segment(2) == "datamts" ||
-              $this->uri->segment(2) == "datama" ||
-              $this->uri->segment(2) == "datasmp" ||
-              // $this->uri->segment(2)=="viewmts"||
-              // $this->uri->segment(2)=="viewma"||
-              // $this->uri->segment(2)=="viewsmp"||
-              // $this->uri->segment(2)=="viewsmk"||
-              $this->uri->segment(2) == "formmts" ||
-              $this->uri->segment(2) == "formma" ||
-              $this->uri->segment(2) == "formsmp" ||
-              $this->uri->segment(2) == "formsmk" ||
-              $this->uri->segment(2) == "datasmk"
-            ) {
+            <?php 
+            if (in_array($cek_uri , $cekin))
+            {
               echo "active";
             } ?>">
-            <i class="nav-icon fas fa-database"></i>
-            <p>Peserta Didik<i class="right fas fa-angle-left"></i></p>
+            <i class="nav-icon fas fa-users"></i>
+            <p>Calon Siswa Baru<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/datamts" class="nav-link 
-                <?php if (
-                  $this->uri->segment(2) == "datamts" ||
-                  $this->uri->segment(2) == "viewmts" ||
-                  $this->uri->segment(2) == "formmts"
-                ) {
+                <?php if ($cek_uri == "datamts") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-server nav-icon"></i>
+                <i class="fas fa-id-card nav-icon"></i>
                 <p>Database MTS</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/datama" class="nav-link 
-                <?php if (
-                  $this->uri->segment(2) == "datama" ||
-                  $this->uri->segment(2) == "viewma" ||
-                  $this->uri->segment(2) == "formma"
-                ) {
+                <?php if ($cek_uri == "datama") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-server nav-icon"></i>
+                <i class="fas fa-id-card nav-icon"></i>
                 <p>Database MA</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/datasmp" class="nav-link 
-                <?php if (
-                  $this->uri->segment(2) == "datasmp" ||
-                  $this->uri->segment(2) == "viewsmp" ||
-                  $this->uri->segment(2) == "formsmp"
-                ) {
+                <?php if ($cek_uri == "datasmp") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-server nav-icon"></i>
+                <i class="fas fa-id-card nav-icon"></i>
                 <p>Database SMP</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/datasmk" class="nav-link 
-                <?php if (
-                  $this->uri->segment(2) == "datasmk" ||
-                  $this->uri->segment(2) == "viewsmk" ||
-                  $this->uri->segment(2) == "formsmk"
-                ) {
+                <?php if ($cek_uri == "datasmk") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-server nav-icon"></i>
+                <i class="fas fa-id-card nav-icon"></i>
                 <p>Database SMK</p>
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-item has-treeview 
-          <?php if (
-            $this->uri->segment(2) == "vervalmts" ||
-            $this->uri->segment(2) == "vervalma" ||
-            $this->uri->segment(2) == "vervalsmp" ||
-            $this->uri->segment(2) == "vervalsmk"
-          ) {
+          <?php 
+          $cekres = ['residumts','residuma','residusmp','residusmk'];
+          if (in_array($cek_uri , $cekres)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (
-              $this->uri->segment(2) == "vervalmts" ||
-              $this->uri->segment(2) == "vervalma" ||
-              $this->uri->segment(2) == "vervalsmp" ||
-              $this->uri->segment(2) == "vervalsmk"
-            ) {
+            <?php if (in_array($cek_uri , $cekres)) {
               echo "active";
             } ?>">
-            <i class="nav-icon fas fa-calendar-check"></i>
-            <p>Validasi<i class="right fas fa-angle-left"></i></p>
+            <i class="nav-icon fas fa-exclamation-triangle"></i>
+            <p>Residu<i class="right fas fa-angle-left"></i></p>
           </a>
           <?php
           $status_array = array('PENGAJUAN MUTASI', 'PROSES MUTASI');
@@ -174,194 +127,148 @@
           ?>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/vervalmts" class="nav-link <?php if ($this->uri->segment(2) == "vervalmts") {
+              <a href="<?php echo base_url($role) ?>/residumts" class="nav-link <?php if ($cek_uri == "vervalmts") {
                                                                                   echo "active";
                                                                                 } ?>">
-                <i class="fas fa-check-circle nav-icon"></i>
-                <p>Verval MTS<span class="right badge badge-warning"><?php echo $verval_mts ?></span></p>
+                <i class="fas fa-recycle nav-icon"></i>
+                <p>Residu MTS<span class="right badge badge-warning"><?php echo $verval_mts ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/vervalma" class="nav-link <?php if ($this->uri->segment(2) == "vervalma") {
+              <a href="<?php echo base_url($role) ?>/residuma" class="nav-link <?php if ($cek_uri == "vervalma") {
                                                                                   echo "active";
                                                                                 } ?>">
-                <i class="fas fa-check-circle nav-icon"></i>
-                <p>Verval MA<span class="right badge badge-warning"><?php echo $verval_ma ?></span></p>
+                <i class="fas fa-recycle nav-icon"></i>
+                <p>Residu MA<span class="right badge badge-warning"><?php echo $verval_ma ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/vervalsmp" class="nav-link <?php if ($this->uri->segment(2) == "vervalsmp") {
+              <a href="<?php echo base_url($role) ?>/residusmp" class="nav-link <?php if ($cek_uri == "vervalsmp") {
                                                                                   echo "active";
                                                                                 } ?>">
-                <i class="fas fa-check-circle nav-icon"></i>
-                <p>Verval SMP<span class="right badge badge-warning"><?php echo $verval_smp ?></span></p>
+                <i class="fas fa-recycle nav-icon"></i>
+                <p>Residu SMP<span class="right badge badge-warning"><?php echo $verval_smp ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/vervalsmk" class="nav-link <?php if ($this->uri->segment(2) == "vervalsmk") {
+              <a href="<?php echo base_url($role) ?>/residusmk" class="nav-link <?php if ($cek_uri == "vervalsmk") {
                                                                                   echo "active";
                                                                                 } ?>">
-                <i class="fas fa-check-circle nav-icon"></i>
-                <p>Verval SMK<span class="right badge badge-warning"><?php echo $verval_smk ?></span></p>
+                <i class="fas fa-recycle nav-icon"></i>
+                <p>Residu SMK<span class="right badge badge-warning"><?php echo $verval_smk ?></span></p>
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-item has-treeview
           <?php if (
-            $this->uri->segment(2) == "dataoutmts" ||
-            $this->uri->segment(2) == "dataoutma" ||
-            $this->uri->segment(2) == "dataoutsmp" ||
-            $this->uri->segment(2) == "dataoutsmk"
+            $cek_uri == "dataoutmts" ||
+            $cek_uri == "dataoutma" ||
+            $cek_uri == "dataoutsmp" ||
+            $cek_uri == "dataoutsmk"
           ) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
             <?php if (
-              $this->uri->segment(2) == "dataoutmts" ||
-              $this->uri->segment(2) == "dataoutma" ||
-              $this->uri->segment(2) == "dataoutsmp" ||
-              $this->uri->segment(2) == "dataoutsmk"
+              $cek_uri == "dataoutmts" ||
+              $cek_uri == "dataoutma" ||
+              $cek_uri == "dataoutsmp" ||
+              $cek_uri == "dataoutsmk"
             ) {
               echo "active";
             } ?>">
-            <i class="nav-icon fas fa-share-square"></i>
-            <p>PD Keluar<i class="right fas fa-angle-left"></i></p>
+            <i class="nav-icon fas fa-ban"></i>
+            <p>Non Aktif<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutmts" class="nav-link 
-                <?php if ($this->uri->segment(2) == "dataoutmts") {
+                <?php if ($cek_uri == "dataoutmts") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>PD Keluar MTS</p>
+                <p>Non Aktif MTS</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutma" class="nav-link 
-                <?php if ($this->uri->segment(2) == "dataoutma") {
+                <?php if ($cek_uri == "dataoutma") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>PD Keluar MA</p>
+                <p>Non Aktif MA</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutsmp" class="nav-link 
-                <?php if ($this->uri->segment(2) == "dataoutsmp") {
+                <?php if ($cek_uri == "dataoutsmp") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>PD Keluar SMP</p>
+                <p>Non Aktif SMP</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutsmk" class="nav-link 
-                <?php if ($this->uri->segment(2) == "dataoutsmk") {
+                <?php if ($cek_uri == "dataoutsmk") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>PD Keluar SMK</p>
+                <p>Non Aktif SMK</p>
               </a>
             </li>
           </ul>
         </li>
 
-        <li class="nav-item has-treeview 
-          <?php if (
-            $this->uri->segment(2) == "klsmts" ||
-            $this->uri->segment(2) == "klssmp" ||
-            $this->uri->segment(2) == "klsma" ||
-            $this->uri->segment(2) == "klssmk" ||
-            $this->uri->segment(2) == "dataklsmts" ||
-            $this->uri->segment(2) == "dataklsma" ||
-            $this->uri->segment(2) == "dataklssmp" ||
-            $this->uri->segment(2) == "dataklssmk"
-          ) {
+        <li class="nav-item">
+          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($cek_uri == "master" || $cek_uri == "uploadmts") {
+                                                                            echo "active";
+                                                                          } ?>">
+            <i class="nav-icon fas fa-cloud-download-alt"></i>
+            <p>Download</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview
+        <?php 
+        $cekuser = ['user_pendaftar', 'user_panitia'];
+        if (in_array($cek_uri , $cekuser)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (
-              $this->uri->segment(2) == "klsmts" ||
-              $this->uri->segment(2) == "klssmp" ||
-              $this->uri->segment(2) == "klsma" ||
-              $this->uri->segment(2) == "klssmk" ||
-              $this->uri->segment(2) == "dataklsmts" ||
-              $this->uri->segment(2) == "dataklsma" ||
-              $this->uri->segment(2) == "dataklssmp" ||
-              $this->uri->segment(2) == "dataklssmk"
-            ) {
+            <?php if (in_array($cek_uri , $cekuser)) {
               echo "active";
             } ?>">
-            <i class="nav-icon fas fa-sitemap"></i>
-            <p>Data Rombel<i class="right fas fa-angle-left"></i></p>
+            <i class="nav-icon fas fa-users-cog"></i>
+            <p>Managemen User<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/klsmts" class="nav-link <?php if ($this->uri->segment(2) == "klsmts" || $this->uri->segment(2) == "dataklsmts") {
-                                                                                echo "active";
-                                                                              } ?>">
-                <i class="fas fa-sitemap nav-icon"></i>
-                <p>Rombel MTS</p>
+              <a href="<?php echo base_url($role) ?>/user_pendaftar" class="nav-link 
+                <?php if ($cek_uri == "user_pendaftar") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-key nav-icon"></i>
+                <p>User Pendaftar</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/klsma" class="nav-link <?php if ($this->uri->segment(2) == "klsma" || $this->uri->segment(2) == "dataklsma") {
-                                                                              echo "active";
-                                                                            } ?>">
-                <i class="fas fa-sitemap nav-icon"></i>
-                <p>Rombel MA</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/klssmp" class="nav-link <?php if ($this->uri->segment(2) == "klssmp" || $this->uri->segment(2) == "dataklssmp") {
-                                                                                echo "active";
-                                                                              } ?>">
-                <i class="fas fa-sitemap nav-icon"></i>
-                <p>Rombel SMP</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/klssmk" class="nav-link <?php if ($this->uri->segment(2) == "klssmk" || $this->uri->segment(2) == "dataklssmk") {
-                                                                                echo "active";
-                                                                              } ?>">
-                <i class="fas fa-sitemap nav-icon"></i>
-                <p>Rombel SMK</p>
+              <a href="<?php echo base_url($role) ?>/user_panitia" class="nav-link 
+                <?php if ($cek_uri == "user_panitia") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-key nav-icon"></i>
+                <p>User Panitia</p>
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($this->uri->segment(2) == "master" || $this->uri->segment(2) == "uploadmts") {
-                                                                            echo "active";
-                                                                          } ?>">
-            <i class="nav-icon fas fa-archive"></i>
-            <p>Master Database<span class="right badge badge-info">Admin</span></p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/user" class="nav-link <?php if ($this->uri->segment(2) == "user" || $this->uri->segment(2) == "adduser") {
-                                                                          echo "active";
-                                                                        } ?>">
-            <i class="nav-icon fas fa-users"></i>
-            <p>User Managemen<span class="right badge badge-info">Admin</span></p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($this->uri->segment(2) == "setting") {
+          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri == "setting") {
                                                                             echo "active";
                                                                           } ?>">
             <i class="nav-icon fas fa-cogs"></i>
-            <p>Setting<span class="right badge badge-info">Admin</span></p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/perangkat" class="nav-link <?php if ($this->uri->segment(2) == "perangkat") {
-                                                                              echo "active";
-                                                                            } ?>">
-            <i class="nav-icon fas fa-book"></i>
-            <p>Perangkat Pembelajaran</p>
+            <p>Setting</p>
           </a>
         </li>
         <li class="nav-item">

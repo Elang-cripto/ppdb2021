@@ -51,7 +51,7 @@ $this->load->view($role . '/side');
       ?>
 
       <!-- form start -->
-      <form method="post" action="<?php echo base_url($role); ?>/save_<?php echo $this->uri->segment(3); ?>" enctype="multipart/form-data">
+      <form method="post" action="<?php echo base_url($role); ?>/save" enctype="multipart/form-data">
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->
