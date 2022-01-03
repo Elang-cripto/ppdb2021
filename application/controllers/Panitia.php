@@ -42,26 +42,58 @@ class Panitia extends CI_Controller
         $this->session->sess_destroy();
     }
 
+    // ========================== Get Siswa ==========================
     public function datamts()
-	{
-		$data['dbmts'] = $this->m_ppdb->getmts();
+    {
+        $data['dbmts'] = $this->m_ppdb->getmts();
         $data['content'] = 'panitia/datamts';
 
-		$this->load->view('panitia/templating', $data);
-	}
+        $this->load->view('panitia/templating', $data);
+    }
+    public function datama()
+    {
+        $data['dbma'] = $this->m_ppdb->getma();
+        $data['content'] = 'panitia/datama';
+
+        $this->load->view('panitia/templating', $data);
+    }
+    public function datasmk()
+    {
+        $data['dbsmk'] = $this->m_ppdb->getsmk();
+        $data['content'] = 'panitia/datasmk';
+
+        $this->load->view('panitia/templating', $data);
+    }
+    public function datasmp()
+    {
+        $data['dbsmp'] = $this->m_ppdb->getsmp();
+        $data['content'] = 'panitia/datasmp';
+
+        $this->load->view('panitia/templating', $data);
+    }
+
+    // ========================== View Siswa ==========================
+    public function view()
+    {
+        $pilih            = 'db_' . strtolower($this->uri->segment(3));
+        $data['cari']       = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['content']    = 'panitia/view';
+
+        $this->load->view('panitia/templating', $data);
+    }
 
     // ========================== User Panitia ==========================
     public function user_panitia()
 	{
-		$data['dbuser'] = $this->m_ppdb->getuser();
+	$data['dbuser'] = $this->m_ppdb->getuser();
         $data['content'] = 'panitia/data_panitia';
 
-		$this->load->view('panitia/templating', $data);
+	$this->load->view('panitia/templating', $data);
 	}
 
     public function adduser()
 	{
-		$ceknik     = $this->input->post('nik');
+	$ceknik     = $this->input->post('nik');
         $jmlnik     = $this->db->get_where('db_panitia', array("nik" => $ceknik))->num_rows();
         
         if ($jmlnik !=0) {
