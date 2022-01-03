@@ -50,10 +50,12 @@ class Panitia extends CI_Controller
 
         $this->load->view('panitia/templating', $data);
     }
-    public function datama()
+    public function data($par)
     {
-        $data['dbma'] = $this->m_ppdb->getma();
-        $data['content'] = 'panitia/datama';
+        $tabel              = 'db_'.$par;
+        $data['tabel_cek']  = $par;
+        $data['cari']       = $this->m_ppdb->getdata($tabel);
+        $data['content']    = 'panitia/dataview';
 
         $this->load->view('panitia/templating', $data);
     }

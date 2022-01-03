@@ -7,8 +7,9 @@
   </a>
 
   <?php
-  $cekin = ['datamts', 'datama', 'datasmp', 'datasmk', 'formmts', 'formma', 'formsmp', 'formsmk','viewmts','viewma','viewsmp','viewsmk','residumts','residuma','residusmp','residusmk'];
-  $cek_uri = $this->uri->segment(2);
+  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'formmts', 'formma', 'formsmp', 'formsmk','view','residumts','residuma','residusmp','residusmk'];
+  $cek_uri2 = $this->uri->segment(2);
+  $cek_uri3 = $this->uri->segment(3);
   $role = $this->session->userdata('jabatan');
   $poto = $this->session->userdata('foto');
   $kelas = $this->session->userdata('kelas');
@@ -39,13 +40,13 @@
       <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($cek_uri == "") {echo "active";} ?>">
+          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($cek_uri2 == "") {echo "active";} ?>">
             <i class="nav-icon fas fa-home"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($cek_uri == "jumlah") { echo "active"; } ?>">
+          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($cek_uri2 == "jumlah") { echo "active"; } ?>">
             <i class="nav-icon fas fa-chart-line"></i>
             <p>Jumlah Data</p>
           </a>
@@ -53,13 +54,13 @@
         <li class="nav-item has-treeview 
           <?php 
           
-          if (in_array($cek_uri , $cekin)) 
+          if (in_array($cek_uri2 , $cekin)) 
           {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
             <?php 
-            if (in_array($cek_uri , $cekin))
+            if (in_array($cek_uri2 , $cekin))
             {
               echo "active";
             } ?>">
@@ -68,8 +69,8 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/datamts" class="nav-link 
-                <?php if ($cek_uri == "datamts") {
+              <a href="<?php echo base_url($role) ?>/data/mts" class="nav-link 
+                <?php if ($cek_uri3 == "mts") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -77,8 +78,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/datama" class="nav-link 
-                <?php if ($cek_uri == "datama") {
+              <a href="<?php echo base_url($role) ?>/data/ma" class="nav-link 
+                <?php if ($cek_uri3 == "ma") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -86,8 +87,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/datasmp" class="nav-link 
-                <?php if ($cek_uri == "datasmp") {
+              <a href="<?php echo base_url($role) ?>/data/smp" class="nav-link 
+                <?php if ($cek_uri3 == "smp") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -95,8 +96,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/datasmk" class="nav-link 
-                <?php if ($cek_uri == "datasmk") {
+              <a href="<?php echo base_url($role) ?>/data/smk" class="nav-link 
+                <?php if ($cek_uri3 == "smk") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -108,11 +109,11 @@
         <li class="nav-item has-treeview 
           <?php 
           $cekres = ['residumts','residuma','residusmp','residusmk'];
-          if (in_array($cek_uri , $cekres)) {
+          if (in_array($cek_uri2 , $cekres)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (in_array($cek_uri , $cekres)) {
+            <?php if (in_array($cek_uri2 , $cekres)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-exclamation-triangle"></i>
@@ -127,7 +128,7 @@
           ?>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residumts" class="nav-link <?php if ($cek_uri == "vervalmts") {
+              <a href="<?php echo base_url($role) ?>/residumts" class="nav-link <?php if ($cek_uri2 == "vervalmts") {
                                                                                   echo "active";
                                                                                 } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
@@ -135,7 +136,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residuma" class="nav-link <?php if ($cek_uri == "vervalma") {
+              <a href="<?php echo base_url($role) ?>/residuma" class="nav-link <?php if ($cek_uri2 == "vervalma") {
                                                                                   echo "active";
                                                                                 } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
@@ -143,7 +144,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residusmp" class="nav-link <?php if ($cek_uri == "vervalsmp") {
+              <a href="<?php echo base_url($role) ?>/residusmp" class="nav-link <?php if ($cek_uri2 == "vervalsmp") {
                                                                                   echo "active";
                                                                                 } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
@@ -151,7 +152,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residusmk" class="nav-link <?php if ($cek_uri == "vervalsmk") {
+              <a href="<?php echo base_url($role) ?>/residusmk" class="nav-link <?php if ($cek_uri2 == "vervalsmk") {
                                                                                   echo "active";
                                                                                 } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
@@ -162,19 +163,19 @@
         </li>
         <li class="nav-item has-treeview
           <?php if (
-            $cek_uri == "dataoutmts" ||
-            $cek_uri == "dataoutma" ||
-            $cek_uri == "dataoutsmp" ||
-            $cek_uri == "dataoutsmk"
+            $cek_uri2 == "dataoutmts" ||
+            $cek_uri2 == "dataoutma" ||
+            $cek_uri2 == "dataoutsmp" ||
+            $cek_uri2 == "dataoutsmk"
           ) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
             <?php if (
-              $cek_uri == "dataoutmts" ||
-              $cek_uri == "dataoutma" ||
-              $cek_uri == "dataoutsmp" ||
-              $cek_uri == "dataoutsmk"
+              $cek_uri2 == "dataoutmts" ||
+              $cek_uri2 == "dataoutma" ||
+              $cek_uri2 == "dataoutsmp" ||
+              $cek_uri2 == "dataoutsmk"
             ) {
               echo "active";
             } ?>">
@@ -184,7 +185,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutmts" class="nav-link 
-                <?php if ($cek_uri == "dataoutmts") {
+                <?php if ($cek_uri2 == "dataoutmts") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
@@ -193,7 +194,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutma" class="nav-link 
-                <?php if ($cek_uri == "dataoutma") {
+                <?php if ($cek_uri2 == "dataoutma") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
@@ -202,7 +203,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutsmp" class="nav-link 
-                <?php if ($cek_uri == "dataoutsmp") {
+                <?php if ($cek_uri2 == "dataoutsmp") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
@@ -211,7 +212,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/dataoutsmk" class="nav-link 
-                <?php if ($cek_uri == "dataoutsmk") {
+                <?php if ($cek_uri2 == "dataoutsmk") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
@@ -222,7 +223,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($cek_uri == "master" || $cek_uri == "uploadmts") {
+          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($cek_uri2 == "master" || $cek_uri2 == "uploadmts") {
                                                                             echo "active";
                                                                           } ?>">
             <i class="nav-icon fas fa-cloud-download-alt"></i>
@@ -232,11 +233,11 @@
         <li class="nav-item has-treeview
         <?php 
         $cekuser = ['user_peserta', 'user_panitia'];
-        if (in_array($cek_uri , $cekuser)) {
+        if (in_array($cek_uri2 , $cekuser)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (in_array($cek_uri , $cekuser)) {
+            <?php if (in_array($cek_uri2 , $cekuser)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-users-cog"></i>
@@ -245,7 +246,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/user_peserta" class="nav-link 
-                <?php if ($cek_uri == "user_peserta") {
+                <?php if ($cek_uri2 == "user_peserta") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-user nav-icon"></i>
@@ -254,7 +255,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/user_panitia" class="nav-link 
-                <?php if ($cek_uri == "user_panitia") {
+                <?php if ($cek_uri2 == "user_panitia") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-user-shield nav-icon"></i>
@@ -264,7 +265,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri == "setting") {
+          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri2 == "setting") {
                                                                             echo "active";
                                                                           } ?>">
             <i class="nav-icon fas fa-cogs"></i>

@@ -47,10 +47,10 @@ class M_ppdb extends CI_Model {
         return $this->db->get('db_mts')->result();
 	}
 	
-	public function getma()
+	public function getdata($tabel)
     {
         $this->db->order_by('id', 'asc');
-        return $this->db->get('db_ma')->result();
+        return $this->db->get($tabel)->result();
     }
 
     public function getsmk()
@@ -70,7 +70,6 @@ class M_ppdb extends CI_Model {
         //$this->db->order_by('last', 'desc');
         return $this->db->get('db_panitia')->result();
     }
-
     
 //  ========================== CRUD User ==========================
     public function getuser_pes()
