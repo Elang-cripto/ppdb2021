@@ -43,13 +43,6 @@ class Panitia extends CI_Controller
     }
 
     // ========================== Get Siswa ==========================
-    public function datamts()
-    {
-        $data['dbmts'] = $this->m_ppdb->getmts();
-        $data['content'] = 'panitia/datamts';
-
-        $this->load->view('panitia/templating', $data);
-    }
     public function data($par)
     {
         $tabel              = 'db_'.$par;
@@ -59,25 +52,11 @@ class Panitia extends CI_Controller
 
         $this->load->view('panitia/templating', $data);
     }
-    public function datasmk()
-    {
-        $data['dbsmk'] = $this->m_ppdb->getsmk();
-        $data['content'] = 'panitia/datasmk';
-
-        $this->load->view('panitia/templating', $data);
-    }
-    public function datasmp()
-    {
-        $data['dbsmp'] = $this->m_ppdb->getsmp();
-        $data['content'] = 'panitia/datasmp';
-
-        $this->load->view('panitia/templating', $data);
-    }
 
     // ========================== View Siswa ==========================
     public function view()
     {
-        $pilih            = 'db_' . strtolower($this->uri->segment(3));
+        $pilih              = 'db_' . strtolower($this->uri->segment(3));
         $data['cari']       = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
         $data['content']    = 'panitia/view';
 
@@ -93,6 +72,20 @@ class Panitia extends CI_Controller
 
         $this->load->view('panitia/templating', $data);
     }
+
+    public function editsave($par,$id)
+	{
+        $pilih                  = 'db_' . $par;
+        $data 				    = $this->input->post();
+		//$id 					= $this->input->post('id_enc');
+		$data['editor'] 		= $this->session->userdata('nama');
+        $data['progres'] 	    = date("Y-m-d H:i:s");
+
+		$this->m_ppdb->updatedata($data, $id, $pilih);
+        $kirim  =   'Data '.$this->input->post('nama').' berhasil di edit';
+		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
+		redirect('panitia/data/'.$par, 'refresh');
+	}
 
     // ========================== User Panitia ==========================
     public function user_panitia()

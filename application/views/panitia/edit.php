@@ -1,3 +1,14 @@
+<?php
+if ($this->uri->segment(3) == "mts") {
+    $warna = "info";
+} elseif ($this->uri->segment(3) == "ma") {
+    $warna = "success";
+} elseif ($this->uri->segment(3) == "smp") {
+    $warna = "warning";
+} else {
+    $warna = "danger";
+}
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -19,20 +30,9 @@
 
     <!-- Main content -->
     <section class="content">
-        <?php
-        if ($this->uri->segment(3) == "nts") {
-            $warna = "info";
-        } elseif ($this->uri->segment(3) == "ma") {
-            $warna = "success";
-        } elseif ($this->uri->segment(3) == "smp") {
-            $warna = "warning";
-        } else {
-            $warna = "danger";
-        }
-        ?>
 
         <!-- form start -->
-        <form method="post" action="<?php echo base_url("panitia/edit/"); ?><?= $this->uri->segment(3)  ?>" enctype="multipart/form-data">
+        <form method="post" action="<?php echo base_url(); ?>panitia/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
             <!-- Horizontal Form -->
 
             <!-- DATA SISWA -->
@@ -46,6 +46,7 @@
                             <div class="form-group row">
                                 <label for="no_reg" class="col-sm-4 col-form-label">NO REGISTRASI</label>
                                 <div class="col-sm-8">
+                                    <!-- <input type="hidden" name="id_enc" class="form-control" id="id_enc" value="<?php echo $cari->id_enc; ?>"> -->
                                     <input type="text" name="no_reg" class="form-control" id="no_reg" value="<?php echo $cari->no_reg; ?>" disabled>
                                 </div>
                             </div>

@@ -18,7 +18,7 @@ class M_ppdb extends CI_Model {
         return $this->db->update($tabel, $data, array('id' => $id));
     }
 
-    //=========================================================================================
+//=========================================== Dasboard =================================
     public function getinfo()
     {
         $this->db->order_by('id', 'desc');
@@ -33,37 +33,26 @@ class M_ppdb extends CI_Model {
         return $this->db->get("db_user")->result();
     }
 
-    //=========================================== GET SISWA ============================================================================
+//=========================================== GET SISWA =================================
     public function getkls_mts()
     {
         $this->db->order_by('kelas', 'asc');
         return $this->db->get_where('db_kls',array("par" => 'mts'))->result();
     }
 
-    public function getmts()
-    {
-        $this->db->order_by('id', 'asc');
-        //$this->db->where('status', 'AKTIF');
-        return $this->db->get('db_mts')->result();
-	}
-	
 	public function getdata($tabel)
     {
         $this->db->order_by('id', 'asc');
+        //$this->db->where('status', 'AKTIF');
         return $this->db->get($tabel)->result();
     }
 
-    public function getsmk()
+	public function updatedata($data, $id, $pilih)
     {
-        $this->db->order_by('id', 'asc');
-        return $this->db->get('db_smk')->result();
+        return $this->db->update($pilih, $data, array('id_enc' => $id));
     }
 
-    public function getsmp()
-    {
-        $this->db->order_by('id', 'asc');
-        return $this->db->get('db_smp')->result();
-    }
+    
 // ===========================GET USER ==============================
     public function getuser()
     {
