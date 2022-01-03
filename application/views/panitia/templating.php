@@ -3,7 +3,8 @@ $this->load->view('theme/head');
 $this->load->view('theme/hlink_ind12');
 $this->load->view('theme/hd_alert');
 $this->load->view('theme/nav');
-$this->load->view('panitia/side');
+$role = $this->session->userdata('jabatan');
+$this->load->view($role . '/side');
 ?>
 <!-- =============================================================================================== -->
 

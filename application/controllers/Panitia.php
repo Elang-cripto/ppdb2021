@@ -54,6 +54,13 @@ class Panitia extends CI_Controller
     }
 
     // ========================== View Siswa ==========================
+    public function form()
+    {
+        $data['content']    = 'panitia/form-add';
+
+        $this->load->view('panitia/templating', $data);
+    }
+
     public function view()
     {
         $pilih              = 'db_' . strtolower($this->uri->segment(3));
@@ -77,7 +84,6 @@ class Panitia extends CI_Controller
 	{
         $pilih                  = 'db_' . $par;
         $data 				    = $this->input->post();
-		//$id 					= $this->input->post('id_enc');
 		$data['editor'] 		= $this->session->userdata('nama');
         $data['progres'] 	    = date("Y-m-d H:i:s");
 

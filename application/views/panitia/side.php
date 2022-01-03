@@ -3,11 +3,11 @@
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
     <img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Database Online</span>
+    <span class="brand-text font-weight-light">PPDB Online</span>
   </a>
 
   <?php
-  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'formmts', 'formma', 'formsmp', 'formsmk','view','residumts','residuma','residusmp','residusmk'];
+  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'form','view','residumts','residuma','residusmp','residusmk'];
   $cek_uri2 = $this->uri->segment(2);
   $cek_uri3 = $this->uri->segment(3);
   $role = $this->session->userdata('jabatan');

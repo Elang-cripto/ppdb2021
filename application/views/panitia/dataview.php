@@ -1,13 +1,17 @@
 <?php 
-    $ceksegmen = $this->uri->segment(3);
-    if ($ceksegmen == "mts") {
+    $cekuri = $this->uri->segment(3);
+    if ($cekuri == "mts") {
         $warna = "info";
-      } elseif ($ceksegmen == "ma") {
+        $lembaga = "MTS AL AMIEN";
+    } elseif ($cekuri == "ma") {
         $warna = "success";
-      } elseif ($ceksegmen == "smp") {
+        $lembaga = "MA AL AMIEN";
+    } elseif ($cekuri == "smp") {
         $warna = "warning";
-      } else {
+        $lembaga = "SMP PLUS AL AMIEN";
+    } else {
         $warna = "danger";
+        $lembaga = "MA AL AMIEN";
       }
 ?>
 
@@ -22,8 +26,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DATA MA</li>
+                        <!-- <li class="breadcrumb-item"><a href="#">Data</a></li> -->
+                        <li class="breadcrumb-item active">Data_<?php echo $cekuri;?></li>
                     </ol>
                 </div>
             </div>
@@ -37,11 +41,11 @@
                 <div class="col-12">
                     <div class="card card-<?php echo $warna ;?>">
                         <div class="card-header">
-                            <h3 class="card-title">Data Calon Siswa MA AL AMIEN</h3>
+                            <h3 class="card-title">Data Calon Siswa <?php echo $lembaga;?></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a class="btn btn-success" href="<?php echo base_url('') ?>admin/formma"><i class="fa fa-user-plus"></i> Form Tambah Siswa</a>
+                            <a class="btn btn-success" href="<?php echo base_url($this->session->userdata('jabatan'))?>/form/<?php echo $cekuri;?>"><i class="fa fa-user-plus"></i> Formulir Baru</a>
                             <hr>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
