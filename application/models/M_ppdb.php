@@ -33,7 +33,7 @@ class M_ppdb extends CI_Model {
         return $this->db->get("db_user")->result();
     }
 
-    // SumIf db_mts ============================================================================
+    //=========================================== GET SISWA ============================================================================
     public function getkls_mts()
     {
         $this->db->order_by('kelas', 'asc');
@@ -46,7 +46,25 @@ class M_ppdb extends CI_Model {
         //$this->db->where('status', 'AKTIF');
         return $this->db->get('db_mts')->result();
 	}
+	
+	public function getma()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get('db_ma')->result();
+    }
 
+    public function getsmk()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get('db_smk')->result();
+    }
+
+    public function getsmp()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get('db_smp')->result();
+    }
+// ===========================GET USER ==============================
     public function getuser()
     {
         //$this->db->order_by('last', 'desc');
