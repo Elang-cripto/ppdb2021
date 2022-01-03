@@ -83,6 +83,16 @@ class Panitia extends CI_Controller
 
         $this->load->view('panitia/templating', $data);
     }
+	
+	// ========================== edit Siswa ==========================
+    public function edit()
+    {
+        $pilih                = 'db_' . strtolower($this->uri->segment(3));
+        $data['cari']         = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['content']      = 'panitia/edit';
+
+        $this->load->view('panitia/templating', $data);
+    }
 
     // ========================== User Panitia ==========================
     public function user_panitia()
