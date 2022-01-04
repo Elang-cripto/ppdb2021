@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_ppdb extends CI_Model {
+class M_ppdb extends CI_Model
+{
 
     public function get_kode($dbcek)
     {
@@ -13,12 +14,12 @@ class M_ppdb extends CI_Model {
 
     public function update_last($tabel)
     {
-        $id 			= $this->session->userdata('id');
-        $data['last'] 	= date('Y-m-d H:i:s');
+        $id             = $this->session->userdata('id');
+        $data['last']     = date('Y-m-d H:i:s');
         return $this->db->update($tabel, $data, array('id' => $id));
     }
 
-//=========================================== Dasboard =================================
+    //=========================================== Dasboard =================================
     public function getinfo()
     {
         $this->db->order_by('id', 'desc');
@@ -29,38 +30,50 @@ class M_ppdb extends CI_Model {
     public function getuserdas()
     {
         $this->db->order_by('last', 'desc');
-        $this->db->limit(8);        
+        $this->db->limit(8);
         return $this->db->get("db_user")->result();
     }
 
-//=========================================== GET SISWA =================================
+    //=========================================== GET SISWA =================================
     public function getkls_mts()
     {
         $this->db->order_by('kelas', 'asc');
-        return $this->db->get_where('db_kls',array("par" => 'mts'))->result();
+        return $this->db->get_where('db_kls', array("par" => 'mts'))->result();
     }
 
-	public function getdata($tabel)
+    public function getdata($tabel)
     {
         $this->db->order_by('id', 'asc');
-        //$this->db->where('status', 'AKTIF');
+        $this->db->where('status', 'AKTIF');
+        return $this->db->get($tabel)->result();
+    }
+    public function getresidu($tabel)
+    {
+        $this->db->order_by('id', 'asc');
+        $this->db->where('status', 'RESIDU');
+        return $this->db->get($tabel)->result();
+    }
+    public function getnonaktif($tabel)
+    {
+        $this->db->order_by('id', 'asc');
+        $this->db->where('status', 'NON AKTIF');
         return $this->db->get($tabel)->result();
     }
 
-	public function updatedata($data, $id, $pilih)
+    public function updatedata($data, $id, $pilih)
     {
         return $this->db->update($pilih, $data, array('id_enc' => $id));
     }
 
-    
-// ===========================GET USER ==============================
+
+    // ===========================GET USER ==============================
     public function getuser()
     {
         //$this->db->order_by('last', 'desc');
         return $this->db->get('db_panitia')->result();
     }
-    
-//  ========================== CRUD User ==========================
+
+    //  ========================== CRUD User ==========================
     public function getuser_pes()
     {
         //$this->db->order_by('last', 'desc');
@@ -72,7 +85,7 @@ class M_ppdb extends CI_Model {
         return $this->db->insert('db_user_pendaftar', $data);
     }
 
-    public function updateuserpes($data,$id)
+    public function updateuserpes($data, $id)
     {
         return $this->db->update('db_user_pendaftar', $data, array('id' => $id));
     }
@@ -81,7 +94,6 @@ class M_ppdb extends CI_Model {
     {
         return $this->db->delete('db_user_pendaftar', array("id" => $id));
     }
-
 }
 
 /* End of file ModelName.php */
