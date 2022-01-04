@@ -76,6 +76,9 @@ class Panitia extends CI_Controller
     // ========================== View Siswa ==========================
     public function form()
     {
+        $pilih                = 'db_setting';
+        $id                   = 1;
+        $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
         $data['content']    = 'panitia/form-add';
 
         $this->load->view('panitia/templating', $data);
@@ -219,6 +222,27 @@ class Panitia extends CI_Controller
         $this->m_ppdb->deluser_pes($id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
         redirect('panitia/user_peserta', 'refresh');
+    }
+
+
+    // =============================== SETTING =======================================
+
+    public function vsetting()
+    {
+        $pilih                = 'db_setting';
+        $id                   = 1;
+        $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
+        $data['content']      = 'panitia/setting';
+
+        $this->load->view('panitia/templating', $data);
+    }
+    public function updatesetting()
+    {
+        $id                        = 1;
+        $data['jalur']             = $this->input->post('jalur');
+        $this->m_ppdb->updateset($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Berhasil disimpan',}");
+        redirect('panitia/vsetting', 'refresh');
     }
 }
 
