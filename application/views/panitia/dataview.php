@@ -90,6 +90,9 @@ if ($cekuri == "mts") {
                                                 <a data-toggle='tooltip' data-placement='top' title='Print' href="<?php echo base_url(); ?>panitia/bukti/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-print"></i>
                                                 </a>
+                                                <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>panitia/delete/<?php echo $tabel_cek; ?>/<?php echo $row->id_enc; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')">
+                                                    <i class="fa fa-trash-alt"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

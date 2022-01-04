@@ -7,7 +7,7 @@
   </a>
 
   <?php
-  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'form', 'view',];
+  $cekin = ['data','form', 'view','edit','bukti',];
   $cekres = ['residu'];
   $ceknon = ['nonaktif'];
   $cek_uri2 = $this->uri->segment(2);
@@ -74,7 +74,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/data/mts" class="nav-link 
-                <?php if ($cek_uri2 == "data" && $cek_uri3 == "mts") {
+                <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "mts") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -83,7 +83,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/data/ma" class="nav-link 
-                <?php if ($cek_uri2 == "data" && $cek_uri3 == "ma") {
+                <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "ma") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -92,7 +92,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/data/smp" class="nav-link 
-                <?php if ($cek_uri2 == "data" && $cek_uri3 == "smp") {
+                <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "smp") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>
@@ -101,7 +101,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/data/smk" class="nav-link 
-                <?php if ($cek_uri2 == "data" && $cek_uri3 == "smk") {
+                <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "smk") {
                   echo "active";
                 } ?>">
                 <i class="fas fa-id-card nav-icon"></i>

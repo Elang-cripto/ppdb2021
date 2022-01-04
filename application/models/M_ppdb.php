@@ -94,6 +94,13 @@ class M_ppdb extends CI_Model
     {
         return $this->db->delete('db_user_pendaftar', array("id" => $id));
     }
+
+    public function view_peserta()
+    {
+        $pilih = 'db_' . strtolower($this->uri->segment(3));
+        return $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+    }
+
 }
 
 /* End of file ModelName.php */

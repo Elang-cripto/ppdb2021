@@ -34,7 +34,7 @@ if ($cekuri == "mts") {
     <div class="container-fluid">
 
       <!-- form start -->
-      <form method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/save" enctype="multipart/form-data">
+      <form method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/add_peserta/<?php echo $cekuri;?>" enctype="multipart/form-data">
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->

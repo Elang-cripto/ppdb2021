@@ -83,18 +83,23 @@ class Panitia extends CI_Controller
 
     public function view()
     {
-        $pilih              = 'db_' . strtolower($this->uri->segment(3));
-        $data['cari']       = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['cari']       = $this->m_ppdb->view_peserta();
         $data['content']    = 'panitia/view';
 
         $this->load->view('panitia/templating', $data);
     }
 
     // ========================== edit Siswa ==========================
+    public function add_peserta()
+    {
+        # code...
+    }
+
     public function edit()
     {
-        $pilih                = 'db_' . strtolower($this->uri->segment(3));
-        $data['cari']         = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        // $pilih                = 'db_' . strtolower($this->uri->segment(3));
+        // $data['cari']         = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['cari']       = $this->m_ppdb->view_peserta();
         $data['content']      = 'panitia/edit';
 
         $this->load->view('panitia/templating', $data);
@@ -113,12 +118,12 @@ class Panitia extends CI_Controller
         redirect('panitia/data/' . $par, 'refresh');
     }
 
-    // ========================== edit Siswa ==========================
+    // ========================== cetak bukti ==========================
     public function bukti()
     {
-        $pilih              = 'db_' . strtolower($this->uri->segment(3));
-        $data['data']       = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
-        $data['content']    = 'bukti';
+        $data['data']       = $this->m_ppdb->view_peserta();
+        $data['form']       = 'bukti';
+        $data['content']    = 'border';
 
         $this->load->view('panitia/templating', $data);
     }
@@ -220,6 +225,7 @@ class Panitia extends CI_Controller
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
         redirect('panitia/user_peserta', 'refresh');
     }
+
 }
 
 /* End of file Controllername.php */
