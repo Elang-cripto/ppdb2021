@@ -263,9 +263,9 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri2 == "setting") {
-                                                                            echo "active";
-                                                                          } ?>">
+          <a href="<?php echo base_url($role) ?>/vsetting" class="nav-link <?php if ($cek_uri2 == "setting") {
+                                                                              echo "active";
+                                                                            } ?>">
             <i class="nav-icon fas fa-cogs"></i>
             <p>Setting</p>
           </a>

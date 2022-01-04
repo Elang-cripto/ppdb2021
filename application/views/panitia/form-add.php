@@ -21,7 +21,7 @@ if ($cekuri == "mts") {
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo base_url($this->session->userdata('jabatan'));?>/data/<?php echo $cekuri;?>">Data_<?php echo $cekuri;?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url($this->session->userdata('jabatan')); ?>/data/<?php echo $cekuri; ?>">Data_<?php echo $cekuri; ?></a></li>
             <li class="breadcrumb-item active">Formulir</li>
           </ol>
         </div>
@@ -62,7 +62,7 @@ if ($cekuri == "mts") {
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
                     <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                    <option value="">Pilih salah satu</option>
+                      <option value="">Pilih salah satu</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -600,13 +600,9 @@ if ($cekuri == "mts") {
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
+                  <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                   <div class="col-sm-8">
-                    <select type="text" name="jns_masuk" id="jns_masuk" class="form-control select2">
-                      <option value="Siswa Baru">Siswa Baru</option>
-                      <option value="Pindahan">Pindahan</option>
-                      <option value="Kembali Bersekolah">Kembali Bersekolah</option>
-                    </select>
+                    <input type="text" name="jalur" class="form-control" id="jalur" value="<?php echo $cari->jalur; ?>" disabled>
                   </div>
                 </div>
               </div>
