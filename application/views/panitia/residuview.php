@@ -27,7 +27,7 @@ if ($cekuri == "mts") {
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <!-- <li class="breadcrumb-item"><a href="#">Data</a></li> -->
-                        <li class="breadcrumb-item active">Data Calon Siswa / Data <?php echo $cekuri; ?></li>
+                        <li class="breadcrumb-item active">Residu / Data<?php echo $cekuri; ?></li>
                     </ol>
                 </div>
             </div>
@@ -41,11 +41,10 @@ if ($cekuri == "mts") {
                 <div class="col-12">
                     <div class="card card-<?php echo $warna; ?>">
                         <div class="card-header">
-                            <h3 class="card-title">Data Calon Siswa <?php echo $lembaga; ?></h3>
+                            <h3 class="card-title">Data Residu Calon Siswa <?php echo $lembaga; ?></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a class="btn btn-success" href="<?php echo base_url($this->session->userdata('jabatan')) ?>/form/<?php echo $cekuri; ?>"><i class="fa fa-user-plus"></i> Formulir Baru</a>
                             <hr>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>

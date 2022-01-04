@@ -7,7 +7,9 @@
   </a>
 
   <?php
-  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'form','view','residumts','residuma','residusmp','residusmk'];
+  $cekin = ['datamts', 'data', 'datasmp', 'datasmk', 'form', 'view',];
+  $cekres = ['residu'];
+  $ceknon = ['nonaktif'];
   $cek_uri2 = $this->uri->segment(2);
   $cek_uri3 = $this->uri->segment(3);
   $role = $this->session->userdata('jabatan');
@@ -40,28 +42,30 @@
       <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($cek_uri2 == "") {echo "active";} ?>">
+          <a href="<?php echo base_url($role) ?>" class="nav-link <?php if ($cek_uri2 == "") {
+                                                                    echo "active";
+                                                                  } ?>">
             <i class="nav-icon fas fa-home"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($cek_uri2 == "jumlah") { echo "active"; } ?>">
+          <a href="<?php echo base_url($role) ?>/jumlah" class="nav-link <?php if ($cek_uri2 == "jumlah") {
+                                                                            echo "active";
+                                                                          } ?>">
             <i class="nav-icon fas fa-chart-line"></i>
             <p>Jumlah Data</p>
           </a>
         </li>
         <li class="nav-item has-treeview 
-          <?php 
-          
-          if (in_array($cek_uri2 , $cekin)) 
-          {
+          <?php
+
+          if (in_array($cek_uri2, $cekin)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php 
-            if (in_array($cek_uri2 , $cekin))
-            {
+            <?php
+            if (in_array($cek_uri2, $cekin)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-users"></i>
@@ -107,20 +111,19 @@
           </ul>
         </li>
         <li class="nav-item has-treeview 
-          <?php 
-          $cekres = ['residumts','residuma','residusmp','residusmk'];
-          if (in_array($cek_uri2 , $cekres)) {
+          <?php
+          if (in_array($cek_uri2, $cekres)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (in_array($cek_uri2 , $cekres)) {
+            <?php if (in_array($cek_uri2, $cekres)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-exclamation-triangle"></i>
             <p>Residu<i class="right fas fa-angle-left"></i></p>
           </a>
           <?php
-          $status_array = array('PENGAJUAN MUTASI', 'PROSES MUTASI');
+          $status_array = array('RESIDU');
           $verval_mts = $this->db->where_in('status', $status_array)->get('db_mts')->num_rows();
           $verval_ma = $this->db->where_in('status', $status_array)->get('db_ma')->num_rows();
           $verval_smp = $this->db->where_in('status', $status_array)->get('db_smp')->num_rows();
@@ -128,95 +131,97 @@
           ?>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residumts" class="nav-link <?php if ($cek_uri2 == "vervalmts") {
-                                                                                  echo "active";
-                                                                                } ?>">
+              <a href="<?php echo base_url($role) ?>/residu/mts" class="nav-link 
+              <?php if ($cek_uri3 == "mts") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
                 <p>Residu MTS<span class="right badge badge-warning"><?php echo $verval_mts ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residuma" class="nav-link <?php if ($cek_uri2 == "vervalma") {
-                                                                                  echo "active";
-                                                                                } ?>">
+              <a href="<?php echo base_url($role) ?>/residu/ma" class="nav-link 
+              <?php if ($cek_uri3 == "ma") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
                 <p>Residu MA<span class="right badge badge-warning"><?php echo $verval_ma ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residusmp" class="nav-link <?php if ($cek_uri2 == "vervalsmp") {
-                                                                                  echo "active";
-                                                                                } ?>">
+              <a href="<?php echo base_url($role) ?>/residu/smp" class="nav-link 
+              <?php if ($cek_uri3 == "smp") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
                 <p>Residu SMP<span class="right badge badge-warning"><?php echo $verval_smp ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/residusmk" class="nav-link <?php if ($cek_uri2 == "vervalsmk") {
-                                                                                  echo "active";
-                                                                                } ?>">
+              <a href="<?php echo base_url($role) ?>/residu/smk" class="nav-link 
+              <?php if ($cek_uri3 == "smk") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
                 <p>Residu SMK<span class="right badge badge-warning"><?php echo $verval_smk ?></span></p>
               </a>
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview
-          <?php if (
-            $cek_uri2 == "dataoutmts" ||
-            $cek_uri2 == "dataoutma" ||
-            $cek_uri2 == "dataoutsmp" ||
-            $cek_uri2 == "dataoutsmk"
-          ) {
+        <li class="nav-item has-treeview 
+          <?php
+          if (in_array($cek_uri2, $ceknon)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
-            <?php if (
-              $cek_uri2 == "dataoutmts" ||
-              $cek_uri2 == "dataoutma" ||
-              $cek_uri2 == "dataoutsmp" ||
-              $cek_uri2 == "dataoutsmk"
-            ) {
+            <?php if (in_array($cek_uri2, $ceknon)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-ban"></i>
-            <p>Non Aktif<i class="right fas fa-angle-left"></i></p>
+            <p>NON AKTIF<i class="right fas fa-angle-left"></i></p>
           </a>
+          <?php
+          $status_array = array('NON AKTIF');
+          $nonaktif_mts = $this->db->where_in('status', $status_array)->get('db_mts')->num_rows();
+          $nonaktif_ma = $this->db->where_in('status', $status_array)->get('db_ma')->num_rows();
+          $nonaktif_smp = $this->db->where_in('status', $status_array)->get('db_smp')->num_rows();
+          $nonaktif_smk = $this->db->where_in('status', $status_array)->get('db_smk')->num_rows();
+          ?>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/dataoutmts" class="nav-link 
-                <?php if ($cek_uri2 == "dataoutmts") {
-                  echo "active";
-                } ?>">
+              <a href="<?php echo base_url($role) ?>/nonaktif/mts" class="nav-link 
+              <?php if ($cek_uri3 == "mts") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>Non Aktif MTS</p>
+                <p>NON AKTIF MTS<span class="right badge badge-danger"><?php echo $nonaktif_mts ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/dataoutma" class="nav-link 
-                <?php if ($cek_uri2 == "dataoutma") {
-                  echo "active";
-                } ?>">
+              <a href="<?php echo base_url($role) ?>/nonaktif/ma" class="nav-link 
+              <?php if ($cek_uri3 == "ma") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>Non Aktif MA</p>
+                <p>NON AKTIF MA<span class="right badge badge-danger"><?php echo $nonaktif_ma ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/dataoutsmp" class="nav-link 
-                <?php if ($cek_uri2 == "dataoutsmp") {
-                  echo "active";
-                } ?>">
+              <a href="<?php echo base_url($role) ?>/nonaktif/smp" class="nav-link 
+              <?php if ($cek_uri3 == "smp") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>Non Aktif SMP</p>
+                <p>NON AKTIF SMP<span class="right badge badge-danger"><?php echo $nonaktif_smp ?></span></p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/dataoutsmk" class="nav-link 
-                <?php if ($cek_uri2 == "dataoutsmk") {
-                  echo "active";
-                } ?>">
+              <a href="<?php echo base_url($role) ?>/nonaktif/smk" class="nav-link 
+              <?php if ($cek_uri3 == "smk") {
+                echo "active";
+              } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>Non Aktif SMK</p>
+                <p>NON AKTIF SMK<span class="right badge badge-danger"><?php echo $nonaktif_smk ?></span></p>
               </a>
             </li>
           </ul>
@@ -231,13 +236,13 @@
           </a>
         </li>
         <li class="nav-item has-treeview
-        <?php 
+        <?php
         $cekuser = ['user_peserta', 'user_panitia'];
-        if (in_array($cek_uri2 , $cekuser)) {
-            echo "nav-item has-treeview menu-open";
-          } ?>">
+        if (in_array($cek_uri2, $cekuser)) {
+          echo "nav-item has-treeview menu-open";
+        } ?>">
           <a href="#" class="nav-link 
-            <?php if (in_array($cek_uri2 , $cekuser)) {
+            <?php if (in_array($cek_uri2, $cekuser)) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-users-cog"></i>

@@ -46,7 +46,6 @@ if ($this->uri->segment(3) == "mts") {
                             <div class="form-group row">
                                 <label for="no_reg" class="col-sm-4 col-form-label">NO REGISTRASI</label>
                                 <div class="col-sm-8">
-                                    <!-- <input type="hidden" name="id_enc" class="form-control" id="id_enc" value="<?php echo $cari->id_enc; ?>"> -->
                                     <input type="text" name="no_reg" class="form-control" id="no_reg" value="<?php echo $cari->no_reg; ?>" disabled>
                                 </div>
                             </div>
@@ -714,18 +713,18 @@ if ($this->uri->segment(3) == "mts") {
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
+                                <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                                 <div class="col-sm-8">
-                                    <select type="text" name="jns_masuk" id="jns_masuk" class="form-control select2">
-                                        <option value="Siswa Baru" <?php if ($cari->jns_masuk == "Siswa Baru") {
+                                    <select type="text" name="jalur" id="jalur" class="form-control select2">
+                                        <option value="INDEN" <?php if ($cari->jalur == "INDEN") {
+                                                                    echo "selected";
+                                                                } ?>>INDEN</option>
+                                        <option value="PRESTASI" <?php if ($cari->jalur == "PRESTASI") {
                                                                         echo "selected";
-                                                                    } ?>>Siswa Baru</option>
-                                        <option value="Pindahan" <?php if ($cari->jns_masuk == "Pindahan") {
-                                                                        echo "selected";
-                                                                    } ?>>Pindahan</option>
-                                        <option value="Kembali Bersekolah" <?php if ($cari->jns_masuk == "Kembali Bersekolah") {
-                                                                                echo "selected";
-                                                                            } ?>>Kembali Bersekolah</option>
+                                                                    } ?>>PRESTASI</option>
+                                        <option value="REGULER" <?php if ($cari->jalur == "REGULER") {
+                                                                    echo "selected";
+                                                                } ?>>REGULER</option>
                                     </select>
                                 </div>
                             </div>
