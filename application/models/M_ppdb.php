@@ -94,6 +94,12 @@ class M_ppdb extends CI_Model
     {
         return $this->db->delete('db_user_pendaftar', array("id" => $id));
     }
+
+    //============================= SETTING ============================
+    public function updateset($data, $id)
+    {
+        return $this->db->update('db_setting', $data, array('id' => $id));
+    }
 }
 
 /* End of file ModelName.php */
