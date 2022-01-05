@@ -20,7 +20,7 @@ class Cek extends CI_Model
 		}
 	}
 
-	public function panitia($username, $password)
+	public function admin($username, $password)
 	{
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
