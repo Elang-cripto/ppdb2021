@@ -602,7 +602,11 @@ if ($cekuri == "mts") {
                 <div class="form-group row">
                   <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                   <div class="col-sm-8">
-                    <input type="text" name="jalur" class="form-control" id="jalur" value="<?php echo $cari->jalur; ?>" disabled>
+                    <select type="text" name="agama" id="agama" class="form-control select2">
+                      <option value="Inden">Inden</option>
+                      <option value="Prestasi">Prestasi</option>
+                      <option value="Reguler">Reguler</option>
+                    </select>
                   </div>
                 </div>
               </div>
