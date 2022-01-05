@@ -10,8 +10,6 @@ if ($cekuri == "mts") {
   $warna = "danger";
 }
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
@@ -21,7 +19,7 @@ if ($cekuri == "mts") {
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo base_url($this->session->userdata('jabatan'));?>/data/<?php echo $cekuri;?>">Data_<?php echo $cekuri;?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url($this->session->userdata('jabatan')); ?>/data/<?php echo $cekuri; ?>">Data_<?php echo $cekuri; ?></a></li>
             <li class="breadcrumb-item active">Formulir</li>
           </ol>
         </div>
@@ -62,7 +60,7 @@ if ($cekuri == "mts") {
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
                     <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                    <option value="">Pilih salah satu</option>
+                      <option value="">Pilih salah satu</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -600,12 +598,12 @@ if ($cekuri == "mts") {
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
+                  <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                   <div class="col-sm-8">
-                    <select type="text" name="jns_masuk" id="jns_masuk" class="form-control select2">
-                      <option value="Siswa Baru">Siswa Baru</option>
-                      <option value="Pindahan">Pindahan</option>
-                      <option value="Kembali Bersekolah">Kembali Bersekolah</option>
+                    <select type="text" name="agama" id="agama" class="form-control select2">
+                      <option value="Inden">Inden</option>
+                      <option value="Prestasi">Prestasi</option>
+                      <option value="Reguler">Reguler</option>
                     </select>
                   </div>
                 </div>
@@ -645,7 +643,7 @@ if ($cekuri == "mts") {
                   <label class="form-check-label" for="exampleCheck2">
                     Saya telah entry data sesuai dengan ketentuan berkas yang berlaku, telah kami validasi kebenaran dan saya bertanggung jawab atas kebenaran data tersebut
                     <br>
-                    <b>Data setelah dikirim tidak dapat di edit kembali tanpa seijin panitia.
+                    <b>Data setelah dikirim tidak dapat di edit kembali tanpa seijin admin.
                   </label>
                 </div>
               </div>
@@ -660,5 +658,3 @@ if ($cekuri == "mts") {
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->

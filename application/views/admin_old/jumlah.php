@@ -1,3 +1,11 @@
+<?php 
+$this->load->view('theme/head');
+$this->load->view('theme/hlink_ind12');
+$this->load->view('theme/nav');
+$this->load->view('admin/side');
+?>
+<!-- =============================================================================================== -->
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -777,3 +785,11 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+<!-- =============================================================================================== -->
+<?php 
+$this->load->view('theme/foot');
+$this->load->view('theme/flink_all');
+?>
+</body>
+</html>

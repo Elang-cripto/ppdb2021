@@ -101,6 +101,20 @@ class M_ppdb extends CI_Model
         return $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
     }
 
+    //============================= SETTING ============================
+    public function updateset($data, $id)
+    {
+        return $this->db->update('db_setting', $data, array('id' => $id));
+    }
+
+    public function getset()
+    {
+        // $this->db->select('kelas');
+        // return $this->db->get_where('db_setting', ["id" => 1])->result();
+        $query = $this->db->query("SELECT jalur as ambil from db_setting");
+        $hasil = $query->row();
+        return $hasil->ambil;
+    }
 }
 
 /* End of file ModelName.php */

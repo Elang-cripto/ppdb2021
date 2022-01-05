@@ -1,13 +1,3 @@
-<?php 
-$role = $this->session->userdata('jabatan');
-$this->load->view('theme/head');
-$this->load->view('theme/hlink_all');
-$this->load->view('theme/hlink_surat');
-$this->load->view('theme/nav');
-$this->load->view($role.'/side');
-?>
-
-<!-- =============================================================================================== -->
 
 <style type="text/css">
     body {padding:0px}
@@ -17,7 +7,7 @@ $this->load->view($role.'/side');
     <title></title>
 </head>
 <body>
-<div class="content-wrapper">
+<!-- <div class="content-wrapper"> -->
     <div style="text-align:center;"><a class="btn btn-primary btn-sm" class="no-print" href="javascript:printDiv('print-area-1');"><i class="fas fa-print"></i> Print</a></div>
 
     <div id="print-area-1" class="print-area">
@@ -28,7 +18,7 @@ $this->load->view($role.'/side');
             ?>
         </section>
     </div>
-</div>
+<!-- </div> -->
 <textarea id="printing-css" style="display:none;">.no-print{display:none}</textarea>
     <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
 </body>
@@ -43,11 +33,3 @@ $this->load->view($role.'/side');
     window.frames["print_frame"].window.print();
     }   
 </script>
-
-<!-- =============================================================================================== -->
-<?php 
-$this->load->view('theme/foot');
-$this->load->view('theme/flink_2');
-?>
-</body>
-</html>

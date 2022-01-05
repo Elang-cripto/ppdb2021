@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2022 at 12:30 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.33
+-- Generation Time: Jan 05, 2022 at 05:38 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -338,7 +339,7 @@ CREATE TABLE `db_mts` (
 INSERT INTO `db_mts` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`, `mgm`) VALUES
 (1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-001', '0051093586', 'Mukhammad Yasin', 'L', 'Jember', '2021-12-30', '3509120603900001', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'obil pribadi', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', 'Wiraswasta', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', 'AKTIF', 'Inden', '', '0000-00-00 00:00:00', 'Mukhammad Yasin', ''),
 (16, 'cc05d99fdee34411aed5565fc794bbd1', '538-220101-004', '0064942605', 'anisa anis', 'L', 'Jember', '2022-01-14', '674567642324', 'Islam', 'Krajan Kidul, Sumberejo', '', '', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', '', '', '', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'AKTIF', '', '', '2022-01-01 20:11:07', 'anisa anis', ''),
-(28, 'a4e30929d05968204d05ec558401df9f', '538-220102-005', '0051093586', 'anash herdiansyah', 'L', 'Jember', '0000-00-00', '24864548645', 'Islam', '', '', '', 'Krajan Kidul', 'Sumberejo', 'Ambulu', 'Jember', 'Jawa Timur', '', '', '', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'AKTIF', '', '', '2022-01-02 14:33:12', 'anash herdiansyah', '');
+(28, 'a4e30929d05968204d05ec558401df9f', '538-220102-005', '0051093586', 'anash herdiansyah', 'L', 'Jember', '2022-01-12', '24864548645', 'L', '', '', '', 'Krajan Kidul', 'Sumberejo', 'Ambulu', 'Jember', 'Jawa Timur', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'AKTIF', '', '', '2022-01-04 08:57:02', 'M Yasin', '');
 
 -- --------------------------------------------------------
 
@@ -362,7 +363,7 @@ CREATE TABLE `db_panitia` (
 --
 
 INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabatan`, `status`, `last`) VALUES
-(1, 'c4ca4238a0b923820dcc509a6f75849b', 'M Yasin', 'panitia', 'panitia', 'panitia', '1', '2022-01-02 20:55:53');
+(1, 'c4ca4238a0b923820dcc509a6f75849b', 'M Yasin', 'panitia', 'panitia', 'panitia', '1', '2022-01-05 10:40:12');
 
 -- --------------------------------------------------------
 
@@ -375,15 +376,16 @@ CREATE TABLE `db_setting` (
   `tapel` varchar(10) NOT NULL,
   `semester` varchar(10) NOT NULL,
   `register` varchar(10) NOT NULL,
-  `pengumuman` varchar(1000) NOT NULL
+  `pengumuman` varchar(1000) NOT NULL,
+  `jalur` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `db_setting`
 --
 
-INSERT INTO `db_setting` (`id`, `tapel`, `semester`, `register`, `pengumuman`) VALUES
-(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style=\"text-align: center; \"><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ');
+INSERT INTO `db_setting` (`id`, `tapel`, `semester`, `register`, `pengumuman`, `jalur`) VALUES
+(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style=\"text-align: center; \"><font color=\"#0000ff\"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style=\"text-align: center; \"><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ', 'INDEN');
 
 -- --------------------------------------------------------
 
@@ -466,6 +468,13 @@ CREATE TABLE `db_smk` (
   `progres` date NOT NULL,
   `editor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `db_smk`
+--
+
+INSERT INTO `db_smk` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
+(1, '6b54d6df88f7bc34cbcf9e4222cd9096', '265-220105-001', '0058299979', 'anash herdiansyah', 'L', 'Jember', '2022-01-18', '248645486453', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Rumah Orang Tua', 'Salaf Putri', 'Kereta api', '086235623243', '', '1', '', 'Miseri', 'Jember', '2022-01-12', 'Tidak Sekolah', 'Buruh', 'Rp. 2,000,000 - Rp. 4,999,999', '3509181703710001', 'Rifiah', 'Jember', '2021-12-28', 'SD Sederajad', 'Wirausaha', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', 'INDEN', '', '2022-01-05', 'anash herdiansyah');
 
 -- --------------------------------------------------------
 
@@ -656,7 +665,7 @@ INSERT INTO `db_user_pendaftar` (`id`, `nik`, `nama`, `email`, `telp`, `par`, `s
 (5, '3509120603900001', 'Mukhammad Yasin', 'achin.clink@gmail.com', '082141632876', 'MTS', 'AKTIF', 'user', '1', '2022-01-02 21:53:50'),
 (7, '674567642324', 'anis bashwedan', 'anisa@yahoo.com', '081256565412', 'MTS', 'AKTIF', 'user', '1', '2022-01-01 23:00:10'),
 (8, '24864548645', 'anash herdiansyah', 'usertest@gmail.com', '086234423243', 'MTS', 'AKTIF', 'user', '1', '2022-01-02 21:44:15'),
-(9, '248645486453', 'anash herdiansyah', 'usersmk@gmail.com', '086234423243', 'SMK', 'AKTIF', 'user', '0', '2022-01-01 23:00:10');
+(9, '248645486453', 'anash herdiansyah', 'usersmk@gmail.com', '086234423243', 'SMK', 'AKTIF', 'user', '1', '2022-01-05 10:04:48');
 
 --
 -- Indexes for dumped tables
@@ -796,7 +805,7 @@ ALTER TABLE `db_smk`
 -- AUTO_INCREMENT for table `db_smp`
 --
 ALTER TABLE `db_smp`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `db_user`
@@ -808,7 +817,7 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT for table `db_user_pendaftar`
 --
 ALTER TABLE `db_user_pendaftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login Panitia</title>
+	<title>Login admin</title>
 	<meta name="description" content="Custom Login Form Styling with CSS3" />
 	<meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
 	<meta name="author" content="Codrops" />
@@ -35,11 +35,11 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>Panitia <strong>PPDB</strong> 2021</h1>
+			<h1>admin <strong>PPDB</strong> 2021</h1>
 			<h2>MTS - MA - SMP - SMK AL AMIEN</h2>
 		</header>
 		<section class="main">
-			<form class="form-3" method="post" action="<?php echo base_url(); ?>auth/cek_panitia">
+			<form class="form-3" method="post" action="<?php echo base_url(); ?>auth/cek_admin">
 				<p class="clearfix">
 					<label for="username">Username</label>
 					<input type="text" name="username" id="username" placeholder="Username" required>

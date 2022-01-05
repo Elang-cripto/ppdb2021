@@ -169,7 +169,7 @@
 									Silahkan Login Melalui menu ini.
 								</b>
 							</p>
-							<p><a class="btn btn-info btn-block" href="<?php echo base_url(); ?>auth/panitia"><b>Login</b></a></p>
+							<p><a class="btn btn-info btn-block" href="<?php echo base_url(); ?>auth/admin"><b>Login</b></a></p>
 						</div>
 					</div>
 				</div>

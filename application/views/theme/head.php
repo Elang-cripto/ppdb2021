@@ -7,6 +7,18 @@
   <meta name="author" content="Mukhammad Yasin">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>PPDB Online</title>
+  <title>
+    <?php 
+      $cek_uri2 = $this->uri->segment(2);
+      
+      if ($cek_uri2=='bukti') {
+        echo 'Cetak Bukti - '.$data->nama; 
+      } else {
+        echo 'PPDB Online';
+      }
+      
+    ;?>
+    
+  </title>
   <link rel="shortcut icon" href="<?php echo base_url('') ?>asset/dist/img/logo.png" type="image/x-icon">
   <!-- Font Awesome Icons -->

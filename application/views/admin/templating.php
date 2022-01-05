@@ -7,11 +7,13 @@ $role = $this->session->userdata('jabatan');
 $this->load->view($role . '/side');
 ?>
 <!-- =============================================================================================== -->
-
-<?php 
-$this->load->view($content);
-?>
-
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <?php 
+    $this->load->view($content);
+    ?>
+</div>
+<!-- /.content-wrapper -->
 <!-- =============================================================================================== -->
 <?php
 $this->load->view('theme/foot');

@@ -35,7 +35,7 @@ class Auth extends CI_Controller
             $this->session->set_userdata('echo', $row->echo);
 
             if ($this->session->userdata('status') != "AKTIF") {
-                $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Belum aktif',text: 'Silahkan Hubungi panitia'}");
+                $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Belum aktif',text: 'Silahkan Hubungi admin'}");
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == '0') {
@@ -67,7 +67,7 @@ class Auth extends CI_Controller
                 $data['echo']       = 0;
 
                 $this->db->insert('db_user_pendaftar', $data);
-                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil registrasi',text: 'Aktifasi akun dengan menghubungi panitia'}");
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil registrasi',text: 'Aktifasi akun dengan menghubungi admin'}");
                 redirect('auth');
             } else {
                 $this->load->view('auth/registration');
@@ -85,16 +85,16 @@ class Auth extends CI_Controller
         $this->load->view('auth/registration');
     }
 
-    public function panitia()
+    public function admin()
     {
-        $this->load->view('panitia/login');
+        $this->load->view('admin/login');
     }
 
-    public function cek_panitia()
+    public function cek_admin()
     {
         $username  = $this->input->post('username');
         $password   = $this->input->post('password');
-        $ceklog = $this->cek->panitia($username, $password);
+        $ceklog = $this->cek->admin($username, $password);
 
         if ($ceklog) {
             foreach ($ceklog as $row);
@@ -109,10 +109,10 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
             $tabel          = "db_panitia";
             $this->m_ppdb->update_last($tabel);
-            redirect('panitia');
+            redirect('admin');
         } else {
             $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Maaf!',text: 'Username atau Password Salah'}");
-            redirect('auth/panitia');
+            redirect('auth/admin');
         }
     }
 }
