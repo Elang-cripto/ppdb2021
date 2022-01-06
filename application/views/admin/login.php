@@ -35,7 +35,8 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>admin <strong>PPDB</strong> 2021</h1>
+			<h1> <strong> LOGIN ADMIN - PANITIA - MGM</strong> </h1>
+			<h1>PPDB 2022</h1>
 			<h2>MTS - MA - SMP - SMK AL AMIEN</h2>
 		</header>
 		<section class="main">
