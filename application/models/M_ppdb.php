@@ -66,14 +66,35 @@ class M_ppdb extends CI_Model
     }
 
 
-    // ===========================GET USER ==============================
+    // ===========================GET USER PANITIA ==============================
     public function getuser()
     {
         //$this->db->order_by('last', 'desc');
         return $this->db->get('db_panitia')->result();
     }
+    public function get_kodepan($dbcek)
+    {
+        $query = $this->db->query("SELECT MAX(id) as kode from $dbcek");
+        $hasil = $query->row();
+        return $hasil->kode;
+    }
 
-    //  ========================== CRUD User ==========================
+    public function adduser($data)
+    {
+        return $this->db->insert('db_panitia', $data);
+    }
+
+    public function updateuser($data, $id)
+    {
+        return $this->db->update('db_panitia', $data, array('id' => $id));
+    }
+
+    public function deluser($id)
+    {
+        return $this->db->delete('db_panitia', array("id" => $id));
+    }
+
+    //  ========================== CRUD User PESERTA ==========================
     public function getuser_pes()
     {
         //$this->db->order_by('last', 'desc');
