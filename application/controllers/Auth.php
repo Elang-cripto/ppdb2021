@@ -39,7 +39,7 @@ class Auth extends CI_Controller
                 redirect('auth');
                 $this->session->sess_destroy();
             } elseif ($this->session->userdata('par') == '0') {
-		        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: 'Silahkan mengisi Formulir yang telah disediakan'}");
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: 'Silahkan mengisi Formulir yang telah disediakan'}");
                 $tabel          = "db_user_pendaftar";
                 $this->m_ppdb->update_last($tabel);
                 redirect('user');
@@ -103,13 +103,20 @@ class Auth extends CI_Controller
             $this->session->set_userdata('nama', $row->nama);
             $this->session->set_userdata('username', $row->username);
             $this->session->set_userdata('jabatan', $row->jabatan);
+            $this->session->set_userdata('status', $row->status);
             $this->session->set_userdata('last', $row->last);
 
-            $nama = 'Anda log in sebagai ' . $this->session->userdata('nama');
-            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
-            $tabel          = "db_panitia";
-            $this->m_ppdb->update_last($tabel);
-            redirect('admin');
+            if ($this->session->userdata('status') != "1") {
+                $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Anda Telah Di Suspend',text: 'Silahkan Hubungi admin'}");
+                redirect('auth/admin');
+                $this->session->sess_destroy();
+            } else {
+                $nama = 'Anda log in sebagai ' . $this->session->userdata('nama');
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
+                $tabel          = "db_panitia";
+                $this->m_ppdb->update_last($tabel);
+                redirect('admin');
+            }
         } else {
             $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Maaf!',text: 'Username atau Password Salah'}");
             redirect('auth/admin');

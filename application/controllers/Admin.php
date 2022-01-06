@@ -137,40 +137,33 @@ class Admin extends CI_Controller
 
     public function adduser()
     {
-        $ceknik     = $this->input->post('nik');
-        $jmlnik     = $this->db->get_where('db_panitia', array("nik" => $ceknik))->num_rows();
+        $dbcek                    = 'db_panitia';
+        $dariDB                   = $this->m_ppdb->get_kodepan($dbcek);
+        $data                     = $this->input->post();
+        $data['codex']            = md5($dariDB + 1);
+        $data['status']           = '1';
+        $data['last']             = date("Y-m-d H:i:s");
 
-        if ($jmlnik != 0) {
-            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Simpan Gagal',text: 'Data sudah terdaftar sebelumnya'}");
-            redirect('admin/user_admin', 'refresh');
-        } else {
-            $data                     = $this->input->post();
-            $data['jabatan']         = 'user';
-            $data['status']         = 'AKTIF';
-            $data['echo']             = '0';
-            $data['last']             = date("Y-m-d H:i:s");
 
-            $this->m_ppdb->adduser($data);
-            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
-            redirect('admin/user_admin', 'refresh');
-        }
+        $this->m_ppdb->adduser($data);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
+        redirect('admin/user_admin', 'refresh');
     }
 
     public function edituser()
     {
-        $data                     = $this->input->post();
         $id                     = $this->input->post('id');
-        $data['jabatan']         = 'user';
-        $data['last']             = date("Y-m-d H:i:s");
+        $data                   = $this->input->post();
+        $data['last']           = date("Y-m-d H:i:s");
 
-        $this->m_ppdb->updateuserpes($data, $id);
+        $this->m_ppdb->updateuser($data, $id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
         redirect('admin/user_admin', 'refresh');
     }
 
     public function deluser($id)
     {
-        $this->m_ppdb->deluser_pes($id);
+        $this->m_ppdb->deluser($id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
         redirect('admin/user_admin', 'refresh');
     }
@@ -267,10 +260,10 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-    public function download(Type $var = null)
+    public function download($var)
     {
-        
-        
+
+
         $data['content']      = 'admin/download';
 
         $this->load->view('admin/templating', $data);
