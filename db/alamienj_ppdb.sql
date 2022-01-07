@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Jan 2022 pada 08.45
+-- Generation Time: 07 Jan 2022 pada 05.07
 -- Versi Server: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -362,7 +362,7 @@ CREATE TABLE `db_panitia` (
 
 INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabatan`, `status`, `last`) VALUES
 (1, 'c4ca4238a0b923820dcc509a6f75849b', 'Yasin', 'admin', 'admin', 'admin', '0', '2022-01-06 12:14:47'),
-(9, 'c81e728d9d4c2f636f067f89cc14862c', 'Anash', 'Nvyh', 'nvyh', 'admin', '1', '2022-01-06 13:23:59'),
+(9, 'c81e728d9d4c2f636f067f89cc14862c', 'Anash', 'Nvyh', 'nvyh', 'admin', '1', '2022-01-07 10:55:55'),
 (10, 'd3d9446802a44259755d38e6d163e820', 'irwanto', 'wanto', 'wanto', 'mgm', '0', '2022-01-06 13:25:21'),
 (11, '6512bd43d9caa6e02c990b0a82652dca', 'anash herdiansyah', 'admin', 'anash', 'panitia', '1', '2022-01-06 14:08:25');
 
@@ -374,9 +374,17 @@ INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabata
 
 CREATE TABLE `db_sdmi` (
   `id` int(11) NOT NULL,
-  `lembaga` varchar(128) NOT NULL,
-  `alamat` int(220) NOT NULL
+  `nama` varchar(128) NOT NULL,
+  `alamat` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `db_sdmi`
+--
+
+INSERT INTO `db_sdmi` (`id`, `nama`, `alamat`) VALUES
+(1, 'SDN SUMBEREJO 05', 'Krajan Kidul, RT 01/RW06, Sumberejo, Ambulu, Jember'),
+(2, 'SDN SUMBEREJO 07', 'Krajan Lor, RT 04/ RW 01, Sumberejo, Ambulu, Jember');
 
 -- --------------------------------------------------------
 
@@ -579,9 +587,16 @@ CREATE TABLE `db_smp` (
 
 CREATE TABLE `db_smpmts` (
   `id` int(11) NOT NULL,
-  `lembaga` varchar(128) NOT NULL,
+  `nama` varchar(128) NOT NULL,
   `alamat` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `db_smpmts`
+--
+
+INSERT INTO `db_smpmts` (`id`, `nama`, `alamat`) VALUES
+(1, 'SMP NEGERI 2 AMBULU', 'Jl.Sabrang Ambulu Jember');
 
 -- --------------------------------------------------------
 
@@ -823,7 +838,7 @@ ALTER TABLE `db_panitia`
 -- AUTO_INCREMENT for table `db_sdmi`
 --
 ALTER TABLE `db_sdmi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `db_setting`
 --
@@ -843,7 +858,7 @@ ALTER TABLE `db_smp`
 -- AUTO_INCREMENT for table `db_smpmts`
 --
 ALTER TABLE `db_smpmts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `db_user`
 --
