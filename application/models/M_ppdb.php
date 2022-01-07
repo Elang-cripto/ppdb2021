@@ -130,11 +130,32 @@ class M_ppdb extends CI_Model
 
     public function getset()
     {
-        // $this->db->select('kelas');
-        // return $this->db->get_where('db_setting', ["id" => 1])->result();
         $query = $this->db->query("SELECT jalur as ambil from db_setting");
         $hasil = $query->row();
         return $hasil->ambil;
+    }
+
+    //============================= SD / MI ============================
+    public function getsdmi()
+    {
+        // $this->db->order_by('last', 'desc');
+        return $this->db->get('db_sdmi')->result();
+    }
+
+    public function addsdmi($data)
+    {
+        return $this->db->insert('db_sdmi', $data);
+    }
+
+    public function getsmpmts()
+    {
+        // $this->db->order_by('last', 'desc');
+        return $this->db->get('db_smpmts')->result();
+    }
+
+    public function addsmpmts($data)
+    {
+        return $this->db->insert('db_smpmts', $data);
     }
 }
 
