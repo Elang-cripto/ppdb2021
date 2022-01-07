@@ -242,24 +242,37 @@ class Admin extends CI_Controller
 
     public function sdmi()
     {
-        // $pilih                = 'db_setting';
-        // $id                   = 1;
-        // $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
+        $data['dbsdmi'] = $this->m_ppdb->getsdmi();
         $data['content']      = 'admin/sdmi';
 
         $this->load->view('admin/templating', $data);
     }
 
+    public function addsdmi()
+    {
+        $data                     = $this->input->post();
+        $this->m_ppdb->addsdmi($data);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
+        redirect('admin/sdmi', 'refresh');
+    }
+
     public function smpmts()
     {
-        // $pilih                = 'db_setting';
-        // $id                   = 1;
-        // $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
+        $data['dbsmpmts'] = $this->m_ppdb->getsmpmts();
         $data['content']      = 'admin/smpmts';
 
         $this->load->view('admin/templating', $data);
     }
 
+    public function addsmpmts()
+    {
+        $data                     = $this->input->post();
+        $this->m_ppdb->addsmpmts($data);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
+        redirect('admin/smpmts', 'refresh');
+    }
+
+    // =============================== Download =======================================
     public function download($var)
     {
 
