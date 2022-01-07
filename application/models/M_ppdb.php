@@ -31,7 +31,7 @@ class M_ppdb extends CI_Model
     {
         $this->db->order_by('last', 'desc');
         $this->db->limit(8);
-        return $this->db->get("db_user")->result();
+        return $this->db->get("db_user_pendaftar")->result();
     }
 
     //=========================================== GET SISWA =================================
@@ -72,9 +72,9 @@ class M_ppdb extends CI_Model
         //$this->db->order_by('last', 'desc');
         return $this->db->get('db_panitia')->result();
     }
-    public function get_kodepan($dbcek)
+    public function get_kodepan()
     {
-        $query = $this->db->query("SELECT MAX(id) as kode from $dbcek");
+        $query = $this->db->query("SELECT MAX(id) as kode from db_panitia");
         $hasil = $query->row();
         return $hasil->kode;
     }

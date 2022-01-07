@@ -30,10 +30,11 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-primary">
               <div class="inner">
-                <p>Jumlah Rombel MTS</p>
+                <p>Jumlah Pendaftar MTS</p>
                 <h3>
                   <!-- <?php echo "L: ".$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?> -->
-                  <?php echo $this->db->get_where('db_kls',array("par" => 'mts'))->num_rows(); ?>
+                  <!-- <?php echo $this->db->get_where('db_mts',array("par" => 'mts'))->num_rows(); ?> -->
+                  <?php echo $this->db->get('db_mts')->num_rows(); ?>
                 </h3>
               </div>
               <div class="icon">
@@ -47,7 +48,7 @@
               <div class="inner">
                 <p>Jumlah Rombel MA</p>
                 <h3>
-                  <?php echo $this->db->get_where('db_kls',array("par" => 'ma'))->num_rows(); ?>
+                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'ma'))->num_rows(); ?> -->
                 </h3>
               </div>
               <div class="icon">
@@ -65,7 +66,7 @@
               <div class="inner">
                 <p>Jumlah Rombel SMP</p>
                 <h3>
-                  <?php echo $this->db->get_where('db_kls',array("par" => 'smp'))->num_rows(); ?>
+                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'smp'))->num_rows(); ?> -->
                 </h3>
               </div>
               <div class="icon">
@@ -79,7 +80,7 @@
               <div class="inner">
                 <p>Jumlah Rombel SMK</p>
                 <h3>
-                  <?php echo $this->db->get_where('db_kls',array("par" => 'smk'))->num_rows(); ?>
+                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'smk'))->num_rows(); ?> -->
                 </h3>
               </div>
               <div class="icon">

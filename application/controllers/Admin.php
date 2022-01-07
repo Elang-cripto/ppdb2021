@@ -18,7 +18,7 @@ class Admin extends CI_Controller
     public function index()
     {
         $data['dbinfo'] = $this->m_ppdb->getinfo();
-        $data['dbuser'] = $this->m_ppdb->getuserdas();
+        // $data['dbuser'] = $this->m_ppdb->getuserdas();
         $data['content'] = 'admin/dasboard';
 
         $this->load->view('admin/templating', $data);
@@ -26,7 +26,7 @@ class Admin extends CI_Controller
 
     public function jumlah()
     {
-        $data['dbklsmts'] = $this->m_ppdb->getkls_mts();
+        // $data['dbklsmts'] = $this->m_ppdb->getkls_mts();
         // $data['dbklsma'] = $this->admin_model->getkls_ma();
         // $data['dbklssmp'] = $this->admin_model->getkls_smp();
         // $data['dbklssmk'] = $this->admin_model->getkls_smk();
@@ -86,8 +86,7 @@ class Admin extends CI_Controller
 
     public function view()
     {
-        $pilih              = 'db_' . strtolower($this->uri->segment(3));
-        $data['cari']       = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['cari']         = $this->m_ppdb->view_peserta();
         $data['content']    = 'admin/view';
 
         $this->load->view('admin/templating', $data);
@@ -96,8 +95,7 @@ class Admin extends CI_Controller
     // ========================== edit Siswa ==========================
     public function edit()
     {
-        $pilih                = 'db_' . strtolower($this->uri->segment(3));
-        $data['cari']         = $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        $data['cari']         = $this->m_ppdb->view_peserta();
         $data['content']      = 'admin/edit';
 
         $this->load->view('admin/templating', $data);
@@ -137,13 +135,11 @@ class Admin extends CI_Controller
 
     public function adduser()
     {
-        $dbcek                    = 'db_panitia';
-        $dariDB                   = $this->m_ppdb->get_kodepan($dbcek);
+        $dariDB                   = $this->m_ppdb->get_kodepan();
         $data                     = $this->input->post();
         $data['codex']            = md5($dariDB + 1);
         $data['status']           = '1';
         $data['last']             = date("Y-m-d H:i:s");
-
 
         $this->m_ppdb->adduser($data);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
@@ -217,7 +213,6 @@ class Admin extends CI_Controller
         redirect('admin/user_peserta', 'refresh');
     }
 
-
     // =============================== SETTING =======================================
 
     public function setting()
@@ -229,6 +224,7 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/templating', $data);
     }
+
     public function updatesetting()
     {
         $id                        = 1;
@@ -260,10 +256,8 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-    public function download($var)
+    public function download()
     {
-
-
         $data['content']      = 'admin/download';
 
         $this->load->view('admin/templating', $data);
