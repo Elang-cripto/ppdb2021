@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Database Online</h1>
+            <h1 class="m-0 text-dark">Data Pendaftar</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,10 +30,8 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-primary">
               <div class="inner">
-                <p>Jumlah Pendaftar MTS</p>
+                <p>Total Pendaftar MTS</p>
                 <h3>
-                  <!-- <?php echo "L: ".$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?> -->
-                  <!-- <?php echo $this->db->get_where('db_mts',array("par" => 'mts'))->num_rows(); ?> -->
                   <?php echo $this->db->get('db_mts')->num_rows(); ?>
                 </h3>
               </div>
@@ -46,9 +44,9 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-success">
               <div class="inner">
-                <p>Jumlah Rombel MA</p>
+                <p>Total Rombel MA</p>
                 <h3>
-                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'ma'))->num_rows(); ?> -->
+                  <?php echo $this->db->get('db_ma')->num_rows(); ?>
                 </h3>
               </div>
               <div class="icon">
@@ -64,9 +62,9 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-warning">
               <div class="inner">
-                <p>Jumlah Rombel SMP</p>
+                <p>Total Rombel SMP</p>
                 <h3>
-                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'smp'))->num_rows(); ?> -->
+                  <?php echo $this->db->get('db_smp')->num_rows(); ?>
                 </h3>
               </div>
               <div class="icon">
@@ -78,9 +76,9 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-danger">
               <div class="inner">
-                <p>Jumlah Rombel SMK</p>
+                <p>Total Rombel SMK</p>
                 <h3>
-                  <!-- <?php echo $this->db->get_where('db_kls',array("par" => 'smk'))->num_rows(); ?> -->
+                <?php echo $this->db->get('db_smk')->num_rows(); ?>
                 </h3>
               </div>
               <div class="icon">
@@ -184,8 +182,7 @@
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
+                      <th>Jalur</th>
                       <th>L</th>
                       <th>P</th>
                       <th>Jumlah</th>
@@ -197,8 +194,6 @@
                       $no++;
                     ?>                    
                     <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas SMP</td>
                       <td align="center">
                         <?php echo $smpp=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
                       </td>
@@ -559,216 +554,7 @@
             </div>
           </div>               
         </div>
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- PRODUCT LIST -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah Peserta Didik Aktif MTS</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;//variabel no
-                      foreach($dbklsmts as $A): 
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas <?php echo $A->kelas; ?></td>
-                      <td align="center">
-                        <?php
-                          $clkls = "%L".$A->kelas."AKTIF%";
-                          $mtsl = $this->db->query("SELECT * FROM db_mts where CONCAT(jk,kelas_aktf,status) LIKE '$clkls'")->num_rows();
-                          echo $mtsl;
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          $cpkls = "%P".$A->kelas."AKTIF%";
-                          $mtsp = $this->db->query("SELECT * FROM db_mts where CONCAT(jk,kelas_aktf,status) LIKE '$cpkls'")->num_rows();
-                          echo $mtsp;
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $mtsp+$mtsl; ?></td>
-                    </tr>
-                    <?php  endforeach; ?>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- PRODUCT LIST -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah Peserta Didik Aktif MA</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;//variabel no
-                      foreach($dbklsma as $B): 
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas <?php echo $B->kelas; ?></td>
-                      <td align="center">
-                        <?php
-                          $clkls = "%L".$B->kelas."AKTIF%";
-                          $mal = $this->db->query("SELECT * FROM db_ma where CONCAT(jk,kelas_aktf,status) LIKE '$clkls'")->num_rows();
-                          echo $mal;
-                        ?>
-                        </td>
-                      <td align="center">
-                        <?php 
-                          $cpkls = "%P".$B->kelas."AKTIF%";
-                          $map = $this->db->query("SELECT * FROM db_ma where CONCAT(jk,kelas_aktf,status) LIKE '$cpkls'")->num_rows();
-                          echo $map;
-                        ?>
-                        </td>
-                      <td align="center"><?php echo $map+$mal; ?></td>
-                    </tr>
-                    <?php  endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- PRODUCT LIST -->
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah Peserta Didik Aktif SMP</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;//variabel no
-                      foreach($dbklssmp as $C): 
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas <?php echo $C->kelas; ?></td>
-                      <td align="center">
-                        <?php
-                          $clkls = "%L".$C->kelas."AKTIF%";
-                          $smpl = $this->db->query("SELECT * FROM db_smp where CONCAT(jk,kelas_aktf,status) LIKE '$clkls'")->num_rows();
-                          echo $smpl;
-                        ?>
-                        </td>
-                      <td align="center">
-                        <?php 
-                          $cpkls = "%P".$C->kelas."AKTIF%";
-                          $smpp = $this->db->query("SELECT * FROM db_smp where CONCAT(jk,kelas_aktf,status) LIKE '$cpkls'")->num_rows();
-                          echo $smpp;
-                        ?>
-                        </td>
-                      
-                      <td align="center"><?php echo $smpp+$smpl; ?></td>
-                    </tr>
-                    <?php  endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <!-- PRODUCT LIST -->
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah Peserta Didik Aktif SMK</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;//variabel no
-                      foreach($dbklssmk as $D): 
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas <?php echo $D->kelas; ?></td>
-                      <td align="center">
-                        <?php
-                          $clkls = "%L".$D->kelas."AKTIF%";
-                          $mal = $this->db->query("SELECT * FROM db_smk where CONCAT(jk,kelas_aktf,status) LIKE '$clkls'")->num_rows();
-                          echo $mal;
-                        ?>
-                        </td>
-                      <td align="center">
-                        <?php 
-                          $cpkls = "%P".$D->kelas."AKTIF%";
-                          $map = $this->db->query("SELECT * FROM db_smk where CONCAT(jk,kelas_aktf,status) LIKE '$cpkls'")->num_rows();
-                          echo $map;
-                        ?>
-                        </td>
-                      
-                      <td align="center"><?php echo $map+$mal; ?></td>
-                    </tr>
-                    <?php  endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
+        
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>

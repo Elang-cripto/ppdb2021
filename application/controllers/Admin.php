@@ -260,20 +260,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-<<<<<<< HEAD
     public function download()
-=======
-    public function addsmpmts()
-    {
-        $data                     = $this->input->post();
-        $this->m_ppdb->addsmpmts($data);
-        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
-        redirect('admin/smpmts', 'refresh');
-    }
-
-    // =============================== Download =======================================
-    public function download($var)
->>>>>>> 44bb21b008617b4d0683b91499ab224534505af6
     {
         $data['content']      = 'admin/download';
 

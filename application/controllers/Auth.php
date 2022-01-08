@@ -111,7 +111,7 @@ class Auth extends CI_Controller
                 redirect('auth/admin');
                 $this->session->sess_destroy();
             } else {
-                $nama = 'Anda log in sebagai ' . $this->session->userdata('nama');
+                $nama = 'Hai '.$this->session->userdata('nama').', Anda log in sebagai '.$this->session->userdata('jabatan');
                 $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
                 $tabel          = "db_panitia";
                 $this->m_ppdb->update_last($tabel);
