@@ -147,6 +147,17 @@ class M_ppdb extends CI_Model
         return $this->db->insert('db_sdmi', $data);
     }
 
+    public function updatesdmi($data, $id)
+    {
+        return $this->db->update('db_sdmi', $data, array('id' => $id));
+    }
+
+    public function delsdmi($id)
+    {
+        return $this->db->delete('db_sdmi', array("id" => $id));
+    }
+
+    //============================= SMP / MTs ============================
     public function getsmpmts()
     {
         // $this->db->order_by('last', 'desc');
@@ -156,6 +167,16 @@ class M_ppdb extends CI_Model
     public function addsmpmts($data)
     {
         return $this->db->insert('db_smpmts', $data);
+    }
+
+    public function updatesmpmts($data, $id)
+    {
+        return $this->db->update('db_smpmts', $data, array('id' => $id));
+    }
+
+    public function delsmpmts($id)
+    {
+        return $this->db->delete('db_smpmts', array("id" => $id));
     }
 }
 

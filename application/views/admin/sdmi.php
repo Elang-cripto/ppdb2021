@@ -38,7 +38,7 @@
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-tambah">
                             <i class="fa fa-user-plus"></i> Tambah
                         </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
                             <i class="fa fa-upload"></i> Upload
                         </button>
                         <!-- <a class="btn btn-primary" href="<?php echo base_url('') ?>admin/adduser"><i class="fa fa-user-plus"></i> Tambah</a>   -->
@@ -64,8 +64,8 @@
                                         <td><?php echo $row->alamat; ?></td>
 
                                         <td align="center">
-                                            <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?php echo md5($row->id); ?>"><i class="fa fa-user-edit"></i></a>
-                                            <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/deluser_pes/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>
+                                            <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?= $row->id; ?>"><i class="fa fa-user-edit"></i></a>
+                                            <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/delsdmi/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -110,6 +110,86 @@
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- ======================================= modal edit ======================================= -->
+<?php
+foreach ($dbsdmi as $m) :
+?>
+    <div class="modal fade" id="modal-user-<?php echo $m->id; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="<?php echo base_url(); ?>admin/editsdmi" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="nama" class="col-sm-4 col-form-label">Nama Lembaga</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" id="id" name="id" value="<?php echo $m->id; ?>">
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $m->nama; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="alamat" class="col-sm-4 col-form-label">Alamat Lembaga</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $m->alamat; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>
+
+<!-- =============================== modal Upload =============================== -->
+<div class="modal fade" id="modal-upload">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload SD / MI</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <form method="POST" action="<?= base_url('admin/upload') ?>" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="col-form-label text-md-left">Upload File</label>
+                                    <input type="file" class="form-control" name="file" accept=".xls, .xlsx" required>
+                                    <div class="mt-1">
+                                        <span class="text-secondary">File yang harus diupload : .xls, xlsx</span>
+                                    </div>
+                                    <?= form_error('file', '<div class="text-danger">', '</div>') ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="form-group mb-0">
+                        <button type="submit" name="import" class="btn btn-primary"><i class="fas fa-upload mr-1"></i>Upload</button>
+                    </div>
                 </div>
             </form>
         </div>

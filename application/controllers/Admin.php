@@ -234,7 +234,7 @@ class Admin extends CI_Controller
         redirect('admin/setting', 'refresh');
     }
 
-    // =============================== sekolah asal =======================================
+    // =============================== sekolah asal SD / MI =======================================
 
     public function sdmi()
     {
@@ -252,6 +252,24 @@ class Admin extends CI_Controller
         redirect('admin/sdmi', 'refresh');
     }
 
+    public function editsdmi()
+    {
+        $id                     = $this->input->post('id');
+        $data                   = $this->input->post();
+
+        $this->m_ppdb->updatesdmi($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
+        redirect('admin/sdmi', 'refresh');
+    }
+
+    public function delsdmi($id)
+    {
+        $this->m_ppdb->delsdmi($id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
+        redirect('admin/sdmi', 'refresh');
+    }
+
+    // =============================== sekolah asal SMP / MTs =======================================
     public function smpmts()
     {
         $data['dbsmpmts'] = $this->m_ppdb->getsmpmts();
@@ -260,24 +278,34 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-<<<<<<< HEAD
-    public function download()
-=======
-    public function addsmpmts()
+    public function editsmpmts()
     {
-        $data                     = $this->input->post();
-        $this->m_ppdb->addsmpmts($data);
-        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
+        $id                     = $this->input->post('id');
+        $data                   = $this->input->post();
+
+        $this->m_ppdb->updatesdmi($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
+        redirect('admin/smpmts', 'refresh');
+    }
+
+    public function delsmpmts($id)
+    {
+        $this->m_ppdb->delsmpmts($id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
         redirect('admin/smpmts', 'refresh');
     }
 
     // =============================== Download =======================================
-    public function download($var)
->>>>>>> 44bb21b008617b4d0683b91499ab224534505af6
+    public function download()
     {
         $data['content']      = 'admin/download';
 
         $this->load->view('admin/templating', $data);
+    }
+
+    // =============================== Upload =======================================
+    public function uploadsdmi()
+    {
     }
 }
 

@@ -64,7 +64,7 @@
                                         <td><?php echo $row->alamat; ?></td>
 
                                         <td align="center">
-                                            <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?php echo md5($row->id); ?>"><i class="fa fa-user-edit"></i></a>
+                                            <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?= $row->id; ?>"><i class="fa fa-user-edit"></i></a>
                                             <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/delsmpmts/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
@@ -117,3 +117,45 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<!-- ======================================= modal edit ======================================= -->
+<?php
+foreach ($dbsmpmts as $m) :
+?>
+    <div class="modal fade" id="modal-user-<?php echo $m->id; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="<?php echo base_url(); ?>admin/editsmpmts" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="nama" class="col-sm-4 col-form-label">Nama Lembaga</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" id="id" name="id" value="<?php echo $m->id; ?>">
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $m->nama; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="alamat" class="col-sm-4 col-form-label">Alamat Lembaga</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $m->alamat; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>
