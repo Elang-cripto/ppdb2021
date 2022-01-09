@@ -92,6 +92,53 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
+    // ========================== Tambah Siswa Baru ==========================
+    public function save_pan($par)
+	{
+		// $par 	= $this->session->userdata('par');
+		$dbcek	= 'db_' .$par;
+		$dariDB = $this->m_ppdb->get_kode($dbcek);
+		$urut 	= (int)substr($dariDB, 11, 3);
+
+		if ($par == "MTS") {
+			$nus = "538";
+		} elseif ($par == "MA") {
+			$nus = "510";
+		} elseif ($par == "SMP") {
+			$nus = "209";
+		} else {
+			$nus = "265";
+		}
+
+		//Fungsi db_mts
+		date_default_timezone_set("ASIA/JAKARTA");
+		$data 				= $this->input->post();
+		$data['id_enc']		= md5($this->input->post('nik'));
+		$data['No_Reg']		= $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
+		$data['progres'] 	= date("Y-m-d H:i:s");
+		$data['editor']		= $this->session->userdata('nama');
+		$data['jalur'] 		= $this->m_ppdb->getset();
+		$data['status'] 	= 'AKTIF';
+		$this->db->insert('db_' . $par, $data);
+
+		//Fungsi db_user_pengguna
+		$data2['nik']	    = $this->input->post('nik');
+		$data2['nama']	    = $this->input->post('nama');
+		$data2['email']	    = $this->input->post('email');
+		$data2['telp']	    = $this->input->post('telp');
+		$data2['par']	    = strtoupper($par);
+		$data2['status']	= 'NON AKTIF';
+		$data2['jabatan']	= 'USER';
+		$data2['echo']	    = '1';
+		$data2['last']	    = date("Y-m-d H:i:s");
+		$this->db->insert('db_user_pendaftar', $data2);
+
+		//==============================================================================
+
+		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Formulir berhasil di kirim'}");
+		redirect('admin/data/' . $par, 'refresh');
+	}
+
     // ========================== edit Siswa ==========================
     public function edit()
     {
@@ -323,11 +370,11 @@ class Admin extends CI_Controller
 
                 for ($row = 4; $row <= $highestRow; $row++) {
 
-                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $lembaga = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
                     $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
 
                     $data[] = array(
-                        'nama'          => $nama,
+                        'lembaga'          => $lembaga,
                         'alamat'          => $alamat,
                     );
                 }

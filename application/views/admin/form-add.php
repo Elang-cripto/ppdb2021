@@ -32,7 +32,7 @@ if ($cekuri == "mts") {
     <div class="container-fluid">
 
       <!-- form start -->
-      <form method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/add_peserta/<?php echo $cekuri;?>" enctype="multipart/form-data">
+      <form method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/save_pan/<?php echo $cekuri;?>" enctype="multipart/form-data">
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->
@@ -208,7 +208,7 @@ if ($cekuri == "mts") {
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="telp" data-inputmask="'mask': ['999-999-999-999', '+0999 999 999 999']" data-mask>
+                      <input type="text" class="form-control" name="telp" data-inputmask="'mask': ['999-999-999-999', '+0999 999 999 999']" data-mask required>
                     </div>
                   </div>
                 </div>
@@ -588,13 +588,13 @@ if ($cekuri == "mts") {
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="skl_asal" class="form-control" id="skl_asal">
+                    <input type="text" name="skl_asal" class="form-control" id="skl_asal" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="almt_skl" class="form-control" id="almt_skl">
+                    <input type="text" name="almt_skl" class="form-control" id="almt_skl" required>
                   </div>
                 </div>
                 <div class="form-group row">

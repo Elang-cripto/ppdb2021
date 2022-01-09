@@ -31,7 +31,7 @@ class M_ppdb extends CI_Model
     {
         $this->db->order_by('last', 'desc');
         $this->db->limit(8);
-        return $this->db->get("db_user")->result();
+        return $this->db->get("db_user_pemdaftar")->result();
     }
 
     //=========================================== GET SISWA =================================
@@ -47,6 +47,7 @@ class M_ppdb extends CI_Model
         $this->db->where('status', 'AKTIF');
         return $this->db->get($tabel)->result();
     }
+    
     public function getresidu($tabel)
     {
         $this->db->order_by('id', 'asc');
@@ -130,10 +131,55 @@ class M_ppdb extends CI_Model
 
     public function getset()
     {
+        // $this->db->select('kelas');
         // return $this->db->get_where('db_setting', ["id" => 1])->result();
         $query = $this->db->query("SELECT jalur as ambil from db_setting");
         $hasil = $query->row();
         return $hasil->ambil;
+    }
+
+    //============================= SD / MI ============================
+    public function getsdmi()
+    {
+        // $this->db->order_by('last', 'desc');
+        return $this->db->get('db_sdmi')->result();
+    }
+
+    public function addsdmi($data)
+    {
+        return $this->db->insert('db_sdmi', $data);
+    }
+
+    public function updatesdmi($data, $id)
+    {
+        return $this->db->update('db_sdmi', $data, array('id' => $id));
+    }
+
+    public function delsdmi($id)
+    {
+        return $this->db->delete('db_sdmi', array("id" => $id));
+    }
+
+    //============================= SMP / MTs ============================
+    public function getsmpmts()
+    {
+        // $this->db->order_by('last', 'desc');
+        return $this->db->get('db_smpmts')->result();
+    }
+
+    public function addsmpmts($data)
+    {
+        return $this->db->insert('db_smpmts', $data);
+    }
+
+    public function updatesmpmts($data, $id)
+    {
+        return $this->db->update('db_smpmts', $data, array('id' => $id));
+    }
+
+    public function delsmpmts($id)
+    {
+        return $this->db->delete('db_smpmts', array("id" => $id));
     }
 }
 

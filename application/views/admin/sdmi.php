@@ -41,7 +41,6 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
                             <i class="fa fa-upload"></i> Upload
                         </button>
-                        <!-- <a class="btn btn-primary" href="<?php echo base_url('') ?>admin/adduser"><i class="fa fa-user-plus"></i> Tambah</a>   -->
                         <br><br>
                         <table class="table table-bordered table-striped projects">
                             <thead>
@@ -60,7 +59,7 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->lembaga; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
 
                                         <td align="center">
@@ -178,7 +177,9 @@ foreach ($dbsdmi as $m) :
                                     <label class="col-form-label text-md-left">Upload File</label>
                                     <input type="file" class="form-control" name="file" accept=".xls, .xlsx" required>
                                     <div class="mt-1">
-                                        <span class="text-secondary">File yang harus diupload : .xls, xlsx</span>
+                                        <span class="text-secondary">File yang harus diupload : .xls, xlsx </br>
+                                        <a href="<?php echo base_url(); ?>excel/upload_sdmi.xlsx">Download Format!</a>
+                                        </span>
                                     </div>
                                     <?= form_error('file', '<div class="text-danger">', '</div>') ?>
                                 </div>

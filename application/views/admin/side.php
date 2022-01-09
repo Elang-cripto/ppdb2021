@@ -177,7 +177,7 @@
             <?php if (in_array($cek_uri2, $ceknon)) {
               echo "active";
             } ?>">
-            <i class="nav-icon fas fa-ban"></i>
+            <i class="nav-icon fas fa-user-times"></i>
             <p>NON AKTIF<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">

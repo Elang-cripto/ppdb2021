@@ -10,11 +10,11 @@
   <title>
     <?php 
       $cek_uri2 = $this->uri->segment(2);
-      
+      $cek_uri1 = $this->uri->segment(1);
       if ($cek_uri2=='bukti') {
         echo 'Cetak Bukti - '.$data->nama; 
       } else {
-        echo 'PPDB Online';
+        echo 'PPDB Online - '.$cek_uri1;
       }
       
     ;?>

@@ -36,7 +36,7 @@
                 </h3>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-users"></i>
               </div>
             </div>
           </div>
@@ -50,14 +50,11 @@
                 </h3>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-users"></i>
               </div>
             </div>
           </div>
           <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
 
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-warning">
@@ -68,7 +65,7 @@
                 </h3>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-users"></i>
               </div>
             </div>
           </div>
@@ -82,7 +79,7 @@
                 </h3>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-users"></i>
               </div>
             </div>
           </div>
@@ -91,37 +88,322 @@
 
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
-            <div class="card card-info">
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Jumlah PD MTS Total</h3>
+                <h3 class="card-title">Jumlah Berdasar Status MTS</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
+                      <th>Status</th>
                       <th>L</th>
                       <th>P</th>
                       <th>Jumlah</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
                     <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas MTS</td>
+                      <td>AKTIF</td>
                       <td align="center">
-                        <?php echo $mtsp=$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php 
+                          echo $mts_a_l=$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
                       </td>
                       <td align="center">
-                        <?php echo $mtsl=$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php 
+                          echo $mts_a_p=$this->db->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
                       </td>
-                      <td align="center"><?php echo $mtsp+$mtsl; ?></td>
+                      <td align="center"><?php echo $mts_a_p+$mts_a_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>RESIDU</td>
+                      <td align="center">
+                        <?php 
+                          echo $mts_r_l=$this->db->get_where('db_mts',array("status" => 'RESIDU',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $mts_r_p=$this->db->get_where('db_mts',array("status" => 'RESIDU',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $mts_r_p+$mts_r_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>NON AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $mts_n_l=$this->db->get_where('db_mts',array("status" => 'NON AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $mts_n_p=$this->db->get_where('db_mts',array("status" => 'NON AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $mts_n_p+$mts_n_l; ?></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Jumlah Berdasar Status MA</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>L</th>
+                      <th>P</th>
+                      <th>Jumlah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_a_l=$this->db->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_a_p=$this->db->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $ma_a_p+$ma_a_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>RESIDU</td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_r_l=$this->db->get_where('db_ma',array("status" => 'RESIDU',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_r_p=$this->db->get_where('db_ma',array("status" => 'RESIDU',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $ma_r_p+$ma_r_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>NON AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_n_l=$this->db->get_where('db_ma',array("status" => 'NON AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $ma_n_p=$this->db->get_where('db_ma',array("status" => 'NON AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $ma_n_p+$ma_n_l; ?></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Jumlah Berdasar Status SMP</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>L</th>
+                      <th>P</th>
+                      <th>Jumlah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_a_l=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_a_p=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $smp_a_p+$smp_a_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>RESIDU</td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_r_l=$this->db->get_where('db_smp',array("status" => 'RESIDU',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_r_p=$this->db->get_where('db_smp',array("status" => 'RESIDU',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $smp_r_p+$smp_r_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>NON AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_n_l=$this->db->get_where('db_smp',array("status" => 'NON AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $smp_n_p=$this->db->get_where('db_smp',array("status" => 'NON AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $smp_n_p+$smp_n_l; ?></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Jumlah Berdasar Status SMK</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>L</th>
+                      <th>P</th>
+                      <th>Jumlah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $mts7l=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $mts7p=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $mts7p+$mts7l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>RESIDU</td>
+                      <td align="center">
+                        <?php 
+                          echo $mts8l=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $mts8p=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $mts8p+$mts8l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>NON AKTIF</td>
+                      <td align="center">
+                        <?php 
+                          echo $mts9l=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center">
+                        <?php 
+                          echo $mts9p=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                        ?>
+                      </td>
+                      <td align="center"><?php echo $mts9p+$mts9l; ?></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+          </div>               
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Jumlah Berdasar Jalur</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Jalur</th>
+                      <th>L</th>
+                      <th>P</th>
+                      <th>Jumlah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>INDEN</td>
+                      <td align="center">
+                        <?php echo $in_mtsp=$this->db->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $in_mtsl=$this->db->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $in_mtsp+$in_mtsl; ?></td>
+                    </tr>
+                    <tr>
+                      <td>PRESTASI</td>
+                      <td align="center">
+                        <?php echo $pr_mtsp=$this->db->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $pr_mtsl=$this->db->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $pr_mtsp+$pr_mtsl; ?></td>
+                    </tr>
+                    <tr>
+                      <td>REGULER</td>
+                      <td align="center">
+                        <?php echo $re_mtsp=$this->db->get_where('db_mts',array("jalur" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $re_mtsl=$this->db->get_where('db_mts',array("jalur" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $re_mtsp+$re_mtsl; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -141,28 +423,43 @@
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
+                      <th>Jalur</th>
                       <th>L</th>
                       <th>P</th>
                       <th>Jumlah</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
+                  <tr>
                     <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas MA</td>
+                      <td>INDEN</td>
                       <td align="center">
-                        <?php echo $map=$this->db->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $in_map=$this->db->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $mal=$this->db->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $in_mal=$this->db->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $map+$mal; ?></td>
+                      <td align="center"><?php echo $in_map+$in_mal; ?></td>
+                    </tr>
+                    <tr>
+                      <td>PRESTASI</td>
+                      <td align="center">
+                        <?php echo $pr_map=$this->db->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $pr_mal=$this->db->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $pr_map+$pr_mal; ?></td>
+                    </tr>
+                    <tr>
+                      <td>REGULER</td>
+                      <td align="center">
+                        <?php echo $re_map=$this->db->get_where('db_ma',array("jalur" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $re_mal=$this->db->get_where('db_ma',array("jalur" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $re_map+$re_mal; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -189,10 +486,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
                     <tr>
                       <td align="center">
                         <?php echo $smpp=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
@@ -221,7 +514,7 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">No</th>
-                      <th>Kelas</th>
+                      <th>Jalur</th>
                       <th>L</th>
                       <th>P</th>
                       <th>Jumlah</th>
@@ -242,308 +535,6 @@
                         <?php echo $smkl=$this->db->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
                       </td>
                       <td align="center"><?php echo $smkp+$smkl; ?></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-          </div>               
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah PD MTS Perjenjang</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Kelas 7</td>
-                      <td align="center">
-                        <?php 
-                          echo $mts7l=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $mts7p=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $mts7p+$mts7l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Kelas 8</td>
-                      <td align="center">
-                        <?php 
-                          echo $mts8l=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $mts8p=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $mts8p+$mts8l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Kelas 9</td>
-                      <td align="center">
-                        <?php 
-                          echo $mts9l=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $mts9p=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $mts9p+$mts9l; ?></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah PD MA Perjenjang</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td>1.</td>
-                      <td>Kelas 10</td>
-                      <td align="center">
-                        <?php 
-                          echo $ma10l=$this->db->like('kelas_aktf', '10')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $ma10p=$this->db->like('kelas_aktf', '10')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $ma10l + $ma10p; ?></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Kelas 11</td>
-                      <td align="center">
-                        <?php 
-                          echo $ma11l=$this->db->like('kelas_aktf', '11')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $ma11p=$this->db->like('kelas_aktf', '11')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $ma11l + $ma11p; ?></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Kelas 12</td>
-                      <td align="center">
-                        <?php 
-                          echo $ma12l=$this->db->like('kelas_aktf', '12')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $ma12p=$this->db->like('kelas_aktf', '12')->get_where('db_ma',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $ma12l + $ma12p; ?></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah PD SMP Perjenjang</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td>1.</td>
-                      <td>Kelas 7</td>
-                      <td align="center">
-                        <?php 
-                          echo $smp7l=$this->db->like('kelas_aktf', '7')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smp7p=$this->db->like('kelas_aktf', '7')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smp7p + $smp7l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Kelas 8</td>
-                      <td align="center">
-                        <?php 
-                          echo $smp8l=$this->db->like('kelas_aktf', '8')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smp8p=$this->db->like('kelas_aktf', '8')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smp8p + $smp8l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Kelas 9</td>
-                      <td align="center">
-                        <?php 
-                          echo $smp9l=$this->db->like('kelas_aktf', '9')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smp9p=$this->db->like('kelas_aktf', '9')->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smp9p + $smp9l; ?></td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah PD SMK Perjenjang</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">No</th>
-                      <th>Kelas</th>
-                      <th>L</th>
-                      <th>P</th>
-                      <th>Jumlah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
-                    <tr>
-                      <td>1.</td>
-                      <td>Kelas 10</td>
-                      <td align="center">
-                        <?php 
-                          echo $smk10l=$this->db->like('kelas_aktf', '10')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smk10p=$this->db->like('kelas_aktf', '10')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smk10p+$smk10l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Kelas 11</td>
-                      <td align="center">
-                        <?php 
-                          echo $smk11l=$this->db->like('kelas_aktf', '11')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smk11p=$this->db->like('kelas_aktf', '11')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smk11p+$smk11l; ?></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Kelas 12</td>
-                      <td align="center">
-                        <?php 
-                          echo $smk12l=$this->db->like('kelas_aktf', '12')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center">
-                        <?php 
-                          echo $smk12p=$this->db->like('kelas_aktf', '12')->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
-                        ?>
-                      </td>
-                      <td align="center"><?php echo $smk12p+$smk12l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
