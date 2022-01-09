@@ -211,7 +211,7 @@ class Download extends CI_Controller {
 		
 		$excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
 
-		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_POTRAIT);
 
 		$excel->getActiveSheet(0)->setTitle("Daftar Hadir");
 		$excel->setActiveSheetIndex(0);
@@ -426,7 +426,7 @@ class Download extends CI_Controller {
 		
 		$excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
 
-		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_POTRAIT);
 
 		$excel->getActiveSheet(0)->setTitle("Form Nilai");
 		$excel->setActiveSheetIndex(0);

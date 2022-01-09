@@ -118,7 +118,7 @@ class Admin extends CI_Controller
 		$data['progres'] 	= date("Y-m-d H:i:s");
 		$data['editor']		= $this->session->userdata('nama');
 		$data['jalur'] 		= $this->m_ppdb->getset();
-		$data['status'] 	= 'AKTIF';
+		$data['status'] 	= 'RESIDU';
 		$this->db->insert('db_' . $par, $data);
 
 		//Fungsi db_user_pengguna
@@ -135,7 +135,7 @@ class Admin extends CI_Controller
 
 		//==============================================================================
 
-		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Formulir berhasil di kirim'}");
+		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
 		redirect('admin/data/' . $par, 'refresh');
 	}
 

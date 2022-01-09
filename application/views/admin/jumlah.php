@@ -26,6 +26,8 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
+
+        <!-- Jumlah Data  -->
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-primary">
@@ -85,6 +87,7 @@
           </div>
           <!-- /.col -->
         </div>
+
 
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
@@ -309,43 +312,43 @@
                       <td>AKTIF</td>
                       <td align="center">
                         <?php 
-                          echo $mts7l=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                          echo $smk_a_l=$this->db->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
                         ?>
                       </td>
                       <td align="center">
                         <?php 
-                          echo $mts7p=$this->db->like('kelas_aktf', '7')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                          echo $smk_a_p=$this->db->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
                         ?>
                       </td>
-                      <td align="center"><?php echo $mts7p+$mts7l; ?></td>
+                      <td align="center"><?php echo $smk_a_p+$smk_a_l; ?></td>
                     </tr>
                     <tr>
                       <td>RESIDU</td>
                       <td align="center">
                         <?php 
-                          echo $mts8l=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                          echo $smk_r_l=$this->db->get_where('db_smk',array("status" => 'RESIDU',"jk" => 'L'))->num_rows(); 
                         ?>
                       </td>
                       <td align="center">
                         <?php 
-                          echo $mts8p=$this->db->like('kelas_aktf', '8')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                          echo $smk_r_p=$this->db->get_where('db_smk',array("status" => 'RESIDU',"jk" => 'P'))->num_rows(); 
                         ?>
                       </td>
-                      <td align="center"><?php echo $mts8p+$mts8l; ?></td>
+                      <td align="center"><?php echo $smk_r_p+$smk_r_l; ?></td>
                     </tr>
                     <tr>
                       <td>NON AKTIF</td>
                       <td align="center">
                         <?php 
-                          echo $mts9l=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); 
+                          echo $smk_n_l=$this->db->get_where('db_smk',array("status" => 'NON AKTIF',"jk" => 'L'))->num_rows(); 
                         ?>
                       </td>
                       <td align="center">
                         <?php 
-                          echo $mts9p=$this->db->like('kelas_aktf', '9')->get_where('db_mts',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); 
+                          echo $smk_n_p=$this->db->get_where('db_smk',array("status" => 'NON AKTIF',"jk" => 'P'))->num_rows(); 
                         ?>
                       </td>
-                      <td align="center"><?php echo $mts9p+$mts9l; ?></td>
+                      <td align="center"><?php echo $smk_n_p+$smk_n_l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
