@@ -234,7 +234,7 @@ class Admin extends CI_Controller
         redirect('admin/setting', 'refresh');
     }
 
-    // =============================== sekolah asal =======================================
+    // =============================== sekolah asal SD / MI =======================================
 
     public function sdmi()
     {
@@ -252,6 +252,24 @@ class Admin extends CI_Controller
         redirect('admin/sdmi', 'refresh');
     }
 
+    public function editsdmi()
+    {
+        $id                     = $this->input->post('id');
+        $data                   = $this->input->post();
+
+        $this->m_ppdb->updatesdmi($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
+        redirect('admin/sdmi', 'refresh');
+    }
+
+    public function delsdmi($id)
+    {
+        $this->m_ppdb->delsdmi($id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
+        redirect('admin/sdmi', 'refresh');
+    }
+
+    // =============================== sekolah asal SMP / MTs =======================================
     public function smpmts()
     {
         $data['dbsmpmts'] = $this->m_ppdb->getsmpmts();
@@ -260,11 +278,77 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
+    public function editsmpmts()
+    {
+        $id                     = $this->input->post('id');
+        $data                   = $this->input->post();
+
+        $this->m_ppdb->updatesdmi($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
+        redirect('admin/smpmts', 'refresh');
+    }
+
+    public function delsmpmts($id)
+    {
+        $this->m_ppdb->delsmpmts($id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
+        redirect('admin/smpmts', 'refresh');
+    }
+
+    // =============================== Download =======================================
     public function download()
     {
         $data['content']      = 'admin/download';
 
         $this->load->view('admin/templating', $data);
+    }
+
+    // =============================== Upload =======================================
+    public function uploadsdmi()
+    {
+        if (isset($_FILES["file"]["name"])) {
+            // upload
+            $file_tmp = $_FILES['file']['tmp_name'];
+            $file_name = $_FILES['file']['name'];
+            $file_size = $_FILES['file']['size'];
+            $file_type = $_FILES['file']['type'];
+            // move_uploaded_file($file_tmp,"uploads/".$file_name); // simpan filenya di folder uploads
+
+            $object = PHPExcel_IOFactory::load($file_tmp);
+
+            foreach ($object->getWorksheetIterator() as $worksheet) {
+
+                $highestRow = $worksheet->getHighestRow();
+                $highestColumn = $worksheet->getHighestColumn();
+
+                for ($row = 4; $row <= $highestRow; $row++) {
+
+                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+
+                    $data[] = array(
+                        'nama'          => $nama,
+                        'alamat'          => $alamat,
+                    );
+                }
+            }
+
+            $this->db->insert_batch('db_sdmi', $data);
+
+            $message = array(
+                'message' => '<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
+            );
+
+            $this->session->set_flashdata($message);
+            redirect('admin/sdmi');
+        } else {
+            $message = array(
+                'message' => '<div class="alert alert-danger">Import file gagal, coba lagi</div>',
+            );
+
+            $this->session->set_flashdata($message);
+            redirect('admin/sdmi');
+        }
     }
 }
 
