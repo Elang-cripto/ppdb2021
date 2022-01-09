@@ -92,13 +92,15 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-    // ========================== Tambah Siswa Baru ==========================
+    // ========================== Tambah Siswa Baru dari Panitia ==========================
     public function save_pan($par)
 	{
 		// $par 	= $this->session->userdata('par');
 		$dbcek	= 'db_' .$par;
 		$dariDB = $this->m_ppdb->get_kode($dbcek);
 		$urut 	= (int)substr($dariDB, 11, 3);
+        $nikqr  = md5($this->input->post('nik'));
+        $this->m_ppdb->qrcode($nikqr, $par);
 
 		if ($par == "MTS") {
 			$nus = "538";
@@ -119,6 +121,7 @@ class Admin extends CI_Controller
 		$data['editor']		= $this->session->userdata('nama');
 		$data['jalur'] 		= $this->m_ppdb->getset();
 		$data['status'] 	= 'RESIDU';
+
 		$this->db->insert('db_' . $par, $data);
 
 		//Fungsi db_user_pengguna
@@ -151,14 +154,26 @@ class Admin extends CI_Controller
     public function editsave($par, $id)
     {
         $pilih                  = 'db_' . $par;
-        $data                     = $this->input->post();
+        $data                   = $this->input->post();
         $data['editor']         = $this->session->userdata('nama');
-        $data['progres']         = date("Y-m-d H:i:s");
+        $data['progres']        = date("Y-m-d H:i:s");
+        $nikqr                  = md5($this->input->post('nik'));
+        $this->m_ppdb->qrcode($nikqr, $par);
 
+        $uricek = $this->uri->segment(2);
         $this->m_ppdb->updatedata($data, $id, $pilih);
         $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
-        redirect('admin/data/' . $par, 'refresh');
+        // redirect('admin/'.$uricek.'/'.$par, 'refresh');
+        redirect('admin/data/'.$par, 'refresh');
+    }
+
+    public function delete($par, $id)
+    {
+        $tabel  = 'db_' . $par;
+        $this->m_ppdb->del_pd($tabel, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
+        redirect('admin/data/'. $par, 'refresh');
     }
 
     // ========================== cetak bukti ==========================

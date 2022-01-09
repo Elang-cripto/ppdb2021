@@ -46,7 +46,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-success">
               <div class="inner">
-                <p>Total Rombel MA</p>
+                <p>Total Pendaftar MA</p>
                 <h3>
                   <?php echo $this->db->get('db_ma')->num_rows(); ?>
                 </h3>
@@ -57,11 +57,10 @@
             </div>
           </div>
           <!-- /.col -->
-
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-warning">
               <div class="inner">
-                <p>Total Rombel SMP</p>
+                <p>Total Pendaftar SMP</p>
                 <h3>
                   <?php echo $this->db->get('db_smp')->num_rows(); ?>
                 </h3>
@@ -75,7 +74,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="small-box bg-danger">
               <div class="inner">
-                <p>Total Rombel SMK</p>
+                <p>Total Pendaftar SMK</p>
                 <h3>
                 <?php echo $this->db->get('db_smk')->num_rows(); ?>
                 </h3>
@@ -87,7 +86,6 @@
           </div>
           <!-- /.col -->
         </div>
-
 
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
@@ -364,7 +362,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Jumlah Berdasar Jalur</h3>
+                <h3 class="card-title">Jumlah Berdasar Jalur (MTS)</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -381,32 +379,32 @@
                     <tr>
                       <td>INDEN</td>
                       <td align="center">
-                        <?php echo $in_mtsp=$this->db->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $in_mts_l=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $in_mtsl=$this->db->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $in_mts_p=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $in_mtsp+$in_mtsl; ?></td>
+                      <td align="center"><?php echo $in_mts_p+$in_mts_l; ?></td>
                     </tr>
                     <tr>
                       <td>PRESTASI</td>
                       <td align="center">
-                        <?php echo $pr_mtsp=$this->db->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $pre_mts_l=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $pr_mtsl=$this->db->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $pre_mts_p=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $pr_mtsp+$pr_mtsl; ?></td>
+                      <td align="center"><?php echo $pre_mts_p+$pre_mts_l; ?></td>
                     </tr>
                     <tr>
                       <td>REGULER</td>
                       <td align="center">
-                        <?php echo $re_mtsp=$this->db->get_where('db_mts',array("jalur" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $reg_mts_l=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'REGULER',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $re_mtsl=$this->db->get_where('db_mts',array("jalur" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $reg_mts_p=$this->db->like('status', 'AKTIF')->get_where('db_mts',array("jalur" => 'REGULER',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $re_mtsp+$re_mtsl; ?></td>
+                      <td align="center"><?php echo $reg_mts_p+$reg_mts_l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -419,7 +417,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Jumlah PD MA Total</h3>
+                <h3 class="card-title">Jumlah Berdasar Jalur (MA)</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -433,36 +431,35 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
                     <tr>
                       <td>INDEN</td>
                       <td align="center">
-                        <?php echo $in_map=$this->db->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $in_ma_l=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $in_mal=$this->db->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $in_ma_p=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $in_map+$in_mal; ?></td>
+                      <td align="center"><?php echo $in_ma_p+$in_ma_l; ?></td>
                     </tr>
                     <tr>
                       <td>PRESTASI</td>
                       <td align="center">
-                        <?php echo $pr_map=$this->db->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $pre_ma_l=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $pr_mal=$this->db->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $pre_ma_p=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $pr_map+$pr_mal; ?></td>
+                      <td align="center"><?php echo $pre_ma_p+$pre_ma_l; ?></td>
                     </tr>
                     <tr>
                       <td>REGULER</td>
                       <td align="center">
-                        <?php echo $re_map=$this->db->get_where('db_ma',array("jalur" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $reg_ma_l=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'REGULER',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $re_mal=$this->db->get_where('db_ma',array("jalur" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $reg_ma_p=$this->db->like('status', 'AKTIF')->get_where('db_ma',array("jalur" => 'REGULER',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $re_map+$re_mal; ?></td>
+                      <td align="center"><?php echo $reg_ma_p+$reg_ma_l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -475,7 +472,7 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="card card-warning">
               <div class="card-header">
-                <h3 class="card-title">Jumlah PD SMP Total</h3>
+                <h3 class="card-title">Jumlah Berdasar Jalur (SMP)</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -490,13 +487,34 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td>INDEN</td>
                       <td align="center">
-                        <?php echo $smpp=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $in_smp_l=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $smpl=$this->db->get_where('db_smp',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $in_smp_p=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $smpp+$smpl; ?></td>
+                      <td align="center"><?php echo $in_smp_p+$in_smp_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>PRESTASI</td>
+                      <td align="center">
+                        <?php echo $pre_smp_l=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $pre_smp_p=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $pre_smp_p+$pre_smp_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>REGULER</td>
+                      <td align="center">
+                        <?php echo $reg_smp_l=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'REGULER',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $reg_smp_p=$this->db->like('status', 'AKTIF')->get_where('db_smp',array("jalur" => 'REGULER',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $reg_smp_p+$reg_smp_l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -509,14 +527,13 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Jumlah PD SMK Total</h3>
+                <h3 class="card-title">Jumlah Berdasar Jalur (SMK)</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <table class="table table-sm">
                   <thead>
                     <tr>
-                      <th style="width: 10px">No</th>
                       <th>Jalur</th>
                       <th>L</th>
                       <th>P</th>
@@ -524,20 +541,35 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $no=0;
-                      $no++;
-                    ?>                    
                     <tr>
-                      <td><?php echo $no; ?></td>
-                      <td>Kelas SMK</td>
+                      <td>INDEN</td>
                       <td align="center">
-                        <?php echo $smkp=$this->db->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'L'))->num_rows(); ?>
+                        <?php echo $in_smk_l=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'INDEN',"jk" => 'L'))->num_rows(); ?>
                       </td>
                       <td align="center">
-                        <?php echo $smkl=$this->db->get_where('db_smk',array("status" => 'AKTIF',"jk" => 'P'))->num_rows(); ?>
+                        <?php echo $in_smk_p=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'INDEN',"jk" => 'P'))->num_rows(); ?>
                       </td>
-                      <td align="center"><?php echo $smkp+$smkl; ?></td>
+                      <td align="center"><?php echo $in_smk_p+$in_smk_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>PRESTASI</td>
+                      <td align="center">
+                        <?php echo $pre_smk_l=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'PRESTASI',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $pre_smk_p=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'PRESTASI',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $pre_smk_p+$pre_smk_l; ?></td>
+                    </tr>
+                    <tr>
+                      <td>REGULER</td>
+                      <td align="center">
+                        <?php echo $reg_smk_l=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'REGULER',"jk" => 'L'))->num_rows(); ?>
+                      </td>
+                      <td align="center">
+                        <?php echo $reg_smk_p=$this->db->like('status', 'AKTIF')->get_where('db_smk',array("jalur" => 'REGULER',"jk" => 'P'))->num_rows(); ?>
+                      </td>
+                      <td align="center"><?php echo $reg_smk_p+$reg_smk_l; ?></td>
                     </tr>
                   </tbody>
                   <tfoot>

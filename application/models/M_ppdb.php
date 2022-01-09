@@ -31,7 +31,7 @@ class M_ppdb extends CI_Model
     {
         $this->db->order_by('last', 'desc');
         $this->db->limit(8);
-        return $this->db->get("db_user_pemdaftar")->result();
+        return $this->db->get("db_user_pendaftar")->result();
     }
 
     //=========================================== GET SISWA =================================
@@ -66,7 +66,11 @@ class M_ppdb extends CI_Model
         return $this->db->update($pilih, $data, array('id_enc' => $id));
     }
 
-
+    public function del_pd($tabel, $id)
+    {
+        return $this->db->delete($tabel, array("id_enc" => $id));
+    }
+    
     // ===========================GET USER PANITIA ==============================
     public function getuser()
     {
@@ -180,6 +184,29 @@ class M_ppdb extends CI_Model
     public function delsmpmts($id)
     {
         return $this->db->delete('db_smpmts', array("id" => $id));
+    }
+
+    public function qrcode($nikqr, $par)
+    {
+        $this->load->library('ciqrcode'); //pemanggilan library QR CODE
+
+        $config['cacheable']    = true; //boolean, the default is true
+        $config['cachedir']     = './asset/'; //string, the default is application/cache/
+        $config['errorlog']     = './asset/'; //string, the default is application/logs/
+        $config['imagedir']     = './asset/qr/'; //direktori penyimpanan qr code
+        $config['quality']      = true; //boolean, the default is true
+        $config['size']         = '1024'; //interger, the default is 1024
+        $config['black']        = array(224,255,255); // array, default is array(255,255,255)
+        $config['white']        = array(70,130,180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+ 
+        $image_name=$nikqr.'.png'; //buat name dari qr code sesuai dengan nim
+ 
+        $params['data'] = base_url('').'cek/'.$par.'/'.$nikqr; //data yang akan di jadikan QR CODE
+        $params['level'] = 'H'; //H=High
+        $params['size'] = 10;
+        $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/qr/
+        $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
     }
 }
 

@@ -48,6 +48,15 @@
 				<tr>
 					<td>Nama Peserta Didik</td>
 					<td>: <?php echo $data->nama; ?></td>
+					<td rowspan="5" >
+						<img style="width: 100px; height: auto;" <?php
+																	if (empty($data->foto)) {
+																		$gambar = "none.png";
+																	} else {
+																		$gambar = $data->foto;
+																	}
+																	?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
+					</td>
 				</tr>
 				<tr>
 					<td>NISN</td>
@@ -120,15 +129,8 @@
 			<br>
 			<table style="width:100%">
 				<tr>
-					<td style="width:40%" class="text-center">
-						<img style="width: 100px; height: auto;" <?php
-																	if (empty($data->foto)) {
-																		$gambar = "none.png";
-																	} else {
-																		$gambar = $data->foto;
-																	}
-																	?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
-
+					<td style="width:40%" class="text-center"></br>
+						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)).'.png' ?>" alt="qrcode">
 					</td>
 					<td style="width:30%">
 						<br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>
