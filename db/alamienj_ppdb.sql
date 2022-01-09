@@ -374,7 +374,7 @@ INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabata
 
 CREATE TABLE `db_sdmi` (
   `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
+  `lembaga` varchar(128) NOT NULL,
   `alamat` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -382,7 +382,7 @@ CREATE TABLE `db_sdmi` (
 -- Dumping data untuk tabel `db_sdmi`
 --
 
-INSERT INTO `db_sdmi` (`id`, `nama`, `alamat`) VALUES
+INSERT INTO `db_sdmi` (`id`, `lembaga`, `alamat`) VALUES
 (1, 'SDN SUMBEREJO 05', 'Krajan Kidul, RT 01/RW06, Sumberejo, Ambulu, Jember'),
 (2, 'SDN SUMBEREJO 07', 'Krajan Lor, RT 04/ RW 01, Sumberejo, Ambulu, Jember');
 
@@ -587,7 +587,7 @@ CREATE TABLE `db_smp` (
 
 CREATE TABLE `db_smpmts` (
   `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
+  `lembaga` varchar(128) NOT NULL,
   `alamat` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -595,7 +595,7 @@ CREATE TABLE `db_smpmts` (
 -- Dumping data untuk tabel `db_smpmts`
 --
 
-INSERT INTO `db_smpmts` (`id`, `nama`, `alamat`) VALUES
+INSERT INTO `db_smpmts` (`id`, `lembaga`, `alamat`) VALUES
 (1, 'SMP NEGERI 2 AMBULU', 'Jl.Sabrang Ambulu Jember');
 
 -- --------------------------------------------------------
