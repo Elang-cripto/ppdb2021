@@ -4,10 +4,14 @@ Aplikasi PPDB Online ini dikembangkan dengan beberapa fitur. dan penyesuaian keb
 
 #Fitur
 ------------
--
-
+- Formulir Pendaftaran
+- Jumlah Pendaftar
+- Cetak Bukti
+- Akses Panitia
+- Akses User Pendaftar
+- Registrasi
 
 #Contributor
 ------------
--. [Mukhammad Yasin](https://github.com/Elang-cripto "Mukhammad Yasin")
--. [Anash Herdiansyah](https://github.com/anash17 "Anash Herdiansyah")
+- [Mukhammad Yasin](https://github.com/Elang-cripto "Mukhammad Yasin")
+- [Anash Herdiansyah](https://github.com/anash17 "Anash Herdiansyah")
