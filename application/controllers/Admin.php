@@ -94,53 +94,53 @@ class Admin extends CI_Controller
 
     // ========================== Tambah Siswa Baru dari Panitia ==========================
     public function save_pan($par)
-	{
-		// $par 	= $this->session->userdata('par');
-		$dbcek	= 'db_' .$par;
-		$dariDB = $this->m_ppdb->get_kode($dbcek);
-		$urut 	= (int)substr($dariDB, 11, 3);
+    {
+        // $par 	= $this->session->userdata('par');
+        $dbcek    = 'db_' . $par;
+        $dariDB = $this->m_ppdb->get_kode($dbcek);
+        $urut     = (int)substr($dariDB, 11, 3);
         $nikqr  = md5($this->input->post('nik'));
         $this->m_ppdb->qrcode($nikqr, $par);
 
-		if ($par == "MTS") {
-			$nus = "538";
-		} elseif ($par == "MA") {
-			$nus = "510";
-		} elseif ($par == "SMP") {
-			$nus = "209";
-		} else {
-			$nus = "265";
-		}
+        if ($par == "MTS") {
+            $nus = "538";
+        } elseif ($par == "MA") {
+            $nus = "510";
+        } elseif ($par == "SMP") {
+            $nus = "209";
+        } else {
+            $nus = "265";
+        }
 
-		//Fungsi db_mts
-		date_default_timezone_set("ASIA/JAKARTA");
-		$data 				= $this->input->post();
-		$data['id_enc']		= md5($this->input->post('nik'));
-		$data['No_Reg']		= $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
-		$data['progres'] 	= date("Y-m-d H:i:s");
-		$data['editor']		= $this->session->userdata('nama');
-		$data['jalur'] 		= $this->m_ppdb->getset();
-		$data['status'] 	= 'RESIDU';
+        //Fungsi db_mts
+        date_default_timezone_set("ASIA/JAKARTA");
+        $data                 = $this->input->post();
+        $data['id_enc']        = md5($this->input->post('nik'));
+        $data['No_Reg']        = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
+        $data['progres']     = date("Y-m-d H:i:s");
+        $data['editor']        = $this->session->userdata('nama');
+        $data['jalur']         = $this->m_ppdb->getset();
+        $data['status']     = 'RESIDU';
 
-		$this->db->insert('db_' . $par, $data);
+        $this->db->insert('db_' . $par, $data);
 
-		//Fungsi db_user_pengguna
-		$data2['nik']	    = $this->input->post('nik');
-		$data2['nama']	    = $this->input->post('nama');
-		$data2['email']	    = $this->input->post('email');
-		$data2['telp']	    = $this->input->post('telp');
-		$data2['par']	    = strtoupper($par);
-		$data2['status']	= 'NON AKTIF';
-		$data2['jabatan']	= 'USER';
-		$data2['echo']	    = '1';
-		$data2['last']	    = date("Y-m-d H:i:s");
-		$this->db->insert('db_user_pendaftar', $data2);
+        //Fungsi db_user_pengguna
+        $data2['nik']        = $this->input->post('nik');
+        $data2['nama']        = $this->input->post('nama');
+        $data2['email']        = $this->input->post('email');
+        $data2['telp']        = $this->input->post('telp');
+        $data2['par']        = strtoupper($par);
+        $data2['status']    = 'NON AKTIF';
+        $data2['jabatan']    = 'USER';
+        $data2['echo']        = '1';
+        $data2['last']        = date("Y-m-d H:i:s");
+        $this->db->insert('db_user_pendaftar', $data2);
 
-		//==============================================================================
+        //==============================================================================
 
-		$this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
-		redirect('admin/data/' . $par, 'refresh');
-	}
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
+        redirect('admin/data/' . $par, 'refresh');
+    }
 
     // ========================== edit Siswa ==========================
     public function edit()
@@ -165,7 +165,7 @@ class Admin extends CI_Controller
         $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
         // redirect('admin/'.$uricek.'/'.$par, 'refresh');
-        redirect('admin/data/'.$par, 'refresh');
+        redirect('admin/data/' . $par, 'refresh');
     }
 
     public function delete($par, $id)
@@ -173,7 +173,7 @@ class Admin extends CI_Controller
         $tabel  = 'db_' . $par;
         $this->m_ppdb->del_pd($tabel, $id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Data telah di hapus'}");
-        redirect('admin/data/'. $par, 'refresh');
+        redirect('admin/data/' . $par, 'refresh');
     }
 
     // ========================== cetak bukti ==========================
@@ -340,6 +340,14 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
+    public function addsmpmts()
+    {
+        $data                     = $this->input->post();
+        $this->m_ppdb->addsmpmts($data);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
+        redirect('admin/smpmts', 'refresh');
+    }
+
     public function editsmpmts()
     {
         $id                     = $this->input->post('id');
@@ -385,11 +393,11 @@ class Admin extends CI_Controller
 
                 for ($row = 4; $row <= $highestRow; $row++) {
 
-                    $lembaga = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
                     $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
 
                     $data[] = array(
-                        'lembaga'          => $lembaga,
+                        'nama'          => $nama,
                         'alamat'          => $alamat,
                     );
                 }
@@ -410,6 +418,52 @@ class Admin extends CI_Controller
 
             $this->session->set_flashdata($message);
             redirect('admin/sdmi');
+        }
+    }
+    public function uploadsmpmts()
+    {
+        if (isset($_FILES["file"]["name"])) {
+            // upload
+            $file_tmp = $_FILES['file']['tmp_name'];
+            $file_name = $_FILES['file']['name'];
+            $file_size = $_FILES['file']['size'];
+            $file_type = $_FILES['file']['type'];
+            // move_uploaded_file($file_tmp,"uploads/".$file_name); // simpan filenya di folder uploads
+
+            $object = PHPExcel_IOFactory::load($file_tmp);
+
+            foreach ($object->getWorksheetIterator() as $worksheet) {
+
+                $highestRow = $worksheet->getHighestRow();
+                $highestColumn = $worksheet->getHighestColumn();
+
+                for ($row = 4; $row <= $highestRow; $row++) {
+
+                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+
+                    $data[] = array(
+                        'nama'          => $nama,
+                        'alamat'          => $alamat,
+                    );
+                }
+            }
+
+            $this->db->insert_batch('db_smpmts', $data);
+
+            $message = array(
+                'message' => '<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
+            );
+
+            $this->session->set_flashdata($message);
+            redirect('admin/smpmts');
+        } else {
+            $message = array(
+                'message' => '<div class="alert alert-danger">Import file gagal, coba lagi</div>',
+            );
+
+            $this->session->set_flashdata($message);
+            redirect('admin/smpmts');
         }
     }
 }

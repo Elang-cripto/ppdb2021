@@ -31,14 +31,14 @@
             <div class="col-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Managemen SD / MI</h3>
+                        <h3 class="card-title">Managemen SMP / MTs</h3>
                     </div>
                     <!-- /.card-header  -->
                     <div class="card-body">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-tambah">
                             <i class="fa fa-user-plus"></i> Tambah
                         </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
                             <i class="fa fa-upload"></i> Upload
                         </button>
                         <!-- <a class="btn btn-primary" href="<?php echo base_url('') ?>admin/adduser"><i class="fa fa-user-plus"></i> Tambah</a>   -->
@@ -88,7 +88,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah SD / MI</h4>
+                <h4 class="modal-title">Tambah SMP / MTs</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
             </div>
@@ -159,3 +159,43 @@ foreach ($dbsmpmts as $m) :
     </div>
     <!-- /.modal -->
 <?php endforeach; ?>
+
+<!-- =============================== modal Upload =============================== -->
+<div class="modal fade" id="modal-upload">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload SMP / MTs</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <form method="POST" action="<?= base_url('admin/uploadsmpmts') ?>" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="col-form-label text-md-left">Upload File</label>
+                                    <input type="file" class="form-control" name="file" accept=".xls, .xlsx" required>
+                                    <div class="mt-1">
+                                        <span class="text-secondary">File yang harus diupload : .xls, xlsx </br>
+                                            <a href="<?php echo base_url(); ?>excel/upload_smpmts.xlsx">Download Format!</a>
+                                        </span>
+                                    </div>
+                                    <?= form_error('file', '<div class="text-danger">', '</div>') ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="form-group mb-0">
+                        <button type="submit" name="import" class="btn btn-primary"><i class="fas fa-upload mr-1"></i>Upload</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
