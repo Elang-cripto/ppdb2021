@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Jan 2022 pada 05.07
+-- Generation Time: 10 Jan 2022 pada 03.43
 -- Versi Server: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -237,15 +237,17 @@ CREATE TABLE `db_ma` (
   `jalur` varchar(25) NOT NULL,
   `foto` varchar(100) NOT NULL,
   `progres` varchar(50) NOT NULL,
-  `editor` varchar(50) NOT NULL
+  `editor` varchar(50) NOT NULL,
+  `mgm` varchar(50) NOT NULL,
+  `ket` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `db_ma`
 --
 
-INSERT INTO `db_ma` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
-(1, 'b47c29ab66c06dd671c6b6950c0eadad', '538-211230-001', '0002545415', 'adjsajdas dsad', 'P', 'nabire', '2021-12-01', '3198627361726123', 'Islam', 'Jl.hbadbas asjbdkasbdbaskdbaskb723623', '2', '1', 'kebonsari', 'sabrang', 'ambulu', 'jember', 'jawa timur', 'Milik Sendiri', 'Dusun', 'Angkutan umum/bus/pete-pete', '086235623243', 'anashasd@gmail.com', '1', '2', 'sadas', 'ndfdg', '2021-12-09', 'SD Sederajad', 'Buruh', 'Rp. 5,000,000 - Rp. 20,000,000', '432432434324234', 'asdadad', 'ndfgsfasda', '2021-12-21', 'SMP Sederajad', 'Pensiunan', 'Tidak Berpenghasilan', '234324324324', '', '0000-00-00', '', '', '', '', '', '35056756465456', '', '', '', '', '', '', '', '', '', '', '', '', '', 'sdn sumberejo 7', 'sumberejo', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '0', 'adjsajdas dsad');
+INSERT INTO `db_ma` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`, `mgm`, `ket`) VALUES
+(1, 'b47c29ab66c06dd671c6b6950c0eadad', '538-211230-001', '0002545415', 'adjsajdas dsad', 'P', 'nabire', '2021-12-01', '3198627361726123', 'Islam', 'Jl.hbadbas asjbdkasbdbaskdbaskb723623', '2', '1', 'kebonsari', 'sabrang', 'ambulu', 'jember', 'jawa timur', 'Milik Sendiri', 'Dusun', 'Angkutan umum/bus/pete-pete', '086235623243', 'anashasd@gmail.com', '1', '2', 'sadas', 'ndfdg', '2021-12-09', 'SD Sederajad', 'Buruh', 'Rp. 5,000,000 - Rp. 20,000,000', '432432434324234', 'asdadad', 'ndfgsfasda', '2021-12-21', 'SMP Sederajad', 'Pensiunan', 'Tidak Berpenghasilan', '234324324324', '', '0000-00-00', '', '', '', '', '', '35056756465456', '', '', '', '', '', '', '', '', '', '', '', '', '', 'sdn sumberejo 7', 'sumberejo', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '0', 'adjsajdas dsad', '', '');
 
 -- --------------------------------------------------------
 
@@ -327,17 +329,19 @@ CREATE TABLE `db_mts` (
   `foto` varchar(100) NOT NULL,
   `progres` datetime NOT NULL,
   `editor` varchar(50) NOT NULL,
-  `mgm` varchar(50) NOT NULL
+  `mgm` varchar(50) NOT NULL,
+  `ket` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `db_mts`
 --
 
-INSERT INTO `db_mts` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`, `mgm`) VALUES
-(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-001', '0051093586', 'Mukhammad Yasin', 'L', 'Nabire', '2021-12-30', '3509120603900001', 'L', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', '', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', 'Lebih dari Rp. 20,000,000', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', 'RESIDU', 'INDEN', '', '2022-01-06 12:08:54', 'Anash', ''),
-(16, 'cc05d99fdee34411aed5565fc794bbd1', '538-220101-004', '0064942605', 'anisa anis', 'L', 'Jember', '2022-01-14', '674567642324', 'L', 'Krajan Kidul, Sumberejo', '', '', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'NON AKTIF', 'PRESTASI', '', '2022-01-06 12:10:58', 'Anash', ''),
-(28, 'a4e30929d05968204d05ec558401df9f', '538-220102-005', '0051093586', 'anash herdiansyah', 'L', 'Jember', '2022-01-12', '24864548645', 'L', '', '', '', 'Krajan Kidul', 'Sumberejo', 'Ambulu', 'Jember', 'Jawa Timur', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'AKTIF', 'PRESTASI', '', '2022-01-06 12:11:05', 'Anash', '');
+INSERT INTO `db_mts` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`, `mgm`, `ket`) VALUES
+(1, '22f1be4f5fde5aeb023b634b107cdd0a', '510-211230-001', '0051093586', 'Mukhammad Yasin', 'L', 'Nabire', '2021-12-30', '3509120603900001', 'L', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '085232996671', 'achin.clink@gmail.com', '1', '2', 'Miseri', 'Jember', '2021-12-14', 'S3', 'PNS/TNI/POLRI', 'Lebih dari Rp. 20,000,000', '3509181703710001', 'Rufiah', 'Jember', '2021-12-17', 'S2', '', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', 'Lebih dari Rp. 20,000,000', '', '3509112203110014', '3509123423123123', 'A', '0156/034-84202/S1/I/2016', '', '', '', '', '', '', '', '', '', '', 'SDN SUMBEREJO 01', 'Sumberejo', 'Siswa Baru', '2021-12-22', '', '0000-00-00', '', '', 'RESIDU', 'INDEN', '', '2022-01-10 09:37:53', 'Anash', '', ''),
+(16, 'cc05d99fdee34411aed5565fc794bbd1', '538-220101-004', '0064942605', 'anisa anis', 'L', 'Jember', '2022-01-14', '674567642324', 'L', 'Krajan Kidul, Sumberejo', '', '', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'NON AKTIF', 'PRESTASI', '', '2022-01-06 12:10:58', 'Anash', '', ''),
+(28, 'a4e30929d05968204d05ec558401df9f', '538-220102-005', '0051093586', 'anash herdiansyah', 'L', 'Jember', '2022-01-12', '24864548645', 'L', '', '', '', 'Krajan Kidul', 'Sumberejo', 'Ambulu', 'Jember', 'Jawa Timur', 'Milik Sendiri', 'Dusun', 'Jalan kaki', '', '', '', '', 'Miseri', '', '0000-00-00', '', '', '', '', 'Rufiah', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', 'AKTIF', 'PRESTASI', '', '2022-01-06 12:11:05', 'Anash', '', ''),
+(29, '2dd39678bc306c7444c551bc4b55ee93', '538-220108-006', '1561561231', 'anisa anis', 'L', 'nabire', '2021-12-30', '6745676423245645', 'Katholik', 'Krajan Kidul, RT 01/RW06, Sumberejo, Ambulu, Jember', '2', '1', 'kebonsari', 'sabrang', 'ambulu', 'jember', 'jawa timur', 'Rumah Orang Tua', 'Salaf Putri', 'Angkutan umum/bus/pete-pete', '086235623243', '', '1', '2', 'mc leren', 'ndfdg', '2022-01-06', 'SMP Sederajad', 'Buruh', 'Rp. 1,000,000 - Rp. 1,999,999', '432432434324234', 'mamak', 'ndfgsfasda', '2022-01-14', 'SD Sederajad', 'Wirausaha', 'Rp. 1,000,000 - Rp. 1,999,999', '234324324324', '', '0000-00-00', '', '', '', '', '', '35056756465456', '', '', '', '', '', '', '', '', '', '', '', '', '', 'sdn sumberejo 7', 'sumberejo', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', 'REGULER', '', '2022-01-08 11:43:41', 'anisa anis', '', '');
 
 -- --------------------------------------------------------
 
@@ -362,7 +366,7 @@ CREATE TABLE `db_panitia` (
 
 INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabatan`, `status`, `last`) VALUES
 (1, 'c4ca4238a0b923820dcc509a6f75849b', 'Yasin', 'admin', 'admin', 'admin', '0', '2022-01-06 12:14:47'),
-(9, 'c81e728d9d4c2f636f067f89cc14862c', 'Anash', 'Nvyh', 'nvyh', 'admin', '1', '2022-01-07 10:55:55'),
+(9, 'c81e728d9d4c2f636f067f89cc14862c', 'Anash', 'Nvyh', 'nvyh', 'admin', '1', '2022-01-10 08:29:26'),
 (10, 'd3d9446802a44259755d38e6d163e820', 'irwanto', 'wanto', 'wanto', 'mgm', '0', '2022-01-06 13:25:21'),
 (11, '6512bd43d9caa6e02c990b0a82652dca', 'anash herdiansyah', 'admin', 'anash', 'panitia', '1', '2022-01-06 14:08:25');
 
@@ -374,7 +378,7 @@ INSERT INTO `db_panitia` (`id`, `codex`, `nama`, `username`, `password`, `jabata
 
 CREATE TABLE `db_sdmi` (
   `id` int(11) NOT NULL,
-  `lembaga` varchar(128) NOT NULL,
+  `nama` varchar(128) NOT NULL,
   `alamat` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -382,9 +386,18 @@ CREATE TABLE `db_sdmi` (
 -- Dumping data untuk tabel `db_sdmi`
 --
 
-INSERT INTO `db_sdmi` (`id`, `lembaga`, `alamat`) VALUES
-(1, 'SDN SUMBEREJO 05', 'Krajan Kidul, RT 01/RW06, Sumberejo, Ambulu, Jember'),
-(2, 'SDN SUMBEREJO 07', 'Krajan Lor, RT 04/ RW 01, Sumberejo, Ambulu, Jember');
+INSERT INTO `db_sdmi` (`id`, `nama`, `alamat`) VALUES
+(2, 'SDN SUMBEREJO 07', 'Krajan Lor, RT 04/ RW 01, Sumberejo, Ambulu, Jember'),
+(3, 'SDN SUMBEREJO 09', 'JL. Moh hata'),
+(4, 'SDN SUMBEREJO 09', 'JL. Moh hata'),
+(5, 'SDN SUMBEREJO 10', 'JL. Moh hata'),
+(6, 'SDN SUMBEREJO 11', 'JL. Moh hata'),
+(7, 'SDN SUMBEREJO 12', 'JL. Moh hata'),
+(8, 'SDN SUMBEREJO 13', 'JL. Moh hata'),
+(9, 'SDN SUMBEREJO 14', 'JL. Moh hata'),
+(10, 'SDN SUMBEREJO 15', 'JL. Moh hata'),
+(11, 'SDN SUMBEREJO 16', 'JL. Moh hata'),
+(12, 'SDN SUMBEREJO 17', 'JL. Moh hata');
 
 -- --------------------------------------------------------
 
@@ -406,7 +419,7 @@ CREATE TABLE `db_setting` (
 --
 
 INSERT INTO `db_setting` (`id`, `tapel`, `semester`, `register`, `pengumuman`, `jalur`) VALUES
-(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style="text-align: center; "><font color="#0000ff"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style="text-align: center; "><font color="#0000ff"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style="text-align: center; "><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ', 'PRESTASI');
+(1, '2021-2022', 'Ganjil', '0', '                                                                                                                                                                                                                                                                                                                                <p style="text-align: center; "><font color="#0000ff"><b>Wali kelas mohon segera melakukan Validasi Data dan mengajukan Bukti Verval ke Kepala Sekolah/Madrasah masing-masing.</b></font></p><p style="text-align: center; "><font color="#0000ff"><b>Update Versi Selesai dilakukan mohon bapak ibu cek kembali data yang telah di perbaiki.</b></font></p><p style="text-align: center; "><u>SalamSatuDataAlAmien</u></p>                                                                                                                                                                                                                                                                             ', 'REGULER');
 
 -- --------------------------------------------------------
 
@@ -487,15 +500,17 @@ CREATE TABLE `db_smk` (
   `jalur` varchar(25) NOT NULL,
   `foto` varchar(100) NOT NULL,
   `progres` date NOT NULL,
-  `editor` varchar(50) NOT NULL
+  `editor` varchar(50) NOT NULL,
+  `mgm` varchar(50) NOT NULL,
+  `ket` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `db_smk`
 --
 
-INSERT INTO `db_smk` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`) VALUES
-(1, '6b54d6df88f7bc34cbcf9e4222cd9096', '265-220105-001', '0058299979', 'anash herdiansyah', 'L', 'Jember', '2022-01-18', '248645486453', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Rumah Orang Tua', 'Salaf Putri', 'Kereta api', '086235623243', '', '1', '', 'Miseri', 'Jember', '2022-01-12', 'Tidak Sekolah', 'Buruh', 'Rp. 2,000,000 - Rp. 4,999,999', '3509181703710001', 'Rifiah', 'Jember', '2021-12-28', 'SD Sederajad', 'Wirausaha', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', 'INDEN', '', '2022-01-05', 'anash herdiansyah');
+INSERT INTO `db_smk` (`id`, `id_enc`, `no_reg`, `nisn`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `propinsi`, `sts_tinggal`, `jns_tinggal`, `alat_trans`, `telp`, `email`, `anak_ke`, `jml_sdr`, `nm_ayh`, `tlahir_ayh`, `lahir_ayh`, `pend_ayh`, `kerja_ayh`, `hasil_ayh`, `nik_ayh`, `nm_ibu`, `tlahir_ibu`, `lahir_ibu`, `pend_ibu`, `kerja_ibu`, `hasil_ibu`, `nik_ibu`, `nm_wl`, `lahir_wl`, `tlahir_wl`, `pend_wl`, `kerja_wl`, `hasil_wl`, `nik_wl`, `no_kk`, `no_un`, `no_skhun`, `no_ijazah`, `no_kps`, `no_kip`, `no_kis`, `no_pkh`, `beasiswa`, `kelas_7`, `kelas_8`, `kelas_9`, `kelas_aktf`, `kelas_dig`, `skl_asal`, `almt_skl`, `jns_masuk`, `tgl_masuk`, `ket_out`, `tgl_out`, `alasan_out`, `nosrt_out`, `status`, `jalur`, `foto`, `progres`, `editor`, `mgm`, `ket`) VALUES
+(1, '6b54d6df88f7bc34cbcf9e4222cd9096', '265-220105-001', '0058299979', 'anash herdiansyah', 'L', 'Jember', '2022-01-18', '248645486453', 'Islam', 'Krajan Kidul, Sumberejo', '001', '017', 'Krajan Kidul', 'SUMBEREJO', 'Ambulu', 'Jember', 'JAWA TIMUR', 'Rumah Orang Tua', 'Salaf Putri', 'Kereta api', '086235623243', '', '1', '', 'Miseri', 'Jember', '2022-01-12', 'Tidak Sekolah', 'Buruh', 'Rp. 2,000,000 - Rp. 4,999,999', '3509181703710001', 'Rifiah', 'Jember', '2021-12-28', 'SD Sederajad', 'Wirausaha', 'Lebih dari Rp. 20,000,000', '3509184806790002', '', '0000-00-00', '', '', '', '', '', '3509112203110014', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Siswa Baru', '0000-00-00', '', '0000-00-00', '', '', '', 'INDEN', '', '2022-01-05', 'anash herdiansyah', '', '');
 
 -- --------------------------------------------------------
 
@@ -576,7 +591,9 @@ CREATE TABLE `db_smp` (
   `jalur` varchar(25) NOT NULL,
   `foto` varchar(100) NOT NULL,
   `progres` date NOT NULL,
-  `editor` varchar(50) NOT NULL
+  `editor` varchar(50) NOT NULL,
+  `mgm` varchar(50) NOT NULL,
+  `ket` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -587,7 +604,7 @@ CREATE TABLE `db_smp` (
 
 CREATE TABLE `db_smpmts` (
   `id` int(11) NOT NULL,
-  `lembaga` varchar(128) NOT NULL,
+  `nama` varchar(128) NOT NULL,
   `alamat` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -595,8 +612,17 @@ CREATE TABLE `db_smpmts` (
 -- Dumping data untuk tabel `db_smpmts`
 --
 
-INSERT INTO `db_smpmts` (`id`, `lembaga`, `alamat`) VALUES
-(1, 'SMP NEGERI 2 AMBULU', 'Jl.Sabrang Ambulu Jember');
+INSERT INTO `db_smpmts` (`id`, `nama`, `alamat`) VALUES
+(1, 'SMP NEGERI 2 AMBULU', 'Jl.Sabrang Ambulu Jember'),
+(2, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(3, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(4, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(5, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(6, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(7, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(8, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(9, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata'),
+(10, 'SMP NEGERI 1 JEMBER', 'JL. Moh hata');
 
 -- --------------------------------------------------------
 
@@ -705,7 +731,8 @@ INSERT INTO `db_user_pendaftar` (`id`, `nik`, `nama`, `email`, `telp`, `par`, `s
 (5, '3509120603900001', 'Mukhammad Yasin', 'achin.clink@gmail.com', '082141632876', 'MTS', 'AKTIF', 'user', '1', '2022-01-02 21:53:50'),
 (7, '674567642324', 'anis bashwedan', 'anisa@yahoo.com', '081256565412', 'MTS', 'AKTIF', 'user', '1', '2022-01-01 23:00:10'),
 (8, '24864548645', 'anash herdiansyah', 'usertest@gmail.com', '086234423243', 'MTS', 'AKTIF', 'user', '1', '2022-01-02 21:44:15'),
-(9, '248645486453', 'anash herdiansyah', 'usersmk@gmail.com', '086234423243', 'SMK', 'AKTIF', 'user', '1', '2022-01-06 10:55:42');
+(9, '248645486453', 'anash herdiansyah', 'usersmk@gmail.com', '086234423243', 'SMK', 'AKTIF', 'user', '1', '2022-01-08 11:37:11'),
+(10, '6745676423245645', 'anisa anis', 'anisa@yahoo.com', '086235623243', 'MTS', 'AKTIF', 'user', '1', '2022-01-08 11:42:36');
 
 --
 -- Indexes for dumped tables
@@ -828,7 +855,7 @@ ALTER TABLE `db_ma`
 -- AUTO_INCREMENT for table `db_mts`
 --
 ALTER TABLE `db_mts`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `db_panitia`
 --
@@ -838,7 +865,7 @@ ALTER TABLE `db_panitia`
 -- AUTO_INCREMENT for table `db_sdmi`
 --
 ALTER TABLE `db_sdmi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `db_setting`
 --
@@ -858,7 +885,7 @@ ALTER TABLE `db_smp`
 -- AUTO_INCREMENT for table `db_smpmts`
 --
 ALTER TABLE `db_smpmts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `db_user`
 --
@@ -868,7 +895,7 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT for table `db_user_pendaftar`
 --
 ALTER TABLE `db_user_pendaftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
