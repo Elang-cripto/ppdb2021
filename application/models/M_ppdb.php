@@ -208,6 +208,13 @@ class M_ppdb extends CI_Model
         $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/qr/
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
     }
+
+    public function pil_skl($tbl_skl)
+    {
+		$hasil = $this->db->query('select * from '.$tbl_skl);
+		return $hasil;
+	}
+
 }
 
 /* End of file ModelName.php */

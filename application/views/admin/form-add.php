@@ -2,12 +2,16 @@
 $cekuri = $this->uri->segment(3);
 if ($cekuri == "mts") {
   $warna = "info";
+  $tbl_skl = "db_sdmi";
 } elseif ($cekuri == "ma") {
   $warna = "success";
+  $tbl_skl = "db_smpmts";
 } elseif ($cekuri == "smp") {
   $warna = "warning";
+  $tbl_skl = "db_sdmi";
 } else {
   $warna = "danger";
+  $tbl_skl = "db_smpmts";
 }
 ?>
   <!-- Content Header (Page header) -->
@@ -32,7 +36,7 @@ if ($cekuri == "mts") {
     <div class="container-fluid">
 
       <!-- form start -->
-      <form method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/save_pan/<?php echo $cekuri;?>" enctype="multipart/form-data">
+      <form id="add_pes" method="post" action="<?php echo base_url($this->session->userdata('jabatan')); ?>/save_pan/<?php echo $cekuri;?>" enctype="multipart/form-data">
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->
@@ -60,7 +64,7 @@ if ($cekuri == "mts") {
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
                     <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                      <option value="">Pilih salah satu</option>
+                    <option value="">-- Pilih --</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -155,7 +159,7 @@ if ($cekuri == "mts") {
                   <label for="Jenis Tinggal" class="col-sm-4 col-form-label">JENIS TINGGAL</label>
                   <div class="col-sm-8">
                     <select type="text" name="jns_tinggal" id="Jenis Tinggal" class="form-control select2">
-                      <option value="">Pilih salah satu</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Dusun">Dusun</option>
                       <option value="Salaf Putri">Salaf Putri</option>
                       <option value="Salaf Putra">Salaf Putra</option>
@@ -171,7 +175,7 @@ if ($cekuri == "mts") {
                   <label for="Status Tinggal" class="col-sm-4 col-form-label">STATUS TEMPAT TINGGAL</label>
                   <div class="col-sm-8">
                     <select type="text" name="sts_tinggal" id="Status Tinggal" class="form-control select2">
-                      <option value="">Pilih salah satu</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Milik Sendiri">Milik Sendiri</option>
                       <option value="Rumah Orang Tua">Rumah Orang Tua</option>
                       <option value="Rumah Saudara/Kerabat">Rumah Saudara/Kerabat</option>
@@ -185,7 +189,7 @@ if ($cekuri == "mts") {
                   <label for="Transportasi" class="col-sm-4 col-form-label">TRANSPORTASI</label>
                   <div class="col-sm-8">
                     <select type="text" name="alat_trans" id="alat_trans" class="form-control select2">
-                      <option value="" hidden> Pilih salah satu..</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Jalan kaki">Jalan kaki</option>
                       <option value="Angkutan umum/bus/pete-pete">Angkutan umum/bus/pete-pete</option>
                       <option value="Mobil/bus antar jemput">Mobil/bus antar jemput</option>
@@ -274,7 +278,7 @@ if ($cekuri == "mts") {
                   <label for="Pend_Ayah" class="col-sm-4 col-form-label">PENDIDIKAN AYAH</label>
                   <div class="col-sm-8">
                     <select type="text" name="pend_ayh" id="pend_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -293,7 +297,7 @@ if ($cekuri == "mts") {
                   <label for="kerja_ayh" class="col-sm-4 col-form-label">PEKERJAAN AYAH</label>
                   <div class="col-sm-8">
                     <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -314,7 +318,7 @@ if ($cekuri == "mts") {
                   <label for="hasil_ayh" class="col-sm-4 col-form-label">PENGHASILAN AYAH</label>
                   <div class="col-sm-8">
                     <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -363,7 +367,7 @@ if ($cekuri == "mts") {
                   <label for="Pend_Ibu" class="col-sm-4 col-form-label">PENDIDIKAN IBU</label>
                   <div class="col-sm-8">
                     <select type="text" name="pend_ibu" id="pend_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -382,7 +386,7 @@ if ($cekuri == "mts") {
                   <label for="kerja_ibu" class="col-sm-4 col-form-label">PEKERJAAN IBU</label>
                   <div class="col-sm-8">
                     <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -403,7 +407,7 @@ if ($cekuri == "mts") {
                   <label for="hasil_ibu" class="col-sm-4 col-form-label">PENGHASILAN IBU</label>
                   <div class="col-sm-8">
                     <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -454,7 +458,7 @@ if ($cekuri == "mts") {
                   <label for="pend_wl" class="col-sm-4 col-form-label">PENDIDIKAN WALI</label>
                   <div class="col-sm-8">
                     <select type="text" name="pend_wl" id="pend_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -473,7 +477,7 @@ if ($cekuri == "mts") {
                   <label for="kerja_wl" class="col-sm-4 col-form-label">PEKERJAAN WALI</label>
                   <div class="col-sm-8">
                     <select type="text" name="kerja_wl" id="kerja_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -494,7 +498,7 @@ if ($cekuri == "mts") {
                   <label for="hasil_wl" class="col-sm-4 col-form-label">PENGHASILAN WALI</label>
                   <div class="col-sm-8">
                     <select type="text" name="hasil_wl" id="hasil_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                      <option value="">-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -588,7 +592,15 @@ if ($cekuri == "mts") {
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="skl_asal" class="form-control" id="skl_asal" required>
+                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampilkan()">
+                      <option value="">-- Pilih --</option>
+                      <?php
+                        $sklh = $this->m_ppdb->pil_skl($tbl_skl);
+                        foreach($sklh->result() as $pilih):
+                      ?>
+                      <option value="<?php echo $pilih->lembaga;?>"><?php echo $pilih->lembaga;?></option>
+                      <?php endforeach;?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -601,9 +613,22 @@ if ($cekuri == "mts") {
                   <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                   <div class="col-sm-8">
                     <select type="text" name="agama" id="agama" class="form-control select2">
-                      <option value="Inden">Inden</option>
-                      <option value="Prestasi">Prestasi</option>
-                      <option value="Reguler">Reguler</option>
+                      <option value="">-- Pilih --</option>
+                      <option value="INDEN">INDEN</option>
+                      <option value="PRESTASI">PRESTASI</option>
+                      <option value="REGULER">REGULER</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
+                  <div class="col-sm-8">
+                    <select type="text" name="ket" id="ket" class="form-control select2">
+                      <option value="">-- Pilih --</option>
+                      <option value="Sains">Sains</option>
+                      <option value="Tahfidz">Tahfidz</option>
+                      <option value="Agama">Agama</option>
+                      <option value="Bahasa">Bahasa</option>
                     </select>
                   </div>
                 </div>
@@ -658,3 +683,24 @@ if ($cekuri == "mts") {
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
+
+<script>
+  function tampilkan(){
+  
+    var skl_asal=document.getElementById("add_pes").skl_asal.value;
+    var almat_skl=document.getElementById("almt_skl");
+  
+    if (skl_asal=="SDN Sumberejo 01")
+      {
+        almat_skl.innerHTML="Jakarta Ibu kota Republik Indonesia";
+      }
+    else if (nama_kota=="bandung")
+      {
+          p_kontainer.innerHTML="Bandung kota kembang";
+      }
+    else if (nama_kota=="bogor")
+      {
+          p_kontainer.innerHTML="Bogor kota hujan";
+      }
+  }
+</script>
