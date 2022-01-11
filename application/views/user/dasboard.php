@@ -13,11 +13,11 @@ $this->load->view('user/side');
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-sm-6">
           <h1>Dasboard</h1>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 ">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active">Dasboard</li>
@@ -67,10 +67,21 @@ $this->load->view('user/side');
               $gambar = $file_poto;
             }
             ?>
+            <?php
+            if ($par == "MTS") {
+              $warna = "primary";
+            } elseif ($par == "MA") {
+              $warna = "success";
+            } elseif ($par == "SMP") {
+              $warna = "warning";
+            } else {
+              $warna = "danger";
+            }
+            ?>
             <!-- <div class="widget-user-header text-white" style="background: url('<?php echo base_url('') ?>/asset/dist/img/photo1.png') center center;"> -->
-            <div class="widget-user-header bg-primary">
-              <h3 class="widget-user-username"><b><?php echo strtoupper($nama); ?></b></h3>
-              <h5 class="widget-user-desc"><b> === <?php echo strtoupper($jabatan . ' ' . $kelas . ' ' . $par); ?> === </b></h5>
+            <div class="widget-user-header bg-<?php echo $warna; ?>">
+              <h4 class="widget-user-username"><b><?php echo strtoupper($nama); ?></b></h4>
+              <h6 class="widget-user-desc"><b> === <?php echo strtoupper($jabatan . ' ' . $kelas . ' ' . $par); ?> === </b></h6>
             </div>
             <div class="widget-user-image">
 
@@ -81,9 +92,7 @@ $this->load->view('user/side');
                 <div class="card-body text-center">
                   <h6>
                     Selamat Datang <b><?php echo strtoupper($nama); ?></b>, anda adalah <b><?php echo strtoupper($jabatan . ' ' . $kelas . ' ' . $par); ?></b>.<br>
-                    selamat menggunakan Aplikasi Database Online ini. Aplikasi ini membantu anda dalam managemen Data Sekolah. <br>
-                    Kami menyadari masih ada beberapa kekurangan dalam aplikasi ini. namun kami akan terus berbenah untuk kedepannya agar
-                    aplikasi ini agar menjadi lebih sempurna. <br><br>
+                    selamat menggunakan Website PPDB Online AL AMIEN 2022, Isilah Formulir Pendaftaran Dengan Teliti. <br><br>
                     Salam Satu Data Al Amien
                   </h6>
                 </div>
@@ -96,101 +105,368 @@ $this->load->view('user/side');
 
         <div class="col-md-6">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <!-- small box -->
-              <div class="small-box bg-info">
+              <div class="small-box">
                 <div class="inner">
-                  <p>Laki-laki</p>
-                  <h3><?php echo $data_L; ?></h3>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="<?php echo base_url($jabatan) ?>/klsmts" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <p>Perempuan</p>
-                  <h3><?php echo $data_P; ?></h3>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="<?php echo base_url($jabatan) ?>/klsma" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <p>Validasi</p>
-                  <h3><?php echo $data_m; ?></h3>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="<?php echo base_url($jabatan) ?>/klsma" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <p>Siswa Aktif</p>
-                  <h3><?php echo $data_L + $data_P; ?></h3>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="<?php echo base_url($jabatan) ?>/klssmp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <p>Siswa Non Aktif</p>
-                  <h3><?php echo $data_J; ?></h3>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="<?php echo base_url($jabatan) ?>/klssmk" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <!-- <div class="container-fluid"> -->
-        <div class="col-md-12">
-          <div class="card card-success">
-            <div class="card-header">
-              <h3 class="card-title">Update</h3>
-            </div>
-            <div class="card-body">
-              <!-- The time line -->
-              <div class="timeline">
-                <!-- timeline item -->
-                <?php foreach ($dbinfo as $row) : ?>
-                  <div>
-                    <i class="fas fa-bullhorn bg-yellow"></i>
-                    <div class="timeline-item">
-                      <span class="time"><i class="fas fa-clock"></i> <?php echo $row->tanggal; ?> ( <?php echo $row->waktu; ?> )</span>
-                      <h3 class="timeline-header"><a href="#"><?php echo strtoupper($row->jabatan); ?> </a><small class="badge badge-info"> <?php echo $row->user; ?></small></h3>
-                      <div class="timeline-body">
-                        <?php echo $row->status; ?>
+                  <div class="row">
+                    <!-- The time line -->
+                    <div class="timeline">
+                      <!-- timeline time label -->
+                      <div class="time-label">
+                        <span class="bg-danger">2022</span>
+                      </div>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <?php foreach ($dbinfo as $row) : ?>
+                        <div>
+                          <i class="fas fa-bullhorn bg-yellow"></i>
+                          <div class="timeline-item">
+                            <span class="time"><i class="fas fa-clock"></i> <?php echo $row->tanggal; ?> ( <?php echo $row->waktu; ?> )</span>
+                            <h3 class="timeline-header"><a href="#"><?php echo strtoupper($row->jabatan); ?> </a><small class="badge badge-info"> <?php echo $row->user; ?></small></h3>
+                            <div class="timeline-body">
+                              <?php echo $row->status; ?>
+                            </div>
+                          </div>
+                        </div>
+                      <?php endforeach; ?>
+                      <!-- END timeline item -->
+                      <div>
+                        <i class="fas fa-clock bg-gray"></i>
                       </div>
                     </div>
+
                   </div>
-                <?php endforeach; ?>
-                <!-- END timeline item -->
-                <div>
-                  <i class="fas fa-clock bg-gray"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- </div> -->
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="\ppdb2021\asset\frontend\smk.jpg" alt="User Image">
+                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">SMK AL AMIEN</a></span>
+                  <span class="description">Beberapa saat yang lalu</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- post text -->
+                <p>Tata busana SMK Al Amien Ambulu <br>
+                  . <br>
+                  Yuk belajar bersama disini <br>
+                  . <br>
+                  Sekolahnya pecinta fashion</p>
+
+                <p>Gallery Class Meeting <br>
+                  Fashion Show karya siswi Smks AL Amien, <br>
+                  Dengan model adek-adek siswi SmpPlus Al Amien Ambulu & MTs AL Amien Ambulu. <br>
+                  Kerennn ! <br>
+                  #smkalamien #fashionshow #ambulu #tatabusana #tabassam</p>
+
+                <!-- Attachment -->
+                <div class="attachment-block clearfix">
+                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk2.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk3.jpg" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk6.jpg" alt="Third slide">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div class="">
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+
+                    <div class="attachment-text">
+                      Gallery Class Meeting <br>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                    </div>
+                    <!-- /.attachment-text -->
+                  </div>
+                  <!-- /.attachment-pushed -->
+                </div>
+                <!-- /.attachment-block -->
+
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="\ppdb2021\asset\frontend\ma.jpg" alt="User Image">
+                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MA AL AMIEN</a></span>
+                  <span class="description">Beberapa saat yang lalu</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- post text -->
+                <p> MA Al Amien
+                  Yuk gabung ma qta-qta, <br>. <br> belajar bersama menggali prestasi dan kreativitas qta. <br>
+                  Kalian minta apa.. ? <br> . <br> Di MA Al Amien ada berbagai life skill, <br>
+                  ekstra kurikuler yg selalu dapat menyalurkan bakat untuk kalian yg ingin berprestasi. <br>
+                  MA Al Amien selalu dihati <br>
+                  #maalamien #porseni #ambulu</p>
+
+                <!-- Attachment -->
+                <div class="attachment-block clearfix">
+                  <div id="carouselExampleControlss" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\ma1.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\ma2.jpg" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\ma3.jpg" alt="Third slide">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControlss" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControlss" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div class="">
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+
+                    <div class="attachment-text">
+                      Gallery Class Meeting <br>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                    </div>
+                    <!-- /.attachment-text -->
+                  </div>
+                  <!-- /.attachment-pushed -->
+                </div>
+                <!-- /.attachment-block -->
+
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="\ppdb2021\asset\frontend\mts2.jpg" alt="User Image">
+                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MTs AL AMIEN</a></span>
+                  <span class="description">Beberapa saat yang lalu</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- post text -->
+                <p> MA Al Amien
+                  Yuk gabung ma qta-qta, belajar bersama menggali prestasi dan kreativitas qta. <br>
+                  Kalian minta apa, di MA Al Amien ada berbagai life skill, <br>
+                  ekstra kurikuler yg ta mati gaya tu kalian yg ingin berprestasi. <br>
+                  MA Al Amien sll dihati
+                  #maalamien #porseni #ambulu</p>
+
+                <!-- Attachment -->
+                <div class="attachment-block clearfix">
+                  <div id="carouselExampleControlsss" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\mts3.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\mts4.jpg" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\mts1.png" alt="Third slide">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControlsss" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControlsss" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div class="">
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+
+                    <div class="attachment-text">
+                      Gallery Class Meeting <br>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                    </div>
+                    <!-- /.attachment-text -->
+                  </div>
+                  <!-- /.attachment-pushed -->
+                </div>
+                <!-- /.attachment-block -->
+
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="\ppdb2021\asset\frontend\smp.jpg" alt="User Image">
+                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MTs AL AMIEN</a></span>
+                  <span class="description">Beberapa saat yang lalu</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- post text -->
+                <p> MA Al Amien
+                  Yuk gabung ma qta-qta, belajar bersama menggali prestasi dan kreativitas qta. <br>
+                  Kalian minta apa, di MA Al Amien ada berbagai life skill, <br>
+                  ekstra kurikuler yg ta mati gaya tu kalian yg ingin berprestasi. <br>
+                  MA Al Amien sll dihati
+                  #maalamien #porseni #ambulu</p>
+
+                <!-- Attachment -->
+                <div class="attachment-block clearfix">
+                  <div id="carouselExampleControlssss" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smp1.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\smp2.jpg" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smp3.jpg" alt="Third slide">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControlssss" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControlssss" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div class="">
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+
+                    <div class="attachment-text">
+                      Gallery Class Meeting <br>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                    </div>
+                    <!-- /.attachment-text -->
+                  </div>
+                  <!-- /.attachment-pushed -->
+                </div>
+                <!-- /.attachment-block -->
+
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
       </div>
-      
-    </div>
-    <!-- /.timeline -->
+      <!-- /.timeline -->
   </section>
   <!-- /.content -->
 </div>
