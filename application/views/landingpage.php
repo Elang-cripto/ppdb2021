@@ -42,10 +42,15 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Dashboard</a></li>
                     <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
-                    <li><a class="nav-link scrollto" href="#testimonials">Pesan Kesan </a></li>
+                    <li><a class="nav-link scrollto" href="#testimonials">Kesan </a></li>
                     <li><a class="nav-link scrollto" href="#team">Prestasi </a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>auth">Mulai Daftar</a></li>
+                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="<?php echo base_url(); ?>admin">Admin, Panitia & MGM</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>auth">Masuk</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -64,7 +69,7 @@
                         Tahun Pelajaran 2022-2023</h2>
                     <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> MTS AL AMIEN - MA AL AMIEN - <br> SMP PLUS AL AMIEN - SMK AL AMIEN </h3>
                     <div class="d-flex">
-                        <a href="<?php echo base_url(); ?>auth" class="btn-get-started scrollto">Mulai Daftar</a>
+                        <a href="<?php echo base_url(); ?>auth/register" class="btn-get-started scrollto">Mulai Daftar</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -85,21 +90,21 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-laptop"></i></div>
-                            <h4 class="title"><a href="">Jalur Inden</a></h4>
+                            <h4 class="title"><a href="">JALUR INDEN <br> (MTs AL AMIEN)</a></h4>
                             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-trophy"></i></div>
-                            <h4 class="title"><a href="">Jalur Prestasi</a></h4>
+                            <h4 class="title"><a href="">JALUR PRESTASI <br> (MTs, SMP PLUS, MA, SMK AL AMIEN)</a></h4>
                             <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-                            <h4 class="title"><a href="">Jalur Reguler</a></h4>
+                            <h4 class="title"><a href="">JALUR REGULER</a></h4>
                             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
                         </div>
                     </div>
@@ -140,13 +145,13 @@
             </div>
         </section><!-- End About Section -->
 
-        <!-- ======= Testimonials Section ======= -->
+        <!-- ======= Kesan Section ======= -->
         <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
                 <div class="section-title">
-                    <span>Pesan & Kesan Siswa AL AMIEN</span>
-                    <h2>Pesan & Kesan Siswa AL AMIEN</h2>
+                    <span>Kesan Siswa AL AMIEN</span>
+                    <h2>Kesan Siswa AL AMIEN</h2>
                     <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
                 </div>
 
@@ -225,7 +230,7 @@
             </div>
         </section><!-- End Testimonials Section -->
 
-        <!-- ======= Team Section ======= -->
+        <!-- ======= Prestasi Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container">
 
@@ -245,10 +250,9 @@
                                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
                             </p>
                             <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/Alamienjember"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/alamienjember/"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UCAQ5TsG-AEUjV9s9bNOQAvg"><i class="bi bi-youtube"></i></a>
                             </div>
                         </div>
                     </div>
@@ -326,8 +330,8 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Alamat:</h4>
-                                <p>JL. Kebonsari, RT. 003/03, Tisnonegaran, Mayangan, Krajan, <br>
-                                    Karanganyar, Ambulu, Kabupaten Jember, Jawa Timur 67211</p>
+                                <p>JL. K. Masduqi, Sabrang,
+                                    Ambulu, Kabupaten Jember, Jawa Timur 86172</p>
                             </div>
 
                             <div class="email">
@@ -365,23 +369,21 @@
 
             <div class="container">
                 <div class="social-links">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.facebook.com/Alamienjember" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/alamienjember/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCAQ5TsG-AEUjV9s9bNOQAvg" class="google-plus"><i class="bx bxl-youtube"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Copyright <strong><span>eNno</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>ICT AL AMIEN</span></strong>
             </div>
 
             <div class="credits">
 
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="">BootstrapMade</a>
             </div>
         </div>
     </footer><!-- End Footer -->
