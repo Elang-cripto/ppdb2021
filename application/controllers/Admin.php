@@ -450,21 +450,33 @@ class Admin extends CI_Controller
             }
 
             $this->db->insert_batch('db_smpmts', $data);
-
-            $message = array(
-                'message' => '<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
-            );
-
-            $this->session->set_flashdata($message);
+            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil',text: 'Data Berhasil Di Upload'}");
             redirect('admin/smpmts');
         } else {
-            $message = array(
-                'message' => '<div class="alert alert-danger">Import file gagal, coba lagi</div>',
-            );
-
-            $this->session->set_flashdata($message);
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Gagal',text: 'Upload Gagal'}");
             redirect('admin/smpmts');
         }
+    }
+    // =============================== Info =======================================
+    public function saveinfo()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $data['tanggal']     = date("Y/m/d");
+        $data['waktu']         = date("h:i:s");
+        $data['user']         = $this->input->post('user');
+        $data['jabatan']     = $this->input->post('jabatan');
+        $data['status']     = $this->input->post('status');
+
+        $this->m_ppdb->savinfo($data);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil',text: 'Info Berhasil Di Tambahkan'}");
+        redirect('admin');
+    }
+
+    function del_info($id)
+    {
+        $this->m_ppdb->delinfo($id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Hapus',text: 'Info telah di hapus'}");
+        redirect('admin');
     }
 }
 

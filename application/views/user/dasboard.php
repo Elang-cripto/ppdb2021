@@ -149,7 +149,7 @@ $this->load->view('user/side');
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="\ppdb2021\asset\frontend\smk.jpg" alt="User Image">
+                  <img class="img-circle" src="<?php echo base_url(); ?>asset/frontend/smk.jpg" alt="User Image">
                   <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">SMK AL AMIEN</a></span>
                   <span class="description">Beberapa saat yang lalu</span>
                 </div>
@@ -187,13 +187,13 @@ $this->load->view('user/side');
                   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk2.jpg" alt="First slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smk2.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk3.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smk3.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smk6.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smk6.jpg" alt="Third slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -206,7 +206,7 @@ $this->load->view('user/side');
                     </a>
                   </div>
                   <div class="">
-                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al Amien</a></h4>
 
                     <div class="attachment-text">
                       Gallery Class Meeting <br>
@@ -232,8 +232,8 @@ $this->load->view('user/side');
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="\ppdb2021\asset\frontend\ma.jpg" alt="User Image">
-                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MA AL AMIEN</a></span>
+                  <img class="img-circle" src="<?php echo base_url(); ?>asset/frontend/ma.jpg" alt="User Image">
+                  <span class="username"><a href="https://www.facebook.com/profile.php?id=100075590083721">MA AL AMIEN</a></span>
                   <span class="description">Beberapa saat yang lalu</span>
                 </div>
                 <!-- /.user-block -->
@@ -265,13 +265,7 @@ $this->load->view('user/side');
                   <div id="carouselExampleControlss" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\ma1.jpg" alt="First slide">
-                      </div>
-                      <div class="carousel-item">
-                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\ma2.jpg" alt="Second slide">
-                      </div>
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\ma3.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/ma1.jpg" alt="First slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControlss" role="button" data-slide="prev">
@@ -284,11 +278,11 @@ $this->load->view('user/side');
                     </a>
                   </div>
                   <div class="">
-                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+                    <h4 class="attachment-heading"><a href="https://instagram.com/maalamienambulu?utm_medium=copy_link">Instagram MA Al Amien</a></h4>
 
                     <div class="attachment-text">
-                      Gallery Class Meeting <br>
-                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                      Hasil Prestasi Siwa siswi Al Amien pada PORSENI KKMA 06 <br>
+                      Tidak tanggung - tanggung MA AL AMIEN memboron.... <a href="https://instagram.com/maalamienambulu?utm_medium=copy_link">Selengkapnya</a>
                     </div>
                     <!-- /.attachment-text -->
                   </div>
@@ -311,8 +305,8 @@ $this->load->view('user/side');
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="\ppdb2021\asset\frontend\mts2.jpg" alt="User Image">
-                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MTs AL AMIEN</a></span>
+                  <img class="img-circle" src="<?php echo base_url(); ?>asset/frontend/mts2.jpg" alt="User Image">
+                  <span class="username"><a href="https://www.facebook.com/mts.alamien">MTs AL AMIEN</a></span>
                   <span class="description">Beberapa saat yang lalu</span>
                 </div>
                 <!-- /.user-block -->
@@ -332,7 +326,7 @@ $this->load->view('user/side');
               <!-- /.card-header -->
               <div class="card-body">
                 <!-- post text -->
-                <p> MA Al Amien
+                <p> MTs Al Amien
                   Yuk gabung ma qta-qta, belajar bersama menggali prestasi dan kreativitas qta. <br>
                   Kalian minta apa, di MA Al Amien ada berbagai life skill, <br>
                   ekstra kurikuler yg ta mati gaya tu kalian yg ingin berprestasi. <br>
@@ -344,13 +338,10 @@ $this->load->view('user/side');
                   <div id="carouselExampleControlsss" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\mts3.jpg" alt="First slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/mts3.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\mts4.jpg" alt="Second slide">
-                      </div>
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\mts1.png" alt="Third slide">
+                        <img class="d-block w-100 h-20" src="<?php echo base_url(); ?>asset/frontend/mts4.jpg" alt="Second slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControlsss" role="button" data-slide="prev">
@@ -363,11 +354,11 @@ $this->load->view('user/side');
                     </a>
                   </div>
                   <div class="">
-                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/mtsalamienambulu/">Instagram MTs Al Amien</a></h4>
 
                     <div class="attachment-text">
                       Gallery Class Meeting <br>
-                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/mtsalamienambulu/">Selengkapnya</a>
                     </div>
                     <!-- /.attachment-text -->
                   </div>
@@ -389,8 +380,8 @@ $this->load->view('user/side');
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
-                  <img class="img-circle" src="\ppdb2021\asset\frontend\smp.jpg" alt="User Image">
-                  <span class="username"><a href="https://m.facebook.com/SMK-Al-Amien-Ambulu-110230078154774/">MTs AL AMIEN</a></span>
+                  <img class="img-circle" src="<?php echo base_url(); ?>asset/frontend/smp.jpg" alt="User Image">
+                  <span class="username"><a href="https://www.facebook.com/profile.php?id=100076310344002">SMP Plus AL AMIEN</a></span>
                   <span class="description">Beberapa saat yang lalu</span>
                 </div>
                 <!-- /.user-block -->
@@ -422,13 +413,13 @@ $this->load->view('user/side');
                   <div id="carouselExampleControlssss" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smp1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp1.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100 h-20" src="\ppdb2021\asset\frontend\smp2.jpg" alt="Second slide">
+                        <img class="d-block w-100 h-20" src="<?php echo base_url(); ?>asset/frontend/smp2.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="\ppdb2021\asset\frontend\smp3.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp3.jpg" alt="Third slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControlssss" role="button" data-slide="prev">
@@ -441,11 +432,11 @@ $this->load->view('user/side');
                     </a>
                   </div>
                   <div class="">
-                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smkalamienambulu/">Instagram SMK Al AMIEN</a></h4>
+                    <h4 class="attachment-heading"><a href="https://www.instagram.com/smp_plus_al_amien/">Instagram SMP Plus Al Amien</a></h4>
 
                     <div class="attachment-text">
                       Gallery Class Meeting <br>
-                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/p/CXxkWm-PTvP/?utm_source=ig_web_copy_link">Selengkapnya</a>
+                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/smp_plus_al_amien/">Selengkapnya</a>
                     </div>
                     <!-- /.attachment-text -->
                   </div>
