@@ -393,30 +393,23 @@ class Admin extends CI_Controller
 
                 for ($row = 4; $row <= $highestRow; $row++) {
 
-                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                    $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $npsn = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $lembaga = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $alamat = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
 
                     $data[] = array(
-                        'nama'          => $nama,
+                        'npsn'          => $npsn,
+                        'lembaga'          => $lembaga,
                         'alamat'          => $alamat,
                     );
                 }
             }
 
             $this->db->insert_batch('db_sdmi', $data);
-
-            $message = array(
-                'message' => '<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
-            );
-
-            $this->session->set_flashdata($message);
+            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Berhasil',text: 'Data Berhasil Di Upload'}");
             redirect('admin/sdmi');
         } else {
-            $message = array(
-                'message' => '<div class="alert alert-danger">Import file gagal, coba lagi</div>',
-            );
-
-            $this->session->set_flashdata($message);
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Gagal',text: 'Upload Gagal'}");
             redirect('admin/sdmi');
         }
     }
@@ -439,11 +432,13 @@ class Admin extends CI_Controller
 
                 for ($row = 4; $row <= $highestRow; $row++) {
 
-                    $nama = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                    $alamat = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $npsn = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $lembaga = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $alamat = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
 
                     $data[] = array(
-                        'nama'          => $nama,
+                        'npsn'          => $npsn,
+                        'lembaga'          => $lembaga,
                         'alamat'          => $alamat,
                     );
                 }

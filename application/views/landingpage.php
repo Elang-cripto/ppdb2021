@@ -169,7 +169,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                    Kesan saya sekolah di Al Amien ini saya telah belajar banyak hal dan banyak ilmu yang membuat saya menjadi pribadi yang lebih baik dari sebelumnya. Jadi ayo sekolah di Al Amien, bersama Al Amien yang Akan menuntun kita menjadi orang yang lebih baik dan berprestasi.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-1.png" class="testimonial-img" alt="">

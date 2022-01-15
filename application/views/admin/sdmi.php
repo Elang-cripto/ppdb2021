@@ -46,6 +46,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>NPSN</th>
                                     <th>Lembaga</th>
                                     <th>Alamat</th>
                                     <th>Aksi</th>
@@ -59,6 +60,7 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
+                                        <td><?php echo $row->npsn; ?></td>
                                         <td><?php echo $row->lembaga; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
 
@@ -93,6 +95,12 @@
             </div>
             <form name="form_tambah" method="post" action="<?php echo base_url(); ?>admin/addsdmi" enctype="multipart/form-data" onsubmit="return cekform()">
                 <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="npsn" class="col-sm-4 col-form-label">NPSN</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="npsn" id="npsn" placeholder="No npsn" required>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="lembaga" class="col-sm-4 col-form-label">Nama Lembaga</label>
                         <div class="col-sm-8">
@@ -132,6 +140,13 @@ foreach ($dbsdmi as $m) :
                 </div>
                 <form method="post" action="<?php echo base_url(); ?>admin/editsdmi" enctype="multipart/form-data">
                     <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="npsn" class="col-sm-4 col-form-label">NPSN</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" id="id" name="id" value="<?php echo $m->id; ?>">
+                                <input type="text" class="form-control" id="npsn" name="npsn" value="<?php echo $m->npsn; ?>">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="nama" class="col-sm-4 col-form-label">Nama Lembaga</label>
                             <div class="col-sm-8">
