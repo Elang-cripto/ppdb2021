@@ -44,7 +44,7 @@
                     <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
                     <li><a class="nav-link scrollto" href="#testimonials">Kesan </a></li>
                     <li><a class="nav-link scrollto" href="#team">Prestasi </a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
                     <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo base_url(); ?>admin">Admin, Panitia & MGM</a></li>
@@ -98,6 +98,13 @@
                                 <i class=" bi-check-circle"> Bina Agama</i> <br>
                                 <i class=" bi-check-circle"> Bina Tahfidz</i> <br>
                             </ul>
+                            Dapatkan
+                            <ul>
+                                <i class=" bi-check-circle"> Beasiswa Pendidikan</i> <br>
+                                <i class=" bi-check-circle"> Paket Media Penunjang</i> <br>
+                                Khusus untuk 45 pendaftar pertama tiap kelasnya.
+                            </ul>
+                            Pendaftaran dibuka mulai <br> 16 Desember 2021 - 15 Januari 2022
                             </p>
                         </div>
                     </div>
@@ -105,14 +112,30 @@
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-trophy"></i></div>
                             <h4 class="title"><a href="">JALUR PRESTASI <br> (MTs, SMP PLUS, MA, SMK AL AMIEN)</a></h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            <p class="description">Untuk Kelas Unggulan Bina Prestasi
+                            <ul>
+                                <i class=" bi-check-circle"> Bina Bahasa</i> <br>
+                                <i class=" bi-check-circle"> Bina Sains</i> <br>
+                                <i class=" bi-check-circle"> Bina Agama</i> <br>
+                                <i class=" bi-check-circle"> Bina Tahfidz</i> <br>
+                            </ul>
+                            Pendaftaran dibuka mulai <br> 17 Januari - 16 Februari 2022
+                            </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-clipboard-data"></i></div>
                             <h4 class="title"><a href="">JALUR REGULER <br> (MTs, SMP PLUS, MA, SMK AL AMIEN)</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                            <p class="description">Jalur Reguler 1
+                            <ul>
+                                <i class=" bi-check-circle"> Pendaftaran dibuka mulai <br> 17 Februari - 05 April 2022</i> <br>
+                            </ul>
+                            Jalur Reguler 2
+                            <ul>
+                                <i class=" bi-check-circle"> Pendaftaran dibuka mulai <br> 06 April - 12 Juli 2022</i> <br>
+                            </ul>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -143,7 +166,7 @@
                             <li><i class="bi bi-check-circle"></i> SMK Tata Busana Al Amien</li>
                         </ul>
                         <p>
-                            Pendaftaran dapat melalui jalur prestasi maupun Reguler.
+                            Pendaftaran dapat melalui jalur inden, prestasi maupun Reguler.
                             Dan kami menyediakan media Online Untuk Pendaftar Yang akan mendaftarkan diri secara Online dilaman ini.
                         </p>
                     </div>
@@ -190,15 +213,16 @@
                             </div>
                         </div><!-- End testimonial item -->
 
+
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                                    kesan saya sekolah di Mts Al Amien senang sekali . sekolah yg nyaman teman teman yg baik dan guru yg telaten membimbing dan mengajari murid, di madrasah ini selain saya mendapatkan ilmu pengetahuan umum saya juga mendapatkan materi agama dan pembiasaan keagamaan yg baik pula, disiplin serta teman yg beragam karakter . <br> Pokoknya MTs Al Amien is The best.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-9.png" class="testimonial-img" alt="">
-                                <h3>M. Miftahudin Irel Anwari</h3>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-10.png" class="testimonial-img" alt="">
+                                <h3>Naswa Arina Mardhatika</h3>
                                 <h4>MTs AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
@@ -221,7 +245,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                    Saya senang bisa bersekolah di Al Amien karena semua guru pengajarnya ramah dan penuh kesabaran dalam mengajar. Banyak hal yang sudah saya pelajari selin ilmu, saya juga mendapat teman yang baik dan ramah.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-2.png" class="testimonial-img" alt="">
@@ -247,11 +271,11 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Saya Bangga Sekolah Di Al Amien, Karena banyak pelajaran agama nya dan guru - gurunya juga selalu mengajarkan kedisiplinan dan kebersamaan. <br> AL AMIEN JAYA
+                                    Alhamdulillah akhirnya keinginan sya bisa sekolah di Al Amien, sekolah yg menjadi favorit saya. MTs Al Amien sekolah yg mengutamakan kenyamanan siswa dalam hal belajar. Bangunan bagus, bersih, indah dan nyaman.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-10.png" class="testimonial-img" alt="">
-                                <h3>Naswa Arina Mardhatika</h3>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-9.png" class="testimonial-img" alt="">
+                                <h3>M. Miftahudin Irel Anwari</h3>
                                 <h4>MTs AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
@@ -260,7 +284,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                    Saya bangga menjadi salah satu bagian keluarga Al Amien karena disini saya bisa banyak menimba ilmu dan mengasah kemampuan saya di bidang desain busana dan tetap mengutamakan pembelajaran agama yang membuat saya senang belajar di Al Amien.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-6.png" class="testimonial-img" alt="">
@@ -286,7 +310,7 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Ayo Sekolah Di AL AMIEN, Karena di AL AMIEN sangatlah keren, kualitas pembelajaran disini sangat bagus, disini juga banyak ekskul dapat kalian ikuti yang selalu bina untuk dapat mengikuti lomba dan meraih juara.
+                                    Saya senang sekolah di Al Amien karena sekolahnya berada di lingkungan Pondok pesantren yang mengajarkan siswanya untuk berperilaku baik dan sopan sehingga membuat saya senang bersekolah di Al Amien.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-8.png" class="testimonial-img" alt="">

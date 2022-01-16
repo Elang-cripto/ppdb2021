@@ -36,7 +36,7 @@ $this->load->view('theme/head');
                         <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK Sesuai KK">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                                <span class="fas fa-book"></span>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ $this->load->view('theme/head');
                     </div>
                     <div class="input-group mb-3">
                         <select type="text" name="par" id="par" class="form-control select2">
-                            <option value="">-- Pilih Lembaga --</option>
+                            <option value="">-- Pilih Lembaga Tujuan --</option>
                             <option value="MTS">MTs Al Amien</option>
                             <option value="MA">MA Al Amien</option>
                             <option value="SMP">SMPS Plus Al Amien</option>
@@ -74,7 +74,7 @@ $this->load->view('theme/head');
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                                <span class="fas fa-school"></span>
                             </div>
                         </div>
                     </div>
