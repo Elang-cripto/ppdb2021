@@ -131,7 +131,7 @@ class Admin extends CI_Controller
         $data2['telp']        = $this->input->post('telp');
         $data2['par']        = strtoupper($par);
         $data2['status']    = 'NON AKTIF';
-        $data2['jabatan']    = 'USER';
+        $data2['jabatan']    = 'user';
         $data2['echo']        = '1';
         $data2['last']        = date("Y-m-d H:i:s");
         $this->db->insert('db_user_pendaftar', $data2);
