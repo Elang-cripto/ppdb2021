@@ -33,6 +33,12 @@ class M_ppdb extends CI_Model
         $this->db->limit(8);
         return $this->db->get("db_user_pendaftar")->result();
     }
+    public function getuserdaspan()
+    {
+        $this->db->order_by('last', 'desc');
+        $this->db->limit(8);
+        return $this->db->get("db_panitia")->result();
+    }
 
     //=========================================== GET SISWA =================================
     public function getkls_mts()
@@ -223,6 +229,19 @@ class M_ppdb extends CI_Model
     public function delinfo($id)
     {
         return $this->db->delete('db_info', array("id" => $id));
+    }
+    //============================= download ============================
+    public function get_data($par)
+    {
+        $db_pilih = "db_" . $par;
+        $this->db->where('status', 'AKTIF');
+        return $this->db->get($db_pilih)->result();
+    }
+    public function get_backup($par)
+    {
+        $db_pilih = "db_" . $par;
+        // $this->db->where('status', 'AKTIF');
+        return $this->db->get($db_pilih)->result();
     }
 }
 

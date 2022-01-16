@@ -111,7 +111,7 @@ class Auth extends CI_Controller
                 redirect('auth/admin');
                 $this->session->sess_destroy();
             } else {
-                $nama = 'Hai '.$this->session->userdata('nama').', Anda log in sebagai '.$this->session->userdata('jabatan');
+                $nama = 'Hai ' . $this->session->userdata('nama') . ', Anda log in sebagai ' . $this->session->userdata('jabatan');
                 $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
                 $tabel          = "db_panitia";
                 $this->m_ppdb->update_last($tabel);
@@ -121,5 +121,12 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Maaf!',text: 'Username atau Password Salah'}");
             redirect('auth/admin');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Log Out',text: 'Anda telah metu'}");
+        redirect('/');
+        $this->session->sess_destroy();
     }
 }
