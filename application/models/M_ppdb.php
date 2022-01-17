@@ -214,8 +214,8 @@ class M_ppdb extends CI_Model
 
     public function get_almt_sdmi()
     {
-        $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
-        return $query->ambil;
+        // $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
+        // return $query->ambil;
 
         return $this->db->get_where('db_sdmi', ["id_enc" => $this->uri->segment(4)])->row();
     }
