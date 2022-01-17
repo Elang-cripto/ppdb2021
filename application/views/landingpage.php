@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="<?php echo base_url('') ?>asset/plugins/fontawesome-free/css/all.min.css">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -87,57 +88,90 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-md-3">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-laptop"></i></div>
-                            <h4 class="title"><a href="">JALUR INDEN <br> (MTs AL AMIEN)</a></h4>
-                            <p class="description">Untuk Kelas Unggulan Bina Prestasi
-                            <ul>
-                                <i class=" bi-check-circle"> Bina Bahasa</i> <br>
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/mts.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">MTs AL AMIEN</a></h4>
+                            <p class="description"><strong><i class=" bi-x-diamond"> DIBUKA JALUR INDEN</i></strong> <br> Untuk Kelas Unggulan Bina Prestasi <br>
+                                <i class=" bi-check-circle"> Bina Bahasa</i>
                                 <i class=" bi-check-circle"> Bina Sains</i> <br>
-                                <i class=" bi-check-circle"> Bina Agama</i> <br>
+                                <i class=" bi-check-circle"> Bina Agama</i>
                                 <i class=" bi-check-circle"> Bina Tahfidz</i> <br>
-                            </ul>
-                            Dapatkan
-                            <ul>
+                                Dapatkan <br>
                                 <i class=" bi-check-circle"> Beasiswa Pendidikan</i> <br>
                                 <i class=" bi-check-circle"> Paket Media Penunjang</i> <br>
-                                Khusus untuk 45 pendaftar pertama tiap kelasnya.
-                            </ul>
-                            Pendaftaran dibuka mulai <br> 16 Desember 2021 - 15 Januari 2022
+                                Khusus untuk 45 pendaftar pertama tiap kelasnya. <br>
+                                Pendaftaran dibuka mulai <br> <strong>16 Desember 2021 - 15 Januari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+                    <div class="col-md-3 mt-4 mt-md-0">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-trophy"></i></div>
-                            <h4 class="title"><a href="">JALUR PRESTASI <br> (MTs, SMP PLUS, MA, SMK AL AMIEN)</a></h4>
-                            <p class="description">Untuk Kelas Unggulan Bina Prestasi
-                            <ul>
-                                <i class=" bi-check-circle"> Bina Bahasa</i> <br>
-                                <i class=" bi-check-circle"> Bina Sains</i> <br>
-                                <i class=" bi-check-circle"> Bina Agama</i> <br>
-                                <i class=" bi-check-circle"> Bina Tahfidz</i> <br>
-                            </ul>
-                            Pendaftaran dibuka mulai <br> 17 Januari - 16 Februari 2022
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/smp.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">SMP PLUS AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
                             </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="col-md-3 mt-4 mt-md-0">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-                            <h4 class="title"><a href="">JALUR REGULER <br> (MTs, SMP PLUS, MA, SMK AL AMIEN)</a></h4>
-                            <p class="description">Jalur Reguler 1
-                            <ul>
-                                <i class=" bi-check-circle"> Pendaftaran dibuka mulai <br> 17 Februari - 05 April 2022</i> <br>
-                            </ul>
-                            Jalur Reguler 2
-                            <ul>
-                                <i class=" bi-check-circle"> Pendaftaran dibuka mulai <br> 06 April - 12 Juli 2022</i> <br>
-                            </ul>
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/ma.png" class="testimonial-img"></div>
+                            <h4 class=" title"><a href="">MA AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-3 mt-4 mt-md-0">
+                        <div class="icon-box">
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/smk.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">SMK AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

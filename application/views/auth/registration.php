@@ -17,7 +17,7 @@ $this->load->view('theme/head');
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition register-page bg-primary">
+<body class="hold-transition register-page ">
     <div class="register-box">
 
 
@@ -82,12 +82,14 @@ $this->load->view('theme/head');
 
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                         </div>
                         <!-- /.col -->
+                        <div class="col-6 ml-4 mt-2">
+                            <a href="../auth" class="text-center">Kembali ke Log In</a>
+
+                        </div>
                 </form>
-                <br>
-                <a href="../auth" class="text-center">Kembali ke Log In</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

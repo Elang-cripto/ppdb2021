@@ -125,8 +125,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Log Out',text: 'Anda telah metu'}");
-        redirect('/');
         $this->session->sess_destroy();
+        redirect('/');
     }
 }

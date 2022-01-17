@@ -28,7 +28,7 @@
         <form method="post" action="<?php echo base_url(); ?>auth/proses">
           <div class="input-block">
             <label for="email" class="input-label">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="text" name="email" id="email" placeholder="Email" required>
           </div>
           <div class="input-block">
             <label for="password" class="input-label">Password</label>
@@ -54,7 +54,7 @@
   <!-- partial -->
 
   <script src="<?php echo base_url(); ?>asset/login/dist/script.js"></script>
-  <?php	$this->load->view('theme/ft_alert');	?>
+  <?php $this->load->view('theme/ft_alert');  ?>
 </body>
 
 </html>

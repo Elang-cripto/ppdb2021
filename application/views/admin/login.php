@@ -26,7 +26,7 @@
 
 		.container>header h1,
 		.container>header h2 {
-			color: #fff;
+			color: black;
 			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
 		}
 	</style>
