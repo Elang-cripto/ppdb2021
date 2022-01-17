@@ -46,26 +46,21 @@
                         <table class="table table-bordered table-striped projects">
                             <thead>
                                 <tr>
-<<<<<<< HEAD
                                     <th style="align:center" rowspan="2">No</th>
+                                    <th rowspan="2">NPSN</th>
                                     <th rowspan="2">Lembaga</th>
                                     <th rowspan="2">Alamat</th>
-                                    <th colspan="2">MTS</th>
-                                    <th colspan="2">SMP</th>
+                                    <th colspan="3">MTS</th>
+                                    <th colspan="3">SMP</th>
                                     <th rowspan="2">Aksi</th>
                                 </tr>
                                 <tr>
                                     <th>L</th>
                                     <th>P</th>
+                                    <th>JML</th>
                                     <th>L</th>
                                     <th>P</th>
-=======
-                                    <th>No</th>
-                                    <th>NPSN</th>
-                                    <th>Lembaga</th>
-                                    <th>Alamat</th>
-                                    <th>Aksi</th>
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
+                                    <th>JML</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,13 +71,11 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-<<<<<<< HEAD
-                                        <td><?php echo $row->nama; ?></td>
-=======
                                         <td><?php echo $row->npsn; ?></td>
                                         <td><?php echo $row->lembaga; ?></td>
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
                                         <td><?php echo $row->alamat; ?></td>
+                                        <td></td>
+                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>

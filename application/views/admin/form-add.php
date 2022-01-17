@@ -581,34 +581,6 @@ if ($cekuri == "mts") {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="col-md-6">
-            <!-- REGISTER MASUK -->
-            <div class="card card-<?php echo $warna; ?>">
-              <div class="card-header">
-                <h3 class="card-title">REGISTER MASUK</h3>
-              </div>
-              <div class="card-body">
-                <div class="form-group row">
-                  <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
-                  <div class="col-sm-8">
-                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
-                      <option value="">-- Pilih --</option>
-                      <?php
-                        $sklh = $this->m_ppdb->pil_skl($tbl_skl);
-                        foreach($sklh->result() as $pilih):
-                      ?>
-                      <option value="<?php echo $pilih->nama;?>"><?php echo $pilih->nama;?></option>
-                      <?php endforeach;?>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
-                  <div class="col-sm-8">
-                    <input type="text" name="almt_skl" class="form-control" id="almt_skl">
-                  </div>
-=======
         </div>
         <div class="col-md-6">
           <!-- REGISTER MASUK -->
@@ -620,24 +592,23 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                 <div class="col-sm-8">
-                  <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampilkan()">
+                  <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
                     <option value="">-- Pilih --</option>
                     <?php
-                    $sklh = $this->m_ppdb->pil_skl($tbl_skl);
-                    foreach ($sklh->result() as $pilih) :
+                      $sklh = $this->m_ppdb->pil_skl($tbl_skl);
+                      foreach($sklh->result() as $pilih):
                     ?>
-                      <option value="<?php echo $pilih->lembaga; ?>"><?php echo $pilih->lembaga; ?></option>
-                    <?php endforeach; ?>
+                    <option value="<?php echo $pilih->lembaga;?>"><?php echo $pilih->lembaga;?></option>
+                    <?php endforeach;?>
                   </select>
                 </div>
               </div>
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
                 <div class="col-sm-8">
-                  <input type="text" name="almt_skl" class="form-control" id="almt_skl" required>
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
+                  <input type="text" name="almt_skl" class="form-control" id="almt_skl">
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                 <div class="col-sm-8">
@@ -661,7 +632,6 @@ if ($cekuri == "mts") {
                   </select>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -713,14 +683,13 @@ if ($cekuri == "mts") {
 </section>
 <!-- /.content -->
 
-<<<<<<< HEAD
   <script type="text/javascript">
 		function tampil(skl_asal)
 		{
 			var almt_skl="";
 			switch(skl_asal)
 			{
-				case "SDN Sumberejo 01" : {
+				case "SDN SUMBEREJO 07" : {
 					almt_skl = "Sumberejo";
 				}
 				break;
@@ -733,20 +702,3 @@ if ($cekuri == "mts") {
 			document.getElementById('almt_skl').value =almt_skl;
 		}
 	</script>
-=======
-<script>
-  function tampilkan() {
-
-    var skl_asal = document.getElementById("add_pes").skl_asal.value;
-    var almat_skl = document.getElementById("almt_skl");
-
-    if (skl_asal == "SDN SABRANG 01") {
-      almat_skl.innerHTML = "Jakarta Ibu kota Republik Indonesia";
-    } else if (skl_asal == "SDN SABRANG 01") {
-      almat_skl.innerHTML = "SABRANG";
-    } else if (nama_kota == "bogor") {
-      p_kontainer.innerHTML = "Bogor kota hujan";
-    }
-  }
-</script>
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14

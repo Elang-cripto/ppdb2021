@@ -223,14 +223,13 @@ class M_ppdb extends CI_Model
         return $this->db->insert('db_info', $data);
     }
 
-<<<<<<< HEAD
     public function get_almt_sdmi()
     {
         // $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
         // return $query->ambil;
 
         return $this->db->get_where('db_sdmi', ["id_enc" => $this->uri->segment(4)])->row();
-=======
+    }
     public function delinfo($id)
     {
         return $this->db->delete('db_info', array("id" => $id));
@@ -247,7 +246,6 @@ class M_ppdb extends CI_Model
         $db_pilih = "db_" . $par;
         // $this->db->where('status', 'AKTIF');
         return $this->db->get($db_pilih)->result();
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
     }
 }
 

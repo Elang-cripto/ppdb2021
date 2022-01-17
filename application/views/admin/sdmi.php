@@ -45,11 +45,21 @@
                         <table class="table table-bordered table-striped projects">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>NPSN</th>
-                                    <th>Lembaga</th>
-                                    <th>Alamat</th>
-                                    <th>Aksi</th>
+                                    <th style="align:center" rowspan="2">No</th>
+                                    <th rowspan="2">NPSN</th>
+                                    <th rowspan="2">Lembaga</th>
+                                    <th rowspan="2">Alamat</th>
+                                    <th colspan="3">MTS</th>
+                                    <th colspan="3">SMP</th>
+                                    <th rowspan="2">Aksi</th>
+                                </tr>
+                                <tr>
+                                    <th>L</th>
+                                    <th>P</th>
+                                    <th>JML</th>
+                                    <th>L</th>
+                                    <th>P</th>
+                                    <th>JML</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,17 +70,18 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-<<<<<<< HEAD
-                                        <td><?php echo $row->nama; ?></td>
-=======
                                         <td><?php echo $row->npsn; ?></td>
                                         <td><?php echo $row->lembaga; ?></td>
->>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
                                         <td><?php echo $row->alamat; ?></td>
-
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td align="center">
                                             <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?= $row->id; ?>"><i class="fa fa-user-edit"></i></a>
-                                            <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/delsdmi/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>
+                                            <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/delsmpmts/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
