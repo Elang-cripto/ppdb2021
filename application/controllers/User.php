@@ -65,6 +65,7 @@ class User extends CI_Controller
 		$data['No_Reg']		= $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
 		$data['nama']		= $this->session->userdata('nama');
 		$data['nik']		= $this->session->userdata('nik');
+		$data['status']     = 'RESIDU';
 		$data['jalur']		= $this->m_ppdb->getset();
 		$data['progres'] 	= date("Y-m-d H:i:s");
 		$data['editor']		= $this->session->userdata('nama');

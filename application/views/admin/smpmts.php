@@ -46,6 +46,7 @@
                         <table class="table table-bordered table-striped projects">
                             <thead>
                                 <tr>
+<<<<<<< HEAD
                                     <th style="align:center" rowspan="2">No</th>
                                     <th rowspan="2">Lembaga</th>
                                     <th rowspan="2">Alamat</th>
@@ -58,6 +59,13 @@
                                     <th>P</th>
                                     <th>L</th>
                                     <th>P</th>
+=======
+                                    <th>No</th>
+                                    <th>NPSN</th>
+                                    <th>Lembaga</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+>>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +76,12 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
+<<<<<<< HEAD
                                         <td><?php echo $row->nama; ?></td>
+=======
+                                        <td><?php echo $row->npsn; ?></td>
+                                        <td><?php echo $row->lembaga; ?></td>
+>>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
                                         <td><?php echo $row->alamat; ?></td>
                                         <td></td>
                                         <td></td>
@@ -105,6 +118,12 @@
             </div>
             <form name="form_tambah" method="post" action="<?php echo base_url(); ?>admin/addsmpmts" enctype="multipart/form-data" onsubmit="return cekform()">
                 <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="npsn" class="col-sm-4 col-form-label">NPSN</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="npsn" id="npsn" placeholder="npsn" required>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="lembaga" class="col-sm-4 col-form-label">Nama Lembaga</label>
                         <div class="col-sm-8">
@@ -144,6 +163,13 @@ foreach ($dbsmpmts as $m) :
                 </div>
                 <form method="post" action="<?php echo base_url(); ?>admin/editsmpmts" enctype="multipart/form-data">
                     <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="npsn" class="col-sm-4 col-form-label">NPSN</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" id="id" name="id" value="<?php echo $m->id; ?>">
+                                <input type="text" class="form-control" id="npsn" name="npsn" value="<?php echo $m->npsn; ?>">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="lembaga" class="col-sm-4 col-form-label">Nama Lembaga</label>
                             <div class="col-sm-8">

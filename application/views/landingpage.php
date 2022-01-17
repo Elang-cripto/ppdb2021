@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="<?php echo base_url('') ?>asset/plugins/fontawesome-free/css/all.min.css">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>asset/dist/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -42,10 +43,15 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Dashboard</a></li>
                     <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
-                    <li><a class="nav-link scrollto" href="#testimonials">Pesan Kesan </a></li>
+                    <li><a class="nav-link scrollto" href="#testimonials">Kesan </a></li>
                     <li><a class="nav-link scrollto" href="#team">Prestasi </a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>auth">Mulai Daftar</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="<?php echo base_url(); ?>admin">Admin, Panitia & MGM</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>auth">Masuk</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -64,11 +70,11 @@
                         Tahun Pelajaran 2022-2023</h2>
                     <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> MTS AL AMIEN - MA AL AMIEN - <br> SMP PLUS AL AMIEN - SMK AL AMIEN </h3>
                     <div class="d-flex">
-                        <a href="<?php echo base_url(); ?>auth" class="btn-get-started scrollto">Mulai Daftar</a>
+                        <a href="<?php echo base_url(); ?>auth/register" class="btn-get-started scrollto">Mulai Daftar</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                    <img src="<?php echo base_url(); ?>asset/dist/img/landing/hero-img.png" class="img-fluid animated" alt="">
+                    <img src="<?php echo base_url(); ?>asset/dist/img/landing/hero-imgg.png" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -82,27 +88,90 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-md-3">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-laptop"></i></div>
-                            <h4 class="title"><a href="">Jalur Inden</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/mts.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">MTs AL AMIEN</a></h4>
+                            <p class="description"><strong><i class=" bi-x-diamond"> DIBUKA JALUR INDEN</i></strong> <br> Untuk Kelas Unggulan Bina Prestasi <br>
+                                <i class=" bi-check-circle"> Bina Bahasa</i>
+                                <i class=" bi-check-circle"> Bina Sains</i> <br>
+                                <i class=" bi-check-circle"> Bina Agama</i>
+                                <i class=" bi-check-circle"> Bina Tahfidz</i> <br>
+                                Dapatkan <br>
+                                <i class=" bi-check-circle"> Beasiswa Pendidikan</i> <br>
+                                <i class=" bi-check-circle"> Paket Media Penunjang</i> <br>
+                                Khusus untuk 45 pendaftar pertama tiap kelasnya. <br>
+                                Pendaftaran dibuka mulai <br> <strong>16 Desember 2021 - 15 Januari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
+                            </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+                    <div class="col-md-3 mt-4 mt-md-0">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-trophy"></i></div>
-                            <h4 class="title"><a href="">Jalur Prestasi</a></h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/smp.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">SMP PLUS AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
+                            </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    <div class="col-md-3 mt-4 mt-md-0">
                         <div class="icon-box">
-                            <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-                            <h4 class="title"><a href="">Jalur Reguler</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/ma.png" class="testimonial-img"></div>
+                            <h4 class=" title"><a href="">MA AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
+                            </p>
                         </div>
                     </div>
+                    <div class="col-md-3 mt-4 mt-md-0">
+                        <div class="icon-box">
+                            <div class="icon"><img src="<?php echo base_url(); ?>asset/dist/img/landing/smk.png" class="testimonial-img"></div>
+                            <h4 class="title"><a href="">SMK AL AMIEN</a></h4>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR PRESTASI</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Januari - 16 Februari 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 1</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>17 Februari - 05 April 2022</strong> <br>
+                            </p>
+                            <p class="description">
+                                <strong><i class=" bi-x-diamond"> JALUR REGULER 2</i></strong> <br>
+                                Pendaftaran dibuka mulai <br> <strong>06 April - 12 Juli 2022</strong> <br>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -114,7 +183,7 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="<?php echo base_url(); ?>asset/dist/img/landing/about.png" class="img-fluid" alt="">
+                        <img src="<?php echo base_url(); ?>asset/dist/img/landing/aboutt.png" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>INFORMASI</h3>
@@ -131,7 +200,7 @@
                             <li><i class="bi bi-check-circle"></i> SMK Tata Busana Al Amien</li>
                         </ul>
                         <p>
-                            Pendaftaran dapat melalui jalur prestasi maupun Reguler.
+                            Pendaftaran dapat melalui jalur inden, prestasi maupun Reguler.
                             Dan kami menyediakan media Online Untuk Pendaftar Yang akan mendaftarkan diri secara Online dilaman ini.
                         </p>
                     </div>
@@ -140,29 +209,55 @@
             </div>
         </section><!-- End About Section -->
 
-        <!-- ======= Testimonials Section ======= -->
+        <!-- ======= Kesan Section ======= -->
         <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
                 <div class="section-title">
-                    <span>Pesan & Kesan Siswa AL AMIEN</span>
-                    <h2>Pesan & Kesan Siswa AL AMIEN</h2>
-                    <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+                    <span>Kesan Siswa AL AMIEN</span>
+                    <h2>Kesan Siswa AL AMIEN</h2>
+                    <p>Berikut ini beberapa Kesan dari Siswa Al Amien yang sekolah di lembaga Al Amien</p>
                 </div>
 
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="60">
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                    Kesan saya sekolah di Al Amien ini saya telah belajar banyak hal dan banyak ilmu yang membuat saya menjadi pribadi yang lebih baik dari sebelumnya. Jadi ayo sekolah di Al Amien, bersama Al Amien yang Akan menuntun kita menjadi orang yang lebih baik dan berprestasi.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-1.png" class="testimonial-img" alt="">
+                                <h3>Erika Dwi Lestari</h3>
+                                <h4>MA AL AMIEN</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Saya senang bisa bersekolah di AL AMIEN, karena suasananya menyenangkan dan tempatnya yang asri dan bersih. Dan juga banyak sekali ilmu agama yang bisa saya dapatkan dan saya amalkan.
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-3.png" class="testimonial-img" alt="">
+                                <h3>Dian Firliana Agustin</h3>
+                                <h4>SMP PLUS AL AMIEN</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    kesan saya sekolah di Mts Al Amien senang sekali . sekolah yg nyaman teman teman yg baik dan guru yg telaten membimbing dan mengajari murid, di madrasah ini selain saya mendapatkan ilmu pengetahuan umum saya juga mendapatkan materi agama dan pembiasaan keagamaan yg baik pula, disiplin serta teman yg beragam karakter . <br> Pokoknya MTs Al Amien is The best.
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-10.png" class="testimonial-img" alt="">
+                                <h3>Naswa Arina Mardhatika</h3>
+                                <h4>MTs AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
 
@@ -170,12 +265,26 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                    Disini saya bisa menjadi pribadi yang lebih baik dari sebelumnya dan mengerti bagaimana caranya bersosialisasi dengan teman dan mengendalikan emosi, tentunya berkat kerja keras para bapak ibu guru yang ada di sekolah ini, kesabaran dan ketekunan dari beliaulah yang membuat saya menjadi lebih baik.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-7.png" class="testimonial-img" alt="">
+                                <h3>Novika Sari</h3>
+                                <h4>SMK AL AMIEN</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Saya senang bisa bersekolah di Al Amien karena semua guru pengajarnya ramah dan penuh kesabaran dalam mengajar. Banyak hal yang sudah saya pelajari selin ilmu, saya juga mendapat teman yang baik dan ramah.
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-2.png" class="testimonial-img" alt="">
+                                <h3>Khalifah Rahmawati</h3>
+                                <h4>MA AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
 
@@ -183,12 +292,12 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                    Saya Bangga Sekolah Di Al Amien, Karena banyak pelajaran agama nya dan guru - gurunya juga selalu mengajarkan kedisiplinan dan kebersamaan. <br> AL AMIEN JAYA
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-4.png" class="testimonial-img" alt="">
+                                <h3>Aril Pratama</h3>
+                                <h4>SMP PLUS AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
 
@@ -196,12 +305,12 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                    Alhamdulillah akhirnya keinginan sya bisa sekolah di Al Amien, sekolah yg menjadi favorit saya. MTs Al Amien sekolah yg mengutamakan kenyamanan siswa dalam hal belajar. Bangunan bagus, bersih, indah dan nyaman.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-9.png" class="testimonial-img" alt="">
+                                <h3>M. Miftahudin Irel Anwari</h3>
+                                <h4>MTs AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
 
@@ -209,12 +318,38 @@
                             <div class="testimonial-item">
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                                    Saya bangga menjadi salah satu bagian keluarga Al Amien karena disini saya bisa banyak menimba ilmu dan mengasah kemampuan saya di bidang desain busana dan tetap mengutamakan pembelajaran agama yang membuat saya senang belajar di Al Amien.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
-                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-6.png" class="testimonial-img" alt="">
+                                <h3>Salma Nurul Amelia</h3>
+                                <h4>SMK AL AMIEN</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Ayo Sekolah Di AL AMIEN, Karena di AL AMIEN sangatlah keren, kualitas pembelajaran disini sangat bagus, disini juga banyak ekskul dapat kalian ikuti yang selalu bina untuk dapat mengikuti lomba dan meraih juara.
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-5.png" class="testimonial-img" alt="">
+                                <h3>Marischa Putri Keysha</h3>
+                                <h4>SMP PLUS AL AMIEN</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Saya senang sekolah di Al Amien karena sekolahnya berada di lingkungan Pondok pesantren yang mengajarkan siswanya untuk berperilaku baik dan sopan sehingga membuat saya senang bersekolah di Al Amien.
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/testimonials/testimonials-8.png" class="testimonial-img" alt="">
+                                <h3>Novita Linda Fitriani</h3>
+                                <h4>SMK AL AMIEN</h4>
                             </div>
                         </div><!-- End testimonial item -->
 
@@ -223,9 +358,10 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section>
+        <!-- End Testimonials Section -->
 
-        <!-- ======= Team Section ======= -->
+        <!-- ======= Prestasi Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container">
 
@@ -235,78 +371,62 @@
                     <p>Ini merupakan wajah wajah siswa berprestasi dari lembaga AL AMIEN di perlombaan tingkat Kecamatan, <br> Kabupaten, hingga Provinsi.</p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-3 col-md-2 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-1.jpg" alt="">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>
-                                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                <div class="row testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-2.png" alt="">
+                                <h4>Rita Aninda Wahyu Ningtyas</h4>
+                                <span>MA AL AMIEN <br> Juara 1 Catur Putri Tingkat SMA / MA Ambulu 2022</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-2 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-2.jpg" alt="">
-                            <h4>Sarah Jhinson</h4>
-                            <span>Product Manager</span>
-                            <p>
-                                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-5.png" alt="">
+                                <h4>Nurlia Rahma Hanifa</h4>
+                                <span>SMK AL AMIEN <br> Juara 3 Catur Putri Tingkat SMA / MA Ambulu 2022</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-2 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-2.jpg" alt="">
-                            <h4>Sarah Jhinson</h4>
-                            <span>Product Manager</span>
-                            <p>
-                                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-1.png" alt="">
+                                <h4>Warda Nikmatul Muyasaroh</h4>
+                                <span> MTs AL AMIEN <br> Juara Tenis Meja Tingkat SMP / MTs Ambulu 2022</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-2 d-flex align-items-stretch">
-                        <div class="member">
-                            <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-3.jpg" alt="">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <p>
-                                Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-3.png" alt="">
+                                <h4>Ellin Aulia Akni</h4>
+                                <span>MA AL AMIEN <br> Juara Tenis Meja Putri Tingkat SMA / MA Ambulu 2022</span>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-4.png" alt="">
+                                <h4>Ferdy Amzah</h4>
+                                <span>MA AL AMIEN <br> Juara Catur Putra Tingkat SMA / MA Ambulu 2022</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-6.png" alt="">
+                                <h4>Farhan Al Ihsan</h4>
+                                <span>MA AL AMIEN <br> Juara 1 Singer Putra PORSENI KKMA se Kabupaten Jember 2021</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-2 d-flex align-items-stretch swiper-slide">
+                            <div class="member swiper-slide">
+                                <img src="<?php echo base_url(); ?>asset/dist/img/landing/team/team-7.png" alt="">
+                                <h4>Nadya Pramudita</h4>
+                                <span>MA AL AMIEN <br> Juara 1 Singer Putri PORSENI se KKMA 06 Kabupaten Jember 2021</span>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-
-            </div>
         </section><!-- End Team Section -->
 
         <!-- ======= Contact Section ======= -->
@@ -326,8 +446,8 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Alamat:</h4>
-                                <p>JL. Kebonsari, RT. 003/03, Tisnonegaran, Mayangan, Krajan, <br>
-                                    Karanganyar, Ambulu, Kabupaten Jember, Jawa Timur 67211</p>
+                                <p>JL. K. Masduqi, Sabrang,
+                                    Ambulu, Kabupaten Jember, Jawa Timur 86172</p>
                             </div>
 
                             <div class="email">
@@ -365,23 +485,21 @@
 
             <div class="container">
                 <div class="social-links">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.facebook.com/Alamienjember" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/alamienjember/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCAQ5TsG-AEUjV9s9bNOQAvg" class="google-plus"><i class="bx bxl-youtube"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Copyright <strong><span>eNno</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>ICT AL AMIEN</span></strong>
             </div>
 
             <div class="credits">
 
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="">BootstrapMade</a>
             </div>
         </div>
     </footer><!-- End Footer -->

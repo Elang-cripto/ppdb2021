@@ -17,28 +17,31 @@ $this->load->view('theme/head');
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition register-page bg-primary">
+<body class="hold-transition register-page ">
     <div class="register-box">
-        <div class="register-logo">
-            <h2><b>FORM REGISTRASI PESERTA DIDIK BARU</b></h2>
-            <H6>Di isi Dengan HURUF BESAR/KAPITAL, kecuali E-mail</H6>
-        </div>
+
 
         <div class="card">
-            <div class="card-body register-card-body">
-                <!-- <p class="login-box-msg">Registrasi user baru</p> -->
 
+            <div class="card-body register-card-body card text-light bg-light mb-3">
+                <div class="register-logo card-header">
+                    <img class="" style="max-width: 30%;" src="<?php echo base_url(); ?>asset/frontend/image/LOGO YAYASAN.png">
+                    <div class="register-logo">
+                        <h3><b style="color: black;">FORM REGISTRASI PESERTA DIDIK BARU</b></h3>
+                        <H6 style=" color: black;"> Di isi Dengan HURUF BESAR/KAPITAL, <br> kecuali E-mail</H6>
+                    </div>
+                </div>
                 <form name="formregister" class="user" method="post" action="<?php echo base_url('auth/register'); ?>" onsubmit="return cekform()">
                     <div class="input-group mb-3">
                         <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK Sesuai KK">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                                <span class="fas fa-book"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Sesuai KK">
+                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Sesuai IJAZAH">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -63,7 +66,7 @@ $this->load->view('theme/head');
                     </div>
                     <div class="input-group mb-3">
                         <select type="text" name="par" id="par" class="form-control select2">
-                            <option value="">-- Pilih Lembaga --</option>
+                            <option value="">-- Pilih Lembaga Tujuan --</option>
                             <option value="MTS">MTs Al Amien</option>
                             <option value="MA">MA Al Amien</option>
                             <option value="SMP">SMPS Plus Al Amien</option>
@@ -71,7 +74,7 @@ $this->load->view('theme/head');
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                                <span class="fas fa-school"></span>
                             </div>
                         </div>
                     </div>
@@ -79,12 +82,14 @@ $this->load->view('theme/head');
 
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                         </div>
                         <!-- /.col -->
+                        <div class="col-6 ml-4 mt-2">
+                            <a href="../auth" class="text-center">Kembali ke Log In</a>
+
+                        </div>
                 </form>
-                <br>
-                <a href="../auth" class="text-center">Kembali ke Log In</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
@@ -201,7 +206,7 @@ $this->load->view('theme/head');
             }
         }
     </script>
-    <?php	$this->load->view('theme/ft_alert');	?>
+    <?php $this->load->view('theme/ft_alert');    ?>
 </body>
 
 </html>

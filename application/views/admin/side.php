@@ -7,22 +7,22 @@
   </a>
 
   <?php
-    $cekres = ['residu'];
-    $ceknon = ['nonaktif'];
-    $cek_uri2 = $this->uri->segment(2);
-    $cek_uri3 = $this->uri->segment(3);
-    $role = $this->session->userdata('jabatan');
-    $poto = $this->session->userdata('foto');
-    $kelas = $this->session->userdata('kelas');
-    $par = $this->session->userdata('par');
-    $file_poto = base_url('') . 'asset/dist/img/' . $poto;
-    $file_zonk = base_url('') . 'asset/dist/img/none.png';
+  $cekres = ['residu'];
+  $ceknon = ['nonaktif'];
+  $cek_uri2 = $this->uri->segment(2);
+  $cek_uri3 = $this->uri->segment(3);
+  $role = $this->session->userdata('jabatan');
+  $poto = $this->session->userdata('foto');
+  $kelas = $this->session->userdata('kelas');
+  $par = $this->session->userdata('par');
+  $file_poto = base_url('') . 'asset/dist/img/' . $poto;
+  $file_zonk = base_url('') . 'asset/dist/img/none.png';
 
-    if (empty($poto)) {
-      $gambar = $file_zonk;
-    } else {
-      $gambar = $file_poto;
-    }
+  if (empty($poto)) {
+    $gambar = $file_zonk;
+  } else {
+    $gambar = $file_poto;
+  }
   ?>
 
   <!-- Sidebar -->
@@ -59,7 +59,7 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
-          $cekin = ['data','form', 'view','edit','bukti',];
+          $cekin = ['data', 'form', 'view', 'edit', 'bukti',];
           if (in_array($cek_uri2, $cekin)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
@@ -221,7 +221,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/download" class="nav-link <?php if ($cek_uri2 == "download") {
+          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($cek_uri2 == "master") {
                                                                             echo "active";
                                                                           } ?>">
             <i class="nav-icon fas fa-cloud-download-alt"></i>
@@ -300,8 +300,8 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri2 == "setting") {
-                                                                              echo "active";
-                                                                            } ?>">
+                                                                            echo "active";
+                                                                          } ?>">
             <i class="nav-icon fas fa-cogs"></i>
             <p>Setting</p>
           </a>

@@ -33,6 +33,12 @@ class M_ppdb extends CI_Model
         $this->db->limit(8);
         return $this->db->get("db_user_pendaftar")->result();
     }
+    public function getuserdaspan()
+    {
+        $this->db->order_by('last', 'desc');
+        $this->db->limit(8);
+        return $this->db->get("db_panitia")->result();
+    }
 
     //=========================================== GET SISWA =================================
     public function getkls_mts()
@@ -47,7 +53,7 @@ class M_ppdb extends CI_Model
         $this->db->where('status', 'AKTIF');
         return $this->db->get($tabel)->result();
     }
-    
+
     public function getresidu($tabel)
     {
         $this->db->order_by('id', 'asc');
@@ -70,7 +76,7 @@ class M_ppdb extends CI_Model
     {
         return $this->db->delete($tabel, array("id_enc" => $id));
     }
-    
+
     // ===========================GET USER PANITIA ==============================
     public function getuser()
     {
@@ -193,31 +199,55 @@ class M_ppdb extends CI_Model
         $config['imagedir']     = './asset/qr/'; //direktori penyimpanan qr code
         $config['quality']      = true; //boolean, the default is true
         $config['size']         = '1024'; //interger, the default is 1024
-        $config['black']        = array(224,255,255); // array, default is array(255,255,255)
-        $config['white']        = array(70,130,180); // array, default is array(0,0,0)
+        $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
+        $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
- 
-        $image_name=$nikqr.'.png'; //buat name dari qr code sesuai dengan nim
- 
-        $params['data'] = base_url('').'cek/'.$par.'/'.$nikqr; //data yang akan di jadikan QR CODE
+
+        $image_name = $nikqr . '.png'; //buat name dari qr code sesuai dengan nim
+
+        $params['data'] = base_url('') . 'cek/' . $par . '/' . $nikqr; //data yang akan di jadikan QR CODE
         $params['level'] = 'H'; //H=High
         $params['size'] = 10;
-        $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/qr/
+        $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/qr/
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
     }
 
     public function pil_skl($tbl_skl)
     {
-		$hasil = $this->db->query('select * from '.$tbl_skl);
-		return $hasil;
-	}
+        $hasil = $this->db->query('select * from ' . $tbl_skl);
+        return $hasil;
+    }
+    //============================= Info ============================
+    public function savinfo($data)
+    {
+        return $this->db->insert('db_info', $data);
+    }
 
+<<<<<<< HEAD
     public function get_almt_sdmi()
     {
         // $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
         // return $query->ambil;
 
         return $this->db->get_where('db_sdmi', ["id_enc" => $this->uri->segment(4)])->row();
+=======
+    public function delinfo($id)
+    {
+        return $this->db->delete('db_info', array("id" => $id));
+    }
+    //============================= download ============================
+    public function get_data($par)
+    {
+        $db_pilih = "db_" . $par;
+        $this->db->where('status', 'AKTIF');
+        return $this->db->get($db_pilih)->result();
+    }
+    public function get_backup($par)
+    {
+        $db_pilih = "db_" . $par;
+        // $this->db->where('status', 'AKTIF');
+        return $this->db->get($db_pilih)->result();
+>>>>>>> 2794e84c3d764970b57dafb9049eb23a1f08df14
     }
 }
 
