@@ -45,6 +45,8 @@ class User extends CI_Controller
 		$dbcek	= 'db_' . strtolower($par);
 		$dariDB = $this->m_ppdb->get_kode($dbcek);
 		$urut 	= (int)substr($dariDB, 11, 3);
+		$nikqr  = md5($this->session->userdata('nik'));
+        $this->m_ppdb->qrcode($nikqr, $par);
 
 		if ($par == "MTS") {
 			$nus = "538";
@@ -59,7 +61,7 @@ class User extends CI_Controller
 		//Fungsi db_mts
 		date_default_timezone_set("ASIA/JAKARTA");
 		$data 				= $this->input->post();
-		$data['id_enc']		= md5($this->session->userdata('nik'));
+		$data['id_enc']		= $nikqr;
 		$data['No_Reg']		= $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
 		$data['nama']		= $this->session->userdata('nama');
 		$data['nik']		= $this->session->userdata('nik');

@@ -592,13 +592,13 @@ if ($cekuri == "mts") {
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampilkan()">
+                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
                       <option value="">-- Pilih --</option>
                       <?php
                         $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                         foreach($sklh->result() as $pilih):
                       ?>
-                      <option value="<?php echo $pilih->lembaga;?>"><?php echo $pilih->lembaga;?></option>
+                      <option value="<?php echo $pilih->nama;?>"><?php echo $pilih->nama;?></option>
                       <?php endforeach;?>
                     </select>
                   </div>
@@ -606,7 +606,7 @@ if ($cekuri == "mts") {
                 <div class="form-group row">
                   <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="almt_skl" class="form-control" id="almt_skl" required>
+                    <input type="text" name="almt_skl" class="form-control" id="almt_skl">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -684,23 +684,22 @@ if ($cekuri == "mts") {
   </section>
   <!-- /.content -->
 
-<script>
-  function tampilkan(){
-  
-    var skl_asal=document.getElementById("add_pes").skl_asal.value;
-    var almat_skl=document.getElementById("almt_skl");
-  
-    if (skl_asal=="SDN Sumberejo 01")
-      {
-        almat_skl.innerHTML="Jakarta Ibu kota Republik Indonesia";
-      }
-    else if (nama_kota=="bandung")
-      {
-          p_kontainer.innerHTML="Bandung kota kembang";
-      }
-    else if (nama_kota=="bogor")
-      {
-          p_kontainer.innerHTML="Bogor kota hujan";
-      }
-  }
-</script>
+  <script type="text/javascript">
+		function tampil(skl_asal)
+		{
+			var almt_skl="";
+			switch(skl_asal)
+			{
+				case "SDN Sumberejo 01" : {
+					almt_skl = "Sumberejo";
+				}
+				break;
+				case "SMP Plus Al Amien" : {
+					almt_skl = "Sabrang Ambulu";
+				}
+				break;
+				default :almt_skl ="";
+			}
+			document.getElementById('almt_skl').value =almt_skl;
+		}
+	</script>

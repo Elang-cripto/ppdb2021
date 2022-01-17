@@ -59,7 +59,7 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-                                        <td><?php echo $row->lembaga; ?></td>
+                                        <td><?php echo $row->nama; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
 
                                         <td align="center">

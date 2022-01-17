@@ -135,11 +135,8 @@ class M_ppdb extends CI_Model
 
     public function getset()
     {
-        // $this->db->select('kelas');
-        // return $this->db->get_where('db_setting', ["id" => 1])->result();
-        $query = $this->db->query("SELECT jalur as ambil from db_setting");
-        $hasil = $query->row();
-        return $hasil->ambil;
+        $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
+        return $query->ambil;
     }
 
     //============================= SD / MI ============================
@@ -215,6 +212,13 @@ class M_ppdb extends CI_Model
 		return $hasil;
 	}
 
+    public function get_almt_sdmi()
+    {
+        $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
+        return $query->ambil;
+
+        return $this->db->get_where('db_sdmi', ["id_enc" => $this->uri->segment(4)])->row();
+    }
 }
 
-/* End of file ModelName.php */
+/* End of file m_ppdb.php */

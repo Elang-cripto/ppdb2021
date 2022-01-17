@@ -120,7 +120,7 @@ class Admin extends CI_Controller
         $data['progres']     = date("Y-m-d H:i:s");
         $data['editor']        = $this->session->userdata('nama');
         $data['jalur']         = $this->m_ppdb->getset();
-        $data['status']     = 'RESIDU';
+        $data['status']         = 'RESIDU';
 
         $this->db->insert('db_' . $par, $data);
 

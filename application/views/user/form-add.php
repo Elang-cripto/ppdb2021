@@ -610,12 +610,12 @@ $this->load->view($role . '/side');
                     <input type="text" name="skl_asal" class="form-control" id="skl_asal">
                   </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
                   <div class="col-sm-8">
                     <input type="text" name="almt_skl" class="form-control" id="almt_skl">
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group row">
                   <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
                   <div class="col-sm-8">
