@@ -141,37 +141,7 @@
     <!-- =========================================================================== -->
     <hr>
     <div class="row">
-      <div class="col-12 col-sm-2">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text">User Panitia</span>
-            <span class="info-box-number"><?php echo $jml_panitia ?></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-2">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text">User MGM</span>
-            <span class="info-box-number"><?php echo $jml_mgm ?></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-2">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
-          <div class="info-box-content">
-            <span class="info-box-text">User Peserta</span>
-            <span class="info-box-number"><?php echo $jml_user ?></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="clearfix hidden-md-up"></div>
-
-      <div class="col-12 col-sm-2">
+      <div class="col-12 col-sm-4">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
           <div class="info-box-content">
@@ -180,7 +150,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-2">
+      <div class="col-12 col-sm-4">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
           <div class="info-box-content">
@@ -189,7 +159,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-2">
+      <div class="col-12 col-sm-4">
         <div class="info-box mb-3">
           <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
           <div class="info-box-content">

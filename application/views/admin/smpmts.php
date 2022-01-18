@@ -51,13 +51,13 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr align="center">
-                                    <th rowspan="2">No</th>
-                                    <th rowspan="2">NPSN</th>
-                                    <th rowspan="2">Lembaga</th>
-                                    <th rowspan="2">Alamat</th>
+                                    <th rowspan="2" style='vertical-align:middle'>No</th>
+                                    <th rowspan="2" style='vertical-align:middle'>NPSN</th>
+                                    <th rowspan="2" style='vertical-align:middle'>Lembaga</th>
+                                    <th rowspan="2" style='vertical-align:middle'>Alamat</th>
                                     <th colspan="3">MTS</th>
                                     <th colspan="3">SMP</th>
-                                    <th rowspan="2">Aksi</th>
+                                    <th rowspan="2" style='vertical-align:middle'>Aksi</th>
                                 </tr>
                                 <tr>
                                     <th>L</th>

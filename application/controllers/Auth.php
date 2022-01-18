@@ -106,16 +106,28 @@ class Auth extends CI_Controller
             $this->session->set_userdata('status', $row->status);
             $this->session->set_userdata('last', $row->last);
 
+            $tabel  = "db_panitia";
+            $nama   = 'Hai ' . $this->session->userdata('nama') . ', Anda log in sebagai ' . $this->session->userdata('jabatan');
+
             if ($this->session->userdata('status') != "1") {
                 $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Akun Anda Telah Di Suspend',text: 'Silahkan Hubungi admin'}");
                 redirect('auth/admin');
                 $this->session->sess_destroy();
-            } else {
-                $nama = 'Hai ' . $this->session->userdata('nama') . ', Anda log in sebagai ' . $this->session->userdata('jabatan');
+            } elseif ($this->session->userdata('jabatan') == "admin") {
                 $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
-                $tabel          = "db_panitia";
                 $this->m_ppdb->update_last($tabel);
                 redirect('admin');
+            } elseif ($this->session->userdata('jabatan') == "panitia") {
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
+                $this->m_ppdb->update_last($tabel);
+                redirect('panitia');
+            } elseif ($this->session->userdata('jabatan') == "mgm") {
+                $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Selamat Datang',text: '$nama'}");
+                $this->m_ppdb->update_last($tabel);
+                redirect('mgm');
+            } else {
+                $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Mohon Maaf',text: 'Terjadi Kesalahan Setting akun'}");
+                redirect('auth/admin');
             }
         } else {
             $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Maaf!',text: 'Username atau Password Salah'}");
