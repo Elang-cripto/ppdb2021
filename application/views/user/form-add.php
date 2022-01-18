@@ -82,11 +82,15 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
-                    <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
+                    <<<<<<< HEAD <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
                       <option>-- Pilih --</option>
-                      <option value="L">Laki-laki</option>
-                      <option value="P">Perempuan</option>
-                    </select>
+                      =======
+                      <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
+                        <option value="">Pilih salah satu</option>
+                        >>>>>>> d0649202b23a7a409f03b14a9be46cbbe5cc6601
+                        <option value="L">Laki-laki</option>
+                        <option value="P">Perempuan</option>
+                      </select>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -605,8 +609,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">-- PILIH --</option>
+                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
+                      <option>-- Pilih --</option>
                       <?php
                       $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                       foreach ($sklh->result() as $pilih) :
@@ -616,12 +620,6 @@ $this->load->view($role . '/side');
                     </select>
                   </div>
                 </div>
-                <!-- <div class="form-group row">
-                  <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
-                  <div class="col-sm-8">
-                    <input type="text" name="almt_skl" class="form-control" id="almt_skl">
-                  </div>
-                </div> -->
                 <div class="form-group row">
                   <i>
                     <p class="col-sm-12 text-primary">Jika sekolah pilihan tidak ditemukan maka silahkan hubungi panitia agar ditambahkan kedalam database</p>
