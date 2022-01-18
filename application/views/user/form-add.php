@@ -79,7 +79,7 @@ $this->load->view($role . '/side');
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
                     <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                    <option value="">Pilih salah satu</option>
+                      <option value="">Pilih salah satu</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -608,22 +608,6 @@ $this->load->view($role . '/side');
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
                     <input type="text" name="skl_asal" class="form-control" id="skl_asal">
-                  </div>
-                </div>
-                <!-- <div class="form-group row">
-                  <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
-                  <div class="col-sm-8">
-                    <input type="text" name="almt_skl" class="form-control" id="almt_skl">
-                  </div>
-                </div> -->
-                <div class="form-group row">
-                  <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
-                  <div class="col-sm-8">
-                    <select type="text" name="jns_masuk" id="jns_masuk" class="form-control select2">
-                      <option value="Siswa Baru">Siswa Baru</option>
-                      <option value="Pindahan">Pindahan</option>
-                      <option value="Kembali Bersekolah">Kembali Bersekolah</option>
-                    </select>
                   </div>
                 </div>
               </div>
