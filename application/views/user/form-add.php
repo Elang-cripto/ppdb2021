@@ -41,12 +41,16 @@ $this->load->view($role . '/side');
 
       if ($this->uri->segment(3) == "MTS") {
         $warna = "info";
+        $tbl_skl = "db_sdmi";
       } elseif ($this->uri->segment(3) == "MA") {
         $warna = "success";
+        $tbl_skl = "db_smpmts";
       } elseif ($this->uri->segment(3) == "SMP") {
         $warna = "warning";
+        $tbl_skl = "db_sdmi";
       } else {
         $warna = "danger";
+        $tbl_skl = "db_smpmts";
       }
       ?>
 
@@ -78,8 +82,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
-                    <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                    <option value="">Pilih salah satu</option>
+                    <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
+                      <option>-- Pilih --</option>
                       <option value="L">Laki-laki</option>
                       <option value="P">Perempuan</option>
                     </select>
@@ -109,7 +113,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
                   <div class="col-sm-8">
-                    <select type="text" name="agama" id="agama" class="form-control select2">
+                    <select type="text" name="agama" id="agama" class="form-control">
                       <option value="Islam">Islam</option>
                       <option value="Kristen">Kristen</option>
                       <option value="Katholik">Katholik</option>
@@ -173,8 +177,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Jenis Tinggal" class="col-sm-4 col-form-label">JENIS TINGGAL</label>
                   <div class="col-sm-8">
-                    <select type="text" name="jns_tinggal" id="Jenis Tinggal" class="form-control select2">
-                      <option value="">Pilih salah satu</option>
+                    <select type="text" name="jns_tinggal" id="Jenis Tinggal" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Dusun">Dusun</option>
                       <option value="Salaf Putri">Salaf Putri</option>
                       <option value="Salaf Putra">Salaf Putra</option>
@@ -189,8 +193,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Status Tinggal" class="col-sm-4 col-form-label">STATUS TEMPAT TINGGAL</label>
                   <div class="col-sm-8">
-                    <select type="text" name="sts_tinggal" id="Status Tinggal" class="form-control select2">
-                      <option value="">Pilih salah satu</option>
+                    <select type="text" name="sts_tinggal" id="Status Tinggal" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Milik Sendiri">Milik Sendiri</option>
                       <option value="Rumah Orang Tua">Rumah Orang Tua</option>
                       <option value="Rumah Saudara/Kerabat">Rumah Saudara/Kerabat</option>
@@ -203,8 +207,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Transportasi" class="col-sm-4 col-form-label">TRANSPORTASI</label>
                   <div class="col-sm-8">
-                    <select type="text" name="alat_trans" id="alat_trans" class="form-control select2">
-                      <option value="" hidden> Pilih salah satu..</option>
+                    <select type="text" name="alat_trans" id="alat_trans" class="form-control">
+                      <option> -- Pilih --..</option>
                       <option value="Jalan kaki">Jalan kaki</option>
                       <option value="Angkutan umum/bus/pete-pete">Angkutan umum/bus/pete-pete</option>
                       <option value="Mobil/bus antar jemput">Mobil/bus antar jemput</option>
@@ -227,7 +231,7 @@ $this->load->view($role . '/side');
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="telp" data-inputmask="'mask': ['999-999-999-999', '+0999 999 999 999']" data-mask>
+                      <input type="text" class="form-control" name="telp" placeholder="082000000000" data-inputmask="'mask': ['999-999-999-999', '+0999 999 999 999']" data-mask>
                     </div>
                   </div>
                 </div>
@@ -292,8 +296,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Pend_Ayah" class="col-sm-4 col-form-label">PENDIDIKAN AYAH</label>
                   <div class="col-sm-8">
-                    <select type="text" name="pend_ayh" id="pend_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="pend_ayh" id="pend_ayh" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -311,8 +315,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="kerja_ayh" class="col-sm-4 col-form-label">PEKERJAAN AYAH</label>
                   <div class="col-sm-8">
-                    <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -332,8 +336,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="hasil_ayh" class="col-sm-4 col-form-label">PENGHASILAN AYAH</label>
                   <div class="col-sm-8">
-                    <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -381,8 +385,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Pend_Ibu" class="col-sm-4 col-form-label">PENDIDIKAN IBU</label>
                   <div class="col-sm-8">
-                    <select type="text" name="pend_ibu" id="pend_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="pend_ibu" id="pend_ibu" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -400,8 +404,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="kerja_ibu" class="col-sm-4 col-form-label">PEKERJAAN IBU</label>
                   <div class="col-sm-8">
-                    <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -421,8 +425,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="hasil_ibu" class="col-sm-4 col-form-label">PENGHASILAN IBU</label>
                   <div class="col-sm-8">
-                    <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -472,8 +476,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="pend_wl" class="col-sm-4 col-form-label">PENDIDIKAN WALI</label>
                   <div class="col-sm-8">
-                    <select type="text" name="pend_wl" id="pend_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="pend_wl" id="pend_wl" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak Sekolah">Tidak Sekolah</option>
                       <option value="Putus SD">Putus SD</option>
                       <option value="SD Sederajad">SD Sederajad</option>
@@ -491,8 +495,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="kerja_wl" class="col-sm-4 col-form-label">PEKERJAAN WALI</label>
                   <div class="col-sm-8">
-                    <select type="text" name="kerja_wl" id="kerja_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="kerja_wl" id="kerja_wl" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Tidak bekerja">Tidak bekerja</option>
                       <option value="Nelayan">Nelayan</option>
                       <option value="Petani">Petani</option>
@@ -512,8 +516,8 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="hasil_wl" class="col-sm-4 col-form-label">PENGHASILAN WALI</label>
                   <div class="col-sm-8">
-                    <select type="text" name="hasil_wl" id="hasil_wl" class="form-control select2">
-                      <option value="">Tidak Diketahui</option>
+                    <select type="text" name="hasil_wl" id="hasil_wl" class="form-control">
+                      <option>-- Pilih --</option>
                       <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                       <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                       <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -558,12 +562,6 @@ $this->load->view($role . '/side');
                     <input type="text" name="no_pkh" class="form-control" id="no_pkh" placeholder="Sesuai Kartu">
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label for="beasiswa" class="col-sm-4 col-form-label">Beasiswa</label>
-                  <div class="col-sm-8">
-                    <input type="text" name="beasiswa" class="form-control" id="beasiswa" placeholder="Contoh : Atlit Nasional">
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -579,7 +577,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="no_un" class="col-sm-4 col-form-label">NO UN SD/MI</label>
                   <div class="col-sm-8">
-                    <input type="text" name="no_un" class="form-control" data-inputmask="'mask': ['9-99-99-99-999-999-9']" data-mask>
+                    <input type="text" name="no_un" class="form-control" placeholder="0-00-00-00-000-000-0" data-inputmask="'mask': ['9-99-99-99-999-999-9']" data-mask>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -607,7 +605,15 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="skl_asal" class="form-control" id="skl_asal">
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">-- PILIH --</option>
+                      <?php
+                      $sklh = $this->m_ppdb->pil_skl($tbl_skl);
+                      foreach ($sklh->result() as $pilih) :
+                      ?>
+                        <option value="<?php echo $pilih->lembaga; ?>"><?php echo $pilih->lembaga; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
                 <!-- <div class="form-group row">
@@ -617,14 +623,9 @@ $this->load->view($role . '/side');
                   </div>
                 </div> -->
                 <div class="form-group row">
-                  <label for="jns_masuk" class="col-sm-4 col-form-label">JENIS PENDAFTARAN</label>
-                  <div class="col-sm-8">
-                    <select type="text" name="jns_masuk" id="jns_masuk" class="form-control select2">
-                      <option value="Siswa Baru">Siswa Baru</option>
-                      <option value="Pindahan">Pindahan</option>
-                      <option value="Kembali Bersekolah">Kembali Bersekolah</option>
-                    </select>
-                  </div>
+                  <i>
+                    <p class="col-sm-12 text-primary">Jika sekolah pilihan tidak ditemukan maka silahkan hubungi panitia agar ditambahkan kedalam database</p>
+                  </i>
                 </div>
               </div>
             </div>
@@ -661,9 +662,14 @@ $this->load->view($role . '/side');
                   <input type="checkbox" class="form-check-input" id="terms" required>
                   <label class="form-check-label" for="exampleCheck2">
                     Saya telah entry data sesuai dengan ketentuan berkas yang berlaku, telah kami validasi kebenaran dan saya bertanggung jawab atas kebenaran data tersebut
-                    <br>
-                    <b>Data setelah dikirim tidak dapat di edit kembali tanpa seijin panitia.
                   </label>
+                  <p>
+                    <b>
+                      <H5 class="text-danger">Data yang telah dikirim tidak dapat di edit kembali tanpa seijin panitia</H5>
+                    </b>
+                  </p>
+
+
                 </div>
               </div>
               <!-- /.card-body -->
@@ -683,6 +689,6 @@ $this->load->view($role . '/side');
 <!-- =============================================================================================== -->
 <?php
 $this->load->view('theme/foot');
-$this->load->view('theme/flink_form');
+$this->load->view('theme/flink_ind12');
 $this->load->view('theme/ft_alert');
 ?>

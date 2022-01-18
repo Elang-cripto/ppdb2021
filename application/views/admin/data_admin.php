@@ -35,7 +35,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah"><i class="fa fa-user-plus"></i> Tambah</a>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-tambah">
+                  <i class="fa fa-user-plus"></i> Tambah
+                </button>
                 <br><br>
                 <table class="table table-bordered table-striped projects">
                   <thead>

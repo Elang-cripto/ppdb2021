@@ -63,8 +63,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                 <div class="col-sm-8">
-                  <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
+                    <option>-- Pilih --</option>
                     <option value="L">Laki-laki</option>
                     <option value="P">Perempuan</option>
                   </select>
@@ -94,7 +94,7 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
                 <div class="col-sm-8">
-                  <select type="text" name="agama" id="agama" class="form-control select2">
+                  <select type="text" name="agama" id="agama" class="form-control">
                     <option value="Islam">Islam</option>
                     <option value="Kristen">Kristen</option>
                     <option value="Katholik">Katholik</option>
@@ -158,8 +158,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Jenis Tinggal" class="col-sm-4 col-form-label">JENIS TINGGAL</label>
                 <div class="col-sm-8">
-                  <select type="text" name="jns_tinggal" id="Jenis Tinggal" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="jns_tinggal" id="Jenis Tinggal" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Dusun">Dusun</option>
                     <option value="Salaf Putri">Salaf Putri</option>
                     <option value="Salaf Putra">Salaf Putra</option>
@@ -174,8 +174,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Status Tinggal" class="col-sm-4 col-form-label">STATUS TEMPAT TINGGAL</label>
                 <div class="col-sm-8">
-                  <select type="text" name="sts_tinggal" id="Status Tinggal" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="sts_tinggal" id="Status Tinggal" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Milik Sendiri">Milik Sendiri</option>
                     <option value="Rumah Orang Tua">Rumah Orang Tua</option>
                     <option value="Rumah Saudara/Kerabat">Rumah Saudara/Kerabat</option>
@@ -188,8 +188,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Transportasi" class="col-sm-4 col-form-label">TRANSPORTASI</label>
                 <div class="col-sm-8">
-                  <select type="text" name="alat_trans" id="alat_trans" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="alat_trans" id="alat_trans" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Jalan kaki">Jalan kaki</option>
                     <option value="Angkutan umum/bus/pete-pete">Angkutan umum/bus/pete-pete</option>
                     <option value="Mobil/bus antar jemput">Mobil/bus antar jemput</option>
@@ -277,8 +277,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Pend_Ayah" class="col-sm-4 col-form-label">PENDIDIKAN AYAH</label>
                 <div class="col-sm-8">
-                  <select type="text" name="pend_ayh" id="pend_ayh" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="pend_ayh" id="pend_ayh" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak Sekolah">Tidak Sekolah</option>
                     <option value="Putus SD">Putus SD</option>
                     <option value="SD Sederajad">SD Sederajad</option>
@@ -296,8 +296,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="kerja_ayh" class="col-sm-4 col-form-label">PEKERJAAN AYAH</label>
                 <div class="col-sm-8">
-                  <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak bekerja">Tidak bekerja</option>
                     <option value="Nelayan">Nelayan</option>
                     <option value="Petani">Petani</option>
@@ -317,8 +317,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="hasil_ayh" class="col-sm-4 col-form-label">PENGHASILAN AYAH</label>
                 <div class="col-sm-8">
-                  <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                     <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                     <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -366,8 +366,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Pend_Ibu" class="col-sm-4 col-form-label">PENDIDIKAN IBU</label>
                 <div class="col-sm-8">
-                  <select type="text" name="pend_ibu" id="pend_ibu" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="pend_ibu" id="pend_ibu" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak Sekolah">Tidak Sekolah</option>
                     <option value="Putus SD">Putus SD</option>
                     <option value="SD Sederajad">SD Sederajad</option>
@@ -385,8 +385,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="kerja_ibu" class="col-sm-4 col-form-label">PEKERJAAN IBU</label>
                 <div class="col-sm-8">
-                  <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak bekerja">Tidak bekerja</option>
                     <option value="Nelayan">Nelayan</option>
                     <option value="Petani">Petani</option>
@@ -406,8 +406,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="hasil_ibu" class="col-sm-4 col-form-label">PENGHASILAN IBU</label>
                 <div class="col-sm-8">
-                  <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                     <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                     <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -457,8 +457,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="pend_wl" class="col-sm-4 col-form-label">PENDIDIKAN WALI</label>
                 <div class="col-sm-8">
-                  <select type="text" name="pend_wl" id="pend_wl" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="pend_wl" id="pend_wl" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak Sekolah">Tidak Sekolah</option>
                     <option value="Putus SD">Putus SD</option>
                     <option value="SD Sederajad">SD Sederajad</option>
@@ -476,8 +476,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="kerja_wl" class="col-sm-4 col-form-label">PEKERJAAN WALI</label>
                 <div class="col-sm-8">
-                  <select type="text" name="kerja_wl" id="kerja_wl" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="kerja_wl" id="kerja_wl" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Tidak bekerja">Tidak bekerja</option>
                     <option value="Nelayan">Nelayan</option>
                     <option value="Petani">Petani</option>
@@ -497,8 +497,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="hasil_wl" class="col-sm-4 col-form-label">PENGHASILAN WALI</label>
                 <div class="col-sm-8">
-                  <select type="text" name="hasil_wl" id="hasil_wl" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="hasil_wl" id="hasil_wl" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
                     <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
                     <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>
@@ -592,14 +592,14 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                 <div class="col-sm-8">
-                  <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
-                    <option value="">-- Pilih --</option>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">-- PILIH --</option>
                     <?php
-                      $sklh = $this->m_ppdb->pil_skl($tbl_skl);
-                      foreach($sklh->result() as $pilih):
+                    $sklh = $this->m_ppdb->pil_skl($tbl_skl);
+                    foreach ($sklh->result() as $pilih) :
                     ?>
-                    <option value="<?php echo $pilih->lembaga;?>"><?php echo $pilih->lembaga;?></option>
-                    <?php endforeach;?>
+                      <option value="<?php echo $pilih->lembaga; ?>"><?php echo $pilih->lembaga; ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
@@ -612,8 +612,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                 <div class="col-sm-8">
-                  <select type="text" name="agama" id="agama" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="agama" id="agama" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="INDEN">INDEN</option>
                     <option value="PRESTASI">PRESTASI</option>
                     <option value="REGULER">REGULER</option>
@@ -623,8 +623,8 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
                 <div class="col-sm-8">
-                  <select type="text" name="ket" id="ket" class="form-control select2">
-                    <option value="">-- Pilih --</option>
+                  <select type="text" name="ket" id="ket" class="form-control">
+                    <option>-- Pilih --</option>
                     <option value="Sains">Sains</option>
                     <option value="Tahfidz">Tahfidz</option>
                     <option value="Agama">Agama</option>
@@ -632,73 +632,72 @@ if ($cekuri == "mts") {
                   </select>
                 </div>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <!-- UPLOAD FOTO -->
-          <div class="card card-<?php echo $warna; ?>">
-            <div class="card-header">
-              <h3 class="card-title">FOTO</h3>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="foto" class="custom-file-input" id="exampleInputFile">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- UPLOAD FOTO -->
+            <div class="card card-<?php echo $warna; ?>">
+              <div class="card-header">
+                <h3 class="card-title">FOTO</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="foto" class="custom-file-input" id="exampleInputFile">
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <!-- PROSES -->
-          <div class="card card-<?php echo $warna; ?>">
-            <div class="card-header">
-              <h3 class="card-title">PROSES</h3>
-            </div>
-            <div class="card-body">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="terms" required>
-                <label class="form-check-label" for="exampleCheck2">
-                  Saya telah entry data sesuai dengan ketentuan berkas yang berlaku, telah kami validasi kebenaran dan saya bertanggung jawab atas kebenaran data tersebut
-                  <br>
-                  <b>Data setelah dikirim tidak dapat di edit kembali tanpa seijin admin.
-                </label>
+          <div class="col-md-6">
+            <!-- PROSES -->
+            <div class="card card-<?php echo $warna; ?>">
+              <div class="card-header">
+                <h3 class="card-title">PROSES</h3>
               </div>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-              <button type="submit" class="btn btn-info">Kirim Formulir</button>
+              <div class="card-body">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="terms" required>
+                  <label class="form-check-label" for="exampleCheck2">
+                    Saya telah entry data sesuai dengan ketentuan berkas yang berlaku, telah kami validasi kebenaran dan saya bertanggung jawab atas kebenaran data tersebut
+                    <br>
+                    <b>Data setelah dikirim tidak dapat di edit kembali tanpa seijin admin.
+                  </label>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-info">Kirim Formulir</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </form>
   </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 
-  <script type="text/javascript">
-		function tampil(skl_asal)
-		{
-			var almt_skl="";
-			switch(skl_asal)
-			{
-				case "SDN SUMBEREJO 07" : {
-					almt_skl = "Sumberejo";
-				}
-				break;
-				case "SMP Plus Al Amien" : {
-					almt_skl = "Sabrang Ambulu";
-				}
-				break;
-				default :almt_skl ="";
-			}
-			document.getElementById('almt_skl').value =almt_skl;
-		}
-	</script>
+<script type="text/javascript">
+  function tampil(skl_asal) {
+    var almt_skl = "";
+    switch (skl_asal) {
+      case "SDN SUMBEREJO 07": {
+        almt_skl = "Sumberejo";
+      }
+      break;
+    case "SMP Plus Al Amien": {
+      almt_skl = "Sabrang Ambulu";
+    }
+    break;
+    default:
+      almt_skl = "";
+    }
+    document.getElementById('almt_skl').value = almt_skl;
+  }
+</script>

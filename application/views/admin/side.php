@@ -170,6 +170,11 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
+          $non_mts = $this->db->where_in('status', 'NON AKTIF')->get('db_mts')->num_rows();
+          $non_smp = $this->db->where_in('status', 'NON AKTIF')->get('db_smp')->num_rows();
+          $non_ma = $this->db->where_in('status', 'NON AKTIF')->get('db_ma')->num_rows();
+          $non_smk = $this->db->where_in('status', 'NON AKTIF')->get('db_smk')->num_rows();
+
           if (in_array($cek_uri2, $ceknon)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
@@ -187,7 +192,7 @@
                 echo "active";
               } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>NON AKTIF MTS</p>
+                <p>NON AKTIF MTS <span class="right badge badge-danger"><?php echo $non_mts ?></span></p>
               </a>
             </li>
             <li class="nav-item">
@@ -196,7 +201,7 @@
                 echo "active";
               } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>NON AKTIF MA</p>
+                <p>NON AKTIF MA <span class="right badge badge-danger"><?php echo $non_ma ?></span></p>
               </a>
             </li>
             <li class="nav-item">
@@ -205,7 +210,7 @@
                 echo "active";
               } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>NON AKTIF SMP</p>
+                <p>NON AKTIF SMP <span class="right badge badge-danger"><?php echo $non_smp ?></span></p>
               </a>
             </li>
             <li class="nav-item">
@@ -214,7 +219,7 @@
                 echo "active";
               } ?>">
                 <i class="fas fa-share-square nav-icon"></i>
-                <p>NON AKTIF SMK</p>
+                <p>NON AKTIF SMK <span class="right badge badge-danger"><?php echo $non_smk ?></span></p>
               </a>
             </li>
           </ul>

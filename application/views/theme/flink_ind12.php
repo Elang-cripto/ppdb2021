@@ -6,10 +6,8 @@
 <script src="<?php echo base_url('') ?>asset/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="<?php echo base_url('') ?>asset/plugins/chart.js/Chart.min.js"></script>
-
 <!-- PAGE SCRIPTS -->
 <script src="<?php echo base_url('') ?>asset/dist/js/pages/dashboard2.js"></script>
-
 <!-- jQuery -->
 <script src="<?php echo base_url('') ?>asset/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -44,15 +42,48 @@
 <script src="<?php echo base_url('') ?>asset/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('') ?>asset/dist/js/demo.js"></script>
-
-<script src="<?php echo base_url('') ?>asset/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url('') ?>asset/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('') ?>asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url('') ?>asset/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url('') ?>asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url('') ?>asset/dist/js/adminlte.min.js"></script>
+<!-- page script -->
+<script src="<?php echo base_url('') ?>asset/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url('') ?>asset/dist/js/elangts.js"></script>
+<script src="<?php echo base_url('') ?>asset/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url('') ?>asset/plugins/select2/js/select2.full.min.js"></script>
 
 <script>
-  $(function () {
+  $(function() {
     //Add text editor
     $('#compose-textarea').summernote()
   })
-  $(document).ready(function () {
+  $(document).ready(function() {
+    bsCustomFileInput.init();
+  });
+</script>
+
+<script>
+  $(function() {
+    $('.select2').select2()
+  });
+</script>
+
+<script>
+  $(function() {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $("#example2").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $(document).ready(function() {
       bsCustomFileInput.init();
     });
+  });
 </script>

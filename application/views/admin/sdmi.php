@@ -41,11 +41,17 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
                             <i class="fa fa-upload"></i> Upload
                         </button>
+                        <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank">
+                            <button type="button" class="btn btn-warning">
+                                <i class="fa fa-search-location"></i> Cek Sekolah
+                            </button>
+                        </a>
                         <br><br>
-                        <table class="table table-bordered table-striped projects">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <?php $aktif_mts = $this->db->get_where('db_mts', ["status" => 'AKTIF'])->num_rows(); ?>
                             <thead>
-                                <tr>
-                                    <th style="align:center" rowspan="2">No</th>
+                                <tr align="center">
+                                    <th rowspan="2">No</th>
                                     <th rowspan="2">NPSN</th>
                                     <th rowspan="2">Lembaga</th>
                                     <th rowspan="2">Alamat</th>
@@ -73,12 +79,48 @@
                                         <td><?php echo $row->npsn; ?></td>
                                         <td><?php echo $row->lembaga; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <?php
+                                            echo $jml_mts_l = $this->db->get_where('db_mts', array(
+                                                'status' => 'AKTIF',
+                                                'skl_asal' => $row->lembaga,
+                                                'jk' => 'L'
+                                            ))->num_rows();
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $jml_mts_p = $this->db->get_where('db_mts', array(
+                                                'status' => 'AKTIF',
+                                                'skl_asal' => $row->lembaga,
+                                                'jk' => 'P'
+                                            ))->num_rows();
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $jml_mts_l + $jml_mts_p; ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $jml_smp_l = $this->db->get_where('db_smp', array(
+                                                'status' => 'AKTIF',
+                                                'skl_asal' => $row->lembaga,
+                                                'jk' => 'L'
+                                            ))->num_rows();
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $jml_smp_p = $this->db->get_where('db_smp', array(
+                                                'status' => 'AKTIF',
+                                                'skl_asal' => $row->lembaga,
+                                                'jk' => 'P'
+                                            ))->num_rows();
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $jml_smp_l + $jml_smp_p; ?>
+                                        </td>
                                         <td align="center">
                                             <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?= $row->id; ?>"><i class="fa fa-user-edit"></i></a>
                                             <a data-toggle='tooltip' data-placement='top' title='Hapus' href="<?php echo base_url(); ?>admin/delsmpmts/<?php echo $row->id; ?>" class="btn btn-danger btn-sm" onclick="return del()"><i class="fa fa-trash-alt"></i></a>

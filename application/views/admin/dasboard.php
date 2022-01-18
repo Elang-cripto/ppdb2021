@@ -16,32 +16,31 @@
   </section>
 
   <?php
-  $rmbl_mts = $this->db->get_where('db_mts', ["status" => 'AKTIF'])->num_rows();
-  $rmbl_ma  = $this->db->get_where('db_ma', ["status" => 'AKTIF'])->num_rows();
-  $rmbl_smp  = $this->db->get_where('db_smp', ["status" => 'AKTIF'])->num_rows();
-  $rmbl_smk  = $this->db->get_where('db_smk', ["status" => 'AKTIF'])->num_rows();
-  $jml_rbl = $rmbl_mts + $rmbl_ma + $rmbl_smp + $rmbl_smk;
+  $aktif_mts = $this->db->get_where('db_mts', ["status" => 'AKTIF'])->num_rows();
+  $aktif_ma  = $this->db->get_where('db_ma', ["status" => 'AKTIF'])->num_rows();
+  $aktif_smp  = $this->db->get_where('db_smp', ["status" => 'AKTIF'])->num_rows();
+  $aktif_smk  = $this->db->get_where('db_smk', ["status" => 'AKTIF'])->num_rows();
+  $jml_aktif = $aktif_mts + $aktif_ma + $aktif_smp + $aktif_smk;
 
-
-  $verval_mts = $this->db->where_in('status', 'RESIDU')->get('db_mts')->num_rows();
-  $verval_ma = $this->db->where_in('status', 'RESIDU')->get('db_ma')->num_rows();
-  $verval_smp = $this->db->where_in('status', 'RESIDU')->get('db_smp')->num_rows();
-  $verval_smk = $this->db->where_in('status', 'RESIDU')->get('db_smk')->num_rows();
-
-  $verval = $verval_mts + $verval_ma + $verval_smp + $verval_smk;
+  $residu_mts = $this->db->where_in('status', 'RESIDU')->get('db_mts')->num_rows();
+  $residu_ma = $this->db->where_in('status', 'RESIDU')->get('db_ma')->num_rows();
+  $residu_smp = $this->db->where_in('status', 'RESIDU')->get('db_smp')->num_rows();
+  $residu_smk = $this->db->where_in('status', 'RESIDU')->get('db_smk')->num_rows();
+  $residu = $residu_mts + $residu_ma + $residu_smp + $residu_smk;
 
   $non_mts = $this->db->where_in('status', 'NON AKTIF')->get('db_mts')->num_rows();
   $non_ma = $this->db->where_in('status', 'NON AKTIF')->get('db_ma')->num_rows();
   $non_smp = $this->db->where_in('status', 'NON AKTIF')->get('db_smp')->num_rows();
   $non_smk = $this->db->where_in('status', 'NON AKTIF')->get('db_smk')->num_rows();
+  $non_aktif = $non_mts + $non_ma + $non_smp + $non_smk;
 
-  $non = $non_mts + $non_ma + $non_smp + $non_smk;
+  $jml_panitia  = $this->db->get_where('db_panitia', ["jabatan" => 'panitia'])->num_rows();
+  $jml_mgm  = $this->db->get_where('db_panitia', ["jabatan" => 'mgm'])->num_rows();
   ?>
 
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      <!-- Timelime example  -->
       <div class="row">
         <div class="col-md-6">
           <!-- Widget: user widget style 1 -->
@@ -77,7 +76,7 @@
                     selamat menggunakan Aplikasi PPDB Online ini. Aplikasi ini membantu anda dalam managemen Data Sekolah. <br>
                     Kami menyadari masih ada beberapa kekurangan dalam aplikasi ini. namun kami akan terus berbenah untuk kedepannya agar
                     aplikasi ini agar menjadi lebih sempurna. <br><br>
-                    Salam Satu Data Al Amien
+                    <b>Salam Satu Data Al Amien</b>
                   </h6>
                 </div>
               </div>
@@ -92,188 +91,217 @@
               <!-- small box -->
               <div class="small-box bg-primary">
                 <div class="inner">
-                  <p>Jumlah PD MTS</p>
-                  <h3><?php echo $rmbl_mts; ?></h3>
+                  <p>PENDAFTAR AKTIF MTS</p>
+                  <h3><?php echo $aktif_mts; ?></h3>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-users"></i>
                 </div>
                 <a href="<?php echo base_url($jabatan) ?>/klsmts" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 
               <div class="small-box bg-success">
                 <div class="inner">
-                  <p>Jumlah PD MA</p>
-                  <h3><?php echo $rmbl_ma; ?></h3>
+                  <p>PENDAFTAR AKTIF MA</p>
+                  <h3><?php echo $aktif_ma; ?></h3>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-users"></i>
                 </div>
                 <a href="<?php echo base_url($jabatan) ?>/klsma" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
-
-              <div class="info-box mb-3 bg-secondary">
-                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user"></i></span>
-                <div class="info-box-content ">
-                  <span class="info-box-text">Pengajuan Verval</span>
-                  <span class="info-box-number"><?php echo $verval ?></span>
-                </div>
-              </div>
-
             </div>
             <div class="col-md-6">
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <p>Jumlah PD SMP</p>
-                  <h3><?php echo $rmbl_smp; ?></h3>
+                  <p>PENDAFTAR AKTIF SMP</p>
+                  <h3><?php echo $aktif_smp; ?></h3>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-users"></i>
                 </div>
                 <a href="<?php echo base_url($jabatan) ?>/klssmp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <p>Jumlah PD SMK</p>
-                  <h3><?php echo $rmbl_smk; ?></h3>
+                  <p>PENDAFTAR AKTIF SMK</p>
+                  <h3><?php echo $aktif_smk; ?></h3>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-users"></i>
                 </div>
                 <a href="<?php echo base_url($jabatan) ?>/klssmk" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
-
-              <div class="info-box mb-3 bg-secondary">
-                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user"></i></span>
-                <div class="info-box-content ">
-                  <span class="info-box-text">Jumlah Siswa Aktif</span>
-                  <span class="info-box-number"><?php echo $jml_rbl ?></span>
-                </div>
-              </div>
-
-              <div class="info-box mb-3 bg-secondary">
-                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
-                <div class="info-box-content ">
-                  <span class="info-box-text">Jumlah Siswa Non Aktif</span>
-                  <span class="info-box-number"><?php echo $non ?></span>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-6">
-          <!-- The time line -->
-          <div class="timeline">
-            <!-- timeline time label -->
-            <div class="time-label">
-              <span class="bg-green">2021</span>
-            </div>
-            <!-- /.timeline-label -->
-            <!-- timeline item -->
-            <?php foreach ($dbinfo as $row) : ?>
-              <div>
-                <i class="fas fa-bullhorn bg-yellow"></i>
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> <?php echo $row->tanggal; ?> ( <?php echo $row->waktu; ?> )</span>
-                  <h3 class="timeline-header"><a href="#"><?php echo strtoupper($row->jabatan); ?> </a><small class="badge badge-info"> <?php echo $row->user; ?></small></h3>
-                  <div class="timeline-body">
-                    <?php echo $row->status; ?>
-                  </div>
-                  <div class="timeline-footer">
-                    <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/del_info/<?php echo $row->id; ?>">Delete</a>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
-            <!-- END timeline item -->
+    </div>
+    <!-- =========================================================================== -->
+    <hr>
+    <div class="row">
+      <div class="col-12 col-sm-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">User Panitia</span>
+            <span class="info-box-number"><?php echo $jml_panitia ?></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">User MGM</span>
+            <span class="info-box-number"><?php echo $jml_mgm ?></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix hidden-md-up"></div>
+
+      <div class="col-12 col-sm-2">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Siswa Aktif</span>
+            <span class="info-box-number"><?php echo $jml_aktif ?></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-2">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Siswa Nonaktif</span>
+            <span class="info-box-number"><?php echo $non_aktif ?></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-2">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Siswa Residu</span>
+            <span class="info-box-number"><?php echo $residu ?></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================== -->
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <!-- The time line -->
+        <div class="timeline">
+          <!-- timeline time label -->
+          <div class="time-label">
+            <span class="bg-green">2022</span>
+          </div>
+          <!-- /.timeline-label -->
+          <!-- timeline item -->
+          <?php foreach ($dbinfo as $row) : ?>
             <div>
-              <i class="fas fa-clock bg-gray"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <form method="post" action="<?php echo base_url(); ?>admin/saveinfo" enctype="multipart/form-data">
-            <div class="card card-info">
-              <div class="card-header">
-                <h4 class="card-title">Tambah Info</h4>
-              </div>
-              <div class="row">
-                <div class="card-body">
-                  <input type="text" hidden class="form-control" name="user" id="user" value="<?php echo $this->session->userdata('nama'); ?>">
-                  <input type="text" hidden class="form-control" name="jabatan" id="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
-                  <textarea id="compose-textarea" class="form-control" name="status" id="status" style="height: 300px" required=""></textarea>
-
-                  <button type="submit" class="btn btn-primary" href="<?php echo base_url('') ?>admin/saveinfo"><i class="fa fa-plus"></i> Tambah Info</button>
+              <i class="fas fa-bullhorn bg-yellow"></i>
+              <div class="timeline-item">
+                <span class="time"><i class="fas fa-clock"></i> <?php echo $row->tanggal; ?> ( <?php echo $row->waktu; ?> )</span>
+                <h3 class="timeline-header"><a href="#"><?php echo strtoupper($row->jabatan); ?> </a><small class="badge badge-info"> <?php echo $row->user; ?></small></h3>
+                <div class="timeline-body">
+                  <?php echo $row->status; ?>
+                </div>
+                <div class="timeline-footer">
+                  <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/del_info/<?php echo $row->id; ?>">Delete</a>
                 </div>
               </div>
             </div>
-          </form>
+          <?php endforeach; ?>
+          <!-- END timeline item -->
+          <div>
+            <i class="fas fa-clock bg-gray"></i>
+          </div>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
+      <div class="col-md-6">
+        <form method="post" action="<?php echo base_url(); ?>admin/saveinfo" enctype="multipart/form-data">
+          <div class="card card-info">
             <div class="card-header">
-              <h3 class="card-title">Latest Members Admin, Panitia, dan MGM</h3>
-              <div class="card-tools">
-              </div>
+              <h4 class="card-title">Tambah Info</h4>
             </div>
-            <div class="card-body p-0">
-              <ul class="users-list clearfix">
-                <?php foreach ($dbuserpan as $rows) : ?>
-                  <li>
-                    <?php if (empty($rows->foto)) {
-                      $foto = "none.png";
-                    } else {
-                      $foto = $rows->foto;
-                    } ?>
-                    <img src="<?php base_url('') ?>asset/dist/img/<?php echo $foto; ?>" alt="User Image">
-                    <a class="users-list-name" href="#"><?php echo $rows->nama; ?></a>
-                    <span class="users-list-date"><?php echo $rows->last; ?></span>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-            <div class="card-footer text-center">
-              <a href="javascript::">View All Users</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Latest Members Pendaftar</h3>
-              <div class="card-tools">
-              </div>
-            </div>
-            <div class="card-body p-0">
-              <ul class="users-list clearfix">
-                <?php foreach ($dbuser as $rows) : ?>
-                  <li>
-                    <?php if (empty($rows->foto)) {
-                      $foto = "none.png";
-                    } else {
-                      $foto = $rows->foto;
-                    } ?>
-                    <img src="<?php base_url('') ?>asset/dist/img/<?php echo $foto; ?>" alt="User Image">
-                    <a class="users-list-name" href="#"><?php echo $rows->nama; ?></a>
-                    <span class="users-list-date"><?php echo $rows->last; ?></span>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-            <div class="card-footer text-center">
-              <a href="javascript::">View All Users</a>
-            </div>
-          </div>
-        </div>
+            <div class="row">
+              <div class="card-body">
+                <input type="text" hidden class="form-control" name="user" id="user" value="<?php echo $this->session->userdata('nama'); ?>">
+                <input type="text" hidden class="form-control" name="jabatan" id="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
+                <textarea id="compose-textarea" class="form-control" name="status" id="status" style="height: 300px" required=""></textarea>
 
+                <button type="submit" class="btn btn-primary" href="<?php echo base_url('') ?>admin/saveinfo"><i class="fa fa-plus"></i> Tambah Info</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Latest Members Admin, Panitia, dan MGM</h3>
+            <div class="card-tools">
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <ul class="users-list clearfix">
+              <?php foreach ($dbuserpan as $rows) : ?>
+                <li>
+                  <?php if (empty($rows->foto)) {
+                    $foto = "none.png";
+                  } else {
+                    $foto = $rows->foto;
+                  } ?>
+                  <img src="<?php base_url('') ?>asset/dist/img/<?php echo $foto; ?>" alt="User Image">
+                  <a class="users-list-name" href="#"><?php echo $rows->nama; ?></a>
+                  <span class="users-list-date"><?php echo $rows->last; ?></span>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <div class="card-footer text-center">
+            <a href="javascript::">View All Users</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Latest Members Pendaftar</h3>
+            <div class="card-tools">
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <ul class="users-list clearfix">
+              <?php foreach ($dbuser as $rows) : ?>
+                <li>
+                  <?php if (empty($rows->foto)) {
+                    $foto = "none.png";
+                  } else {
+                    $foto = $rows->foto;
+                  } ?>
+                  <img src="<?php base_url('') ?>asset/dist/img/<?php echo $foto; ?>" alt="User Image">
+                  <a class="users-list-name" href="#"><?php echo $rows->nama; ?></a>
+                  <span class="users-list-date"><?php echo $rows->last; ?></span>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <div class="card-footer text-center">
+            <a href="javascript::">View All Users</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
     </div>
     <!-- /.timeline -->
   </section>
