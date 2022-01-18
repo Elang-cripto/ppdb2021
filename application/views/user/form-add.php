@@ -41,12 +41,16 @@ $this->load->view($role . '/side');
 
       if ($this->uri->segment(3) == "MTS") {
         $warna = "info";
+        $tbl_skl = "db_sdmi";
       } elseif ($this->uri->segment(3) == "MA") {
         $warna = "success";
+        $tbl_skl = "db_smpmts";
       } elseif ($this->uri->segment(3) == "SMP") {
         $warna = "warning";
+        $tbl_skl = "db_sdmi";
       } else {
         $warna = "danger";
+        $tbl_skl = "db_smpmts";
       }
       ?>
 
@@ -607,7 +611,15 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <input type="text" name="skl_asal" class="form-control" id="skl_asal">
+                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
+                      <option value="">-- Pilih --</option>
+                      <?php
+                      $sklh = $this->m_ppdb->pil_skl($tbl_skl);
+                      foreach ($sklh->result() as $pilih) :
+                      ?>
+                        <option value="<?php echo $pilih->lembaga; ?>"><?php echo $pilih->lembaga; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
               </div>
