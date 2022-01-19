@@ -55,6 +55,7 @@ if ($cekuri == "mts") {
                                     <th>L/P</th>
                                     <th>Tmpt Tgl Lahir</th>
                                     <th>Jalur</th>
+									<th>Asal Lembaga</th>
                                     <!-- <th>Status</th> -->
                                     <th>Aksi</th>
                                 </tr>
@@ -72,6 +73,7 @@ if ($cekuri == "mts") {
                                         <td><?php echo $row->jk; ?></td>
                                         <td><?php echo $row->tmp_lahir . ', ' . date_indo($row->tgl_lahir); ?></td>
                                         <td><?php echo $row->jalur; ?></td>
+										<td><?php echo $row->skl_asal; ?></td>
                                         <!-- <td align="center">
                                                 <?php if ($row->status == "AKTIF") { ?>
                                                     <span class="badge bg-success"><?php echo $row->status; ?></span>
