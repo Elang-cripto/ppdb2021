@@ -662,6 +662,6 @@ $this->load->view($role . '/side');
 <!-- =============================================================================================== -->
 <?php
 $this->load->view('theme/foot');
-$this->load->view('theme/flink_form');
+$this->load->view('theme/flink_all');
 $this->load->view('theme/ft_alert');
 ?>
