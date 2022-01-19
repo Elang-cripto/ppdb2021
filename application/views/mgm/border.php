@@ -1,14 +1,3 @@
-<?php 
-$role = $this->session->userdata('jabatan');
-$this->load->view('theme/head');
-$this->load->view('theme/hlink_all');
-$this->load->view('theme/hlink_surat');
-$this->load->view('theme/nav');
-$this->load->view($role.'/side');
-?>
-
-<!-- =============================================================================================== -->
-
 <style type="text/css">
     body {padding:0px}
     .print-area {border:0px solid red;padding:1em;margin:0 0 1em}
@@ -43,11 +32,3 @@ $this->load->view($role.'/side');
     window.frames["print_frame"].window.print();
     }   
 </script>
-
-<!-- =============================================================================================== -->
-<?php 
-$this->load->view('theme/foot');
-$this->load->view('theme/flink_2');
-?>
-</body>
-</html>

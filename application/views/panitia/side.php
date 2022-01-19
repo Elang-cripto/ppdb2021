@@ -225,15 +225,6 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/master" class="nav-link <?php if ($cek_uri2 == "master") {
-                                                                            echo "active";
-                                                                          } ?>">
-            <i class="nav-icon fas fa-cloud-download-alt"></i>
-            <p>Download</p>
-          </a>
-        </li>
-
         <li class="nav-item has-treeview
           <?php
           $cekuser = ['sdmi', 'smpmts'];
@@ -269,50 +260,8 @@
           </ul>
         </li>
 
-        <li class="nav-item has-treeview
-          <?php
-          $cekuser = ['user_peserta', 'user_admin'];
-          if (in_array($cek_uri2, $cekuser)) {
-            echo "nav-item has-treeview menu-open";
-          } ?>">
-          <a href="#" class="nav-link 
-            <?php if (in_array($cek_uri2, $cekuser)) {
-              echo "active";
-            } ?>">
-            <i class="nav-icon fas fa-users-cog"></i>
-            <p>Managemen User<i class="right fas fa-angle-left"></i></p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/user_peserta" class="nav-link 
-                <?php if ($cek_uri2 == "user_peserta") {
-                  echo "active";
-                } ?>">
-                <i class="fas fa-user nav-icon"></i>
-                <p>User Pendaftar</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url($role) ?>/user_admin" class="nav-link 
-                <?php if ($cek_uri2 == "user_admin") {
-                  echo "active";
-                } ?>">
-                <i class="fas fa-user-shield nav-icon"></i>
-                <p>User admin</p>
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item">
-          <a href="<?php echo base_url($role) ?>/setting" class="nav-link <?php if ($cek_uri2 == "setting") {
-                                                                            echo "active";
-                                                                          } ?>">
-            <i class="nav-icon fas fa-cogs"></i>
-            <p>Setting</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url('') ?>admin/logout" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i>
+          <a href="<?php echo base_url('') ?>panitia/logout" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i>
             <p>Log Out</p>
           </a>
         </li>

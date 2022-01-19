@@ -3,7 +3,7 @@
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
     <img src="<?php echo base_url('') ?>asset/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">PPDB Online</span>
+    <H5>PPDB 2022</H5>
   </a>
 
   <?php
@@ -56,20 +56,19 @@
           </a>
         </li>
 
-        <?php 
-          $cek 	= $this->db->get_where('db_user_pendaftar', ["id" => $this->session->userdata('id') ])->row();
-          $prin 	= $cek->echo;
-          if ($prin==0) {
-            $ket="hidden";
-          } else {
-            $ket="";
-          }
-        ;?>
+        <?php
+        $cek   = $this->db->get_where('db_user_pendaftar', ["id" => $this->session->userdata('id')])->row();
+        $prin   = $cek->echo;
+        if ($prin == 0) {
+          $ket = "hidden";
+        } else {
+          $ket = "";
+        }; ?>
 
         <li class="nav-item" <?php echo $ket ?>>
           <a href="<?php echo base_url($role) ?>/cetak/bukti/<?php echo $par; ?>/<?php echo md5($nik); ?>" class="nav-link <?php if ($this->uri->segment(2) == "cetak") {
-                                                                              echo "active";
-                                                                            } ?>">
+                                                                                                                              echo "active";
+                                                                                                                            } ?>">
             <i class="nav-icon fas fa-book"></i>
             <p>Cetak Bukti Pendaftaran</p>
           </a>
