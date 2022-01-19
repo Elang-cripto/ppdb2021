@@ -326,12 +326,18 @@ $this->load->view('user/side');
               <!-- /.card-header -->
               <div class="card-body">
                 <!-- post text -->
-                <p> MTs Al Amien
-                  Yuk gabung ma qta-qta, belajar bersama menggali prestasi dan kreativitas qta. <br>
-                  Kalian minta apa, di MA Al Amien ada berbagai life skill, <br>
-                  ekstra kurikuler yg ta mati gaya tu kalian yg ingin berprestasi. <br>
-                  MA Al Amien sll dihati
-                  #maalamien #porseni #ambulu</p>
+                <p> MTs Al Amien <br>
+                  Bismillah. <br>
+                  Telah dibuka JALUR INDEN Pendaftaran Peserta didik Baru Tapel 2022/2023 Khusus untuk "kelas Unggulan Bina Prestasi" <br>
+                  1. Kelas Tahfidz <br>
+                  2. Kelas Sains <br>
+                  3. Kelas Agama <br>
+                  4. Kelas Bahasa <br>
+                  Dapatkan <br>
+                  1. Beasiswa Pendidikan. <br>
+                  2. Paket media Penunjang <br>
+                  Khusus untuk 45 pendaftar pertama.
+                </p>
 
                 <!-- Attachment -->
                 <div class="attachment-block clearfix">
@@ -357,8 +363,8 @@ $this->load->view('user/side');
                     <h4 class="attachment-heading"><a href="https://www.instagram.com/mtsalamienambulu/">Instagram MTs Al Amien</a></h4>
 
                     <div class="attachment-text">
-                      Gallery Class Meeting <br>
-                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/mtsalamienambulu/">Selengkapnya</a>
+                      Mts Al Amien Berprestasi <br>
+                      Selamat Kepada anand.... <a href="https://www.instagram.com/mtsalamienambulu/">Selengkapnya</a>
                     </div>
                     <!-- /.attachment-text -->
                   </div>
@@ -401,25 +407,30 @@ $this->load->view('user/side');
               <!-- /.card-header -->
               <div class="card-body">
                 <!-- post text -->
-                <p> MA Al Amien
-                  Yuk gabung ma qta-qta, belajar bersama menggali prestasi dan kreativitas qta. <br>
-                  Kalian minta apa, di MA Al Amien ada berbagai life skill, <br>
-                  ekstra kurikuler yg ta mati gaya tu kalian yg ingin berprestasi. <br>
-                  MA Al Amien sll dihati
-                  #maalamien #porseni #ambulu</p>
+                <p> SMP PLUS AL AMIEN adalah sekolah yang memiliki visi unggul dalam prestasi kompetitif dan berkarakter Islami, sekaligus memadukannya dengan nilai-nilai keagamaan dan kepesantrenan.
+                  <br>.<br>
+                  Serta mengembangkan kegiatan ekstrakurikuler, Pramuka, Futsal, Bola Voli, Tenis Meja, Catur, MTQ, Kaligrafi dan Al Banjari.
+                  <br>. <br>
+                  Yuuuk, kembangkan bakat dan potensimu di SMP Plus Al Amien
+                  <br>
+                  Al Amien Solusi Pendidikan Masa Depan,
+                  <br>
+                  Al Amien Lebih Baik,
+                  Lebih Baik Al Amien...
+                </p>
 
                 <!-- Attachment -->
                 <div class="attachment-block clearfix">
                   <div id="carouselExampleControlssss" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp3.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
                         <img class="d-block w-100 h-20" src="<?php echo base_url(); ?>asset/frontend/smp2.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp3.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="<?php echo base_url(); ?>asset/frontend/smp1.jpg" alt="Third slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControlssss" role="button" data-slide="prev">
@@ -435,8 +446,8 @@ $this->load->view('user/side');
                     <h4 class="attachment-heading"><a href="https://www.instagram.com/smp_plus_al_amien/">Instagram SMP Plus Al Amien</a></h4>
 
                     <div class="attachment-text">
-                      Gallery Class Meeting <br>
-                      Fashion Show karya siswi Smks AL Amien,.... <a href="https://www.instagram.com/smp_plus_al_amien/">Selengkapnya</a>
+                      Spesial Moment bersama Pak Jokowi <br>
+                      Pak Jokowi : Anak SMP, pas bisa jawab Pancasila dengan bena.... <a href="https://www.instagram.com/smp_plus_al_amien/">Selengkapnya</a>
                     </div>
                     <!-- /.attachment-text -->
                   </div>

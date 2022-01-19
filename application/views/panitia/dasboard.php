@@ -192,64 +192,12 @@
                 <div class="timeline-body">
                   <?php echo $row->status; ?>
                 </div>
-                <div class="timeline-footer">
-                  <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/del_info/<?php echo $row->id; ?>">Delete</a>
-                </div>
               </div>
             </div>
           <?php endforeach; ?>
           <!-- END timeline item -->
           <div>
             <i class="fas fa-clock bg-gray"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <form method="post" action="<?php echo base_url(); ?>admin/saveinfo" enctype="multipart/form-data">
-          <div class="card card-info">
-            <div class="card-header">
-              <h4 class="card-title">Tambah Info</h4>
-            </div>
-            <div class="row">
-              <div class="card-body">
-                <input type="text" hidden class="form-control" name="user" id="user" value="<?php echo $this->session->userdata('nama'); ?>">
-                <input type="text" hidden class="form-control" name="jabatan" id="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
-                <textarea id="compose-textarea" class="form-control" name="status" id="status" style="height: 300px" required=""></textarea>
-
-                <button type="submit" class="btn btn-primary" href="<?php echo base_url('') ?>admin/saveinfo"><i class="fa fa-plus"></i> Tambah Info</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Latest Members Admin, Panitia, dan MGM</h3>
-            <div class="card-tools">
-            </div>
-          </div>
-          <div class="card-body p-0">
-            <ul class="users-list clearfix">
-              <?php foreach ($dbuserpan as $rows) : ?>
-                <li>
-                  <?php if (empty($rows->foto)) {
-                    $foto = "none.png";
-                  } else {
-                    $foto = $rows->foto;
-                  } ?>
-                  <img src="<?php base_url('') ?>asset/dist/img/<?php echo $foto; ?>" alt="User Image">
-                  <a class="users-list-name" href="#"><?php echo $rows->nama; ?></a>
-                  <span class="users-list-date"><?php echo $rows->last; ?></span>
-                </li>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-          <div class="card-footer text-center">
-            <a href="javascript::">View All Users</a>
           </div>
         </div>
       </div>
@@ -281,9 +229,8 @@
           </div>
         </div>
       </div>
-
     </div>
-    </div>
+    <hr>
     <!-- /.timeline -->
   </section>
   <!-- /.content -->
