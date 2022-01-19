@@ -1,1 +1,0 @@
-<link rel="stylesheet" href="<?php echo base_url('') ?>asset/plugins/toastr/toastr.min.css">

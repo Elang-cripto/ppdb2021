@@ -82,15 +82,11 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="Jenis Kelamin" class="col-sm-4 col-form-label">JENIS KELAMIN</label>
                   <div class="col-sm-8">
-                    <<<<<<< HEAD <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
+                    <select type="text" name="jk" id="Jenis Kelamin" class="form-control" required>
                       <option>-- Pilih --</option>
-                      =======
-                      <select type="text" name="jk" id="Jenis Kelamin" class="form-control select2" required>
-                        <option value="">Pilih salah satu</option>
-                        >>>>>>> d0649202b23a7a409f03b14a9be46cbbe5cc6601
-                        <option value="L">Laki-laki</option>
-                        <option value="P">Perempuan</option>
-                      </select>
+                      <option value="L">Laki-laki</option>
+                      <option value="P">Perempuan</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -609,7 +605,7 @@ $this->load->view($role . '/side');
                 <div class="form-group row">
                   <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                   <div class="col-sm-8">
-                    <select name="skl_asal" id="skl_asal" class="form-control" onchange="tampil(this.value)">
+                    <select name="skl_asal" id="skl_asal" class="form-control select2" onchange="tampil(this.value)">
                       <option>-- Pilih --</option>
                       <?php
                       $sklh = $this->m_ppdb->pil_skl($tbl_skl);
