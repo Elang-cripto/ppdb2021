@@ -41,7 +41,7 @@
                 <br><br>
                 <table class="table table-bordered table-striped projects">
                   <thead>
-                    <tr>
+                    <tr align="center">
                       <th>No</th>
                       <th>Profil</th>
                       <th>Nama</th>

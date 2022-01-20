@@ -46,7 +46,7 @@ class User extends CI_Controller
 		$dariDB = $this->m_ppdb->get_kode($dbcek);
 		$urut 	= (int)substr($dariDB, 11, 3);
 		$nikqr  = md5($this->session->userdata('nik'));
-        $this->m_ppdb->qrcode($nikqr, $par);
+		$this->m_ppdb->qrcode($nikqr, $par);
 
 		if ($par == "MTS") {
 			$nus = "538";
@@ -86,7 +86,7 @@ class User extends CI_Controller
 	public function cetak($form, $param, $id)
 	{
 		$cari['form'] 	= $form;
-		$pilih			= 'db_' . $param;
+		$pilih			= 'db_' . strtolower($param);
 		$cari['data'] 	= $this->db->get_where($pilih, ["id_enc" => $id])->row();
 		$this->load->view('user/cetak', $cari);
 	}

@@ -46,7 +46,7 @@ $this->load->view('user/side');
             $file_poto = base_url('') . 'asset/dist/img/' . $foto;
             $file_zonk = base_url('') . 'asset/dist/img/none.png';
 
-            $db_pil = "db_" . $par;
+            $db_pil = "db_" . strtolower($par);
 
             $clkls = "%L" . $kelas . "AKTIF%";
             $data_L = $this->db->query("SELECT * FROM $db_pil where CONCAT(jk,kelas_aktf,status) LIKE '$clkls'")->num_rows();

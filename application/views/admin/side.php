@@ -271,7 +271,7 @@
 
         <li class="nav-item has-treeview
           <?php
-          $cekuser = ['user_peserta', 'user_admin'];
+          $cekuser = ['user_peserta', 'user_admin', 'user_mgm'];
           if (in_array($cek_uri2, $cekuser)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
@@ -290,6 +290,15 @@
                 } ?>">
                 <i class="fas fa-user nav-icon"></i>
                 <p>User Pendaftar</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url($role) ?>/user_mgm" class="nav-link 
+                <?php if ($cek_uri2 == "user_mgm") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-users nav-icon"></i>
+                <p>User MGM</p>
               </a>
             </li>
             <li class="nav-item">

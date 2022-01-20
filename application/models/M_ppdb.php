@@ -81,8 +81,16 @@ class M_ppdb extends CI_Model
     public function getuser()
     {
         //$this->db->order_by('last', 'desc');
+        $this->db->where(array("jabatan !=" => 'mgm'));
         return $this->db->get('db_panitia')->result();
     }
+
+    public function getmgm()
+    {
+        $this->db->where('jabatan', 'mgm');
+        return $this->db->get('db_panitia')->result();
+    }
+
     public function get_kodepan()
     {
         $query = $this->db->query("SELECT MAX(id) as kode from db_panitia");

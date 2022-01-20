@@ -196,6 +196,14 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
+    public function user_mgm()
+    {
+        $data['dbuser'] = $this->m_ppdb->getmgm();
+        $data['content'] = 'admin/data_mgm';
+
+        $this->load->view('admin/templating', $data);
+    }
+
     public function adduser()
     {
         $dariDB                   = $this->m_ppdb->get_kodepan();
