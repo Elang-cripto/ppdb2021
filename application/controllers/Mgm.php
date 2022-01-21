@@ -85,14 +85,14 @@ class Mgm extends CI_Controller
 
         //Fungsi db_mts
         date_default_timezone_set("ASIA/JAKARTA");
-        $data                = $this->input->post();
-        $data['id_enc']      = md5($this->input->post('nik'));
-        $data['No_Reg']      = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
-        $data['progres']     = date("Y-m-d H:i:s");
-        $data['editor']      = $this->session->userdata('nama');
-        $data['jalur']       = $this->m_ppdb->getset();
-        $data['status']      = 'RESIDU';
-        $data['mgm']      = $this->session->userdata('nama');
+        $data               = $this->input->post();
+        $data['id_enc']     = md5($this->input->post('nik'));
+        $data['No_Reg']     = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
+        $data['progres']    = date("Y-m-d H:i:s");
+        $data['editor']     = $this->session->userdata('nama');
+        $data['jalur']      = $this->m_ppdb->getset();
+        $data['status']     = 'RESIDU';
+        $data['mgm']        = $this->session->userdata('nama');
 
         $this->db->insert('db_' . $par, $data);
 

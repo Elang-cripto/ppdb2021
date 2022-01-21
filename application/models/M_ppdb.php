@@ -138,7 +138,7 @@ class M_ppdb extends CI_Model
     public function view_peserta()
     {
         $pilih = 'db_' . strtolower($this->uri->segment(3));
-        return $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(4)])->row();
+        return $this->db->get_where($pilih, ["id_enc" => $this->uri->segment(5)])->row();
     }
 
     //============================= SETTING ============================
@@ -222,8 +222,14 @@ class M_ppdb extends CI_Model
 
     public function pil_skl($tbl_skl)
     {
-        $hasil = $this->db->query('select * from ' . $tbl_skl);
-        return $hasil;
+        // $hasil = $this->db->query('select * from ' . $tbl_skl);
+        // return $hasil;
+        return $this->db->get($tbl_skl);
+    }
+
+    public function pil_mgm($kirim)
+    {
+        return $this->db->get_where($kirim, ["jabatan" => 'mgm']);
     }
     //============================= Info ============================
     public function savinfo($data)

@@ -35,7 +35,7 @@ if ($this->uri->segment(3) == "mts") {
 <section class="content">
 
     <!-- form start -->
-    <form method="post" action="<?php echo base_url(); ?>admin/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
+    <form method="post" action="<?php echo base_url(); ?>admin/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->
@@ -706,8 +706,8 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                             <div class="col-sm-8">
-                                <select name="skl_asal" id="skl_asal" class="form-control select2" onchange="tampil(this.value)">
-                                    <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option>
+                                <select name="skl_asal" id="skl_asal" class="form-control select2">
+                                    <!-- <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option> -->
                                     <?php
                                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                                     foreach ($sklh->result() as $pilih) :
@@ -734,6 +734,24 @@ if ($this->uri->segment(3) == "mts") {
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="mgm" class="col-sm-4 col-form-label">JALUR MGM</label>
+                            <div class="col-sm-8">
+                                <select name="mgm" id="mgm" class="form-control select2">
+                                    <!-- <option value="<?php echo $cari->mgm; ?>"><?php echo $cari->mgm; ?></option> -->
+                                    <?php
+                                    $kirim = 'db_panitia';
+                                    $resul = $this->m_ppdb->pil_mgm($kirim);
+                                    foreach ($resul->result() as $cek) :
+                                    ?>
+                                        <option value="<?php echo $cek->nama; ?>"><?php echo $cek->nama; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

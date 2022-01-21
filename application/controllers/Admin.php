@@ -152,7 +152,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-    public function editsave($par, $id)
+    public function editsave($par, $back, $id)
     {
         $pilih                  = 'db_' . $par;
         $data                   = $this->input->post();
@@ -166,7 +166,7 @@ class Admin extends CI_Controller
         $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
         // redirect('admin/'.$uricek.'/'.$par, 'refresh');
-        redirect('admin/data/' . $par, 'refresh');
+        redirect('admin/' . $back . '/' . $par, 'refresh');
     }
 
     public function delete($par, $id)

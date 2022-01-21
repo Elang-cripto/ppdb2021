@@ -593,7 +593,7 @@ if ($cekuri == "mts") {
                 <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                 <div class="col-sm-8">
                   <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">-- PILIH --</option>
+                    <option selected="">-- PILIH --</option>
                     <?php
                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                     foreach ($sklh->result() as $pilih) :

@@ -42,13 +42,19 @@
                 <table class="table table-bordered table-striped projects">
                   <thead>
                     <tr align="center">
-                      <th>No</th>
-                      <th>Profil</th>
-                      <th>Nama</th>
-                      <th>Username</th>
-                      <th>Jumlah</th>
-                      <th>Last LogIn</th>
-                      <th>Aksi</th>
+                      <th rowspan="2" style='vertical-align:middle'>No</th>
+                      <th rowspan="2" style='vertical-align:middle'>Profil</th>
+                      <th rowspan="2" style='vertical-align:middle'>Nama</th>
+                      <th rowspan="2" style='vertical-align:middle'>Username</th>
+                      <th colspan="4" style='vertical-align:middle'>Jumlah Member</th>
+                      <th rowspan="2" style='vertical-align:middle'>Last LogIn</th>
+                      <th rowspan="2" style='vertical-align:middle'>Aksi</th>
+                    </tr>
+                    <tr align="center">
+                      <th>MTS</th>
+                      <th>SMP</th>
+                      <th>MA</th>
+                      <th>SMK</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -72,11 +78,12 @@
                             </li>
                           </ul>
                         </td>
-                        <td><?php echo $row->nama; ?></td>
+                        <td><?php echo $nama = $row->nama; ?></td>
                         <td><?php echo $row->username; ?></td>
-                        <td>
-
-                        </td>
+                        <td align="center"><?php echo $this->db->get_where('db_mts', array("status" => 'AKTIF', "mgm" => $nama))->num_rows();; ?></td>
+                        <td align="center"><?php echo $this->db->get_where('db_smp', array("status" => 'AKTIF', "mgm" => $nama))->num_rows();; ?></td>
+                        <td align="center"><?php echo $this->db->get_where('db_ma', array("status" => 'AKTIF', "mgm" => $nama))->num_rows();; ?></td>
+                        <td align="center"><?php echo $this->db->get_where('db_smk', array("status" => 'AKTIF', "mgm" => $nama))->num_rows();; ?></td>
                         <td align="center"><?php echo $row->last; ?></td>
                         <td align="center">
                           <a type="button" href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-user-<?php echo md5($row->id); ?>"><i class="fa fa-user-edit"></i></a>

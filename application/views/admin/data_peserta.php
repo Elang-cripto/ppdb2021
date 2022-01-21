@@ -50,7 +50,6 @@
                       <th>Lembaga</th>
                       <th>Last LogIn</th>
                       <th>Status</th>
-                      <th>Level</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -75,18 +74,6 @@
                                                       echo 'info';
                                                     } ?>">
                             <?php echo strtoupper($row->status); ?>
-                          </span>
-                        </td>
-                        <td align="center">
-                          <span class="badge badge-<?php
-                                                    if ($row->jabatan == 'admin') {
-                                                      echo 'danger';
-                                                    } elseif ($row->jabatan == 'tatausaha') {
-                                                      echo 'info';
-                                                    } else {
-                                                      echo 'success';
-                                                    } ?>">
-                            <?php echo strtoupper($row->jabatan); ?>
                           </span>
                         </td>
                         <td align="center">
