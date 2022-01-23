@@ -11,6 +11,7 @@
   $ceknon = ['nonaktif'];
   $cek_uri2 = $this->uri->segment(2);
   $cek_uri3 = $this->uri->segment(3);
+  $cek_uri4 = $this->uri->segment(4);
   $role = $this->session->userdata('jabatan');
   $poto = $this->session->userdata('foto');
   $kelas = $this->session->userdata('kelas');
@@ -59,7 +60,7 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
-          $cekin = ['data', 'form', 'view', 'edit', 'bukti',];
+          $cekin = ['data', 'form', 'view', 'bukti',];
           if (in_array($cek_uri2, $cekin)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
@@ -112,7 +113,7 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
-          if (in_array($cek_uri2, $cekres)) {
+          if (in_array($cek_uri2, $cekres) || $cek_uri4 == "residu") {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
@@ -150,7 +151,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url($role) ?>/residu/smp" class="nav-link 
-              <?php if ($cek_uri2 == "residu" && $cek_uri3 == "smp") {
+              <?php if ($cek_uri2 == "residu" && $cek_uri3 == "smp" || $cek_uri4 == "residu" && $cek_uri3 == "smp") {
                 echo "active";
               } ?>">
                 <i class="fas fa-recycle nav-icon"></i>
