@@ -136,7 +136,6 @@ class Admin extends CI_Controller
         $data2['last']        = date("Y-m-d H:i:s");
         $this->db->insert('db_user_pendaftar', $data2);
 
-        //==============================================================================
 
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
         redirect('admin/data/' . $par, 'refresh');
@@ -385,7 +384,10 @@ class Admin extends CI_Controller
 
     // =============================== Download Brosur =======================================
 
-
+    public function downloadbrosur()
+    {
+        force_download('asset/dist/img/landing/brosur.jpg', NULL);
+    }
     // =============================== Upload =======================================
     public function uploadsdmi()
     {
