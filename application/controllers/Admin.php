@@ -9,7 +9,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         date_default_timezone_set("ASIA/JAKARTA");
-        $this->load->helper(array('form', 'url', 'tgl_indo'));
+        $this->load->helper(array('form', 'url', 'tgl_indo', 'download'));
         if ($this->session->userdata('jabatan') != "admin") {
             redirect('auth/admin');
         }
@@ -382,6 +382,9 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/templating', $data);
     }
+
+    // =============================== Download Brosur =======================================
+
 
     // =============================== Upload =======================================
     public function uploadsdmi()

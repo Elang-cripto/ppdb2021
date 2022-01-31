@@ -887,11 +887,18 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
                             <div class="col-sm-8">
                                 <select type="text" name="ket" id="ket" class="form-control">
-                                    <option>-- Pilih --</option>
-                                    <option value="Sains">Sains</option>
-                                    <option value="Tahfidz">Tahfidz</option>
-                                    <option value="Agama">Agama</option>
-                                    <option value="Bahasa">Bahasa</option>
+                                    <option value="Sains" <?php if ($cari->ket == "Sains") {
+                                                                echo "selected";
+                                                            } ?>>Sains</option>
+                                    <option value="Tahfidz" <?php if ($cari->ket == "Tahfidz") {
+                                                                echo "selected";
+                                                            } ?>>Tahfidz</option>
+                                    <option value="Agama" <?php if ($cari->ket == "Agama") {
+                                                                echo "selected";
+                                                            } ?>>Agama</option>
+                                    <option value="Bahasa" <?php if ($cari->ket == "Bahasa") {
+                                                                echo "selected";
+                                                            } ?>>Bahasa</option>
                                 </select>
                             </div>
                         </div>
