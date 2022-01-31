@@ -382,12 +382,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/templating', $data);
     }
 
-    // =============================== Download Brosur =======================================
 
-    public function downloadbrosur()
-    {
-        force_download('asset/dist/img/landing/brosur.jpg', NULL);
-    }
     // =============================== Upload =======================================
     public function uploadsdmi()
     {
