@@ -17,7 +17,7 @@ $this->load->view($role . '/side');
 <!-- =============================================================================================== -->
 <?php
 $this->load->view('theme/foot');
-$this->load->view('theme/flink_ind12');
+$this->load->view('theme/flink_all');
 $this->load->view('theme/ft_alert');
 ?>
 </body>

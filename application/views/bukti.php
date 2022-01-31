@@ -5,15 +5,19 @@
 <body>
 
 	<?php
-	$param = $this->uri->segment(4);
-	if ($param == "MTS") {
+	$param = strtolower($this->uri->segment(3));
+	if ($param == "mts") {
 		$pilih = "MTS AL AMIEN";
-	} elseif ($param == "MA") {
+		$panitia = "MOH ALI MAS'UD, S.Pd";
+	} elseif ($param == "ma") {
 		$pilih = "MA AL AMIEN";
-	} elseif ($param == "SMP") {
+		$panitia = "MOH ZAMRONI S,Pd";
+	} elseif ($param == "smp") {
 		$pilih = "SMP PLUS AL AMIEN";
+		$panitia = "MOH ALI MAS'UD, S.Pd";
 	} else {
 		$pilih = "SMK AL AMIEN";
+		$panitia = "MOH ZAMRONI S,Pd";
 	}
 	?>
 
@@ -133,7 +137,7 @@
 						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)).'.png' ?>" alt="qrcode">
 					</td>
 					<td style="width:30%">
-						<br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>
+						<br>Pendaftar<br><br><br><br><br><b><?php echo $data->nama; ?></b>
 					</td>
 					<td style="width:30%">
 						Jember, <?php
@@ -141,8 +145,8 @@
 								echo $tanggalHariIni->format('d M Y');
 
 								?><br>
-						Panitia PPDB<br><br><br><br>
-						<b>____________________</b>
+						Panitia PPDB<br><br><br><br><br>
+						<b><?php echo $panitia; ?></b>
 					</td>
 				</tr>
 			</table>

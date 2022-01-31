@@ -60,13 +60,13 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
-          $cekin = ['data', 'form', 'view', 'bukti',];
+          $cekin = ['data', 'form'];
           if (in_array($cek_uri2, $cekin)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
           <a href="#" class="nav-link 
             <?php
-            if (in_array($cek_uri2, $cekin)) {
+            if (in_array($cek_uri2, ['data'])) {
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-users"></i>

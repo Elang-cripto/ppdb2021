@@ -47,8 +47,6 @@
 <script src="<?php echo base_url('') ?>asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url('') ?>asset/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url('') ?>asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url('') ?>asset/dist/js/adminlte.min.js"></script>
 <!-- page script -->
 <script src="<?php echo base_url('') ?>asset/plugins/toastr/toastr.min.js"></script>
 <script src="<?php echo base_url('') ?>asset/dist/js/elangts.js"></script>

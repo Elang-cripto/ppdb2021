@@ -48,11 +48,11 @@ class User extends CI_Controller
 		$nikqr  = md5($this->session->userdata('nik'));
 		$this->m_ppdb->qrcode($nikqr, $par);
 
-		if ($par == "MTS") {
+		if ($par == "mts") {
 			$nus = "538";
-		} elseif ($par == "MA") {
+		} elseif ($par == "ma") {
 			$nus = "510";
-		} elseif ($par == "SMP") {
+		} elseif ($par == "smp") {
 			$nus = "209";
 		} else {
 			$nus = "265";
@@ -69,7 +69,7 @@ class User extends CI_Controller
 		$data['jalur']		= $this->m_ppdb->getset();
 		$data['progres'] 	= date("Y-m-d H:i:s");
 		$data['editor']		= $this->session->userdata('nama');
-		$this->db->insert('db_' . $par, $data);
+		$this->db->insert('db_' . strtolower($par), $data);
 
 
 		//Fungsi db_user_pengguna

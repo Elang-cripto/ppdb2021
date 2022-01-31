@@ -46,12 +46,12 @@
                     <li><a class="nav-link scrollto" href="#testimonials">Kesan </a></li>
                     <li><a class="nav-link scrollto" href="#team">Prestasi </a></li>
                     <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="<?php echo base_url(); ?>admin">Admin, Panitia & MGM</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>auth">Masuk</a></li>
+                    <!--<li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>-->
+                    <!--    <ul>-->
+                    <!--        <li><a href="<?php echo base_url(); ?>admin">Admin, Panitia & MGM</a></li>-->
+                    <!--    </ul>-->
+                    <!--</li>-->
+                    <li><a class="getstarted scrollto" href="<?php echo base_url(); ?>admin">Panitia</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -70,7 +70,7 @@
                         Tahun Pelajaran 2022-2023</h2>
                     <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> MTS AL AMIEN - MA AL AMIEN - <br> SMP PLUS AL AMIEN - SMK AL AMIEN </h3>
                     <div class="d-flex">
-                        <a href="<?php echo base_url(); ?>auth/register" class="btn-get-started scrollto">Mulai Daftar</a>
+                        <a href="<?php echo base_url(); ?>auth" class="btn-get-started scrollto">Isi Formulir</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img">

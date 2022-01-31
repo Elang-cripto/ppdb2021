@@ -71,7 +71,7 @@
                         <div class="card-body">
 
                             <textarea id="compose-textarea" class="form-control" name="pengumuman" id="pengumuman" style="height: 300px" required="">
-            <!-- <?php echo $set->pengumuman; ?> -->
+            <?php echo $cari->pengumuman; ?>
             </textarea>
 
                             <button type="submit" class="btn btn-primary">Update</button>

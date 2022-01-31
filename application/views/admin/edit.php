@@ -707,7 +707,7 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                             <div class="col-sm-8">
                                 <select name="skl_asal" id="skl_asal" class="form-control select2">
-                                    <!-- <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option> -->
+                                    <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option>
                                     <?php
                                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                                     foreach ($sklh->result() as $pilih) :

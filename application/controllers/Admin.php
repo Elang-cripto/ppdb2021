@@ -39,8 +39,8 @@ class Admin extends CI_Controller
     public function logout()
     {
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Log Out',text: 'Anda telah metu'}");
-        redirect('auth/admin');
         $this->session->sess_destroy();
+        redirect('auth/admin');
     }
 
     // ========================== Get Siswa ==========================
