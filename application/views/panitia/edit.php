@@ -887,6 +887,9 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
                             <div class="col-sm-8">
                                 <select type="text" name="ket" id="ket" class="form-control">
+                                    <option value=" " <?php if ($cari->ket == "") {
+                                                            echo "selected";
+                                                        } ?>>--pilih--</option>
                                     <option value="Sains" <?php if ($cari->ket == "Sains") {
                                                                 echo "selected";
                                                             } ?>>Sains</option>
