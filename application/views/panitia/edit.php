@@ -644,7 +644,13 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="beasiswa" class="col-sm-4 col-form-label">Beasiswa</label>
                             <div class="col-sm-8">
-                                <input type="text" name="beasiswa" class="form-control" id="beasiswa" value="<?php echo $cari->beasiswa; ?>" placeholder="Kartanu">
+                                <select type="text" name="beasiswa" id="beasiswa" class="form-control">
+                                    <option value="<?php echo $cari->beasiswa; ?>"><?php echo $cari->beasiswa; ?></option>
+                                    <option value="YATIM">YATIM</option>
+                                    <option value="PIATU">PIATU</option>
+                                    <option value="YATIM PIATU">YATIM PIATU</option>
+                                    <option value="DUAFA">DUAFA</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -706,7 +712,7 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                             <div class="col-sm-8">
-                                <select name="skl_asal" id="skl_asal" class="form-control select2" onchange="tampil(this.value)">
+                                <select type="text" name="skl_asal" id="skl_asal" class="form-control select2">
                                     <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option>
                                     <?php
                                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
@@ -731,6 +737,33 @@ if ($this->uri->segment(3) == "mts") {
                                     <option value="REGULER" <?php if ($cari->jalur == "REGULER") {
                                                                 echo "selected";
                                                             } ?>>REGULER</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
+                            <div class="col-sm-8">
+                                <select type="text" name="ket" id="ket" class="form-control">
+                                    <option>-- Pilih --</option>
+                                    <option value="Sains">Sains</option>
+                                    <option value="Tahfidz">Tahfidz</option>
+                                    <option value="Agama">Agama</option>
+                                    <option value="Bahasa">Bahasa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mgm" class="col-sm-4 col-form-label">JALUR MGM</label>
+                            <div class="col-sm-8">
+                                <select name="mgm" id="mgm" class="form-control select2">
+                                    <!-- <option value="<?php echo $cari->mgm; ?>"><?php echo $cari->mgm; ?></option> -->
+                                    <?php
+                                    $kirim = 'db_panitia';
+                                    $resul = $this->m_ppdb->pil_mgm($kirim);
+                                    foreach ($resul->result() as $cek) :
+                                    ?>
+                                        <option value="<?php echo $cek->nama; ?>"><?php echo $cek->nama; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>

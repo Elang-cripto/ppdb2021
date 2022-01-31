@@ -120,7 +120,6 @@ class Admin extends CI_Controller
         $data['No_Reg']        = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
         $data['progres']     = date("Y-m-d H:i:s");
         $data['editor']        = $this->session->userdata('nama');
-        $data['jalur']         = $this->m_ppdb->getset();
         $data['status']         = 'RESIDU';
 
         $this->db->insert('db_' . $par, $data);
@@ -181,6 +180,7 @@ class Admin extends CI_Controller
     public function bukti()
     {
         $data['data']       = $this->m_ppdb->view_peserta();
+        $data['set']        = $this->db->get_where('db_setting', ["id" => 1])->row();
         $data['form']       = 'bukti';
         $data['content']    = 'border';
 
@@ -288,9 +288,9 @@ class Admin extends CI_Controller
 
     public function setting()
     {
-        $pilih                = 'db_setting';
+        // $pilih                = 'db_setting';
         $id                   = 1;
-        $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
+        $data['cari']         = $this->db->get_where('db_setting', ["id" => $id])->row();
         $data['content']      = 'admin/setting';
 
         $this->load->view('admin/templating', $data);
@@ -299,7 +299,8 @@ class Admin extends CI_Controller
     public function updatesetting()
     {
         $id                        = 1;
-        $data['jalur']             = $this->input->post('jalur');
+        $data                      = $this->input->post();
+        // $data['jalur']             = $this->input->post('jalur');
         $this->m_ppdb->updateset($data, $id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Berhasil disimpan',}");
         redirect('admin/setting', 'refresh');

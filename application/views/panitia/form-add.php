@@ -219,7 +219,7 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Email" class="col-sm-4 col-form-label">E-MAIL</label>
                 <div class="col-sm-8">
-                  <input type="email" name="email" class="form-control" id="Email" placeholder="Kartu Keluarga" required>
+                  <input type="text" name="email" class="form-control" id="Email" placeholder="Kartu Keluarga" required>
                 </div>
               </div>
               <div class="form-group row">
@@ -546,7 +546,13 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="beasiswa" class="col-sm-4 col-form-label">Beasiswa</label>
                 <div class="col-sm-8">
-                  <input type="text" name="beasiswa" class="form-control" id="beasiswa" placeholder="Contoh : Atlit Nasional">
+                  <select type="text" name="beasiswa" id="beasiswa" class="form-control">
+                    <option>-- Pilih --</option>
+                    <option value="YATIM">YATIM</option>
+                    <option value="PIATU">PIATU</option>
+                    <option value="YATIM PIATU">YATIM PIATU</option>
+                    <option value="DUAFA">DUAFA</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -592,7 +598,7 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                 <div class="col-sm-8">
-                  <select class="form-control select2" style="width: 100%;">
+                  <select type="text" name="skl_asal" id="skl_asal" class="form-control select2" style="width: 100%;" required>
                     <option selected="selected">-- PILIH --</option>
                     <?php
                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
@@ -603,17 +609,11 @@ if ($cekuri == "mts") {
                   </select>
                 </div>
               </div>
-              <!-- <div class="form-group row">
-                <label for="almt_skl" class="col-sm-4 col-form-label">ALAMAT SEKOLAH ASAL</label>
-                <div class="col-sm-8">
-                  <input type="text" name="almt_skl" class="form-control" id="almt_skl">
-                </div>
-              </div> -->
               <div class="form-group row">
                 <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                 <div class="col-sm-8">
-                  <select type="text" name="agama" id="agama" class="form-control">
-                    <option>-- Pilih --</option>
+                  <select type="text" name="jalur" id="jalur" class="form-control">
+                    <option value="">-- Pilih --</option>
                     <option value="INDEN">INDEN</option>
                     <option value="PRESTASI">PRESTASI</option>
                     <option value="REGULER">REGULER</option>
@@ -624,7 +624,7 @@ if ($cekuri == "mts") {
                 <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
                 <div class="col-sm-8">
                   <select type="text" name="ket" id="ket" class="form-control">
-                    <option>-- Pilih --</option>
+                    <option value="">-- Pilih --</option>
                     <option value="Sains">Sains</option>
                     <option value="Tahfidz">Tahfidz</option>
                     <option value="Agama">Agama</option>

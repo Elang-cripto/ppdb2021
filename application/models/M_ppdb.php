@@ -152,6 +152,11 @@ class M_ppdb extends CI_Model
         $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
         return $query->ambil;
     }
+    public function getsett()
+    {
+        $query = $this->db->query("SELECT jadwal_ver as sett from db_setting")->row();
+        return $query->sett;
+    }
 
     //============================= SD / MI ============================
     public function getsdmi()

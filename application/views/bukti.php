@@ -3,26 +3,28 @@
 </head>
 
 <body>
-
 	<?php
 	$param = strtolower($this->uri->segment(3));
 	if ($param == "mts") {
-		$pilih = "MTS AL AMIEN";
-		$panitia = "MOH ALI MAS'UD, S.Pd";
+		$pilih 			= "MTS AL AMIEN";
+		$panitia 		= "MOH ALI MAS'UD, S.Pd";
+		$tempat_ver		= $set->tempat_ver1;
 	} elseif ($param == "ma") {
-		$pilih = "MA AL AMIEN";
-		$panitia = "MOH ZAMRONI S,Pd";
+		$pilih 			= "MA AL AMIEN";
+		$panitia 		= "MOH ZAMRONI S,Pd";
+		$tempat_ver		= $set->tempat_ver2;
 	} elseif ($param == "smp") {
-		$pilih = "SMP PLUS AL AMIEN";
-		$panitia = "MOH ALI MAS'UD, S.Pd";
+		$pilih 			= "SMP PLUS AL AMIEN";
+		$panitia 		= "MOH ALI MAS'UD, S.Pd";
+		$tempat_ver		= $set->tempat_ver2;
 	} else {
-		$pilih = "SMK AL AMIEN";
-		$panitia = "MOH ZAMRONI S,Pd";
+		$pilih 			= "SMK AL AMIEN";
+		$panitia 		= "MOH ZAMRONI S,Pd";
+		$tempat_ver		= $set->tempat_ver2;
 	}
 	?>
 
 	<div class="book">
-
 		<div class="page">
 			<table id="table1">
 				<tr>
@@ -45,14 +47,14 @@
 					<th class="td3"></th>
 				</tr>
 				<tr>
-					<td colspan="2" style="width:100% " align="center">
+					<td colspan="3" style="width:100% " align="center">
 						<h5><b>KARTU BUKTI PENDAFTARAN</b></h5>
 					</td>
 				</tr>
 				<tr>
 					<td>Nama Peserta Didik</td>
 					<td>: <?php echo $data->nama; ?></td>
-					<td rowspan="5" >
+					<td rowspan="5" align="right">
 						<img style="width: 100px; height: auto;" <?php
 																	if (empty($data->foto)) {
 																		$gambar = "none.png";
@@ -113,7 +115,7 @@
 				</tr>
 				<tr>
 					<td>Pendaftaran Jalur</td>
-					<td>: <b><?php echo $data->jalur; ?></b></td>
+					<td>: <b><?php echo $data->jalur; ?></b>(<b><?php echo $data->ket; ?></b>)</td>
 				</tr>
 			</table>
 			<br>
@@ -122,11 +124,11 @@
 			<table>
 				<tr>
 					<td style="width:20%">Hari, Tanggal</td>
-					<td style="width:40%">: ...............................</td>
+					<td style="width:40%">: <?php echo $set->jadwal_ver; ?></td>
 				</tr>
 				<tr>
 					<td style="width:20%">Tempat</td>
-					<td style="width:40%">: ...............................</td>
+					<td style="width:40%">: <?php echo $tempat_ver; ?></td>
 				</tr>
 			</table>
 
@@ -134,7 +136,7 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:40%" class="text-center"></br>
-						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)).'.png' ?>" alt="qrcode">
+						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)) . '.png' ?>" alt="qrcode">
 					</td>
 					<td style="width:30%">
 						<br>Pendaftar<br><br><br><br><br><b><?php echo $data->nama; ?></b>
