@@ -9,7 +9,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         date_default_timezone_set("ASIA/JAKARTA");
-        $this->load->helper(array('form', 'url', 'tgl_indo'));
+        $this->load->helper(array('form', 'url', 'tgl_indo', 'download'));
         if ($this->session->userdata('jabatan') != "admin") {
             redirect('auth/admin');
         }
@@ -135,7 +135,6 @@ class Admin extends CI_Controller
         $data2['last']        = date("Y-m-d H:i:s");
         $this->db->insert('db_user_pendaftar', $data2);
 
-        //==============================================================================
 
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
         redirect('admin/data/' . $par, 'refresh');
@@ -392,6 +391,7 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/templating', $data);
     }
+
 
     // =============================== Upload =======================================
     public function uploadsdmi()

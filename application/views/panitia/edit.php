@@ -35,7 +35,11 @@ if ($this->uri->segment(3) == "mts") {
 <section class="content">
 
     <!-- form start -->
+<<<<<<< HEAD
     <form method="post" action="<?php echo base_url(); ?>panitia/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
+=======
+    <form method="post" action="<?php echo base_url(); ?>admin/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
+>>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->

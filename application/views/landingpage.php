@@ -197,7 +197,8 @@
                             Pendaftaran dapat melalui jalur inden, prestasi maupun Reguler.
                             Dan kami menyediakan media Online Untuk Pendaftar Yang akan mendaftarkan diri secara Online dilaman ini.
                         </p>
-                        <button type="button" href="<?php echo base_url(); ?>auth/register" class="btn btn-success">Download Brosur</button>
+                        <a class="btn btn-success" href="<?php echo base_url(); ?>download" role="button">Download Brosur</a>
+                        <!-- <button type="button" href="<?php echo base_url(); ?>download" class="btn btn-outline-success">Download Brosur</button> -->
                     </div>
                 </div>
 

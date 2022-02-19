@@ -103,15 +103,31 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
                             <div class="col-sm-8">
                                 <select type="text" name="agama" id="agama" class="form-control">
-                                    <option value="Islam" <?php if ($cari->agama == "Islam") {echo "selected";} ?>>Islam</option>
-                                    <option value="Kristen" <?php if ($cari->agama == "Kristen") {echo "selected";} ?>>Kristen</option>
-                                    <option value="Katholik" <?php if ($cari->agama == "Katholik") {echo "selected";} ?>>Katholik</option>
-                                    <option value="Hindu" <?php if ($cari->agama == "Hindu") {echo "selected";} ?>>Hindu</option>
-                                    <option value="Budha" <?php if ($cari->agama == "Budha") {echo "selected";} ?>>Budha</option>
-                                    <option value="Khonghucu" <?php if ($cari->agama == "Khonghucu") {echo "selected";} ?>>Khonghucu</option>
-                                    <option value="Kepercayaan Kepada Tuhan YME" <?php if ($cari->agama == "Kepercayaan Kepada Tuhan YME") {echo "selected";} ?>>Kepercayaan Kepada Tuhan YME</option>
-                                    <option value="Lainnya" <?php if ($cari->agama == "Lainnya") {echo "selected";} ?>>Lainnya</option>
-                                  </select>
+                                    <option value="Islam" <?php if ($cari->agama == "Islam") {
+                                                                echo "selected";
+                                                            } ?>>Islam</option>
+                                    <option value="Kristen" <?php if ($cari->agama == "Kristen") {
+                                                                echo "selected";
+                                                            } ?>>Kristen</option>
+                                    <option value="Katholik" <?php if ($cari->agama == "Katholik") {
+                                                                    echo "selected";
+                                                                } ?>>Katholik</option>
+                                    <option value="Hindu" <?php if ($cari->agama == "Hindu") {
+                                                                echo "selected";
+                                                            } ?>>Hindu</option>
+                                    <option value="Budha" <?php if ($cari->agama == "Budha") {
+                                                                echo "selected";
+                                                            } ?>>Budha</option>
+                                    <option value="Khonghucu" <?php if ($cari->agama == "Khonghucu") {
+                                                                    echo "selected";
+                                                                } ?>>Khonghucu</option>
+                                    <option value="Kepercayaan Kepada Tuhan YME" <?php if ($cari->agama == "Kepercayaan Kepada Tuhan YME") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Kepercayaan Kepada Tuhan YME</option>
+                                    <option value="Lainnya" <?php if ($cari->agama == "Lainnya") {
+                                                                echo "selected";
+                                                            } ?>>Lainnya</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -276,7 +292,7 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="Email" class="col-sm-4 col-form-label">E-MAIL</label>
                             <div class="col-sm-8">
-                                <input type="email" name="email" class="form-control" id="Email" value="<?php echo $cari->email; ?>">
+                                <input type="text" name="email" class="form-control" id="Email" value="<?php echo $cari->email; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -334,19 +350,118 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="Pend_Ayah" class="col-sm-4 col-form-label">PENDIDIKAN AYAH</label>
                             <div class="col-sm-8">
-                                <input type="text" name="pend_ayh" class="form-control" id="pend_ayh" placeholder="Pendidikan Ayah" value="<?php echo $cari->pend_ayh; ?>">
+                                <select type="text" name="pend_ayh" id="pend_ayh" class="form-control">
+                                    <option value="" <?php if ($cari->pend_ayh == "") {
+                                                            echo "selected";
+                                                        } ?>>Tidak Diketahui</option>
+                                    <option value="Tidak Sekolah" <?php if ($cari->pend_ayh == "Tidak Sekolah") {
+                                                                        echo "selected";
+                                                                    } ?>>Tidak Sekolah</option>
+                                    <option value="Putus SD" <?php if ($cari->pend_ayh == "Putus SD") {
+                                                                    echo "selected";
+                                                                } ?>>Putus SD</option>
+                                    <option value="SD Sederajad" <?php if ($cari->pend_ayh == "SD Sederajad") {
+                                                                        echo "selected";
+                                                                    } ?>>SD Sederajad</option>
+                                    <option value="SMP Sederajad" <?php if ($cari->pend_ayh == "SMP Sederajad") {
+                                                                        echo "selected";
+                                                                    } ?>>SMP Sederajad</option>
+                                    <option value="SMA Sederajad" <?php if ($cari->pend_ayh == "SMA Sederajad") {
+                                                                        echo "selected";
+                                                                    } ?>>SMA Sederajad</option>
+                                    <option value="D1" <?php if ($cari->pend_ayh == "D1") {
+                                                            echo "selected";
+                                                        } ?>>D1</option>
+                                    <option value="D2" <?php if ($cari->pend_ayh == "D2") {
+                                                            echo "selected";
+                                                        } ?>>D2</option>
+                                    <option value="D3" <?php if ($cari->pend_ayh == "D3") {
+                                                            echo "selected";
+                                                        } ?>>D3</option>
+                                    <option value="D4/S1" <?php if ($cari->pend_ayh == "D4/S1") {
+                                                                echo "selected";
+                                                            } ?>>D4/S1</option>
+                                    <option value="S2" <?php if ($cari->pend_ayh == "S2") {
+                                                            echo "selected";
+                                                        } ?>>S2</option>
+                                    <option value="S3" <?php if ($cari->pend_ayh == "S3") {
+                                                            echo "selected";
+                                                        } ?>>S3</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="kerja_ayh" class="col-sm-4 col-form-label">PEKERJAAN AYAH</label>
                             <div class="col-sm-8">
-                                <input type="text" name="kerja_ayh" class="form-control" id="kerja_ayh" placeholder="Kerja Ayah" value="<?php echo $cari->kerja_ayh; ?>">
+                                <select type="text" name="kerja_ayh" id="kerja_ayh" class="form-control">
+                                    <option value="" <?php if ($cari->kerja_ayh == "") {
+                                                            echo "selected";
+                                                        } ?>>Tidak Diketahui</option>
+                                    <option value="Tidak bekerja" <?php if ($cari->kerja_ayh == "Tidak bekerja") {
+                                                                        echo "selected";
+                                                                    } ?>>Tidak bekerja</option>
+                                    <option value="Nelayan" <?php if ($cari->kerja_ayh == "Nelayan") {
+                                                                echo "selected";
+                                                            } ?>>Nelayan</option>
+                                    <option value="Petani" <?php if ($cari->kerja_ayh == "Petani") {
+                                                                echo "selected";
+                                                            } ?>>Petani</option>
+                                    <option value="Peternak" <?php if ($cari->kerja_ayh == "Peternak") {
+                                                                    echo "selected";
+                                                                } ?>>Peternak</option>
+                                    <option value="PNS/TNI/POLRI" <?php if ($cari->kerja_ayh == "PNS/TNI/POLRI") {
+                                                                        echo "selected";
+                                                                    } ?>>PNS/TNI/POLRI</option>
+                                    <option value="Karyawan Swasta" <?php if ($cari->kerja_ayh == "Karyawan Swasta") {
+                                                                        echo "selected";
+                                                                    } ?>>Karyawan Swasta</option>
+                                    <option value="Pedagang Kecil" <?php if ($cari->kerja_ayh == "Pedagang Kecil") {
+                                                                        echo "selected";
+                                                                    } ?>>Pedagang Kecil</option>
+                                    <option value="Pedagang Besar" <?php if ($cari->kerja_ayh == "Pedagang Besar") {
+                                                                        echo "selected";
+                                                                    } ?>>Pedagang Besar</option>
+                                    <option value="Wiraswasta" <?php if ($cari->kerja_ayh == "Wiraswasta") {
+                                                                    echo "selected";
+                                                                } ?>>Wiraswasta</option>
+                                    <option value="Wirausaha" <?php if ($cari->kerja_ayh == "Wirausaha") {
+                                                                    echo "selected";
+                                                                } ?>>Wirausaha</option>
+                                    <option value="Buruh" <?php if ($cari->kerja_ayh == "Buruh") {
+                                                                echo "selected";
+                                                            } ?>>Buruh</option>
+                                    <option value="Pensiunan" <?php if ($cari->kerja_ayh == "Pensiunan") {
+                                                                    echo "selected";
+                                                                } ?>>Pensiunan</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="hasil_ayh" class="col-sm-4 col-form-label">PENGHASILAN AYAH</label>
                             <div class="col-sm-8">
-                                <input type="text" name="hasil_ayh" class="form-control" id="hasil_ayh" placeholder="Rp. 000.000" value="<?php echo $cari->hasil_ayh; ?>">
+                                <select type="text" name="hasil_ayh" id="hasil_ayh" class="form-control">
+                                    <option value="Kurang dari Rp. 500,000" <?php if ($cari->hasil_ayh == "Kurang dari Rp. 500,000") {
+                                                                                echo "selected";
+                                                                            } ?>>Kurang dari Rp. 500,000</option>
+                                    <option value="Rp. 500,000 - Rp. 999,999" <?php if ($cari->hasil_ayh == "Rp. 500,000 - Rp. 999,999") {
+                                                                                    echo "selected";
+                                                                                } ?>>Rp. 500,000 - Rp. 999,999</option>
+                                    <option value="Rp. 1,000,000 - Rp. 1,999,999" <?php if ($cari->hasil_ayh == "Rp. 1,000,000 - Rp. 1,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 1,000,000 - Rp. 1,999,999</option>
+                                    <option value="Rp. 2,000,000 - Rp. 4,999,999" <?php if ($cari->hasil_ayh == "Rp. 2,000,000 - Rp. 4,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 2,000,000 - Rp. 4,999,999</option>
+                                    <option value="Rp. 5,000,000 - Rp. 20,000,000" <?php if ($cari->hasil_ayh == "Rp. 5,000,000 - Rp. 20,000,000") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 5,000,000 - Rp. 20,000,000</option>
+                                    <option value="Lebih dari Rp. 20,000,000" <?php if ($cari->hasil_ayh == "Lebih dari Rp. 20,000,000") {
+                                                                                    echo "selected";
+                                                                                } ?>>Lebih dari Rp. 20,000,000</option>
+                                    <option value="Tidak Berpenghasilan" <?php if ($cari->hasil_ayh == "Tidak Berpenghasilan") {
+                                                                                echo "selected";
+                                                                            } ?>>Tidak Berpenghasilan</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -430,43 +545,43 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="kerja_ibu" class="col-sm-4 col-form-label">PEKERJAAN IBU</label>
                             <div class="col-sm-8">
                                 <select type="text" name="kerja_ibu" id="kerja_ibu" class="form-control">
-                                    <option value="" <?php if ($cari->pend_ibu == "") {
+                                    <option value="" <?php if ($cari->kerja_ibu == "") {
                                                             echo "selected";
                                                         } ?>>Tidak Diketahui</option>
-                                    <option value="Tidak bekerja" <?php if ($cari->pend_ibu == "Tidak bekerja") {
+                                    <option value="Tidak bekerja" <?php if ($cari->kerja_ibu == "Tidak bekerja") {
                                                                         echo "selected";
                                                                     } ?>>Tidak bekerja</option>
-                                    <option value="Nelayan" <?php if ($cari->pend_ibu == "Nelayan") {
+                                    <option value="Nelayan" <?php if ($cari->kerja_ibu == "Nelayan") {
                                                                 echo "selected";
                                                             } ?>>Nelayan</option>
-                                    <option value="Petani" <?php if ($cari->pend_ibu == "Petani") {
+                                    <option value="Petani" <?php if ($cari->kerja_ibu == "Petani") {
                                                                 echo "selected";
                                                             } ?>>Petani</option>
-                                    <option value="Peternak" <?php if ($cari->pend_ibu == "Peternak") {
+                                    <option value="Peternak" <?php if ($cari->kerja_ibu == "Peternak") {
                                                                     echo "selected";
                                                                 } ?>>Peternak</option>
-                                    <option value="PNS/TNI/POLRI" <?php if ($cari->pend_ibu == "PNS/TNI/POLRI") {
+                                    <option value="PNS/TNI/POLRI" <?php if ($cari->kerja_ibu == "PNS/TNI/POLRI") {
                                                                         echo "selected";
                                                                     } ?>>PNS/TNI/POLRI</option>
-                                    <option value="Karyawan Swasta" <?php if ($cari->pend_ibu == "Karyawan Swasta") {
+                                    <option value="Karyawan Swasta" <?php if ($cari->kerja_ibu == "Karyawan Swasta") {
                                                                         echo "selected";
                                                                     } ?>>Karyawan Swasta</option>
-                                    <option value="Pedagang Kecil" <?php if ($cari->pend_ibu == "Pedagang Kecil") {
+                                    <option value="Pedagang Kecil" <?php if ($cari->kerja_ibu == "Pedagang Kecil") {
                                                                         echo "selected";
                                                                     } ?>>Pedagang Kecil</option>
-                                    <option value="Pedagang Besar" <?php if ($cari->pend_ibu == "Pedagang Besar") {
+                                    <option value="Pedagang Besar" <?php if ($cari->kerja_ibu == "Pedagang Besar") {
                                                                         echo "selected";
                                                                     } ?>>Pedagang Besar</option>
-                                    <option value="Wiraswasta" <?php if ($cari->pend_ibu == "Wiraswasta") {
+                                    <option value="Wiraswasta" <?php if ($cari->kerja_ibu == "Wiraswasta") {
                                                                     echo "selected";
                                                                 } ?>>Wiraswasta</option>
-                                    <option value="Wirausaha" <?php if ($cari->pend_ibu == "Wirausaha") {
+                                    <option value="Wirausaha" <?php if ($cari->kerja_ibu == "Wirausaha") {
                                                                     echo "selected";
                                                                 } ?>>Wirausaha</option>
-                                    <option value="Buruh" <?php if ($cari->pend_ibu == "Buruh") {
+                                    <option value="Buruh" <?php if ($cari->kerja_ibu == "Buruh") {
                                                                 echo "selected";
                                                             } ?>>Buruh</option>
-                                    <option value="Pensiunan" <?php if ($cari->pend_ibu == "Pensiunan") {
+                                    <option value="Pensiunan" <?php if ($cari->kerja_ibu == "Pensiunan") {
                                                                     echo "selected";
                                                                 } ?>>Pensiunan</option>
                                 </select>
@@ -475,7 +590,29 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="hasil_ibu" class="col-sm-4 col-form-label">PENGHASILAN IBU</label>
                             <div class="col-sm-8">
-                                <input type="text" name="hasil_ibu" class="form-control" id="hasil_ibu" placeholder="Rp. 000.000" value="<?php echo $cari->hasil_ibu; ?>">
+                                <select type="text" name="hasil_ibu" id="hasil_ibu" class="form-control">
+                                    <option value="Kurang dari Rp. 500,000" <?php if ($cari->hasil_ibu == "Kurang dari Rp. 500,000") {
+                                                                                echo "selected";
+                                                                            } ?>>Kurang dari Rp. 500,000</option>
+                                    <option value="Rp. 500,000 - Rp. 999,999" <?php if ($cari->hasil_ibu == "Rp. 500,000 - Rp. 999,999") {
+                                                                                    echo "selected";
+                                                                                } ?>>Rp. 500,000 - Rp. 999,999</option>
+                                    <option value="Rp. 1,000,000 - Rp. 1,999,999" <?php if ($cari->hasil_ibu == "Rp. 1,000,000 - Rp. 1,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 1,000,000 - Rp. 1,999,999</option>
+                                    <option value="Rp. 2,000,000 - Rp. 4,999,999" <?php if ($cari->hasil_ibu == "Rp. 2,000,000 - Rp. 4,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 2,000,000 - Rp. 4,999,999</option>
+                                    <option value="Rp. 5,000,000 - Rp. 20,000,000" <?php if ($cari->hasil_ibu == "Rp. 5,000,000 - Rp. 20,000,000") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 5,000,000 - Rp. 20,000,000</option>
+                                    <option value="Lebih dari Rp. 20,000,000" <?php if ($cari->hasil_ibu == "Lebih dari Rp. 20,000,000") {
+                                                                                    echo "selected";
+                                                                                } ?>>Lebih dari Rp. 20,000,000</option>
+                                    <option value="Tidak Berpenghasilan" <?php if ($cari->hasil_ibu == "Tidak Berpenghasilan") {
+                                                                                echo "selected";
+                                                                            } ?>>Tidak Berpenghasilan</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -561,43 +698,43 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="kerja_wl" class="col-sm-4 col-form-label">PEKERJAAN WALI</label>
                             <div class="col-sm-8">
                                 <select type="text" name="kerja_wl" id="kerja_wl" class="form-control">
-                                    <option value="" <?php if ($cari->pend_wl == "") {
+                                    <option value="" <?php if ($cari->kerja_wl == "") {
                                                             echo "selected";
                                                         } ?>>Tidak Diketahui</option>
-                                    <option value="Tidak bekerja" <?php if ($cari->pend_wl == "Tidak bekerja") {
+                                    <option value="Tidak bekerja" <?php if ($cari->kerja_wl == "Tidak bekerja") {
                                                                         echo "selected";
                                                                     } ?>>Tidak bekerja</option>
-                                    <option value="Nelayan" <?php if ($cari->pend_wl == "Nelayan") {
+                                    <option value="Nelayan" <?php if ($cari->kerja_wl == "Nelayan") {
                                                                 echo "selected";
                                                             } ?>>Nelayan</option>
-                                    <option value="Petani" <?php if ($cari->pend_wl == "Petani") {
+                                    <option value="Petani" <?php if ($cari->kerja_wl == "Petani") {
                                                                 echo "selected";
                                                             } ?>>Petani</option>
-                                    <option value="Peternak" <?php if ($cari->pend_wl == "Peternak") {
+                                    <option value="Peternak" <?php if ($cari->kerja_wl == "Peternak") {
                                                                     echo "selected";
                                                                 } ?>>Peternak</option>
-                                    <option value="PNS/TNI/POLRI" <?php if ($cari->pend_wl == "PNS/TNI/POLRI") {
+                                    <option value="PNS/TNI/POLRI" <?php if ($cari->kerja_wl == "PNS/TNI/POLRI") {
                                                                         echo "selected";
                                                                     } ?>>PNS/TNI/POLRI</option>
-                                    <option value="Karyawan Swasta" <?php if ($cari->pend_wl == "Karyawan Swasta") {
+                                    <option value="Karyawan Swasta" <?php if ($cari->kerja_wl == "Karyawan Swasta") {
                                                                         echo "selected";
                                                                     } ?>>Karyawan Swasta</option>
-                                    <option value="Pedagang Kecil" <?php if ($cari->pend_wl == "Pedagang Kecil") {
+                                    <option value="Pedagang Kecil" <?php if ($cari->kerja_wl == "Pedagang Kecil") {
                                                                         echo "selected";
                                                                     } ?>>Pedagang Kecil</option>
-                                    <option value="Pedagang Besar" <?php if ($cari->pend_wl == "Pedagang Besar") {
+                                    <option value="Pedagang Besar" <?php if ($cari->kerja_wl == "Pedagang Besar") {
                                                                         echo "selected";
                                                                     } ?>>Pedagang Besar</option>
-                                    <option value="Wiraswasta" <?php if ($cari->pend_wl == "Wiraswasta") {
+                                    <option value="Wiraswasta" <?php if ($cari->kerja_wl == "Wiraswasta") {
                                                                     echo "selected";
                                                                 } ?>>Wiraswasta</option>
-                                    <option value="Wirausaha" <?php if ($cari->pend_wl == "Wirausaha") {
+                                    <option value="Wirausaha" <?php if ($cari->kerja_wl == "Wirausaha") {
                                                                     echo "selected";
                                                                 } ?>>Wirausaha</option>
-                                    <option value="Buruh" <?php if ($cari->pend_wl == "Buruh") {
+                                    <option value="Buruh" <?php if ($cari->kerja_wl == "Buruh") {
                                                                 echo "selected";
                                                             } ?>>Buruh</option>
-                                    <option value="Pensiunan" <?php if ($cari->pend_wl == "Pensiunan") {
+                                    <option value="Pensiunan" <?php if ($cari->kerja_wl == "Pensiunan") {
                                                                     echo "selected";
                                                                 } ?>>Pensiunan</option>
                                 </select>
@@ -606,7 +743,29 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="hasil_wl" class="col-sm-4 col-form-label">PENGHASILAN WALI</label>
                             <div class="col-sm-8">
-                                <input type="text" name="hasil_wl" class="form-control" id="hasil_wl" placeholder="Rp. 000.000" value="<?php echo $cari->hasil_ibu; ?>">
+                                <select type="text" name="hasil_wl" id="hasil_wl" class="form-control">
+                                    <option value="Kurang dari Rp. 500,000" <?php if ($cari->hasil_wl == "Kurang dari Rp. 500,000") {
+                                                                                echo "selected";
+                                                                            } ?>>Kurang dari Rp. 500,000</option>
+                                    <option value="Rp. 500,000 - Rp. 999,999" <?php if ($cari->hasil_wl == "Rp. 500,000 - Rp. 999,999") {
+                                                                                    echo "selected";
+                                                                                } ?>>Rp. 500,000 - Rp. 999,999</option>
+                                    <option value="Rp. 1,000,000 - Rp. 1,999,999" <?php if ($cari->hasil_wl == "Rp. 1,000,000 - Rp. 1,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 1,000,000 - Rp. 1,999,999</option>
+                                    <option value="Rp. 2,000,000 - Rp. 4,999,999" <?php if ($cari->hasil_wl == "Rp. 2,000,000 - Rp. 4,999,999") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 2,000,000 - Rp. 4,999,999</option>
+                                    <option value="Rp. 5,000,000 - Rp. 20,000,000" <?php if ($cari->hasil_wl == "Rp. 5,000,000 - Rp. 20,000,000") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Rp. 5,000,000 - Rp. 20,000,000</option>
+                                    <option value="Lebih dari Rp. 20,000,000" <?php if ($cari->hasil_wl == "Lebih dari Rp. 20,000,000") {
+                                                                                    echo "selected";
+                                                                                } ?>>Lebih dari Rp. 20,000,000</option>
+                                    <option value="Tidak Berpenghasilan" <?php if ($cari->hasil_wl == "Tidak Berpenghasilan") {
+                                                                                echo "selected";
+                                                                            } ?>>Tidak Berpenghasilan</option>
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -219,7 +219,7 @@ if ($cekuri == "mts") {
               <div class="form-group row">
                 <label for="Email" class="col-sm-4 col-form-label">E-MAIL</label>
                 <div class="col-sm-8">
-                  <input type="email" name="email" class="form-control" id="Email" placeholder="Kartu Keluarga" required>
+                  <input type="text" name="email" class="form-control" id="Email" placeholder="Kartu Keluarga" required>
                 </div>
               </div>
               <div class="form-group row">
@@ -602,7 +602,7 @@ if ($cekuri == "mts") {
                     <option value="">-- PILIH --</option>
                     <?php
                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
-                    $carii =$sklh->result();
+                    $carii = $sklh->result();
                     foreach ($carii as $pilih) :
                     ?>
                       <option value="<?php echo $pilih->lembaga; ?>"><?php echo $pilih->lembaga; ?></option>
@@ -610,7 +610,7 @@ if ($cekuri == "mts") {
                   </select>
                 </div>
               </div>
-              
+
               <div class="form-group row">
                 <label for="jalur" class="col-sm-4 col-form-label">JALUR PENDAFTARAN</label>
                 <div class="col-sm-8">
@@ -684,4 +684,3 @@ if ($cekuri == "mts") {
   </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-

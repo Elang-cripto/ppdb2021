@@ -57,16 +57,19 @@
 				</tr>
 				<tr>
 					<td>Nama Peserta Didik</td>
-					<td width="400">: <?php echo $data->nama; ?></td>
-					<td rowspan="5" align="right">
-						<img style="width: 100px; height: auto;" <?php
-																	if (empty($data->foto)) {
-																		$gambar = "none.png";
-																	} else {
-																		$gambar = $data->foto;
-																	}
-																	?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
-					</td>
+					<<<<<<< HEAD <td width="400">: <?php echo $data->nama; ?></td>
+						=======
+						<td>: <?php echo $data->nama; ?></td>
+						>>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
+						<td rowspan="5" align="right">
+							<img style="width: 100px; height: auto;" <?php
+																		if (empty($data->foto)) {
+																			$gambar = "none.png";
+																		} else {
+																			$gambar = $data->foto;
+																		}
+																		?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="profile">
+						</td>
 				</tr>
 				<tr>
 					<td>NISN</td>
@@ -122,13 +125,16 @@
 				</tr>
 				<tr>
 					<td>Pendaftaran Jalur</td>
-					<td>: <b><?php echo $data->jalur; ?></b><?php
-															if ($data->jalur == 'INDEN') :
-																echo '(' . $data->ket . ')';
-															else :
-																"";
-															endif;
-															?></td>
+					<<<<<<< HEAD <td>: <b><?php echo $data->jalur; ?></b><?php
+																			if ($data->jalur == 'INDEN') :
+																				echo '(' . $data->ket . ')';
+																			else :
+																				"";
+																			endif;
+																			?></td>
+						=======
+						<td>: <b><?php echo $data->jalur; ?></b>(<b><?php echo $data->ket; ?></b>)</td>
+						>>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
 				</tr>
 			</table>
 			<br>
@@ -138,10 +144,12 @@
 				<tr>
 					<td style="width:20%">Hari, Tanggal</td>
 					<td style="width:40%">: <?php echo $set->jadwal_ver; ?></td>
-				</tr>
+					<<<<<<< HEAD </tr>
 				<tr>
 					<td style="width:20%">Waktu</td>
 					<td style="width:40%">: <?php echo $set->jam_ver; ?></td>
+					=======
+					>>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
 				</tr>
 				<tr>
 					<td style="width:20%">Tempat</td>
