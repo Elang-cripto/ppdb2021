@@ -95,51 +95,57 @@ class Panitia extends CI_Controller
     // ========================== Tambah Siswa Baru dari Panitia ==========================
     public function save_pan($par)
     {
-        // $par 	= $this->session->userdata('par');
-        $dbcek    = 'db_' . $par;
-        $dariDB = $this->m_ppdb->get_kode($dbcek);
-        $urut     = (int)substr($dariDB, 11, 3);
-        $nikqr  = md5($this->input->post('nik'));
+        $ceknik     = $this->input->post('nik');
+        $jmlnik     = $this->db->get_where('db_user_pendaftar', array("nik" => $ceknik))->num_rows();
+        $dbcek      = 'db_' . $par;
+        $dariDB     = $this->m_ppdb->get_kode($dbcek);
+        $urut       = (int)substr($dariDB, 11, 3);
+        $nikqr      = md5($this->input->post('nik'));
         $this->m_ppdb->qrcode($nikqr, $par);
 
-        if ($par == "MTS") {
+        if ($par == "mts") {
             $nus = "538";
-        } elseif ($par == "MA") {
+        } elseif ($par == "ma") {
             $nus = "510";
-        } elseif ($par == "SMP") {
+        } elseif ($par == "smp") {
             $nus = "209";
         } else {
             $nus = "265";
         }
 
-        //Fungsi db_mts
-        date_default_timezone_set("ASIA/JAKARTA");
-        $data                 = $this->input->post();
-        $data['id_enc']        = md5($this->input->post('nik'));
-        $data['No_Reg']        = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
-        $data['progres']     = date("Y-m-d H:i:s");
-        $data['editor']        = $this->session->userdata('nama');
-        $data['jalur']         = $this->m_ppdb->getset();
-        $data['status']         = 'RESIDU';
+        if ($jmlnik == 0) {
+            //Fungsi db_mts
+            date_default_timezone_set("ASIA/JAKARTA");
+            $data                   = $this->input->post();
+            $data['id_enc']         = md5($this->input->post('nik'));
+            $data['No_Reg']         = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
+            $data['progres']        = date("Y-m-d H:i:s");
+            $data['editor']         = $this->session->userdata('nama');
+            $data['status']         = 'RESIDU';
 
-        $this->db->insert('db_' . $par, $data);
+            $this->db->insert('db_' . $par, $data);
 
-        //Fungsi db_user_pengguna
-        $data2['nik']        = $this->input->post('nik');
-        $data2['nama']        = $this->input->post('nama');
-        $data2['email']        = $this->input->post('email');
-        $data2['telp']        = $this->input->post('telp');
-        $data2['par']        = strtoupper($par);
-        $data2['status']    = 'NON AKTIF';
-        $data2['jabatan']    = 'user';
-        $data2['echo']        = '1';
-        $data2['last']        = date("Y-m-d H:i:s");
-        $this->db->insert('db_user_pendaftar', $data2);
+            //Fungsi db_user_pengguna
+            $data2['nik']       = $this->input->post('nik');
+            $data2['nama']      = $this->input->post('nama');
+            $data2['email']     = $this->input->post('email');
+            $data2['telp']      = $this->input->post('telp');
+            $data2['par']       = strtoupper($par);
+            $data2['status']    = 'NON AKTIF';
+            $data2['jabatan']   = 'user';
+            $data2['echo']      = '1';
+            $data2['last']      = date("Y-m-d H:i:s");
+            $this->db->insert('db_user_pendaftar', $data2);
 
-        //==============================================================================
+            //==============================================================================
 
-        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
-        redirect('panitia/data/' . $par, 'refresh');
+            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Data residu berhasil ditambahkan'}");
+            redirect('panitia/residu/' . $par, 'refresh');
+        } else {
+            $this->load->view('auth/registration');
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Data Ganda',text: 'Data anda telah terdaftar sebelumnya, silahkan melakukan LogIn'}");
+            redirect('panitia/residu/' . $par);
+        }
     }
 
     // ========================== edit Siswa ==========================
@@ -153,6 +159,7 @@ class Panitia extends CI_Controller
 
     public function editsave($par, $id)
     {
+        $uricek3                = $this->uri->segment(4);
         $pilih                  = 'db_' . $par;
         $data                   = $this->input->post();
         $data['editor']         = $this->session->userdata('nama');
@@ -160,12 +167,11 @@ class Panitia extends CI_Controller
         $nikqr                  = md5($this->input->post('nik'));
         $this->m_ppdb->qrcode($nikqr, $par);
 
-        $uricek = $this->uri->segment(2);
         $this->m_ppdb->updatedata($data, $id, $pilih);
         $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
-        // redirect('panitia/'.$uricek.'/'.$par, 'refresh');
-        redirect('panitia/data/' . $par, 'refresh');
+        redirect('panitia/' . $uricek3 . '/' . $par, 'refresh');
+        // redirect('panitia/data/' . $par, 'refresh');
     }
 
     public function delete($par, $id)
@@ -180,6 +186,7 @@ class Panitia extends CI_Controller
     public function bukti()
     {
         $data['data']       = $this->m_ppdb->view_peserta();
+        $data['set']        = $this->db->get_where('db_setting', ["id" => 1])->row();
         $data['form']       = 'bukti';
         $data['content']    = 'border';
 
@@ -187,10 +194,10 @@ class Panitia extends CI_Controller
     }
 
     // ========================== User panitia ==========================
-    public function user_admin()
+    public function profil($id_enc)
     {
-        $data['dbuser'] = $this->m_ppdb->getuser();
-        $data['content'] = 'panitia/data_admin';
+        $data['cari'] = $this->m_ppdb->getuser_pan($id_enc);
+        $data['content'] = 'panitia/view_panitia';
 
         $this->load->view('panitia/templating', $data);
     }
@@ -217,6 +224,17 @@ class Panitia extends CI_Controller
         $this->m_ppdb->updateuser($data, $id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
         redirect('panitia/user_panitia', 'refresh');
+    }
+
+    public function editpan($id)
+    {
+        $data                   = $this->input->post();
+        $data['last']           = date("Y-m-d H:i:s");
+
+        $this->m_ppdb->updateuser($data, $id);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Edit data berhasil'}");
+        $cd_pan = $this->session->userdata('codex');
+        redirect('panitia/profil/' . $cd_pan, 'refresh');
     }
 
     public function deluser($id)

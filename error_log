@@ -218,3 +218,5 @@
 [16-Nov-2021 02:51:02 UTC] PHP Fatal error:  Call to undefined function mysqli_init() in /home/alamienj/public_html/db/system/database/drivers/mysqli/mysqli_driver.php on line 135
 [16-Nov-2021 03:01:32 UTC] PHP Fatal error:  Call to undefined function mysqli_init() in /home/alamienj/public_html/db/system/database/drivers/mysqli/mysqli_driver.php on line 135
 [23-Nov-2021 08:16:26 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/alamienj/public_html/db/application/views/cvr_raport_smp.php on line 136
+[24-Jan-2022 02:56:53 UTC] PHP Parse error:  syntax error, unexpected '$params' (T_VARIABLE) in /home/alamienj/public_html/ppdb/application/models/M_ppdb.php on line 217
+[24-Jan-2022 16:24:22 ASIA/JAKARTA] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in /home/alamienj/public_html/ppdb/application/views/admin/setting.php on line 74

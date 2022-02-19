@@ -92,9 +92,9 @@ class Auth extends CI_Controller
 
     public function cek_admin()
     {
-        $username  = $this->input->post('username');
-        $password   = $this->input->post('password');
-        $ceklog = $this->cek->admin($username, $password);
+        $username   = md5($this->input->post('username'));
+        $password   = md5($this->input->post('password'));
+        $ceklog     = $this->cek->admin($username, $password);
 
         if ($ceklog) {
             foreach ($ceklog as $row);

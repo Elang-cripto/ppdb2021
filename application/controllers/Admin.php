@@ -39,8 +39,8 @@ class Admin extends CI_Controller
     public function logout()
     {
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Log Out',text: 'Anda telah metu'}");
-        redirect('auth/admin');
         $this->session->sess_destroy();
+        redirect('auth/admin');
     }
 
     // ========================== Get Siswa ==========================
@@ -96,18 +96,17 @@ class Admin extends CI_Controller
     // ========================== Tambah Siswa Baru dari Panitia ==========================
     public function save_pan($par)
     {
-        // $par 	= $this->session->userdata('par');
-        $dbcek    = 'db_' . $par;
-        $dariDB = $this->m_ppdb->get_kode($dbcek);
-        $urut     = (int)substr($dariDB, 11, 3);
-        $nikqr  = md5($this->input->post('nik'));
+        $dbcek      = 'db_' . $par;
+        $dariDB     = $this->m_ppdb->get_kode($dbcek);
+        $urut       = (int)substr($dariDB, 11, 3);
+        $nikqr      = md5($this->input->post('nik'));
         $this->m_ppdb->qrcode($nikqr, $par);
 
-        if ($par == "MTS") {
+        if ($par == "mts") {
             $nus = "538";
-        } elseif ($par == "MA") {
+        } elseif ($par == "ma") {
             $nus = "510";
-        } elseif ($par == "SMP") {
+        } elseif ($par == "smp") {
             $nus = "209";
         } else {
             $nus = "265";
@@ -115,12 +114,11 @@ class Admin extends CI_Controller
 
         //Fungsi db_mts
         date_default_timezone_set("ASIA/JAKARTA");
-        $data                 = $this->input->post();
-        $data['id_enc']        = md5($this->input->post('nik'));
-        $data['No_Reg']        = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
-        $data['progres']     = date("Y-m-d H:i:s");
-        $data['editor']        = $this->session->userdata('nama');
-        $data['jalur']         = $this->m_ppdb->getset();
+        $data                   = $this->input->post();
+        $data['id_enc']         = md5($this->input->post('nik'));
+        $data['No_Reg']         = $nus . "-" . date("ymd") . "-" . sprintf('%03d', $urut + 1);
+        $data['progres']        = date("Y-m-d H:i:s");
+        $data['editor']         = $this->session->userdata('nama');
         $data['status']         = 'RESIDU';
 
         $this->db->insert('db_' . $par, $data);
@@ -181,6 +179,7 @@ class Admin extends CI_Controller
     public function bukti()
     {
         $data['data']       = $this->m_ppdb->view_peserta();
+        $data['set']        = $this->db->get_where('db_setting', ["id" => 1])->row();
         $data['form']       = 'bukti';
         $data['content']    = 'border';
 
@@ -206,11 +205,14 @@ class Admin extends CI_Controller
 
     public function adduser()
     {
-        $dariDB                   = $this->m_ppdb->get_kodepan();
-        $data                     = $this->input->post();
-        $data['codex']            = md5($dariDB + 1);
-        $data['status']           = '1';
-        $data['last']             = date("Y-m-d H:i:s");
+        $dariDB                     = $this->m_ppdb->get_kodepan();
+        $data                       = $this->input->post();
+        $data['username']           = md5($this->input->post('username'));
+        $data['password']           = md5($this->input->post('password'));
+        $data['codex']              = md5($dariDB + 1);
+        $data['status']             = '1';
+        $data['stamp']              = $this->session->userdata('nama');
+        $data['last']               = date("Y-m-d H:i:s");
 
         $this->m_ppdb->adduser($data);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: 'Tambah data berhasil'}");
@@ -288,9 +290,9 @@ class Admin extends CI_Controller
 
     public function setting()
     {
-        $pilih                = 'db_setting';
+        // $pilih                = 'db_setting';
         $id                   = 1;
-        $data['cari']         = $this->db->get_where($pilih, ["id" => $id])->row();
+        $data['cari']         = $this->db->get_where('db_setting', ["id" => $id])->row();
         $data['content']      = 'admin/setting';
 
         $this->load->view('admin/templating', $data);
@@ -299,7 +301,8 @@ class Admin extends CI_Controller
     public function updatesetting()
     {
         $id                        = 1;
-        $data['jalur']             = $this->input->post('jalur');
+        $data                      = $this->input->post();
+        // $data['jalur']             = $this->input->post('jalur');
         $this->m_ppdb->updateset($data, $id);
         $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah',text: 'Berhasil disimpan',}");
         redirect('admin/setting', 'refresh');

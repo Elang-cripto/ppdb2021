@@ -45,7 +45,6 @@
                       <th>No</th>
                       <th>Profil</th>
                       <th>Nama</th>
-                      <th>Username</th>
                       <th>Level</th>
                       <th>Last LogIn</th>
                       <th>Aksi</th>
@@ -73,7 +72,6 @@
                           </ul>
                         </td>
                         <td><?php echo $row->nama; ?></td>
-                        <td><?php echo $row->username; ?></td>
                         <td align="center">
                           <span class="badge badge-<?php
                                                     if ($row->jabatan == 'admin') {
@@ -195,13 +193,13 @@
                 <div class="form-group row">
                   <label for="Username" class="col-sm-4 col-form-label">Username</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $m->username; ?>">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="*****">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="Username" class="col-sm-4 col-form-label">Password</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="password" name="password" value="<?php echo $m->password; ?>">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="*****">
                   </div>
                 </div>
                 <div class="form-group row">

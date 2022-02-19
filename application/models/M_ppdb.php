@@ -85,6 +85,11 @@ class M_ppdb extends CI_Model
         return $this->db->get('db_panitia')->result();
     }
 
+    public function getuser_pan($id_enc)
+    {
+        return $this->db->get_where('db_panitia', ["codex" => $id_enc])->row();
+    }
+
     public function getmgm()
     {
         $this->db->where('jabatan', 'mgm');
@@ -152,6 +157,11 @@ class M_ppdb extends CI_Model
         $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
         return $query->ambil;
     }
+    public function getsett()
+    {
+        $query = $this->db->query("SELECT jadwal_ver as sett from db_setting")->row();
+        return $query->sett;
+    }
 
     //============================= SD / MI ============================
     public function getsdmi()
@@ -213,7 +223,7 @@ class M_ppdb extends CI_Model
 
         $image_name = $nikqr . '.png'; //buat name dari qr code sesuai dengan nim
 
-        $params['data'] = base_url('') . 'cek/' . $par . '/' . $nikqr; //data yang akan di jadikan QR CODE
+        $params['data'] = base_url('') . 'validasi/data/' . $par . '/' . $nikqr; //data yang akan di jadikan QR CODE
         $params['level'] = 'H'; //H=High
         $params['size'] = 10;
         $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/qr/
@@ -242,7 +252,7 @@ class M_ppdb extends CI_Model
         // $query = $this->db->query("SELECT jalur as ambil from db_setting")->row();
         // return $query->ambil;
 
-        return $this->db->get_where('db_sdmi', ["id_enc" => $this->uri->segment(4)])->row();
+        return $this->db->get_where('db_sdmi', ["id" => 1])->row();
     }
     public function delinfo($id)
     {
@@ -260,6 +270,12 @@ class M_ppdb extends CI_Model
         $db_pilih = "db_" . $par;
         // $this->db->where('status', 'AKTIF');
         return $this->db->get($db_pilih)->result();
+    }
+    //============================= cek validasi ============================
+    public function view_cek($par, $id)
+    {
+        $pilih = 'db_' . strtolower($par);
+        return $this->db->get_where($pilih, ["id_enc" => $id])->row();
     }
 }
 

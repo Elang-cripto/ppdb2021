@@ -3,22 +3,32 @@
 </head>
 
 <body>
-
 	<?php
-	$param = $this->uri->segment(4);
-	if ($param == "MTS") {
-		$pilih = "MTS AL AMIEN";
-	} elseif ($param == "MA") {
-		$pilih = "MA AL AMIEN";
-	} elseif ($param == "SMP") {
-		$pilih = "SMP PLUS AL AMIEN";
+	$param = strtolower($this->uri->segment(3));
+	if ($param == "mts") {
+		$pilih 			= "MTS AL AMIEN";
+		$panitia 		= "MOH ALI MAS'UD, S.Pd";
+		$tempat_ver		= $set->tempat_ver1;
+		$db_alamat		= 'db_sdmi';
+	} elseif ($param == "ma") {
+		$pilih 			= "MA AL AMIEN";
+		$panitia 		= "MOH ZAMRONI S,Pd";
+		$tempat_ver		= $set->tempat_ver2;
+		$db_alamat		= 'db_smpmts';
+	} elseif ($param == "smp") {
+		$pilih 			= "SMP PLUS AL AMIEN";
+		$panitia 		= "MOH ALI MAS'UD, S.Pd";
+		$tempat_ver		= $set->tempat_ver2;
+		$db_alamat		= 'db_sdmi';
 	} else {
-		$pilih = "SMK AL AMIEN";
+		$pilih 			= "SMK AL AMIEN";
+		$panitia 		= "MOH ZAMRONI S,Pd";
+		$tempat_ver		= $set->tempat_ver2;
+		$db_alamat		= 'db_smpmts';
 	}
 	?>
 
 	<div class="book">
-
 		<div class="page">
 			<table id="table1">
 				<tr>
@@ -41,14 +51,14 @@
 					<th class="td3"></th>
 				</tr>
 				<tr>
-					<td colspan="2" style="width:100% " align="center">
+					<td colspan="3" style="width:100% " align="center">
 						<h5><b>KARTU BUKTI PENDAFTARAN</b></h5>
 					</td>
 				</tr>
 				<tr>
 					<td>Nama Peserta Didik</td>
-					<td>: <?php echo $data->nama; ?></td>
-					<td rowspan="5" >
+					<td width="400">: <?php echo $data->nama; ?></td>
+					<td rowspan="5" align="right">
 						<img style="width: 100px; height: auto;" <?php
 																	if (empty($data->foto)) {
 																		$gambar = "none.png";
@@ -89,11 +99,14 @@
 				</tr>
 				<tr>
 					<td>Sekolah Asal</td>
-					<td>: <?php echo $data->skl_asal; ?></td>
+					<?php
+					$cekun = $this->db->get_where($db_alamat, ["lembaga" => $data->skl_asal])->row();
+					?>
+					<td>: <?php echo $data->skl_asal; ?> -<?php echo $cekun->npsn; ?></td>
 				</tr>
 				<tr>
 					<td>Alamat Sekolah Asal</td>
-					<td>: <?php echo $data->almt_skl; ?></td>
+					<td>: <?php echo $cekun->alamat; ?></td>
 				</tr>
 				<tr>
 					<td>Nama Ayah</td>
@@ -105,11 +118,17 @@
 				</tr>
 				<tr>
 					<td>Lembaga Pilihan</td>
-					<td>: <?php echo $pilih; ?> </td>
+					<td class="text-primary">: <b><?php echo $pilih; ?></b> </td>
 				</tr>
 				<tr>
 					<td>Pendaftaran Jalur</td>
-					<td>: <b><?php echo $data->jalur; ?></b></td>
+					<td>: <b><?php echo $data->jalur; ?></b><?php
+															if ($data->jalur == 'INDEN') :
+																echo '(' . $data->ket . ')';
+															else :
+																"";
+															endif;
+															?></td>
 				</tr>
 			</table>
 			<br>
@@ -118,11 +137,15 @@
 			<table>
 				<tr>
 					<td style="width:20%">Hari, Tanggal</td>
-					<td style="width:40%">: ...............................</td>
+					<td style="width:40%">: <?php echo $set->jadwal_ver; ?></td>
+				</tr>
+				<tr>
+					<td style="width:20%">Waktu</td>
+					<td style="width:40%">: <?php echo $set->jam_ver; ?></td>
 				</tr>
 				<tr>
 					<td style="width:20%">Tempat</td>
-					<td style="width:40%">: ...............................</td>
+					<td style="width:40%">: <?php echo $tempat_ver; ?></td>
 				</tr>
 			</table>
 
@@ -130,10 +153,10 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:40%" class="text-center"></br>
-						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)).'.png' ?>" alt="qrcode">
+						<img style="width: 100px; height: auto;" src="<?php echo base_url('asset/qr/' . md5($data->nik)) . '.png' ?>" alt="qrcode">
 					</td>
 					<td style="width:30%">
-						<br>Pendaftar<br><br><br><br><?php echo $data->nama; ?>
+						<br>Pendaftar<br><br><br><br><br><b><?php echo $data->nama; ?></b>
 					</td>
 					<td style="width:30%">
 						Jember, <?php
@@ -141,8 +164,8 @@
 								echo $tanggalHariIni->format('d M Y');
 
 								?><br>
-						Panitia PPDB<br><br><br><br>
-						<b>____________________</b>
+						Panitia PPDB<br><br><br><br><br>
+						<b><?php echo $panitia; ?></b>
 					</td>
 				</tr>
 			</table>

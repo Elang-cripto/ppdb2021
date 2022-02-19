@@ -103,13 +103,15 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
                             <div class="col-sm-8">
                                 <select type="text" name="agama" id="agama" class="form-control">
-                                    <option value="L" <?php if ($cari->agama == "Islam") {
-                                                            echo "selected";
-                                                        } ?>>Islam</option>
-                                    <option value="P" <?php if ($cari->agama == "Kristen") {
-                                                            echo "selected";
-                                                        } ?>>Kristen</option>
-                                </select>
+                                    <option value="Islam" <?php if ($cari->agama == "Islam") {echo "selected";} ?>>Islam</option>
+                                    <option value="Kristen" <?php if ($cari->agama == "Kristen") {echo "selected";} ?>>Kristen</option>
+                                    <option value="Katholik" <?php if ($cari->agama == "Katholik") {echo "selected";} ?>>Katholik</option>
+                                    <option value="Hindu" <?php if ($cari->agama == "Hindu") {echo "selected";} ?>>Hindu</option>
+                                    <option value="Budha" <?php if ($cari->agama == "Budha") {echo "selected";} ?>>Budha</option>
+                                    <option value="Khonghucu" <?php if ($cari->agama == "Khonghucu") {echo "selected";} ?>>Khonghucu</option>
+                                    <option value="Kepercayaan Kepada Tuhan YME" <?php if ($cari->agama == "Kepercayaan Kepada Tuhan YME") {echo "selected";} ?>>Kepercayaan Kepada Tuhan YME</option>
+                                    <option value="Lainnya" <?php if ($cari->agama == "Lainnya") {echo "selected";} ?>>Lainnya</option>
+                                  </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -644,7 +646,13 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="beasiswa" class="col-sm-4 col-form-label">Beasiswa</label>
                             <div class="col-sm-8">
-                                <input type="text" name="beasiswa" class="form-control" id="beasiswa" value="<?php echo $cari->beasiswa; ?>" placeholder="Kartanu">
+                                <select type="text" name="beasiswa" id="beasiswa" class="form-control">
+                                    <option value="<?php echo $cari->beasiswa; ?>"><?php echo $cari->beasiswa; ?></option>
+                                    <option value="YATIM">YATIM</option>
+                                    <option value="PIATU">PIATU</option>
+                                    <option value="YATIM PIATU">YATIM PIATU</option>
+                                    <option value="DUAFA">DUAFA</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -706,8 +714,8 @@ if ($this->uri->segment(3) == "mts") {
                         <div class="form-group row">
                             <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                             <div class="col-sm-8">
-                                <select name="skl_asal" id="skl_asal" class="form-control select2">
-                                    <!-- <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option> -->
+                                <select name="skl_asal" id="skl_asal" class="form-control select2" required>
+                                    <option value="<?php echo $cari->skl_asal; ?>"><?php echo $cari->skl_asal; ?></option>
                                     <?php
                                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                                     foreach ($sklh->result() as $pilih) :
@@ -735,6 +743,18 @@ if ($this->uri->segment(3) == "mts") {
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="ket" class="col-sm-4 col-form-label">KETERANGAN</label>
+                            <div class="col-sm-8">
+                                <select type="text" name="ket" id="ket" class="form-control">
+                                    <option>-- Pilih --</option>
+                                    <option value="Sains">Sains</option>
+                                    <option value="Tahfidz">Tahfidz</option>
+                                    <option value="Agama">Agama</option>
+                                    <option value="Bahasa">Bahasa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="mgm" class="col-sm-4 col-form-label">JALUR MGM</label>
                             <div class="col-sm-8">
                                 <select name="mgm" id="mgm" class="form-control select2">
@@ -749,9 +769,6 @@ if ($this->uri->segment(3) == "mts") {
                                 </select>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

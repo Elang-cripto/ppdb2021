@@ -45,8 +45,6 @@ if ($cekuri == "mts") {
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a class="btn btn-success" href="<?php echo base_url($this->session->userdata('jabatan')) ?>/form/<?php echo $cekuri; ?>"><i class="fa fa-user-plus"></i> Formulir Baru</a>
-                        <hr>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -84,11 +82,11 @@ if ($cekuri == "mts") {
                                                 <?php } ?>
                                             </td> -->
                                         <td align="center">
-                                            <a data-toggle='tooltip' data-placement='top' title='Profil' href="<?php echo base_url(); ?>admin/view/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                            <a data-toggle='tooltip' data-placement='top' title='Profil' href="<?php echo base_url(); ?>admin/view/<?php echo $tabel_cek; ?>/<?php echo $cekuri2; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                             <a data-toggle='tooltip' data-placement='top' title='Edit' href="<?php echo base_url(); ?>admin/edit/<?php echo $tabel_cek; ?>/<?php echo $cekuri2; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-info btn-sm">
                                                 <i class="fa fa-user-edit"></i>
                                             </a>
-                                            <a data-toggle='tooltip' data-placement='top' title='Print' href="<?php echo base_url(); ?>admin/bukti/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-warning btn-sm">
+                                            <a data-toggle='tooltip' data-placement='top' title='Print' href="<?php echo base_url(); ?>admin/bukti/<?php echo $tabel_cek; ?>/<?php echo $cekuri2; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-warning btn-sm">
                                                 <i class="fa fa-print"></i>
                                             </a>
                                         </td>

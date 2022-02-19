@@ -9,9 +9,11 @@
   <?php
   $cekres = ['residu'];
   $ceknon = ['nonaktif'];
+  $cekin = ['data'];
   $cek_uri2 = $this->uri->segment(2);
   $cek_uri3 = $this->uri->segment(3);
   $role = $this->session->userdata('jabatan');
+  $codex = $this->session->userdata('codex');
   $poto = $this->session->userdata('foto');
   $kelas = $this->session->userdata('kelas');
   $par = $this->session->userdata('par');
@@ -59,7 +61,59 @@
         </li>
         <li class="nav-item has-treeview 
           <?php
-          $cekin = ['data', 'form', 'view', 'edit', 'bukti',];
+          $cekform = ['form', 'edit'];
+          if (in_array($cek_uri2, $cekform)) {
+            echo "nav-item has-treeview menu-open";
+          } ?>">
+          <a href="#" class="nav-link 
+            <?php
+            if (in_array($cek_uri2, $cekform)) {
+              echo "active";
+            } ?>">
+            <i class="nav-icon fas fa-file-alt"></i>
+            <p>Formulir Online<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo base_url($role) ?>/form/mts" class="nav-link 
+                <?php if (in_array($cek_uri2, $cekform) && $cek_uri3 == "mts") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-file-alt nav-icon"></i>
+                <p>Formulir MTS</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url($role) ?>/form/ma" class="nav-link 
+                <?php if (in_array($cek_uri2, $cekform) && $cek_uri3 == "ma") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-file-alt nav-icon"></i>
+                <p>Formulir MA</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url($role) ?>/form/smp" class="nav-link 
+                <?php if (in_array($cek_uri2, $cekform) && $cek_uri3 == "smp") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-file-alt nav-icon"></i>
+                <p>Formulir SMP</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url($role) ?>/form/smk" class="nav-link 
+                <?php if (in_array($cek_uri2, $cekform) && $cek_uri3 == "smk") {
+                  echo "active";
+                } ?>">
+                <i class="fas fa-file-alt nav-icon"></i>
+                <p>Formulir SMK</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview 
+          <?php
           if (in_array($cek_uri2, $cekin)) {
             echo "nav-item has-treeview menu-open";
           } ?>">
@@ -69,7 +123,7 @@
               echo "active";
             } ?>">
             <i class="nav-icon fas fa-users"></i>
-            <p>Calon Siswa Baru<i class="right fas fa-angle-left"></i></p>
+            <p>Siswa Validasi<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
@@ -77,7 +131,7 @@
                 <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "mts") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-database nav-icon"></i>
+                <i class="fas fa-user-check nav-icon"></i>
                 <p>Pendaftar MTS</p>
               </a>
             </li>
@@ -86,7 +140,7 @@
                 <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "ma") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-database nav-icon"></i>
+                <i class="fas fa-user-check nav-icon"></i>
                 <p>Pendaftar MA</p>
               </a>
             </li>
@@ -95,7 +149,7 @@
                 <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "smp") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-database nav-icon"></i>
+                <i class="fas fa-user-check nav-icon"></i>
                 <p>Pendaftar SMP</p>
               </a>
             </li>
@@ -104,7 +158,7 @@
                 <?php if (in_array($cek_uri2, $cekin) && $cek_uri3 == "smk") {
                   echo "active";
                 } ?>">
-                <i class="fas fa-database nav-icon"></i>
+                <i class="fas fa-user-check nav-icon"></i>
                 <p>Pendaftar SMK</p>
               </a>
             </li>
@@ -259,7 +313,14 @@
             </li>
           </ul>
         </li>
-
+        <li class="nav-item">
+          <a href="<?php echo base_url($role) ?>/profil/<?php echo $codex; ?>" class="nav-link <?php if ($cek_uri2 == "profil") {
+                                                                                                  echo "active";
+                                                                                                } ?>">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Profil</p>
+          </a>
+        </li>
         <li class="nav-item">
           <a href="<?php echo base_url('') ?>panitia/logout" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i>
             <p>Log Out</p>

@@ -131,7 +131,6 @@
                                 <li class="nav-item"><a class="nav-link" href="#data4" data-toggle="tab">Data Wali</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#data5" data-toggle="tab">Legalitas</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#data6" data-toggle="tab">Kartu</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#data7" data-toggle="tab">Rombel</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#data8" data-toggle="tab">Register</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#data9" data-toggle="tab">Update</a></li>
                             </ul>
@@ -456,46 +455,6 @@
                                     </form>
                                 </div>
                                 <!-- /.tab-pane -->
-                                <div class="tab-pane" id="data7">
-                                    <form class="form-horizontal">
-                                        <div class="text-center">
-                                            <p><b>HISTORY KELAS</b></p>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="kelas_7" class="col-sm-3 col-form-label">KELAS 7</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="kelas_7" value="<?php echo $cari->kelas_7; ?>" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="kelas_8" class="col-sm-3 col-form-label">KELAS 8</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="kelas_8" value="<?php echo $cari->kelas_8; ?>" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="kelas_9" class="col-sm-3 col-form-label">KELAS 9</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="kelas_9" value="<?php echo $cari->kelas_9; ?>" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <p><b>ROMBEL AKTIF</b></p>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="kelas_aktf" class="col-sm-3 col-form-label">KELAS AKTIF</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="kelas_aktf" value="<?php echo $cari->kelas_aktf; ?>" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="kelas_dig" class="col-sm-3 col-form-label">KELAS DIGITAL</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="kelas_dig" value="<?php echo $cari->kelas_dig; ?>" disabled>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane" id="data8">
                                     <form class="form-horizontal">

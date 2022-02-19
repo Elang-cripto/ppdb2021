@@ -38,7 +38,7 @@
             <button type="submit" class="input-button">Login</button>
           </div>
         </form>
-        <p class="sign-up">Belum Punya Akun ? <a href="<?php echo base_url(); ?>auth/registration">Daftar Disini</a></p>
+        <p class="sign-up">Jika belum memiliki akun silahkan hubungi panitia atau ajukan akun secara mandiri?<br> <a href="<?php echo base_url(); ?>auth/registration"><b>Klik Disini</b></a></p>
       </div>
       <div class="modal-right">
         <img src="<?php echo base_url(); ?>asset/login/images/alamien.jpg" alt="">

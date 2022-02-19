@@ -44,8 +44,8 @@ if ($cekuri == "mts") {
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a class="btn btn-success" href="<?php echo base_url($this->session->userdata('jabatan')) ?>/form/<?php echo $cekuri; ?>"><i class="fa fa-user-plus"></i> Formulir Baru</a>
-                        <hr>
+                        <!-- <a class="btn btn-success" href="<?php echo base_url($this->session->userdata('jabatan')) ?>/form/<?php echo $cekuri; ?>"><i class="fa fa-user-plus"></i> Formulir Baru</a>
+                        <hr> -->
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -55,7 +55,7 @@ if ($cekuri == "mts") {
                                     <th>L/P</th>
                                     <th>Tmpt Tgl Lahir</th>
                                     <th>Jalur</th>
-				    <th>Asal Lembaga</th>
+                                    <th>Asal Lembaga</th>
                                     <!-- <th>Status</th> -->
                                     <th>Aksi</th>
                                 </tr>
@@ -73,22 +73,13 @@ if ($cekuri == "mts") {
                                         <td><?php echo $row->jk; ?></td>
                                         <td><?php echo $row->tmp_lahir . ', ' . date_indo($row->tgl_lahir); ?></td>
                                         <td><?php echo $row->jalur; ?></td>
-					<td><?php echo $row->skl_asal; ?></td>
-                                        <!-- <td align="center">
-                                                <?php if ($row->status == "AKTIF") { ?>
-                                                    <span class="badge bg-success"><?php echo $row->status; ?></span>
-                                                <?php } elseif ($row->status == "NON AKTIF") { ?>
-                                                    <span class="badge bg-danger"><?php echo $row->status; ?></span>
-                                                <?php } else { ?>
-                                                    <span class="badge bg-warning"><?php echo $row->status; ?></span>
-                                                <?php } ?>
-                                            </td> -->
+                                        <td><?php echo $row->skl_asal; ?></td>
                                         <td align="center">
-                                            <a data-toggle='tooltip' data-placement='top' title='Profil' href="<?php echo base_url(); ?>panitia/view/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-                                            <a data-toggle='tooltip' data-placement='top' title='Edit' href="<?php echo base_url(); ?>panitia/edit/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-info btn-sm">
+                                            <a data-toggle='tooltip' data-placement='top' title='Profil' href="<?php echo base_url(); ?>panitia/view/<?php echo $tabel_cek; ?>/data/<?php echo ($row->id_enc); ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                            <a data-toggle='tooltip' data-placement='top' title='Edit' href="<?php echo base_url(); ?>panitia/edit/<?php echo $tabel_cek; ?>/data/<?php echo ($row->id_enc); ?>" class="btn btn-info btn-sm">
                                                 <i class="fa fa-user-edit"></i>
                                             </a>
-                                            <a data-toggle='tooltip' data-placement='top' title='Print' href="<?php echo base_url(); ?>panitia/bukti/<?php echo $tabel_cek; ?>/<?php echo ($row->id_enc); ?>" class="btn btn-warning btn-sm">
+                                            <a data-toggle='tooltip' data-placement='top' title='Print' href="<?php echo base_url(); ?>panitia/bukti/<?php echo $tabel_cek; ?>/data/<?php echo ($row->id_enc); ?>" class="btn btn-warning btn-sm">
                                                 <i class="fa fa-print"></i>
                                             </a>
                                         </td>
