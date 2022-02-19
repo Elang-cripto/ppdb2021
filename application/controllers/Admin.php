@@ -157,14 +157,22 @@ class Admin extends CI_Controller
         $data['editor']         = $this->session->userdata('nama');
         $data['progres']        = date("Y-m-d H:i:s");
         $nikqr                  = md5($this->input->post('nik'));
-        $this->m_ppdb->qrcode($nikqr, $par);
 
-        $uricek = $this->uri->segment(2);
-        $this->m_ppdb->updatedata($data, $id, $pilih);
-        $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
-        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
-        // redirect('admin/'.$uricek.'/'.$par, 'refresh');
-        redirect('admin/' . $back . '/' . $par, 'refresh');
+        $this->m_ppdb->uploadfile();
+
+        if (!$this->upload->do_upload('foto')) {
+            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Astagfirullah!',text: 'Gagal Upload gesss'}");
+            redirect('admin/' . $back . '/' . $par, 'refresh');
+        } else {
+
+            // $uricek = $this->uri->segment(2);
+            $this->m_ppdb->qrcode($nikqr, $par);
+            $this->m_ppdb->updatedata($data, $id, $pilih);
+            $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
+            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
+            // redirect('admin/'.$uricek.'/'.$par, 'refresh');
+            redirect('admin/' . $back . '/' . $par, 'refresh');
+        }
     }
 
     public function delete($par, $id)
