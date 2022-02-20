@@ -57,15 +57,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
-<<<<<<< HEAD
                             <label for="jam_ver" class="col-sm-4 col-form-label">Waktu Verivikasi</label>
                             <div class="col-sm-8">
                                 <input type="text" name="jam_ver" class="form-control" id="jam_ver" value="<?php echo $cari->jam_ver; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-=======
->>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
                             <label for="tempat_ver1" class="col-sm-4 col-form-label">Tempat Verivikasi 1</label>
                             <div class="col-sm-8">
                                 <input type="text" name="tempat_ver1" class="form-control" id="tempat_ver1" value="<?php echo $cari->tempat_ver1; ?>">

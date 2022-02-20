@@ -42,7 +42,7 @@
                                                                                     } else {
                                                                                         $gambar = $cari->foto;
                                                                                     }
-                                                                                    ?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="User profile picture">
+                                                                                    ?> src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="User Profile">
                             </div>
 
                             <h3 class="profile-username text-center"><?php echo $cari->nama; ?></h3>

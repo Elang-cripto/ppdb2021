@@ -207,14 +207,14 @@ class M_ppdb extends CI_Model
         return $this->db->delete('db_smpmts', array("id" => $id));
     }
 
-    public function uploadfile()
+    public function uploadfile($namafile)
     {
         $config['upload_path']      = './asset/upload/';
         $config['allowed_types']    = 'jpg|png|jpeg';
         $config['max_size']         = 2048;
         $config['remove_space']     = TRUE;
         $config['overwrite']        = TRUE;
-        $config['file_name']        = $this->input->post('username');
+        $config['file_name']        = $namafile;
         $this->load->library('upload', $config);
     }
 

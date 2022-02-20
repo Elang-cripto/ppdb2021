@@ -151,27 +151,50 @@ class Admin extends CI_Controller
 
     public function editsave($par, $back, $id)
     {
+        $namafile = $this->input->post('nik');
+        $this->m_ppdb->uploadfile($namafile);
+
         $pilih                  = 'db_' . $par;
         $data                   = $this->input->post();
         $data['editor']         = $this->session->userdata('nama');
         $data['progres']        = date("Y-m-d H:i:s");
         $nikqr                  = md5($this->input->post('nik'));
-
-        $this->m_ppdb->uploadfile();
-
         if (!$this->upload->do_upload('foto')) {
-            $this->session->set_flashdata('pesan', "{icon: 'error', title: 'Astagfirullah!',text: 'Gagal Upload gesss'}");
-            redirect('admin/' . $back . '/' . $par, 'refresh');
+            $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit, file Foto gagal update';
+            $data['foto'] = "none.png";
         } else {
-
-            // $uricek = $this->uri->segment(2);
-            $this->m_ppdb->qrcode($nikqr, $par);
-            $this->m_ppdb->updatedata($data, $id, $pilih);
-            $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
-            $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
-            // redirect('admin/'.$uricek.'/'.$par, 'refresh');
-            redirect('admin/' . $back . '/' . $par, 'refresh');
+            $kirim  =   'Data & Foto an ' . $this->input->post('nama') . ' berhasil di edit';
+            $data['foto'] = $this->input->post('nik') . $this->upload->data('file_ext');
         }
+
+        $this->m_ppdb->qrcode($nikqr, $par);
+        $this->m_ppdb->updatedata($data, $id, $pilih);
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
+        redirect('admin/' . $back . '/' . $par, 'refresh');
+    }
+
+    public function editsave_2($par, $back, $id)
+    {
+        $namafile = $this->input->post('nik');
+        $this->m_ppdb->uploadfile($namafile);
+        $this->upload->do_upload('foto');
+
+        $pilih                  = 'db_' . $par;
+        $data                   = $this->input->post();
+        $data['editor']         = $this->session->userdata('nama');
+        $data['progres']        = date("Y-m-d H:i:s");
+        $nikqr                  = md5($this->input->post('nik'));
+        if (!empty($_FILES['foto']['name'])) {
+            $data['foto'] = $this->input->post('nik') . $this->upload->data('file_ext');
+        } else {
+            $data['foto'] = $this->input->post('foto_old');
+        }
+
+        $this->m_ppdb->qrcode($nikqr, $par);
+        $this->m_ppdb->updatedata($data, $id, $pilih);
+        $kirim  =   'Data ' . $this->input->post('nama') . ' berhasil di edit';
+        $this->session->set_flashdata('pesan', "{icon: 'success', title: 'Alhamdulillah!',text: '$kirim'}");
+        redirect('admin/' . $back . '/' . $par, 'refresh');
     }
 
     public function delete($par, $id)

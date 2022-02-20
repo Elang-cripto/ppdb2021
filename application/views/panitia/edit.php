@@ -35,11 +35,7 @@ if ($this->uri->segment(3) == "mts") {
 <section class="content">
 
     <!-- form start -->
-<<<<<<< HEAD
     <form method="post" action="<?php echo base_url(); ?>panitia/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
-=======
-    <form method="post" action="<?php echo base_url(); ?>admin/editsave/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>/<?php echo $cari->id_enc; ?>" enctype="multipart/form-data">
->>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
         <!-- Horizontal Form -->
 
         <!-- DATA SISWA -->
@@ -107,15 +103,31 @@ if ($this->uri->segment(3) == "mts") {
                             <label for="agama" class="col-sm-4 col-form-label">AGAMA</label>
                             <div class="col-sm-8">
                                 <select type="text" name="agama" id="agama" class="form-control">
-                                    <option value="Islam" <?php if ($cari->agama == "Islam") {echo "selected";} ?>>Islam</option>
-                                    <option value="Kristen" <?php if ($cari->agama == "Kristen") {echo "selected";} ?>>Kristen</option>
-                                    <option value="Katholik" <?php if ($cari->agama == "Katholik") {echo "selected";} ?>>Katholik</option>
-                                    <option value="Hindu" <?php if ($cari->agama == "Hindu") {echo "selected";} ?>>Hindu</option>
-                                    <option value="Budha" <?php if ($cari->agama == "Budha") {echo "selected";} ?>>Budha</option>
-                                    <option value="Khonghucu" <?php if ($cari->agama == "Khonghucu") {echo "selected";} ?>>Khonghucu</option>
-                                    <option value="Kepercayaan Kepada Tuhan YME" <?php if ($cari->agama == "Kepercayaan Kepada Tuhan YME") {echo "selected";} ?>>Kepercayaan Kepada Tuhan YME</option>
-                                    <option value="Lainnya" <?php if ($cari->agama == "Lainnya") {echo "selected";} ?>>Lainnya</option>
-                                  </select>
+                                    <option value="Islam" <?php if ($cari->agama == "Islam") {
+                                                                echo "selected";
+                                                            } ?>>Islam</option>
+                                    <option value="Kristen" <?php if ($cari->agama == "Kristen") {
+                                                                echo "selected";
+                                                            } ?>>Kristen</option>
+                                    <option value="Katholik" <?php if ($cari->agama == "Katholik") {
+                                                                    echo "selected";
+                                                                } ?>>Katholik</option>
+                                    <option value="Hindu" <?php if ($cari->agama == "Hindu") {
+                                                                echo "selected";
+                                                            } ?>>Hindu</option>
+                                    <option value="Budha" <?php if ($cari->agama == "Budha") {
+                                                                echo "selected";
+                                                            } ?>>Budha</option>
+                                    <option value="Khonghucu" <?php if ($cari->agama == "Khonghucu") {
+                                                                    echo "selected";
+                                                                } ?>>Khonghucu</option>
+                                    <option value="Kepercayaan Kepada Tuhan YME" <?php if ($cari->agama == "Kepercayaan Kepada Tuhan YME") {
+                                                                                        echo "selected";
+                                                                                    } ?>>Kepercayaan Kepada Tuhan YME</option>
+                                    <option value="Lainnya" <?php if ($cari->agama == "Lainnya") {
+                                                                echo "selected";
+                                                            } ?>>Lainnya</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

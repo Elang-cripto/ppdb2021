@@ -939,6 +939,13 @@ if ($this->uri->segment(3) == "mts") {
                     <div class="card-header">
                         <h3 class="card-title">FOTO</h3>
                     </div>
+                    <?php
+                    if (empty($cari->foto)) {
+                        $gambar = "none.png";
+                    } else {
+                        $gambar = $cari->foto;
+                    }
+                    ?>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
@@ -948,6 +955,8 @@ if ($this->uri->segment(3) == "mts") {
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                             </div>
+                            <p class="text-danger"><span><i>Kapasitas file maksimal 2Mb</i></span></p>
+                            <img src="<?php echo base_url('asset/upload/' . $gambar) ?>" alt="User Profile" width="100"></br>
                         </div>
                     </div>
                 </div>

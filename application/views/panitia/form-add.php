@@ -547,11 +547,7 @@ if ($cekuri == "mts") {
                 <label for="beasiswa" class="col-sm-4 col-form-label">Beasiswa</label>
                 <div class="col-sm-8">
                   <select type="text" name="beasiswa" id="beasiswa" class="form-control">
-<<<<<<< HEAD
                     <option value="">-- Pilih --</option>
-=======
-                    <option>-- Pilih --</option>
->>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
                     <option value="YATIM">YATIM</option>
                     <option value="PIATU">PIATU</option>
                     <option value="YATIM PIATU">YATIM PIATU</option>
@@ -603,11 +599,7 @@ if ($cekuri == "mts") {
                 <label for="skl_asal" class="col-sm-4 col-form-label">SEKOLAH ASAL</label>
                 <div class="col-sm-8">
                   <select type="text" name="skl_asal" id="skl_asal" class="form-control select2" required>
-<<<<<<< HEAD
                     <option value="">-- PILIH --</option>
-=======
-                    <option value="Sains">-- PILIH --</option>
->>>>>>> 8fa083bd9a94d79a6e4b500e7bec457a255ed0b5
                     <?php
                     $sklh = $this->m_ppdb->pil_skl($tbl_skl);
                     $cari = $sklh->result();
